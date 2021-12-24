@@ -282,6 +282,10 @@
     (:dropfun           :pointer    "The function pointer type for path drop callbacks.")
     (:joystickfun       :pointer    "The function pointer type for joystick configuration callbacks.")
 
+    ; Monitor
+    (:monitor           :pointer    "Opaque monitor object.")
+    (:monitorfun        :pointer    "The function pointer type for monitor configuration callbacks.")
+
     ; Window
     (:window        :pointer)
     )
@@ -295,6 +299,22 @@
     (buttons    :unsigned-char  :count  15)
     (axes       :float          :count  6))
 
+; Monitor
+(defcstruct vidmode
+    "Video mode type."
+    (width          :int)
+    (height         :int)
+    (redBits        :int)
+    (greenBits      :int)
+    (blueBits       :int)
+    (refreshRate    :int))
+
+(defcstruct gammaramp
+    "Gamma ramp."
+    (red    :pointer)
+    (green  :pointer)
+    (blue   :pointer)
+    (size   :int))
 
 ; Window
 (defcstruct image
@@ -507,3 +527,64 @@
 
 (defcfun ("glfwGetTimerFrequency" get-timer-frequency) :uint64
     "Returns the frequency, in Hz, of the raw timer.")
+
+; Monitor
+(defcfun ("glfwGetMonitors" get-monitors) :pointer
+    "Returns the currently connected monitors."
+    (count :pointer))
+
+(defcfun ("glfwGetPrimaryMonitor" get-primary-monitor) :pointer
+    "Returns the primary monitor.")
+
+(defcfun ("glfwGetMonitorPos" get-monitor-pos) :void
+    "Returns the position of the monitor's viewport on the virtual screen."
+    (monitor :monitor) (xpos :pointer) (ypos :pointer))
+
+(defcfun ("glfwGetMonitorWorkarea" get-monitor-workarea) :void
+    "Retrieves the work area of the monitor."
+    (monitor :monitor) (xpos :pointer) (ypos :pointer) 
+    (width :pointer) (height :pointer))
+
+(defcfun ("glfwGetMonitorPhysicalSize" get-monitor-physical-size) :void
+    "Returns the physical size of the monitor."
+    (monitor :monitor) (widthMM :pointer) (heightMM :pointer))
+
+(defcfun ("glfwGetMonitorContentScale" get-monitor-content-scale) :void
+    "Retrieves the content scale for the specified monitor."
+    (monitor :monitor) (xscale :pointer) (yscale :pointer))
+
+(defcfun ("glfwGetMonitorName" get-monitor-name) :string
+    "Returns the name of the specified monitor."
+    (monitor :monitor))
+
+(defcfun ("glfwSetMonitorUserPointer" set-monitor-user-pointer) :void
+    "Sets the user pointer of the specified monitor."
+    (monitor :monitor) (pointer :pointer))
+
+(defcfun ("glfwGetMonitorUserPointer" get-monitor-user-pointer) :pointer
+    "Returns the user pointer of the specified monitor."
+    (monitor :monitor))
+
+(defcfun ("glfwSetMonitorCallback" set-monitor-callback) :monitorfun
+    "Sets the monitor configuration callback."
+    (callback :monitorfun))
+
+(defcfun ("glfwGetVideoModes" get-video-modes) :pointer
+    "Returns the available video modes for the specified monitor."
+    (monitor :monitor) (count :pointer))
+
+(defcfun ("glfwGetVideoMode" get-video-mode) :pointer
+    "Returns the current mode of the specified monitor."
+    (monitor :monitor))
+
+(defcfun ("glfwSetGamma" set-gamma) :void
+    "Generates a gamma ramp and sets it for the specified monitor."
+    (monitor :monitor) (gamma :float))
+
+(defcfun ("glfwGetGammaRamp" get-gamma-ramp) :pointer
+    "Returns the current gamma ramp for the specified monitor."
+    (monitor :monitor))
+
+(defcfun ("glfwSetGammaRamp" set-gamma-ramp) :void
+    "Sets the current gamma ramp for the specified monitor."
+    (monitor :monitor) (ramp :pointer)) 
