@@ -394,7 +394,7 @@
     "Sets the swap interval for the current context."
     (interval :int))
 
-(defcfun ("glfwExtensionSupported" extension-supported) :int
+(defcfun ("glfwExtensionSupported" extension-supported) :boolean
     "Returns whether the specified extension is available."
     (extension :string))
 
@@ -437,7 +437,7 @@
     "Sets an input option for the specified window."
     (window :window) (mode :int) (value :int))
 
-(defcfun ("glfwRawMouseMotionSupported" raw-mouse-motion-supported) :int
+(defcfun ("glfwRawMouseMotionSupported" raw-mouse-motion-supported) :boolean
     "Returns whether raw mouse motion is supported.")
 
 (defcfun ("glfwGetKeyName" get-key-name) :string
@@ -512,7 +512,7 @@
     "Sets the path drop callback."
     (window :window) (callback :dropfun))
 
-(defcfun ("glfwJoystickPresent" joystick-present) :int
+(defcfun ("glfwJoystickPresent" joystick-present) :boolean
     "Returns whether the specified joystick is present."
     (jid :int))
 
@@ -544,7 +544,7 @@
     "Returns the user pointer of the specified joystick."
     (jid :int))
 
-(defcfun ("glfwJoystickIsGamepad" joystick-is-gamepad) :int
+(defcfun ("glfwJoystickIsGamepad" joystick-is-gamepad) :boolean
     "Returns whether the specified joystick has a gamepad mapping."
     (jid :int))
 
@@ -552,7 +552,7 @@
     "Sets the joystick configuration callback."
     (callback :joystickfun))
 
-(defcfun ("glfwUpdateGamepadMappings" update-gamepad-mappings) :int
+(defcfun ("glfwUpdateGamepadMappings" update-gamepad-mappings) :boolean
     "Adds the specified SDL_GameControllerDB gamepad mappings."
     (string :string))
 
@@ -560,7 +560,7 @@
     "Returns the human-readable gamepad name for the specified joystick."
     (jid :int))
 
-(defcfun ("glfwGetGamepadState" get-gamepad-state) :int
+(defcfun ("glfwGetGamepadState" get-gamepad-state) :boolean
     "Retrieves the state of the specified joystick remapped as a gamepad."
     (jid :int) (state :pointer))
 
@@ -647,7 +647,7 @@
     (monitor :monitor) (ramp :pointer)) 
 
 ; Vulkan support
-(defcfun ("glfwVulkanSupported" vulkan-supported) :int
+(defcfun ("glfwVulkanSupported" vulkan-supported) :boolean
     "Returns whether the Vulkan loader and an ICD have been found.")
 
 (defcfun ("glfwGetRequiredInstanceExtensions" get-required-instance-extensions) :pointer
@@ -658,7 +658,7 @@
     "Returns the address of the specified Vulkan instance function."
     (instance :pointer) (procname :string))
 
-(defcfun ("glfwGetPhysicalDevicePresentationSupport" get-physical-device-presentation-support) :int
+(defcfun ("glfwGetPhysicalDevicePresentationSupport" get-physical-device-presentation-support) :boolean
     "Returns whether the specified queue family can present images."
     (instance :pointer) (device :pointer) (queuefamily :uint32))
 
@@ -686,7 +686,7 @@
     "Destroys the specified window and its context."
     (window :window))
 
-(defcfun ("glfwWindowShouldClose" window-should-close) :int
+(defcfun ("glfwWindowShouldClose" window-should-close) :boolean
     "Checks the close flag of the specified window."
     (window :window))
 
