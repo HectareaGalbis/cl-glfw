@@ -259,36 +259,92 @@
     (+hresize-cursor+               #x00036001                      "The horizontal resize arrow shape.")
     (+vresize-cursor+               #x00036001                      "The vertical resize arrow shape.")
 
-    )
+    ; Window
+    (+focused+                      #x00020001                      "Input focus window hint and attribute.")
+    (+iconified+                    #x00020002                      "Window iconification window attribute.")
+    (+resizable+                    #x00020003                      "Window resize-ability window hint and attribute.")
+    (+visible+                      #x00020004                      "Window visibility window hint and attribute.")
+    (+decorated+                    #x00020005                      "Window decoration window hint and attribute.")
+    (+auto-iconify+                 #x00020006                      "Window auto-iconification window hint and attribute.")
+    (+floating+                     #x00020007                      "Window decoration window hint and attribute.")
+    (+maximized+                    #x00020008                      "Window maximization window hint and attribute.")
+    (+center-cursor+                #x00020009                      "Cursor centering window hint.")
+    (+transparent-framebuffer+      #x0002000A                      "Window framebuffer transparency hint and attribute.")
+    (+hovered+                      #x0002000B                      "Mouse cursor hover window attribute.")
+    (+focus-on-show+                #x0002000C                      "Input focus on calling show window hint and attribute.")
+    (+red-bits+                     #x00021001                      "Framebuffer bit depth hint.")
+    (+green-bits+                   #x00021002                      "Framebuffer bit depth hint.")
+    (+blue-bits+                    #x00021003                      "Framebuffer bit depth hint.")
+    (+alpha-bits+                   #x00021004                      "Framebuffer bit depth hint.")
+    (+depth-bits+                   #x00021005                      "Framebuffer bit depth hint.")
+    (+stencil-bits+                 #x00021006                      "Framebuffer bit depth hint.")
+    (+accum-red-bits+               #x00021007                      "Framebuffer bit depth hint.")
+    (+accum-green-bits+             #x00021008                      "Framebuffer bit depth hint.")
+    (+accum-blue-bits+              #x00021009                      "Framebuffer bit depth hint.")
+    (+accum-alpha-bits+             #x0002100A                      "Framebuffer bit depth hint.")
+    (+aux-buffers+                  #x0002100B                      "Framebuffer auxiliary buffer hint.")
+    (+stereo+                       #x0002100C                      "OpenGL stereoscopic rendering hint.")
+    (+samples+                      #x0002100D                      "Framebuffer MSAA samples hint.")
+    (+srgb-capable+                 #x0002100E                      "Framebuffer sRGB hint.")
+    (+refresh-rate+                 #x0002100F                      "Monitor refresh rate hint.")
+    (+doublebuffer+                 #x00021010                      "Framebuffer double buffering hint.")
+    (+client-api+                   #x00022001                      "Context client API hint and attribute.")
+    (+context-version-major+        #x00022002                      "Context client API major version hint and attribute.")
+    (+context-version-minor+        #x00022003                      "Context client API minor version hint and attribute.")
+    (+context-revision+             #x00022004                      "Context client API revision number attribute.")
+    (+context-robustness+           #x00022005                      "Context robustness hint and attribute.")
+    (+opengl-forward-compat+        #x00022006                      "OpenGL forward-compatibility hint and attribute.")
+    (+opengl-debug-context+         #x00022007                      "Debug mode context hint and attribute.")
+    (+opengl-profile+               #x00022008                      "OpenGL profile hint and attribute.")
+    (+context-release-behavior+     #x00022009                      "Context flush-on-release hint and attribute.")
+    (+context-no-error+             #x0002200A                      "Context error suppression hint and attribute.")
+    (+context-creation-api+         #x0002200B                      "Context creation API hint and attribute.")
+    (+scale-to-monitor+             #x0002200C                      "Window content area scaling window window hint.")
+    (+cocoa-retina-framebuffer+     #x00023001                      "macOS specific window hint.")
+    (+cocoa-frame-name+             #x00023002                      "macOS specific window hint.")
+    (+cocoa-graphics-switching+     #x00023003                      "macOS specific window hint.")
+    (+x11-class-name+               #x00024001                      "X11 specific window hint.")
+    (+x11-instance-name+            #x00024002                      "X11 specific window hint."))
 
 ;; Typedefs
 (defctypes 
 
     ; Context
-    (:glproc            :pointer    "Client API function pointer type.")
+    (:glproc                :pointer    "Client API function pointer type.")
 
     ; Initialization, version and error
-    (:errorfun          :pointer    "The function pointer type for error callbacks.")
+    (:errorfun              :pointer    "The function pointer type for error callbacks.")
 
     ; Input
-    (:cursor            :pointer    "Opaque cursor object.")
-    (:mousebuttonfun    :pointer    "The function pointer type for mouse button callbacks.")
-    (:cursorposfun      :pointer    "The function pointer type for cursor position callbacks.")
-    (:cursorenterfun    :pointer    "The function pointer type for cursor enter/leave callbacks.")
-    (:scrollfun         :pointer    "The function pointer type for scroll callbacks.")
-    (:keyfun            :pointer    "The function pointer type for keyboard key callbacks.")
-    (:charfun           :pointer    "The function pointer type for Unicode character callbacks.")
-    (:charmodsfun       :pointer    "The function pointer type for Unicode character with modifiers callbacks.")
-    (:dropfun           :pointer    "The function pointer type for path drop callbacks.")
-    (:joystickfun       :pointer    "The function pointer type for joystick configuration callbacks.")
+    (:cursor                :pointer    "Opaque cursor object.")
+    (:mousebuttonfun        :pointer    "The function pointer type for mouse button callbacks.")
+    (:cursorposfun          :pointer    "The function pointer type for cursor position callbacks.")
+    (:cursorenterfun        :pointer    "The function pointer type for cursor enter/leave callbacks.")
+    (:scrollfun             :pointer    "The function pointer type for scroll callbacks.")
+    (:keyfun                :pointer    "The function pointer type for keyboard key callbacks.")
+    (:charfun               :pointer    "The function pointer type for Unicode character callbacks.")
+    (:charmodsfun           :pointer    "The function pointer type for Unicode character with modifiers callbacks.")
+    (:dropfun               :pointer    "The function pointer type for path drop callbacks.")
+    (:joystickfun           :pointer    "The function pointer type for joystick configuration callbacks.")
 
     ; Monitor
-    (:monitor           :pointer    "Opaque monitor object.")
-    (:monitorfun        :pointer    "The function pointer type for monitor configuration callbacks.")
+    (:monitor               :pointer    "Opaque monitor object.")
+    (:monitorfun            :pointer    "The function pointer type for monitor configuration callbacks.")
+
+    ; Vulkan support
+    (:vkproc                :pointer    "Vulkan API function pointer type.")
 
     ; Window
-    (:window        :pointer)
-    )
+    (:window                :pointer    "Opaque window object.")
+    (:windowposfun          :pointer    "The function pointer type for window position callbacks.")
+    (:windowsizefun         :pointer    "The function pointer type for window size callbacks.")
+    (:windowclosefun        :pointer    "The function pointer type for window close callbacks.")
+    (:windowrefreshfun      :pointer    "The function pointer type for window content refresh callbacks.")
+    (:windowfocusfun        :pointer    "The function pointer type for window focus callbacks.")
+    (:windowiconifyfun      :pointer    "The function pointer type for window iconify callbacks.")
+    (:windowmaximizefun     :pointer    "The function pointer type for window maximize callbacks.")
+    (:framebuffersizefun    :pointer    "The function pointer type for framebuffer size callbacks.")
+    (:windowcontentscalefun :pointer    "The function pointer type for window content scale callbacks."))
 
 
 ;; Structs
@@ -318,6 +374,7 @@
 
 ; Window
 (defcstruct image
+    "Image data."
     (width  :int)
     (height :int)
     (pixels :pointer))
@@ -588,3 +645,209 @@
 (defcfun ("glfwSetGammaRamp" set-gamma-ramp) :void
     "Sets the current gamma ramp for the specified monitor."
     (monitor :monitor) (ramp :pointer)) 
+
+; Vulkan support
+(defcfun ("glfwVulkanSupported" vulkan-supported) :int
+    "Returns whether the Vulkan loader and an ICD have been found.")
+
+(defcfun ("glfwGetRequiredInstanceExtensions" get-required-instance-extensions) :pointer
+    "Returns the Vulkan instance extensions required by GLFW."
+    (count :pointer))
+
+(defcfun ("glfwGetInstanceProcAddress" get-instance-proc-address) :vkproc
+    "Returns the address of the specified Vulkan instance function."
+    (instance :pointer) (procname :string))
+
+(defcfun ("glfwGetPhysicalDevicePresentationSupport" get-physical-device-presentation-support) :int
+    "Returns whether the specified queue family can present images."
+    (instance :pointer) (device :pointer) (queuefamily :uint32))
+
+(defcfun ("glfwCreateWindowSurface" create-window-surface) :int
+    "Creates a Vulkan surface for the specified window."
+    (instance :pointer) (window :window) (allocator :pointer) (surface :pointer))
+
+; Window
+(defcfun ("glfwDefaultWindowHints" default-window-hints) :void
+    "Resets all window hints to their default values.")
+
+(defcfun ("glfwWindowHint" window-hint) :void
+    "Sets the specified window hint to the desired value."
+    (hint :int) (value :int))
+
+(defcfun ("glfwWindowHintString" window-hint-string) :void
+    "Sets the specified window hint to the desired value."
+    (hint :int) (value :string))
+
+(defcfun ("glfwCreateWindow" create-window) :window
+    "Creates a window and its associated context."
+    (width :int) (height :int) (title :string) (monitor :monitor) (share :window))
+
+(defcfun ("glfwDestroyWindow" destroy-window) :void
+    "Destroys the specified window and its context."
+    (window :window))
+
+(defcfun ("glfwWindowShouldClose" window-should-close) :int
+    "Checks the close flag of the specified window."
+    (window :window))
+
+(defcfun ("glfwSetWindowShouldClose" set-window-should-close) :void
+    "Sets the close flag of the specified window."
+    (window :window) (value :int))
+
+(defcfun ("glfwSetWindowTitle" set-window-title) :void
+    "Sets the title of the specified window."
+    (window :window) (title :string))
+
+(defcfun ("glfwSetWindowIcon" set-window-icon) :void
+    "Sets the icon for the specified window."
+    (window :window) (count :int) (images :pointer))
+
+(defcfun ("glfwGetWindowPos" get-window-pos) :void
+    "Retrieves the position of the content area of the specified window."
+    (window :window) (xpos :pointer) (ypos :pointer))
+
+(defcfun ("glfwSetWindowPos" set-window-pos) :void
+    "Sets the position of the content area of the specified window."
+    (window :window) (xpos :int) (ypos :int))
+
+(defcfun ("glfwGetWindowSize" get-window-size) :void
+    "Retrieves the size of the content area of the specified window."
+    (window :window) (width :pointer) (height :pointer))
+
+(defcfun ("glfwSetWindowSizeLimits" set-window-size-limits) :void
+    "Sets the size limits of the specified window."
+    (window :window) (minwidth :int) (minheight :int) (maxwidth :int) (maxheight :int))
+
+(defcfun ("glfwSetWindowAspectRatio" set-window-aspect-ratio) :void
+    "Sets the aspect ratio of the specified window."
+    (window :window) (numer :int) (denom :int))
+
+(defcfun ("glfwSetWindowSize" set-window-size) :void
+    "Sets the size of the content area of the specified window."
+    (window :window) (width :width) (height :int))
+
+(defcfun ("glfwGetFramebufferSize" get-framebuffer-size) :void
+    "Retrieves the size of the framebuffer of the specified window."
+    (window :window) (width :pointer) (height :pointer))
+
+(defcfun ("glfwGetWindowFrameSize" get-window-frame-size) :void
+    "Retrieves the size of the frame of the window."
+    (window :window) (left :pointer) (top :pointer) (right :pointer) (bottom :pointer))
+
+(defcfun ("glfwGetWindowContentScale" get-window-content-scale) :void
+    "Retrieves the content scale for the specified window."
+    (window :window) (xscale :float) (yscale :float))
+
+(defcfun ("glfwGetWindowOpacity" get-window-opacity) :float
+    "Returns the opacity of the whole window."
+    (window :window))
+
+(defcfun ("glfwSetWindowOpacity" set-window-opacity) :void
+    "Sets the opacity of the whole window."
+    (window :window) (opacity :float))
+
+(defcfun ("glfwIconifyWindow" iconify-window) :void
+    "Iconifies the specified window."
+    (window :window))
+
+(defcfun ("glfwRestoreWindow" restore-window) :void
+    "Restores the specified window."
+    (window :window))
+
+(defcfun ("glfwMaximizeWindow" maximize-window) :void
+    "Maximizes the specified window."
+    (window :window))
+
+(defcfun ("glfwShowWindow" show-window) :void
+    "Makes the specified window visible."
+    (window :window))
+
+(defcfun ("glfwHideWindow" hide-window) :void
+    "Hides the specified window."
+    (window :window))
+
+(defcfun ("glfwFocusWindow" focus-window) :void
+    "Brings the specified window to front and sets input focus."
+    (window :window))
+
+(defcfun ("glfwRequestWindowAttention" request-window-attention) :void
+    "Requests user attention to the specified window."
+    (window :window))
+
+(defcfun ("glfwGetWindowMonitor" get-window-monitor) :monitor
+    "Returns the monitor that the window uses for full screen mode."
+    (window :window))
+
+(defcfun ("glfwSetWindowMonitor" set-window-monitor) :void
+    "Sets the mode, monitor, video mode and placement of a window."
+    (window :window) (monitor :monitor)
+    (xpos :int) (ypos :int) (width :int) (height :int) (refresh-rate :int))
+
+(defcfun ("glfwGetWindowAttrib" get-window-attrib) :int
+    "Returns an attribute of the specified window."
+    (window :window) (attrib :int))
+
+(defcfun ("glfwSetWindowAttrib" set-window-attrib) :void
+    "Sets an attribute of the specified window."
+    (window :window) (attrib :int) (value :int))
+
+(defcfun ("glfwSetWindowUserPointer" set-window-user-pointer) :void
+    "Sets the user pointer of the specified window."
+    (window :window) (pointer :pointer))
+
+(defcfun ("glfwGetWindowUserPointer" get-window-user-pointer) :pointer
+    "Returns the user pointer of the specified window."
+    (window :window))
+
+(defcfun ("glfwSetWindowPosCallback" set-window-pos-callback) :windowposfun
+    "Sets the position callback for the specified window."
+    (window :window) (callback :windowposfun))
+
+(defcfun ("glfwSetWindowSizeCallback" set-window-size-callback) :windowsizefun
+    "Sets the size callback for the specified window."
+    (window :window) (callback :windowsizefun))
+
+(defcfun ("glfwSetWindowCloseCallback" set-window-close-callback) :windowclosefun
+    "Sets the close callback for the specified window."
+    (window :window) (callback :windowclosefun))
+
+(defcfun ("glfwSetWindowRefreshCallback" set-window-refresh-callback) :windowrefreshfun
+    "Sets the refresh callback for the specified window."
+    (window :window) (callback :windowrefreshfun))
+
+(defcfun ("glfwSetWindowFocusCallback" set-window-focus-callback) :windowfocusfun
+    "Sets the focus callback for the specified window."
+    (window :window) (callback :windowfocusfun))
+
+(defcfun ("glfwSetWindowIconifyCallback" set-window-iconify-callback) :windowiconifyfun
+    "Sets the iconify callback for the specified window."
+    (window :window) (callback :windowiconifyfun))
+
+(defcfun ("glfwSetWindowMaximizeCallback" set-window-maximize-callback) :windowmaximizefun
+    "Sets the maximize callback for the specified window."
+    (window :window) (callback :windowmaximizefun))
+
+(defcfun ("glfwSetFramebufferSizeCallback" set-framebuffer-size-callback) :framebuffersizefun
+    "Sets the framebuffer resize callback for the specified window."
+    (window :window) (callback :framebuffersizefun)) 
+
+(defcfun ("glfwSetWindowContentScaleCallback" set-window-content-scale-callback) :windowcontentscalefun
+    "Sets the window content scale callback for the specified window."
+    (window :window) (callback :windowcontentscalefun))
+
+(defcfun ("glfwPollEvents" poll-events) :void
+    "Processes all pending events.")
+
+(defcfun ("glfwWaitEvents" wait-events) :void
+    "Waits until events are queued and processes them.")
+
+(defcfun ("glfwWaitEventsTimeout" wait-events-timeout) :void
+    "Waits with timeout until events are queued and processes them."
+    (timeout :double))
+
+(defcfun ("glfwPostEmptyEvent" post-empty-event) :void
+    "Posts an empty event to the event queue.")
+
+(defcfun ("glfwSwapBuffers" swap-buffers) :void
+    "Swaps the front and back buffers of the specified window."
+    (window :window))
