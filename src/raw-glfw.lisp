@@ -352,7 +352,7 @@
 ; Input
 (defcstruct gamepadstate
     "Gamepad input state."
-    (buttons    :unsigned-char  :count  15)
+    (buttons    :uchar  :count  15)
     (axes       :float          :count  6))
 
 ; Monitor
@@ -415,7 +415,7 @@
 
 (defcfun ("glfwGetVersion" get-version) :void
     "Retrieves the version of the GLFW library."
-    (major :point) (minor :pointer) (rev :pointer))
+    (major :pointer) (minor :pointer) (rev :pointer))
 
 (defcfun ("glfwGetVersionString" get-version-string) :string
     "Returns a string describing the compile-time configuration.")
@@ -464,7 +464,7 @@
     "Sets the position of the cursor, relative to the content area of the window."
     (window :window) (xpos :double) (ypos :double))
 
-(defcfun ("glfwCreateCursor" create-cursor) :cursor
+(defcfun ("glfwCreateCursor" create-cursor) :cursor     ; TODO struct image
     "Creates a custom cursor."
     (image (:struct image)) (xhot :int) (yhot :int))
 
@@ -590,7 +590,7 @@
     "Returns the currently connected monitors."
     (count :pointer))
 
-(defcfun ("glfwGetPrimaryMonitor" get-primary-monitor) :pointer
+(defcfun ("glfwGetPrimaryMonitor" get-primary-monitor) :monitor
     "Returns the primary monitor.")
 
 (defcfun ("glfwGetMonitorPos" get-monitor-pos) :void
