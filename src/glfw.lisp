@@ -18,6 +18,11 @@
     (blueBits       0)
     (refreshRate    0))
 
+(defstruct gammaramp
+    (red    (make-array 256 :initial-element 0))
+    (green  (make-array 256 :initial-element 0))
+    (blue   (make-array 256 :initial-element 0)))
+
 
 ;; Helper functions
 (defun array->list (arr ctype size)
@@ -166,21 +171,46 @@
 (defun get-video-modes (monitor)
     (with-foreign-object (ccount :int)
         (let ((arr-vidmodes (raw-glfw:get-video-modes monitor ccount)))
-            (do ((i (1- (mem-ref ccount)) (1- i)) 
-                 (vidmodes nil (cons (let ((vmode (mem-aref arr-vidmodes (:struct vidmode) i))) 
-                                        (make-vidmode (raw-glfw:vidmode-width       vmode)
-                                                      (raw-glfw:vidmode-height      vmode)
-                                                      (raw-glfw:vidmode-redBits     vmode)
-                                                      (raw-glfw:vidmode-greenBits   vmode)
-                                                      (raw-glfw:vidmode-blueBits    vmode)
-                                                      (raw-glfw:vidmode-refreshRate vmode))) vidmodes)))
-                ((< i 0) vidmodes)))))
+            (if (not (null-pointer-p arr-vidmodes)) 
+                (do ((i (1- (mem-ref ccount)) (1- i)) 
+                    (vidmodes nil (cons (with-foreign-slots ((width height reb-bits green-bits blue-bits refresh-rate) 
+                                                             (mem-aptr arr-vidmodes (:struct raw-glfw:vidmode) i)
+                                                             (:struct raw-glfw:vidmode))
+                                            (make-vidmode width height red-bits green-bits blue-bits refresh-rate)) vidmodes)))
+                    ((< i 0) vidmodes))
+                nil))))
 
 (defun get-video-mode (monitor)
     (let ((cmode (raw-glfw:get-video-mode monitor)))
-        (make-vidmode (raw-glfw:vidmode-width       cmode)
-                      (raw-glfw:vidmode-height      cmode)
-                      (raw-glfw:vidmode-redBits     cmode)
-                      (raw-glfw:vidmode-greenBits   cmode)
-                      (raw-glfw:vidmode-blueBits    cmode)
-                      (raw-glfw:vidmode-refreshRate cmode))))
+        (if (not (null-pointer-p cmode))
+            (with-foreign-slots ((width height reb-bits green-bits blue-bits refresh-rate) cmode (:struct raw-glfw:vidmode))
+                (make-vidmode width height red-bits green-bits blue-bits refresh-rate))
+            nil)))
+
+(defun get-gamma-ramp (monitor)
+    (let* ((cramp (raw-glfw:get-gamma-ramp monitor))
+           (size  (foreign-slot-value cramp (:struct raw-glfw:gammaramp) 'size))
+           (ramp  (make-gammaramp (make-array size) (make-array size) (make-array size))))
+        (with-foreign-slots ((red green blue) cramp (:struct raw-glfw:gammaramp))
+            (dotimes (i size)
+                (setf (aref (gammaramp-red   ramp) i) (mem-aref red   :ushort i)
+                      (aref (gammaramp-green ramp) i) (mem-aref green :ushort i)
+                      (aref (gammaramp-blue  ramp) i) (mem-aref blue  :ushort i)))
+            ramp)))
+
+(defun set-gamma-ramp (monitor ramp)
+    (let ((size (gammaramp-size ramp))) 
+        (with-foreign-objects ((cramp (:struct raw-glfw:gammaramp))
+                               (cred   :ushort size)
+                               (cgreen :ushort size)
+                               (cblue  :ushort size))
+            (dotimes (i size)
+                (setf (mem-aref cred   :ushort i) (aref (gammaramp-red   ramp) i)
+                      (mem-aref cgreen :ushort i) (aref (gammaramp-green ramp) i)
+                      (mem-aref cblue  :ushort i) (aref (gammaramp-blue  ramp) i)))
+            (setf (foreign-slot-value cram (:struct raw-glfw:gammaramp) 'red)   cred
+                  (foreign-slot-value cram (:struct raw-glfw:gammaramp) 'green) cgreen
+                  (foreign-slot-value cram (:struct raw-glfw:gammaramp) 'blue)  cblue)
+            (raw-glfw:set-gamma-ramp monitor ramp))))
+
+; Vulkan support
