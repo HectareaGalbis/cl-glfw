@@ -23,6 +23,9 @@
     (green  (make-array 256 :initial-element 0))
     (blue   (make-array 256 :initial-element 0)))
 
+; Window
+(defstruct image
+    (pixels (make-array '(16 16 4) :initial-element 0)))
 
 ;; Helper functions
 (defun array->list (arr ctype size)
@@ -52,6 +55,16 @@
     (with-foreign-objects ((xpos :double) (ypos :double))
         (raw-glfw:get-cursor-pos window xpos ypos)
         (values (mem-ref xpos) (mem-ref ypos))))
+
+(defun create-cursor (img xhot yhot)
+    (let ((pixels (image-pixels img))) 
+        (with-foreign-objects ((cimage (:struct raw-glfw:image)) (cpixels :uchar (array-total-size pixels)))
+            (setf (foreign-slot-value cimage (:struct raw-glfw:image) 'width)  (array-dimension pixels 0)
+                  (foreign-slot-value cimage (:struct raw-glfw:image) 'height) (array-dimension pixels 1))
+            (dotimes (i (array-total-size pixels))
+                (setf (mem-aref cpixels :uchar i) (row-major-aref pixels i)))
+            (setf (foreign-slot-value cimage (:struct raw-glfw:image) 'pixels) cpixels)
+            (raw-glfw:create-cursor cimage xhot yhot))))
 
 (defmacro def-key-callback (name (window key scancode action mods) &body body)
     `(defcallback ,name ((,window :window) (,key :int) (,scancode :int) (,action :int) (,mods :int))
@@ -214,3 +227,12 @@
             (raw-glfw:set-gamma-ramp monitor ramp))))
 
 ; Vulkan support
+(defun get-required-instance-extensions ()
+    (with-foreign-object (csize :int)
+        (let* ((cextensions (raw-glfw:get-required-instance-extensions csize))
+               (size (mem-ref csize)))
+            (array->list cestensions :string size))))
+
+; Window
+(defun set-window-icon (window images)
+    )

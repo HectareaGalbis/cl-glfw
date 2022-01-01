@@ -692,7 +692,7 @@
 
 (defcfun ("glfwSetWindowShouldClose" set-window-should-close) :void
     "Sets the close flag of the specified window."
-    (window :window) (value :int))
+    (window :window) (value :boolean))
 
 (defcfun ("glfwSetWindowTitle" set-window-title) :void
     "Sets the title of the specified window."
