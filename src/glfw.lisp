@@ -130,9 +130,6 @@
         (let ((error-code (raw-glfw:get-error description)))
             (values error-code (convert-from-foreign description :string)))))
 
-(defmacro def-error-callback (name (error-code description) &body body)
-    `(defcallback ,name ((,error-code :int) (,description :string))
-        ,@body))
 
 ; Input
 (defun get-cursor-pos (window)
@@ -155,40 +152,6 @@
                 (setf (mem-aref cpixels :uchar i) (row-major-aref pixels i)))
             (setf (foreign-slot-value cimage (:struct raw-glfw:image) 'pixels) cpixels)
             (raw-glfw:create-cursor cimage xhot yhot))))|#
-
-(defmacro def-key-callback (name (window key scancode action mods) &body body)
-    `(defcallback ,name ((,window :window) (,key :int) (,scancode :int) (,action :int) (,mods :int))
-        ,@body))
-
-(defmacro def-char-callback (name (window codepoint) &body body)
-    `(defcallback ,name ((,window :window) (,codepoint :uint))
-        ,@body))
-
-(defmacro def-char-mods-callback (name (window codepoint mods) &body body)  ; DEPRECATED (removed in 4.0)
-    `(defcallback ,name ((,window :window) (,codepoint :uint) (,mods :int))
-        ,@body))
-
-(defmacro def-mouse-button-callback (name (window button action mods) &body body)  
-    `(defcallback ,name ((,window :window) (,button :int) (,action :int) (,mods :int))
-        ,@body))
-
-(defmacro def-cursor-pos-callback (name (window xpos ypos) &body body) 
-    `(defcallback ,name ((,window :window) (,xpos :double) (,ypos :double))
-        ,@body))
-
-(defmacro def-cursor-enter-callback (name (window entered) &body body) 
-    `(defcallback ,name ((,window :window) (,entered :boolean))
-        ,@body))
-
-(defmacro def-scroll-callback (name (window xoffset yoffset) &body body) 
-    `(defcallback ,name ((,window :window) (,xoffset :double) (,yoffset :double))
-        ,@body))
-
-(defmacro def-drop-callback (name (window paths) &body body) 
-    (let ((path-count (gensym)) (arr-paths (gensym)))
-        `(defcallback ,name ((,window :window) (,path-count :int) (,arr-paths :pointer))
-            (let ((,paths (array->list ,arr-paths :string ,path-count))) 
-                ,@body))))
 
 (defun get-joystick-axes (jid)
     (with-foreign-object (csize :int)
@@ -219,10 +182,6 @@
 (defun get-joystick-user-data (jid)
     (gethash jid *joysticks-data*))
 
-(defmacro def-joystick-callback (name (window jid event) &body body) 
-    `(defcallback ,name ((,window :window) (,jid :int) (,event :int))
-        ,@body))
-
 (defun get-gamepad-state (jid)
     (with-foreign-object (cstate (:struct raw-glfw:gamepadstate))
         (raw-glfw:get-gamepad-state jid cstate)
@@ -245,9 +204,9 @@
         (raw-glfw:get-monitor-pos xpos ypos)
         (values (mem-ref xpos) (mem-ref ypos))))
 
-(defun get-monitor-work-area (monitor)
+(defun get-monitor-workarea (monitor)
     (with-foreign-objects ((xpos :int) (ypos :int) (width :int) (height :int))
-        (raw-glfw:get-monitor-work-area xpos ypos width height)
+        (raw-glfw:get-monitor-workarea xpos ypos width height)
         (values (mem-ref xpos) (mem-ref ypos) (mem-ref width) (mem-ref height))))
 
 (defun get-monitor-physical-size (monitor)
@@ -267,10 +226,6 @@
 
 (defun get-monitor-user-data (monitor)
     (gethash (pointer-address monitor) *monitors-data*))
-
-(defmacro def-monitor-callback (name (monitor event) &body body) 
-    `(defcallback ,name ((,monitor :monitor) (,event :int))
-        ,@body))
 
 (defun get-video-modes (monitor)
     (with-foreign-object (ccount :int)
@@ -374,6 +329,59 @@
 (defun get-window-user-data (window)
     (gethash (pointer-address window) *monitors-data*))
 
+
+;; Macros
+
+; Intitalization, version and error
+(defmacro def-error-callback (name (error-code description) &body body)
+    `(defcallback ,name ((,error-code :int) (,description :string))
+        ,@body))
+
+; Input
+(defmacro def-key-callback (name (window key scancode action mods) &body body)
+    `(defcallback ,name ((,window :window) (,key :int) (,scancode :int) (,action :int) (,mods :int))
+        ,@body))
+
+(defmacro def-char-callback (name (window codepoint) &body body)
+    `(defcallback ,name ((,window :window) (,codepoint :uint))
+        ,@body))
+
+(defmacro def-char-mods-callback (name (window codepoint mods) &body body)  ; DEPRECATED (removed in 4.0)
+    `(defcallback ,name ((,window :window) (,codepoint :uint) (,mods :int))
+        ,@body))
+
+(defmacro def-mouse-button-callback (name (window button action mods) &body body)  
+    `(defcallback ,name ((,window :window) (,button :int) (,action :int) (,mods :int))
+        ,@body))
+
+(defmacro def-cursor-pos-callback (name (window xpos ypos) &body body) 
+    `(defcallback ,name ((,window :window) (,xpos :double) (,ypos :double))
+        ,@body))
+
+(defmacro def-cursor-enter-callback (name (window entered) &body body) 
+    `(defcallback ,name ((,window :window) (,entered :boolean))
+        ,@body))
+
+(defmacro def-scroll-callback (name (window xoffset yoffset) &body body) 
+    `(defcallback ,name ((,window :window) (,xoffset :double) (,yoffset :double))
+        ,@body))
+
+(defmacro def-drop-callback (name (window paths) &body body) 
+    (let ((path-count (gensym)) (arr-paths (gensym)))
+        `(defcallback ,name ((,window :window) (,path-count :int) (,arr-paths :pointer))
+            (let ((,paths (array->list ,arr-paths :string ,path-count))) 
+                ,@body))))
+
+(defmacro def-joystick-callback (name (window jid event) &body body) 
+    `(defcallback ,name ((,window :window) (,jid :int) (,event :int))
+        ,@body))
+
+; Monitor
+(defmacro def-monitor-callback (name (monitor event) &body body) 
+    `(defcallback ,name ((,monitor :monitor) (,event :int))
+        ,@body))
+
+; Window
 (defmacro def-window-pos-callback (name (window xpos ypos) &body body) 
     `(defcallback ,name ((,window :window) (,xpos :int) (,ypos :int))
         ,@body))
