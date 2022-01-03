@@ -350,13 +350,13 @@
 ;; Structs
 
 ; Input
-(defcstruct gamepadstate
+(defcstruct (gamepadstate :class c-gamepadstate)
     "Gamepad input state."
-    (buttons    :uchar  :count  15)
-    (axes       :float          :count  6))
+    (buttons :uchar :count 15)
+    (axes    :float :count 6))
 
 ; Monitor
-(defcstruct vidmode
+(defcstruct (vidmode :class c-vidmode)
     "Video mode type."
     (width          :int)
     (height         :int)
@@ -365,7 +365,7 @@
     (blueBits       :int)
     (refreshRate    :int))
 
-(defcstruct gammaramp
+(defcstruct (gammaramp :class c-gammaramp)
     "Gamma ramp."
     (red    :pointer)
     (green  :pointer)
@@ -373,7 +373,7 @@
     (size   :int))
 
 ; Window
-(defcstruct image
+(defcstruct (image :class c-image)
     "Image data."
     (width  :int)
     (height :int)
@@ -464,9 +464,9 @@
     "Sets the position of the cursor, relative to the content area of the window."
     (window :window) (xpos :double) (ypos :double))
 
-(defcfun ("glfwCreateCursor" create-cursor) :cursor     ; TODO struct image
+(defcfun ("glfwCreateCursor" create-cursor) :cursor
     "Creates a custom cursor."
-    (image (:struct image)) (xhot :int) (yhot :int))
+    (img :pointer) (xhot :int) (yhot :int))
 
 (defcfun ("glfwCreateStandardCursor" create-standard-cursor) :cursor
     "Creates a cursor with a standard shape."
@@ -476,7 +476,7 @@
     "Destroys a cursor."
     (cursor :cursor))
 
-(defcfuc ("glfwSetCursor" set-cursor) :void
+(defcfun ("glfwSetCursor" set-cursor) :void
     "Sets the cursor for the window."
     (window :window) (cursor :cursor))
 
@@ -724,7 +724,7 @@
 
 (defcfun ("glfwSetWindowSize" set-window-size) :void
     "Sets the size of the content area of the specified window."
-    (window :window) (width :width) (height :int))
+    (window :window) (width :int) (height :int))
 
 (defcfun ("glfwGetFramebufferSize" get-framebuffer-size) :void
     "Retrieves the size of the framebuffer of the specified window."
