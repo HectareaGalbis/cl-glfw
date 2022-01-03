@@ -291,13 +291,19 @@
 
         ; Input
         :gamepadstate
+        :buttons
+        :axes
+        :c-gamepadstate
 
         ; Monitor
         :vidmode
+        :c-vidmode
         :gammaramp
+        :c-gammaramp
 
         ; Window
         :image
+        :c-image
         
 
         ;; Functions
@@ -436,10 +442,12 @@
 
 
 (defpackage :glfw
-    (:use :cl :raw-glfw)
+    (:use :cl :cffi :raw-glfw)
     (:shadow 
         ; Structs
         :gamepadstate
+        :buttons
+        :axes
         :vidmode
         :gammaramp
         :image

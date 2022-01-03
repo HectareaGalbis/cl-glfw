@@ -10,13 +10,12 @@
     (axes       (make-array 6  :initial-element 0.0)))
 
 (defmethod translate-from-foreign (ptr (type raw-glfw:c-gamepadstate))
-    (with-foreign-slots ((buttons axes) ptr (:struct raw-glfw:gamepadstate))
-        (let ((gpstate (make-gamepadstate)))
-            (dotimes (i 15)
-                (setf (aref (gamepadstate-buttons gpstate) i) (mem-aref buttons :uchar i)))
-            (dotimes (i 6)
-                (setf (aref (gamepadstate-axes gpstate) i) (mem-aref axes :float i)))
-            gpstate)))
+    (let ((gpstate (make-gamepadstate)))
+        (dotimes (i 15)
+            (setf (aref (gamepadstate-buttons gpstate) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:buttons) :uchar i)))
+        (dotimes (i 6)
+            (setf (aref (gamepadstate-axes gpstate) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:axes) :float i)))
+        gpstate))
 
 (defmethod translate-into-foreign-memory (value (type raw-glfw:c-gamepadstate) ptr)
     (with-foreign-slots ((buttons axes) ptr (:struct raw-glfw:gamepadstate))
@@ -123,7 +122,7 @@
 (defun get-version ()
     (with-foreign-objects ((major :int) (minor :int) (rev :int))
         (raw-glfw:get-version major minor rev)
-        (values (mem-ref major) (mem-ref minor) (mem-ref rev))))
+        (values (mem-ref major :int) (mem-ref minor :int) (mem-ref rev :int))))
 
 (defun get-error ()
     (with-foreign-object (description :pointer)
@@ -135,7 +134,7 @@
 (defun get-cursor-pos (window)
     (with-foreign-objects ((xpos :double) (ypos :double))
         (raw-glfw:get-cursor-pos window xpos ypos)
-        (values (mem-ref xpos) (mem-ref ypos))))
+        (values (mem-ref xpos :double) (mem-ref ypos :double))))
 
 (defun create-cursor (img xhot yhot)
     (with-foreign-object (cimg (:struct raw-glfw:image))
@@ -155,21 +154,21 @@
 
 (defun get-joystick-axes (jid)
     (with-foreign-object (csize :int)
-        (let* ((arr-axes (raw-glfw:get-joystick-axes jid csize)) (size (mem-ref csize)))
+        (let* ((arr-axes (raw-glfw:get-joystick-axes jid csize)) (size (mem-ref csize :int)))
             (if (> size 0) 
                 (array->list arr-axes :float size)
                 nil))))
         
 (defun get-joystick-buttons (jid)
     (with-foreign-object (csize :int)
-        (let* ((arr-buttons (raw-glfw:get-joystick-buttons jid csize)) (size (mem-ref csize)))
+        (let* ((arr-buttons (raw-glfw:get-joystick-buttons jid csize)) (size (mem-ref csize :int)))
             (if (> size 0) 
                 (array->list arr-buttons :int size)
                 nil))))
 
 (defun get-joystick-hats (jid)
     (with-foreign-object (csize :int)
-        (let* ((arr-hats (raw-glfw:get-joystick-hats jid csize)) (size (mem-ref csize)))
+        (let* ((arr-hats (raw-glfw:get-joystick-hats jid csize)) (size (mem-ref csize :int)))
             (if (> size 0) 
                 (array->list arr-hats :int size)
                 nil))))
@@ -197,27 +196,27 @@
 (defun get-monitors ()
     (with-foreign-object (ccount :int)
         (let (arr-monitors (raw-glfw:get-monitors ccount))
-            (array->list arr-monitors :monitor (mem-ref ccount)))))
+            (array->list arr-monitors :monitor (mem-ref ccount :int)))))
 
 (defun get-monitor-pos (monitor)
     (with-foreign-objects ((xpos :int) (ypos :int))
         (raw-glfw:get-monitor-pos xpos ypos)
-        (values (mem-ref xpos) (mem-ref ypos))))
+        (values (mem-ref xpos :int) (mem-ref ypos :int))))
 
 (defun get-monitor-workarea (monitor)
     (with-foreign-objects ((xpos :int) (ypos :int) (width :int) (height :int))
         (raw-glfw:get-monitor-workarea xpos ypos width height)
-        (values (mem-ref xpos) (mem-ref ypos) (mem-ref width) (mem-ref height))))
+        (values (mem-ref xpos :int) (mem-ref ypos :int) (mem-ref width :int) (mem-ref height :int))))
 
 (defun get-monitor-physical-size (monitor)
     (with-foreign-objects ((widthMM :int) (heightMM :int))
         (raw-glfw:get-monitor-physical-size widthMM heightMM)
-        (values (mem-ref widthMM) (mem-ref heightMM))))
+        (values (mem-ref widthMM :int) (mem-ref heightMM :int))))
 
 (defun get-monitor-content-scale (monitor)
     (with-foreign-objects ((xscale :int) (yscale :int))
         (raw-glfw:get-monitor-content-scale xscale yscale)
-        (values (mem-ref xscale) (mem-ref yscale))))
+        (values (mem-ref xscale :int) (mem-ref yscale :int))))
 
 (defvar *monitors-data* (make-hash-table))
 
@@ -285,8 +284,8 @@
 (defun get-required-instance-extensions ()
     (with-foreign-object (csize :int)
         (let* ((cextensions (raw-glfw:get-required-instance-extensions csize))
-               (size (mem-ref csize)))
-            (array->list cestensions :string size))))
+               (size (mem-ref csize :int)))
+            (array->list cextensions :string size))))
 
 ; Window
 (defun set-window-icon (window images)
@@ -299,27 +298,27 @@
 (defun get-window-pos (window)
     (with-foreign-objects ((xpos :int) (ypos :int))
         (raw-glfw:get-window-pos window xpos ypos)
-        (values (mem-ref xpos) (mem-ref ypos))))
+        (values (mem-ref xpos :int) (mem-ref ypos :int))))
 
 (defun get-window-size (window)
     (with-foreign-objects ((width :int) (height :int))
         (raw-glfw:get-window-size window width height)
-        (values (mem-ref width) (mem-ref height))))
+        (values (mem-ref width :int) (mem-ref height :int))))
 
 (defun get-framebuffer-size (window)
     (with-foreign-objects ((width :int) (height :int))
         (raw-glfw:get-framebuffer-size window width height)
-        (values (mem-ref width) (mem-ref height))))
+        (values (mem-ref width :int) (mem-ref height :int))))
 
 (defun get-window-frame-size (window)
     (with-foreign-objects ((left :int) (top :int) (right :int) (bottom :int))
         (raw-glfw:get-window-frame-size window left top right bottom)
-        (values (mem-ref left) (mem-ref top) (mem-ref right) (mem-ref bottom))))
+        (values (mem-ref left :int) (mem-ref top :int) (mem-ref right :int) (mem-ref bottom :int))))
 
 (defun get-window-content-scale (window)
     (with-foreign-objects ((xscale :float) (yscale :float))
         (raw-glfw:get-window-content-scale window xscale yscale)
-        (values (mem-ref xscale) (mem-ref yscale))))
+        (values (mem-ref xscale :float) (mem-ref yscale :float))))
 
 (defvar *windows-data* (make-hash-table))
 
