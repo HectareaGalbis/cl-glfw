@@ -8,7 +8,7 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 ## Constants
 
-* [+version-major+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+version-major+) 3
+* [+version-major+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-major+) 3
 * [+version-minor+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+version-minor+) 3
 * [+version-revision+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+version-revision+) 6 
 * [+true+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+true+) 1
@@ -23,7 +23,7 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 ## Constant documentation
 
-### +version-major+
+### version-major+
 
 ```
 (defconstant +version-major+ 3) 
