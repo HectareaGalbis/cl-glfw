@@ -8,14 +8,14 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 ## Constants
 
-* +version-major+          3
-* +version-minor+          3
-* +version-revision+       6 
-* +true+                   1
-* +false+                  0   
-* +joystick-hat-buttons+   #x00050001
-* +cocoa-chdir-resources+  #x00051001    
-* +cocoa-menubar+          #x00051002
+* [+version-major+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+version-major+) 3
+* [+version-minor+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+version-minor+) 3
+* [+version-revision+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+version-revision+) 6 
+* [+true+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+true+) 1
+* [+false+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+false+) 0   
+* [+joystick-hat-buttons+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+joystick-hat-buttons+) #x00050001
+* [+cocoa-chdir-resources+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+cocoa-chdir-resources+) #x00051001    
+* [+cocoa-menubar+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#+cocoa-menubar+) #x00051002
 
 ### Error codes
 
