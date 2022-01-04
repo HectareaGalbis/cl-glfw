@@ -9,6 +9,7 @@ information, see the [Context guide](https://www.glfw.org/docs/latest/context_gu
 
 
 `(make-context-current window)`
+
 Makes the context of the specified window current for the calling thread. [More...](https://hectarea1996.github.io/cl-glfw/context.html#make-context-current)
 
 
