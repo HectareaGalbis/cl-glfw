@@ -49,5 +49,5 @@ This function returns the window whose OpenGL or OpenGL ES context is current on
   * **window**: The window whose context is current, or `nil` if no window's context is current.
 * *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://www.glfw.org/docs/latest/group__errors.html#ga2374ee02c177f12e1fa76ff3ed15e14a).
 * *Thread safety*: This function may be called from any thread.
-* *See also*: [Current context](https://www.glfw.org/docs/latest/context_guide.html#context_current), [get-current-context](https://hectarea1996.github.io/cl-glfw/context.html#make-context-current).
+* *See also*: [Current context](https://www.glfw.org/docs/latest/context_guide.html#context_current), [make-context-current](https://hectarea1996.github.io/cl-glfw/context.html#make-context-current).
 
