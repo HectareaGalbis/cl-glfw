@@ -32,11 +32,22 @@ you can control whether a context performs this flush by setting the [GLFW_CONTE
 The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a [GLFW_NO_WINDOW_CONTEXT](https://www.glfw.org/docs/latest/group__errors.html#gacff24d2757da752ae4c80bf452356487) error.
 
 * *Parameters*:
-  * **window** The window whose context to make current, or `nil` to detach the current context.
+ * **window**: The window whose context to make current, or `nil` to detach the current context.
 * *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://www.glfw.org/docs/latest/group__errors.html#ga2374ee02c177f12e1fa76ff3ed15e14a), [GLFW_NO_WINDOW_CONTEXT](https://www.glfw.org/docs/latest/group__errors.html#gacff24d2757da752ae4c80bf452356487) and [GLFW_PLATFORM_ERROR](https://www.glfw.org/docs/latest/group__errors.html#gad44162d78100ea5e87cdd38426b8c7a1).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Current context](https://www.glfw.org/docs/latest/context_guide.html#context_current), [get-current-context](https://hectarea1996.github.io/cl-glfw/context.html#get-current-context).
 
 ### get-current-context
 
+```
+(get-current-context) => window
+```
+
+This function returns the window whose OpenGL or OpenGL ES context is current on the calling thread.
+
+* *Returns*: 
+ * **window**: The window whose context is current, or `nil` if no window's context is current.
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://www.glfw.org/docs/latest/group__errors.html#ga2374ee02c177f12e1fa76ff3ed15e14a).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Current context](https://www.glfw.org/docs/latest/context_guide.html#context_current), [get-current-context](https://hectarea1996.github.io/cl-glfw/context.html#make-context-current).
 
