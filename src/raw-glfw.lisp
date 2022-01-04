@@ -363,7 +363,7 @@
 ; Context
 (defcfun ("glfwMakeContextCurrent" make-context-current) :void 
     "Makes the context of the specified window current for the calling thread."
-    (window :pointer))
+    (window pointer-or-nil))
 
 (defcfun ("glfwGetCurrentContext" get-current-context) pointer-or-nil 
     "Returns the window whose context is current on the calling thread.")
