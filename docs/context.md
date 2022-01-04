@@ -96,6 +96,8 @@ This function does not apply to Vulkan. If you are using Vulkan, see [get-requir
 
 ### get-proc-address
 
+*This function is not lispified.*
+
 ```
 (get-proc-address procname) => proc
 ```
@@ -109,9 +111,9 @@ This function does not apply to Vulkan. If you are rendering with Vulkan, see [g
 * *Parameters*:
   * **procname**: The ASCII encoded name of the function.
 * *Returns*:
-  * **proc**: The function, or `nil` if an error occurred.
+  * **proc**: The address of the function, or `nil` if an error occurred.
 * *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://www.glfw.org/docs/latest/group__errors.html#ga2374ee02c177f12e1fa76ff3ed15e14a), [GLFW_NO_CURRENT_CONTEXT](https://www.glfw.org/docs/latest/group__errors.html#gaa8290386e9528ccb9e42a3a4e16fc0d0) and [GLFW_PLATFORM_ERROR](https://www.glfw.org/docs/latest/group__errors.html#gad44162d78100ea5e87cdd38426b8c7a1).
-* *Remarks*: The address of a given function is not guaranteed to be the same between contexts. This function may return a function despite the associated version or extension not being available. Always check the context version or extension string first.
+* *Remarks*: The address of a given function is not guaranteed to be the same between contexts. This function may return a non-`NULL` address despite the associated version or extension not being available. Always check the context version or extension string first.
 * *Function lifetime*: The returned function is valid until the context is destroyed or the library is terminated.
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [OpenGL and OpenGL ES extensions](https://www.glfw.org/docs/latest/context_guide.html#context_glext), [extension-supported](https://hectarea1996.github.io/cl-glfw/context.html#extension-supported)
