@@ -297,12 +297,23 @@
 
         ; Monitor
         :vidmode
+        :width
+        :height         
+        :redBits        
+        :greenBits      
+        :blueBits       
+        :refreshRate  
         :c-vidmode
         :gammaramp
+        :red
+        :green
+        :blue
+        :size
         :c-gammaramp
 
         ; Window
         :image
+        :pixels
         :c-image
         
 
@@ -449,8 +460,19 @@
         :buttons
         :axes
         :vidmode
+        :width
+        :height         
+        :redBits        
+        :greenBits      
+        :blueBits       
+        :refreshRate    
         :gammaramp
+        :red
+        :green
+        :blue
+        :size
         :image
+        :pixels
         ; Functions
         :get-version
         :get-error
