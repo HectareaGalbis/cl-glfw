@@ -133,10 +133,6 @@
         (let ((error-code (raw-glfw:get-error description)))
             (values error-code (convert-from-foreign description :string)))))
 
-#|(defun set-error-callback (callback)
-    (let ((callback-ptr (if (null callback) (null-pointer) callback)))
-        (raw-glfw:set-error-callback callback-ptr)))|#
-
 ; Input
 (defun get-cursor-pos (window)
     (with-foreign-objects ((xpos :double) (ypos :double))
