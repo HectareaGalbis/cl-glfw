@@ -1,3 +1,7 @@
+
+* [Main page](https://hectarea1996.github.io/cl-glfw/)
+* [Reference](https://hectarea1996.github.io/cl-glfw/reference.html)
+
 # Context reference
 
 ## Description
