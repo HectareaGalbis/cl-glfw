@@ -262,3 +262,50 @@ See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html
 * **+hand-cursor+** #x00036004
 * **+hresize-cursor+** #x00036005
 * **+vresize-cursor+** #x00036006
+
+## Structs
+
+* [gamepadstate](https://hectarea1996.github.io/cl-glfw/input.html#gamepadstate): Gamepad input state.
+
+## Functions
+
+* [get-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#get-input-mode): Returns the value of an input option for the specified window.
+* [set-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#set-input-mode): Sets an input option for the specified window.
+* [raw-mouse-motion-supported](https://hectarea1996.github.io/cl-glfw/input.html#raw-mouse-motion-supported): Returns whether raw mouse motion is supported.
+* [get-key-name](https://hectarea1996.github.io/cl-glfw/input.html#get-key-name): Returns the layout-specific name of the specified printable key.
+* [get-key-scancode](https://hectarea1996.github.io/cl-glfw/input.html#get-key-scancode): Returns the platform-specific scancode of the specified key.
+* [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key): Returns the last reported state of a keyboard key for the specified window.
+* [get-mouse-button](https://hectarea1996.github.io/cl-glfw/input.html#get-mouse-button): Returns the last reported state of a mouse button for the specified window.
+* [get-cursor-pos](https://hectarea1996.github.io/cl-glfw/input.html#get-cursor-pos): Retrieves the position of the cursor relative to the content area of the window.
+* [set-cursor-pos](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-pos): Sets the position of the cursor, relative to the content area of the window.
+* [create-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-cursor): Creates a custom cursor. 
+* [create-standard-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-standard-cursor): Creates a cursor with a standard shape.
+* [destroy-cursor](https://hectarea1996.github.io/cl-glfw/input.html#destroy-cursor): Destroys a cursor.
+* [set-cursor](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor): Sets the cursor for the window.
+* [set-key-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-key-callback): Sets the key callback.
+* [set-char-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-char-callback): Sets the Unicode character callback.
+* [set-char-mods-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-char-mods-callback): Sets the Unicode character with modifiers callback.
+* [set-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-mouse-button-callback): Sets the mouse button callback.
+* [set-cursor-pos-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-pos-callback): Sets the cursor position callback.
+* [set-cursor-enter-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-enter-callback): Sets the cursor enter/leave callback.
+* [set-scroll-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-scroll-callback): Sets the scroll callback.
+* [set-drop-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-drop-callback): Sets the path drop callback.
+* [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present): Returns whether the specified joystick is present.
+* [get-joystick-axes](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-axes): Returns the values of all axes of the specified joystick.
+* [get-joystick-buttons](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-buttons): Returns the state of all buttons of the specified joystick.
+* [get-joystick-hats](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-hats): Returns the state of all hats of the specified joystick.
+* [get-joystick-name](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-name): Returns the name of the specified joystick.
+* [get-joystick-guid](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-guid): Returns the SDL compatible GUID of the specified joystick. 
+* [set-joystick-user-data](https://hectarea1996.github.io/cl-glfw/input.html#set-joystick-user-data): Sets the user data of the specified joystick.
+* [get-joystick-user-data](https://hectarea1996.github.io/cl-glfw/input.html#get-input-mode): Returns the user data of the specified joystick.
+* [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad): Returns whether the specified joystick has a gamepad mapping.
+* [set-joystick-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-joystick-callback): Sets the joystick configuration callback.
+* [update-gamepad-mappings](https://hectarea1996.github.io/cl-glfw/input.html#update-gamepad-mapping): Adds the specified SDL_GameControllerDB gamepad mappings. 
+* [get-gamepad-name](https://hectarea1996.github.io/cl-glfw/input.html#get-gamepad-name): Returns the human-readable gamepad name for the specified joystick.
+* [get-gamepad-state](https://hectarea1996.github.io/cl-glfw/input.html#get-gamepad-state): Retrieves the state of the specified joystick remapped as a gamepad.
+* [set-clipboard-string](https://hectarea1996.github.io/cl-glfw/input.html#set-clipboard-string): Sets the clipboard to the specified string.
+* [get-clipboard-string](https://hectarea1996.github.io/cl-glfw/input.html#get-clipboard-string): Returns the contents of the clipboard as a string.
+* [get-time](https://hectarea1996.github.io/cl-glfw/input.html#get-time): Returns the GLFW time.
+* [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time): Sets the GLFW time.
+* [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value): Returns the current value of the raw timer.
+* [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency): Returns the frequency, in Hz, of the raw timer.
