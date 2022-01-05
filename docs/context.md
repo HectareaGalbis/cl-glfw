@@ -4,6 +4,8 @@
 
 # Context reference
 
+* [Functions](https://hectarea1996.github.io/cl-glfw/context.html#functions)
+
 ## Description
 
 This is the reference documentation for OpenGL and OpenGL ES context related functions. For more task-oriented 

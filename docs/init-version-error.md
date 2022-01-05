@@ -4,6 +4,9 @@
 
 # Initialization, version and error reference
 
+* [Constants](https://hectarea1996.github.io/cl-glfw/init-version-error.html#constants)
+* [Functions](https://hectarea1996.github.io/cl-glfw/init-version-error.html#functions)
+
 ## Description
 
 This is the reference documentation for initialization and termination of the library, version management and error handling. 
