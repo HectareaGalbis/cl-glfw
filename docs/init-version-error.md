@@ -36,6 +36,18 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 ## Functions
 
+* [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init): Initializes the GLFW library.
+* [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate): Terminates the GLFW library.
+* [init-hint](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init-hint): Sets the specified init hint to the desired value.
+* [get-version](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-version): Retrieves the version of the GLFW library.
+* [get-version-string](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-version-string): Returns a string describing the compile-time configuration.
+* [get-error](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-error): Returns and clears the last error for the calling thread.
+* [set-error-callback](https://hectarea1996.github.io/cl-glfw/init-version-error.html#set-error-callback): Sets the error callback.
+
+## Macros
+
+* [def-error-callback](https://hectarea1996.github.io/cl-glfw/init-version-error.html#def-error-callback): Defines an error callback. 
+
 ## Constant documentation
 
 ### version-major
@@ -217,3 +229,154 @@ A window that does not have an OpenGL or OpenGL ES context was passed to a funct
 **Analysis**: Application programmer error. Fix the offending call.
 
 ## Function documentation 
+
+### init
+
+```
+(init) => success
+```
+
+This function initializes the GLFW library. Before most GLFW functions can be used, GLFW must be initialized, and before an application terminates GLFW should be terminated in order to free any resources allocated during or after initialization.
+
+If this function fails, it calls [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate) before returning. If it succeeds, you should call [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate) before the application exits.
+
+Additional calls to this function after successful initialization but before termination will return `t` immediately.
+
+* *Returns*:
+  * **success**: `t` if successful, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*:
+  * **macOS**: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's bundle, if present. This can be disabled with the [+cocoa-chdir-resources+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-chdir-resources) init hint.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Initialization and termination](https://www.glfw.org/docs/latest/intro_guide.html#intro_init), [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate).
+
+### terminate
+
+```
+(terminate)
+```
+
+This function destroys all remaining windows and cursors, restores any modified gamma ramps and frees any other allocated resources. Once this function is called, you must again call [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init) successfully before you will be able to use most GLFW functions.
+
+If GLFW has been successfully initialized, this function should be called before the application exits. If initialization fails, there is no need to call this function, as it is called by [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init) before it returns failure.
+
+This function has no effect if GLFW is not initialized.
+
+* *Errors*: Possible errors include [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+
+> **Warning:**
+> The contexts of any remaining windows must not be current on any other thread when this function is called.
+* *Reentrancy*: This function must not be called from a callback.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Initialization and termination](https://www.glfw.org/docs/latest/intro_guide.html#intro_init), [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+
+### init-hint
+
+```
+(init-hint hint value)
+```
+
+This function sets hints for the next initialization of GLFW.
+
+The values you set hints to are never reset by GLFW, but they only take effect during initialization. Once GLFW has been initialized, any values you set will be ignored until the library is terminated and initialized again.
+
+Some hints are platform specific. These may be set on any platform but they will only affect their specific platform. Other platforms will ignore them. Setting these hints requires no platform specific headers or functions.
+
+* *Parameters*:
+  * **hint**: The [init hint](https://www.glfw.org/docs/latest/intro_guide.html#init_hints) to set.
+  * **value**: The new value of the init hint.
+* *Errors*: Possible errors include [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
+* *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Init hints](https://www.glfw.org/docs/latest/intro_guide.html#init_hints), [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+
+### get-version
+
+```
+(get-version) => major minor rev
+```
+
+This function retrieves the major, minor and revision numbers of the GLFW library. It is intended for when you are using GLFW as a shared library and want to ensure that you are using the minimum required version.
+
+* *Returns*:
+  * **major**: The major version number.
+  * **minor**: The minor version number.
+  * **rev**: The revision number.
+* *Errors*: None.
+* *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Version management](https://www.glfw.org/docs/latest/intro_guide.html#intro_version), [get-version-string](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-version-string).
+
+### get-version-string
+
+```
+(get-version-string) => version
+```
+
+This function returns the compile-time generated [version string](https://www.glfw.org/docs/latest/intro_guide.html#intro_version_string) of the GLFW library binary. It describes the version, platform, compiler and any platform-specific compile-time options. It should not be confused with the OpenGL or OpenGL ES version string, queried with `glGetString`.
+
+Do not use the version string to parse the GLFW library version. The [get-version](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-version) function provides the version of the running library binary in numerical format.
+
+* *Returns*:
+  * **version**: The ASCII encoded GLFW version string.
+* *Errors*: None.
+* *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Version management](https://www.glfw.org/docs/latest/intro_guide.html#intro_version), [get-version](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-version).
+
+### get-error
+
+```
+(get-error) => error-code description
+```
+
+This function returns and clears the [error code](https://hectarea1996.github.io/cl-glfw/init-version-error.html#error-codes) of the last error that occurred on the calling thread, and optionally a UTF-8 encoded human-readable description of it. If no error has occurred since the last call, it returns [+no-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) (zero) and 'nil'.
+
+* *Returns*:
+  **error-code**: The last error code for the calling thread, or [+no-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) (zero).
+  **description**: The error description, or `nil`.
+* *Errors*: None.
+* *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Error handling](https://www.glfw.org/docs/latest/intro_guide.html#error_handling), [set-error-callback](https://hectarea1996.github.io/cl-glfw/init-version-error.html#set-error-callback).
+
+### set-error-callback
+
+```
+(set-error-callback callback) => old-callback
+```
+
+This function sets the error callback, which is called with an error code and a human-readable description each time a GLFW error occurs.
+
+The error code is set before the callback is called. Calling [get-error](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-error) from the error callback will return the same value as the error code argument.
+
+The error callback is called on the thread where the error occurred. If you are using GLFW from multiple threads, your error callback needs to be written accordingly.
+
+Once set, the error callback remains set even after the library has been terminated.
+
+* *Parameters*:
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set.
+* *Callback definition*: [def-error-callback](https://hectarea1996.github.io/cl-glfw/init-version-error.html#def-error-callback)
+* *Errors*: None.
+* *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Error handling](https://www.glfw.org/docs/latest/intro_guide.html#error_handling), [get-error](https://hectarea1996.github.io/cl-glfw/init-version-error.html#get-error).
+
+## Macro documentation
+
+### def-error-callback
+
+```
+(def-error-callback (error-code description)
+    &body body)
+```
+
+This is the function pointer type for error callbacks. An error callback function has the following signature:
+
+* *Parameters*:
+  * **error-code**: An [error code](https://hectarea1996.github.io/cl-glfw/init-version-error.html#error-codes). Future releases may add more error codes.
+  * **description**: A UTF-8 encoded string describing the error.
+* *See also*: [Error handling](https://www.glfw.org/docs/latest/intro_guide.html#error_handling), [set-error-callback](https://hectarea1996.github.io/cl-glfw/init-version-error.html#set-error-callback).
