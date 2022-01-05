@@ -4,6 +4,10 @@
 
 # Input reference
 
+* [Constants](https://hectarea1996.github.io/cl-glfw/input.html#constants)
+* [Structs](https://hectarea1996.github.io/cl-glfw/input.html#structs)
+* [Functions](https://hectarea1996.github.io/cl-glfw/input.html#functions)
+
 ## Description
 
 This is the reference documentation for input related functions and types. For more task-oriented information, see the [Input guide](https://www.glfw.org/docs/latest/input_guide.html).
