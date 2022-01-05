@@ -48,10 +48,6 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 * [def-error-callback](https://hectarea1996.github.io/cl-glfw/init-version-error.html#def-error-callback): Defines an error callback. 
 
----
----
----
-
 ## Constant documentation
 
 ### version-major
