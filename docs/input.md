@@ -86,3 +86,179 @@ See [joystick input](https://www.glfw.org/docs/latest/input_guide.html#joystick)
 * **+joystick-15+** 14
 * **+joystick-16+** 15
 * **+joystick-last+** **+joystick-16+**
+
+### Keyboards keys
+
+See [key input](https://www.glfw.org/docs/latest/input_guide.html#input_key) for how these are used.
+
+These key codes are inspired by the USB HID Usage Tables v1.12 (p. 53-60), but re-arranged to map to 7-bit ASCII for printable keys (function keys are put in the 256+ range).
+
+The naming of the key codes follow these rules:
+
+* The US keyboard layout is used
+Names of printable alpha-numeric characters are used (e.g. "A", "R", "3", etc.)
+* For non-alphanumeric characters, Unicode:ish names are used (e.g. "COMMA", "LEFT_SQUARE_BRACKET", etc.). Note that some names do not correspond to the Unicode standard (usually for brevity)
+* Keys that lack a clear US mapping are named "WORLD_x"
+* For non-printable keys, custom names are used (e.g. "F4", "BACKSPACE", etc.)
+
+* **+key-unknown+** -1
+* **+key-space+** 32
+* **+key-apostrophe+** 39 /* ' */
+* **+key-comma+** 44 /* , */
+* **+key-minus+** 45 /* - */
+* **+key-period+** 46 /* . */
+* **+key-slash+** 47 /* / */
+* **+key-0+** 48
+* **+key-1+** 49
+* **+key-2+** 50
+* **+key-3+** 51
+* **+key-4+** 52
+* **+key-5+** 53
+* **+key-6+** 54
+* **+key-7+** 55
+* **+key-8+** 56
+* **+key-9+** 57
+* **+key-semicolon+** 59 /* ; */
+* **+key-equal+** 61 /* = */
+* **+key-a+** 65
+* **+key-b+** 66
+* **+key-c+** 67
+* **+key-d+** 68
+* **+key-e+** 69
+* **+key-f+** 70
+* **+key-g+** 71
+* **+key-h+** 72
+* **+key-i+** 73
+* **+key-j+** 74
+* **+key-k+** 75
+* **+key-l+** 76
+* **+key-m+** 77
+* **+key-n+** 78
+* **+key-o+** 79
+* **+key-p+** 80
+* **+key-q+** 81
+* **+key-r+** 82
+* **+key-s+** 83
+* **+key-t+** 84
+* **+key-u+** 85
+* **+key-v+** 86
+* **+key-w+** 87
+* **+key-x+** 88
+* **+key-y+** 89
+* **+key-z+** 90
+* **+key-left-bracket+** 91 /* [ */
+* **+key-backslash+** 92 /* \ */
+* **+key-right-bracket+** 93 /* ] */
+* **+key-grave-accent+** 96 /* ` */
+* **+key-world-1+** 161 /* non-US #1 */
+* **+key-world-2+** 162 /* non-US #2 */
+* **+key-escape+** 256
+* **+key-enter+** 257
+* **+key-tab+** 258
+* **+key-backspace+** 259
+* **+key-insert+** 260
+* **+key-delete+** 261
+* **+key-right+** 262
+* **+key-left+** 263
+* **+key-down+** 264
+* **+key-up+** 265
+* **+key-page-up+** 266
+* **+key-page-down+** 267
+* **+key-home+** 268
+* **+key-end+** 269
+* **+key-caps-lock+** 280
+* **+key-scroll-lock+** 281
+* **+key-num-lock+** 282
+* **+key-print-screen+** 283
+* **+key-pause+** 284
+* **+key-f1+** 290
+* **+key-f2+** 291
+* **+key-f3+** 292
+* **+key-f4+** 293
+* **+key-f5+** 294
+* **+key-f6+** 295
+* **+key-f7+** 296
+* **+key-f8+** 297
+* **+key-f9+** 298
+* **+key-f10+** 299
+* **+key-f11+** 300
+* **+key-f12+** 301
+* **+key-f13+** 302
+* **+key-f14+** 303
+* **+key-f15+** 304
+* **+key-f16+** 305
+* **+key-f17+** 306 
+* **+key-f18+** 307
+* **+key-f19+** 308
+* **+key-f20+** 309
+* **+key-f21+** 310
+* **+key-f22+** 311
+* **+key-f23+** 312
+* **+key-f24+** 313
+* **+key-f25+** 314
+* **+key-kp-0+** 320
+* **+key-kp-1+** 321
+* **+key-kp-2+** 322
+* **+key-kp-3+** 323
+* **+key-kp-4+** 324
+* **+key-kp-5+** 325
+* **+key-kp-6+** 326
+* **+key-kp-7+** 327
+* **+key-kp-8+** 328
+* **+key-kp-9+** 329
+* **+key-kp-decimal+** 330
+* **+key-kp-divide+** 331
+* **+key-kp-multiply+** 332
+* **+key-kp-subtract+** 333
+* **+key-kp-add+** 334
+* **+key-kp-enter+** 335
+* **+key-kp-equal+** 336
+* **+key-left-shift+** 340
+* **+key-left-control+** 341
+* **+key-left-alt+** 342
+* **+key-left-super+** 343
+* **+key-right-shift+** 344
+* **+key-right-control+** 345
+* **+key-right-alt+** 346
+* **+key-right-super+** 347
+* **+key-menu+** 348
+* **+key-last+** **+key-menu+**
+
+### Modifier key flags
+
+See [key input](https://www.glfw.org/docs/latest/input_guide.html#input_key) for how these are used.
+
+* **+mod-shift+** #x0001
+* **+mod-control+** #x0002
+* **+mod-alt+** #x0004
+* **+mod-super+** #x0008
+* **+mod-caps-lock+** #x0010
+* **+mod-num-lock+** #x0020
+
+### Mouse buttons
+
+See [mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button) for how these are used.
+
+* **+mouse-button-1+** 0
+* **+mouse-button-2+** 1
+* **+mouse-button-3+** 2
+* **+mouse-button-4+** 3
+* **+mouse-button-5+** 4
+* **+mouse-button-6+** 5
+* **+mouse-button-7+** 6
+* **+mouse-button-8+** 7
+* **+mouse-button-last+** **+mouse-button-8+**
+* **+mouse-button-left+** **+mouse-button-1+**
+* **+mouse-button-right+** **+mouse-button-2+**
+* **+mouse-button-middle+** **+mouse-button-3+**
+
+### Standard cursor shapes
+
+See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html#cursor_standard) for how these are used.
+
+* **+arrow-cursor+** #x00036001
+* **+ibeam-cursor+** #x00036002
+* **+crosshair-cursor+** #x00036003
+* **+hand-cursor+** #x00036004
+* **+hresize-cursor+** #x00036005
+* **+vresize-cursor+** #x00036006
