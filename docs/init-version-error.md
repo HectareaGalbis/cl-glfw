@@ -370,11 +370,10 @@ Once set, the error callback remains set even after the library has been termina
 ### def-error-callback
 
 ```
-(def-error-callback (error-code description)
-    &body body)
+(def-error-callback (name (error-code description) &body body)
 ```
 
-This is the function pointer type for error callbacks. An error callback function has the following signature:
+Defines an error callback. An error callback function has the following signature:
 
 * *Parameters*:
   * **error-code**: An [error code](https://hectarea1996.github.io/cl-glfw/init-version-error.html#error-codes). Future releases may add more error codes.
