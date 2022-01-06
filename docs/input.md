@@ -232,12 +232,12 @@ Names of printable alpha-numeric characters are used (e.g. "A", "R", "3", etc.)
 
 See [key input](https://www.glfw.org/docs/latest/input_guide.html#input_key) for how these are used.
 
-* **+mod-shift+** #x0001
-* **+mod-control+** #x0002
-* **+mod-alt+** #x0004
-* **+mod-super+** #x0008
-* **+mod-caps-lock+** #x0010
-* **+mod-num-lock+** #x0020
+* [+mod-shift+](https://hectarea1996.github.io/cl-glfw/input.html#mod-shift) #x0001
+* [+mod-control+](https://hectarea1996.github.io/cl-glfw/input.html#mod-control) #x0002
+* [+mod-alt+](https://hectarea1996.github.io/cl-glfw/input.html#mod-alt) #x0004
+* [+mod-super+](https://hectarea1996.github.io/cl-glfw/input.html#mod-super) #x0008
+* [+mod-caps-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-caps-lock) #x0010
+* [+mod-num-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-num-lock) #x0020
 
 ### Mouse buttons
 
@@ -266,6 +266,14 @@ See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html
 * **+hand-cursor+** #x00036004
 * **+hresize-cursor+** #x00036005
 * **+vresize-cursor+** #x00036006
+
+### Input mode
+
+* **+cursor+** #x00033001
+* **+sticky-keys+** #x00033002
+* **+sticky-mouse-buttons+** #x00033003
+* **+lock-key-mods+** #x00033004
+* **+raw-mouse-motion+** #x00033005
 
 ## Structs
 
@@ -338,6 +346,55 @@ The key or mouse button was pressed.
 (defconstant +repeat+ 2)
 ```
 
+### +mod-shift+
+
+```
+(defconstant +mod-shift+ #x0001)
+```
+
+If this bit is set one or more Shift keys were held down.
+
+### +mod-control+
+
+```
+(defconstant +mod-control+ #x0002)
+```
+
+If this bit is set one or more Control keys were held down.
+
+### +mod-alt+
+
+```
+(defconstant +mod-alt+ #x0004)
+```
+
+If this bit is set one or more Alt keys were held down.
+
+### +mod-super+
+
+```
+(defconstant +mod-super+ #x0008)
+```
+
+If this bit is set one or more Super keys were held down.
+
+### +mod-caps-lock+
+
+```
+(defconstant +mod-caps-lock+ #x0010)
+```
+
+If this bit is set the Caps Lock key is enabled and the [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) input mode is set.
+
+### +mod-num-lock+
+
+```
+(defconstant +mod-num-lock+ #x0020)
+```
+
+If this bit is set the Num Lock key is enabled and the [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) input mode is set.
+
+
 ## Struct documentation
 
 ### gamepadstate
@@ -356,5 +413,52 @@ This describes the input state of a gamepad.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [get-gamepad-state](https://www.glfw.org/docs/latest/input_guide.html#get-gamepad-state).
 
 ## Function documentation
+
+### get-input-mode
+
+```
+(get-input-mode window mode) => value-mode
+```
+
+This function returns the value of an input option for the specified window. The mode must be one of `+cursor+`, `+sticky-keys+`, `+sticky-mouse-buttons+`, `+lock-key-mods+` or `+raw-mouse-motion+`.
+
+* *Parameters*:
+  * **window**: The window to query.
+  * **mode**: One of [+cursor+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_CURSOR), [+sticky-keys+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS), [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS), [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) or [+raw-mouse-motion+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_RAW_MOUSE_MOTION).
+* *Returns*:
+  * **value-mode**: The value of the specified input mode.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [set-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#set-input-mode).
+
+### set-input-mode
+
+```
+(set-input-mode window mode value)
+```
+
+This function sets an input mode option for the specified window. The mode must be one of [+cursor+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_CURSOR), [+sticky-keys+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS), [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS), [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) or [+raw-mouse-motion+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_RAW_MOUSE_MOTION).
+
+If the mode is `+cursor+`, the value must be one of the following cursor modes:
+
+* `+cursor-normal+` makes the cursor visible and behaving normally.
+* `+cursor-hidden+` makes the cursor invisible when it is over the content area of the window but does not restrict the cursor from leaving.
+* `+cursor-disabled+` hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera controls.
+
+If the mode is `+sticky-keys+`, the value must be either `+true+` to enable sticky keys, or `+false+` to disable it. If sticky keys are enabled, a key press will ensure that [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key) returns `+press+` the next time it is called even if the key had been released before the call. This is useful when you are only interested in whether keys have been pressed but not when or in which order.
+
+If the mode is `+sticky-mouse-buttons+`, the value must be either `+true+` to enable sticky mouse buttons, or `+false+` to disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that [get-mouse-button](https://hectarea1996.github.io/cl-glfw/input.html#get-mouse-button) returns `+press+` the next time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have been pressed but not when or in which order.
+
+If the mode is `+lock-key-mods+`, the value must be either `+true+` to enable lock key modifier bits, or `+false+` to disable them. If enabled, callbacks that receive modifier bits will also have the [+mod-caps-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-caps-lock) bit set when the event was generated with Caps Lock on, and the [+mod-num-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-num-lock) bit when Num Lock was on.
+
+If the mode is `+raw-mouse-motion+`, the value must be either `+true+` to enable raw (unscaled and unaccelerated) mouse motion when the cursor is disabled, or `+false+` to disable it. If raw motion is not supported, attempting to set this will emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error). Call [raw-mouse-motion-supported](https://hectarea1996.github.io/cl-glfw/input.html#raw-mouse-motion-supported) to check for support.
+
+* *Parameters*:
+  * **window**: The window whose input mode to set.
+  * **mode**: 	One of `+cursor+`, `+sticky-keys+`, `+sticky-mouse-buttons+`, `+lock-key-mods+` or `+raw-mouse-motion+`.
+  * **value**: The new value of the specified input mode.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [get-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#get-input-mode).
 
 

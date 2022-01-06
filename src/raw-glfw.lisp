@@ -266,10 +266,15 @@
 
     ; Input mode
     (+cursor+                       #x00033001)
-    (+stickey-keys+                 #x00033002)
-    (+stickey-mouse-buttons+        #x00033003)
+    (+sticky-keys+                  #x00033002)
+    (+sticky-mouse-buttons+         #x00033003)
     (+lock-key-mods+                #x00033004)
     (+raw-mouse-motion+             #x00033005)
+
+    ; Cursor mode
+    (+cursor-normal+                #x00034001)
+    (+cursor-hidden+                #x00034002)
+    (+cursor-disabled+              #x00034003)
 
     ; Window
     (+focused+                      #x00020001                      "Input focus window hint and attribute.")

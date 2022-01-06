@@ -241,10 +241,14 @@
         :+vresize-cursor+ 
         ; Input mode
         :+arrow+
-        :+stickey-keys+
-        :+stickey-mouse-buttons+
+        :+sticky-keys+
+        :+sticky-mouse-buttons+
         :+lock-key-mods+
         :+raw-mouse-motion+
+        ; Cursor mode
+        :+cursor-normal+
+        :+cursor-hidden+
+        :+cursor-disabled+
 
         ; Window
         :+focused+                      
@@ -750,10 +754,14 @@
         :+vresize-cursor+ 
         ; Input mode
         :+arrow+
-        :+stickey-keys+
-        :+stickey-mouse-buttons+
+        :+sticky-keys+
+        :+sticky-mouse-buttons+
         :+lock-key-mods+
         :+raw-mouse-motion+
+        ; Cursor mode
+        :+cursor-normal+
+        :+cursor-hidden+
+        :+cursor-disabled+
 
         ; Window
         :+focused+                      
