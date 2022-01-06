@@ -747,7 +747,7 @@ The character callback behaves as system text input normally does and will not b
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
 * *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
-* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char).
+* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char), [def-char-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-char-callback).
 
 ### set-char-mods-callback
 
@@ -766,7 +766,150 @@ The character with modifiers callback is intended for implementing custom Unicod
   * **old-callback**: The previously set callback, or `nil` if no callback was set or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
 * *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
-* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char).
+* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char), [def-char-mods-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-char-mods-callback).
 
 > **Deprecated**:
 > Scheduled for removal in version 4.0.
+
+### set-mouse-button-callback
+
+```
+(set-mouse-button-callback window callback) => old-callback
+```
+
+This function sets the mouse button callback of the specified window, which is called when a mouse button is pressed or released.
+
+When a window loses input focus, it will generate synthetic mouse button release events for all pressed mouse buttons. You can tell these events from user-generated events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the [window focus callback](https://hectarea1996.github.io/cl-glfw/window.html#set-window-focus-callback) has been called.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button), [def-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-mouse-button-callback).
+
+### set-cursor-pos-callback
+
+```
+(set-cursor-pos-callback window callback) => old-callback
+```
+
+This function sets the cursor position callback of the specified window, which is called when the cursor is moved. The callback is provided with the position, in screen coordinates, relative to the upper-left corner of the content area of the window.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [def-cursor-pos-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-cursor-pos-callback).
+
+### set-cursor-enter-callback
+
+```
+(set-cursor-enter-callback window callback) => old-callback
+```
+
+This function sets the cursor boundary crossing callback of the specified window, which is called when the cursor enters or leaves the content area of the window.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor enter/leave events](https://www.glfw.org/docs/latest/input_guide.html#cursor_enter), [def-cursor-enter-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-cursor-enter-callback).
+
+### set-scroll-callback
+
+This function sets the scroll callback of the specified window, which is called when a scrolling device is used, such as a mouse wheel or scrolling area of a touchpad.
+
+The scroll callback receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Scroll input](https://www.glfw.org/docs/latest/input_guide.html#scrolling), [def-scroll-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-scroll-callback).
+
+### set-drop-callback
+
+This function sets the path drop callback of the specified window, which is called when one or more dragged paths are dropped on the window.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Remarks*:
+  * **Wayland**: File drop is currently unimplemented.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Path drop input](https://www.glfw.org/docs/latest/input_guide.html#path_drop), [def-drop-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-drop-callback).
+
+### joystick-present
+
+```
+(joystick-present jid) => present
+```
+
+This function returns whether the specified joystick is present.
+
+There is no need to call this function before other functions that accept a joystick ID, as they all check for presence before performing any other work.
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **present**: `t` if the joystick is present, or `nil` otherwise.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Joystick input](https://www.glfw.org/docs/latest/input_guide.html#joystick).
+
+### get-joystick-axes
+
+```
+(get-joystick-axes jid) => axes
+```
+
+This function returns the values of all axes of the specified joystick. Each element in the list is a value between -1.0 and 1.0.
+
+If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*: 
+  * **axes**: A list of axis values, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Joystick axis states](https://www.glfw.org/docs/latest/input_guide.html#joystick_axis).
+
+### get-joystick-buttons
+
+```
+(get-joystick-buttons jid) => buttons
+```
+
+This function returns the state of all buttons of the specified joystick. Each element in the list is either `+press+` or `+release+`.
+
+For backward compatibility with earlier versions that did not have [get-joystick-hats](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-hats), the button array also includes all hats, each represented as four buttons. The hats are in the same order as returned by **get-joystick-hats** and are in the order *up*, *right*, *down* and *left*. To disable these extra buttons, set the [+joystick-hat-buttons+](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS) init hint before initialization.
+
+If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **buttons**: A list of button states, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Joystick button states](https://www.glfw.org/docs/latest/input_guide.html#joystick_button).
+
+### get-joystick-hats
+
+
