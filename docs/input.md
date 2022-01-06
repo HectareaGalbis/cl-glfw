@@ -635,6 +635,138 @@ If the cursor mode is `+cursor-disabled+` then the cursor position is unconstrai
 ### create-cursor
 
 ```
-(create-cursor image xhot yhot)
+(create-cursor image xhot yhot) => cursor
 ```
 
+Creates a new custom cursor image that can be set for a window with [set-cursor](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor). The cursor can be destroyed with [destroy-cursor](https://hectarea1996.github.io/cl-glfw/input.html#destroy-cursor). Any remaining cursors are destroyed by [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate).
+
+The pixels are 32-bit, little-endian, non-premultiplied RGBA, i.e. eight bits per channel with the red channel first. They are arranged canonically as packed sequential rows, starting from the top-left corner.
+
+The cursor hotspot is specified in pixels, relative to the upper-left corner of the cursor image. Like all other coordinate systems in GLFW, the X-axis points to the right and the Y-axis points down.
+
+* *Parameters*:
+  * **image**: The desired cursor image.
+  * **xhot**: The desired x-coordinate, in pixels, of the cursor hotspot.
+  * **yhot**: The desired y-coordinate, in pixels, of the cursor hotspot.
+* *Returns*:
+  * **cursor**: The handle of the created cursor, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object), [destroy-cursor](https://hectarea1996.github.io/cl-glfw/input.html#destroy-cursor), [create-standard-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-standard-cursor).
+
+### create-standard-cursor
+
+```
+(create-standard-cursor shape) => cursor
+```
+
+Returns a cursor with a [standard shape](https://hectarea1996.github.io/cl-glfw/input.html#standard-cursor-shapes), that can be set for a window with [set-cursor](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor).
+
+* *Parameters*:
+  * **shape**: One of the [standard shapes](https://hectarea1996.github.io/cl-glfw/input.html#standard-cursor-shapes).
+* *Returns*: A new cursor ready to use or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object), [create-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-cursor).
+
+### destroy-cursor
+
+```
+(destroy-cursor cursor)
+```
+
+This function destroys a cursor previously created with [create-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-cursor). Any remaining cursors will be destroyed by [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate).
+
+If the specified cursor is current for any window, that window will be reverted to the default cursor. This does not affect the cursor mode.
+
+* *Parameters*:
+  * **cursor**: The cursor object to destroy.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Reentrancy*: This function must not be called from a callback.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object), [create-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-cursor).
+
+### set-cursor
+
+```
+(set-cursor window cursor)
+```
+
+This function sets the cursor image to be used when the cursor is over the content area of the specified window. The set cursor will only be visible when the [cursor mode](https://www.glfw.org/docs/latest/input_guide.html#cursor_mode) of the window is `+cursor-normal+`.
+
+On some platforms, the set cursor may not be visible unless the window also has input focus.
+
+* *Parameters*:
+  * **window**: The window to set the cursor for.
+  * **cursor**: The cursor to set, or `nil` to switch back to the default arrow cursor.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object).
+
+### set-key-callback
+
+```
+(set-key-callback window callback) => old-callback
+```
+
+This function sets the key callback of the specified window, which is called when a key is pressed, repeated or released.
+
+The key functions deal with physical keys, with layout independent [key tokens](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys) named after their values in the standard US keyboard layout. If you want to input text, use the [character callback](https://hectarea1996.github.io/cl-glfw/input.html#set-char-callback) instead.
+
+When a window loses input focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the [window focus callback](https://hectarea1996.github.io/cl-glfw/window.html#set-window-focus-callback) has been called.
+
+The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have a GLFW key token. Such keys have `key` set to `+key-unknown+`, their state is not saved and so it cannot be queried with [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key).
+
+Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new key callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key), [def-key-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-key-callback).
+
+### set-char-callback
+
+```
+(set-char-callback window callback) => old-callback
+```
+
+This function sets the character callback of the specified window, which is called when a Unicode character is input.
+
+The character callback is intended for Unicode text input. As it deals with characters, it is keyboard layout dependent, whereas the [key callback](https://hectarea1996.github.io/cl-glfw/input.html#set-key-callback) is not. Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key was pressed or released, see the key callback instead.
+
+The character callback behaves as system text input normally does and will not be called if modifier keys are held down that would prevent normal text input on that platform, for example a Super (Command) key on macOS or Alt key on Windows.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char).
+
+### set-char-mods-callback
+
+```
+(set-char-mods-callback window callback) => old-callback
+```
+
+This function sets the character with modifiers callback of the specified window, which is called when a Unicode character is input regardless of what modifier keys are used.
+
+The character with modifiers callback is intended for implementing custom Unicode character input. For regular Unicode text input, see the [character callback](https://hectarea1996.github.io/cl-glfw/input.html#set-char-callback). Like the character callback, the character with modifiers callback deals with characters and is keyboard layout dependent. Characters do not map 1:1 to physical keys, as a key may produce zero, one or more characters. If you want to know whether a specific physical key was pressed or released, see the [key callback](https://hectarea1996.github.io/cl-glfw/input.html#set-key-callback) instead.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*: 
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char).
+
+> **Deprecated**:
+> Scheduled for removal in version 4.0.
