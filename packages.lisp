@@ -239,6 +239,12 @@
         :+hand-cursor+                  
         :+hresize-cursor+               
         :+vresize-cursor+ 
+        ; Input mode
+        :+arrow+
+        :+stickey-keys+
+        :+stickey-mouse-buttons+
+        :+lock-key-mods+
+        :+raw-mouse-motion+
 
         ; Window
         :+focused+                      
@@ -742,6 +748,12 @@
         :+hand-cursor+                  
         :+hresize-cursor+               
         :+vresize-cursor+ 
+        ; Input mode
+        :+arrow+
+        :+stickey-keys+
+        :+stickey-mouse-buttons+
+        :+lock-key-mods+
+        :+raw-mouse-motion+
 
         ; Window
         :+focused+                      

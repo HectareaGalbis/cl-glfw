@@ -264,6 +264,13 @@
     (+hresize-cursor+               #x00036001                      "The horizontal resize arrow shape.")
     (+vresize-cursor+               #x00036001                      "The vertical resize arrow shape.")
 
+    ; Input mode
+    (+cursor+                       #x00033001)
+    (+stickey-keys+                 #x00033002)
+    (+stickey-mouse-buttons+        #x00033003)
+    (+lock-key-mods+                #x00033004)
+    (+raw-mouse-motion+             #x00033005)
+
     ; Window
     (+focused+                      #x00020001                      "Input focus window hint and attribute.")
     (+iconified+                    #x00020002                      "Window iconification window attribute.")

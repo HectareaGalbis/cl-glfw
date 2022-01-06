@@ -4,13 +4,13 @@
 
 # Input reference
 
-* [Constants](https://hectarea1996.github.io/cl-glfw/input.html#constants)
-* [Structs](https://hectarea1996.github.io/cl-glfw/input.html#structs)
-* [Functions](https://hectarea1996.github.io/cl-glfw/input.html#functions)
-
 ## Description
 
 This is the reference documentation for input related functions and types. For more task-oriented information, see the [Input guide](https://www.glfw.org/docs/latest/input_guide.html).
+
+* [Constants](https://hectarea1996.github.io/cl-glfw/input.html#constants)
+* [Structs](https://hectarea1996.github.io/cl-glfw/input.html#structs)
+* [Functions](https://hectarea1996.github.io/cl-glfw/input.html#functions)
 
 ## Constants
 
@@ -313,3 +313,48 @@ See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html
 * [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time): Sets the GLFW time.
 * [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value): Returns the current value of the raw timer.
 * [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency): Returns the frequency, in Hz, of the raw timer.
+
+## Constant documentation
+
+### +release+
+
+```
+(defconstant +release+ 0)
+```
+
+The key or mouse button was released.
+
+### +press+
+
+```
+(defconstant +press+ 1)
+```
+
+The key or mouse button was pressed.
+
+### +repeat+
+
+```
+(defconstant +repeat+ 2)
+```
+
+## Struct documentation
+
+### gamepadstate
+
+```
+(defstruct gamepadstate
+    buttons
+    axes)
+```
+
+This describes the input state of a gamepad.
+
+* *Fields*:
+  * **buttons**: The states of each [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons), `+press+` or `+release+`. This must be an array of 15 elements.
+  * **axes**: The states of each [gamepad axis](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-axes), in the range -1.0 to 1.0 inclusive. This must be an array of 6 elements.
+* *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [get-gamepad-state](https://www.glfw.org/docs/latest/input_guide.html#get-gamepad-state).
+
+## Function documentation
+
+
