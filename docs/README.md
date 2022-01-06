@@ -1,3 +1,3 @@
 # TODO LIST
 
-* Hay que cambiar los GLFW_... por sus respectivas constantes +...+.
+* Comprobar que funciona get-key-name (retorna nil o (null-pointer)?).

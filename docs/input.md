@@ -91,7 +91,7 @@ See [joystick input](https://www.glfw.org/docs/latest/input_guide.html#joystick)
 * **+joystick-16+** 15
 * **+joystick-last+** **+joystick-16+**
 
-### Keyboards keys
+### Keyboard keys
 
 See [key input](https://www.glfw.org/docs/latest/input_guide.html#input_key) for how these are used.
 
@@ -461,4 +461,180 @@ If the mode is `+raw-mouse-motion+`, the value must be either `+true+` to enable
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [get-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#get-input-mode).
 
+### raw-mouse-motion-supported
+
+```
+(raw-mouse-motion-supported) => supported
+```
+
+This function returns whether raw mouse motion is supported on the current system. This status does not change after GLFW has been initialized so you only need to check this once. If you attempt to enable raw motion on a system that does not support it, [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) will be emitted.
+
+Raw mouse motion is closer to the actual motion of the mouse across a surface. It is not affected by the scaling and acceleration applied to the motion of the desktop cursor. That processing is suitable for a cursor while raw motion is better for controlling for example a 3D camera. Because of this, raw mouse motion is only provided when the cursor is disabled.
+
+* *Returns*: 
+  * **supported**: `t` if raw mouse motion is supported on the current machine, or `nil` otherwise.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Raw mouse motion](https://www.glfw.org/docs/latest/input_guide.html#raw_mouse_motion), [set-input-mode](https://hectarea1996.github.io/cl-glfw/init-version-error.html#set-input-mode).
+
+### get-key-name
+
+```
+(get-key-name key scancode) => name
+```
+
+This function returns the name of the specified printable key, encoded as UTF-8. This is typically the character that key would produce without any modifier keys, intended for displaying key bindings to the user. For dead keys, it is typically the diacritic it would add to a character.
+
+**Do not use this function** for [text input](https://www.glfw.org/docs/latest/input_guide.html#input_char). You will break text input for many languages even if it happens to work for yours.
+
+If the key is `+key-unknown+`, the scancode is used to identify the key, otherwise the scancode is ignored. If you specify a non-printable key, or `+key-unknown+` and a scancode that maps to a non-printable key, this function returns `nil` but does not emit an error.
+
+This behavior allows you to always pass in the arguments in the [key callback](https://www.glfw.org/docs/latest/input_guide.html#input_key) without modification.
+
+The printable keys are:
+
+* `+key-apostrophe+`
+* `+key-comma+`
+* `+key-minus+`
+* `+key-period+`
+* `+key-slash+`
+* `+key-semicolon+`
+* `+key-equal+`
+* `+key-left-bracket+`
+* `+key-right-bracket+`
+* `+key-backslash+`
+* `+key-world-1+`
+* `+key-world-2+`
+* `+key-0+` to `+key-9+`
+* `+key-a+` to `+key-z+`
+* `+key-kp-0+` to `+key-kp-9+`
+* `+key-kp-decimal+`
+* `+key-kp-divide+`
+* `+key-kp-multiply+`
+* `+key-kp-subtract+`
+* `+key-kp-add+`
+* `+key-kp-equal+`
+
+Names for printable keys depend on keyboard layout, while names for non-printable keys are the same across layouts but depend on the application language and should be localized along with other user interface text.
+
+* *Parameters*:
+  * **key**: The key to query, or `+key-unknown+`.
+  * **scancode**: The scancode of the key to query.
+* *Returns*: 
+  * **name**: The UTF-8 encoded, layout-specific name of the key, or `nil`.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: The contents of the returned string may change when a keyboard layout change event is received.
+* *See also*: [Key names](https://www.glfw.org/docs/latest/input_guide.html#input_key_name).
+
+### get-key-scancode
+
+```
+(get-key-scancode key) => scancode
+```
+
+This function returns the platform-specific scancode of the specified key.
+
+If the key is `+key-unknown+` or does not exist on the keyboard this method will return `-1`.
+
+* *Parameters*:
+  * **key**: Any [named key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys).
+* *Returns*: The platform-specific scancode for the key, or `-1` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key).
+
+### get-key
+
+```
+(get-key window key) => state
+```
+
+This function returns the last state reported for the specified key to the specified window. The returned state is one of `+press+` or `+release+`. The higher-level action `+repeat+` is only reported to the key callback.
+
+If the [+sticky-keys+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS) input mode is enabled, this function returns `+press+` the first time you call it for a key that was pressed, even if that key has already been released.
+
+The key functions deal with physical keys, with [key tokens](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys) named after their use on the standard US keyboard layout. If you want to input text, use the Unicode character callback instead.
+
+The [modifier key bit masks](https://hectarea1996.github.io/cl-glfw/input.html#modifier-key-flags) are not key tokens and cannot be used with this function.
+
+**Do not use this function** to implement [text input](https://www.glfw.org/docs/latest/input_guide.html#input_char).
+
+* *Parameters*:
+  * **window**: The desired window.
+  * **key**: The desired [keyboard key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys). `+key-unknown+` is not a valid key for this function.
+* *Returns*: 
+  * **state**: One of `+press+` or `+release+`.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key).
+
+### get-mouse-button
+
+```
+(get-mouse-button window button) => state
+```
+
+This function returns the last state reported for the specified mouse button to the specified window. The returned state is one of `+press+` or `+release+`.
+
+If the [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS) input mode is enabled, this function returns `+press+` the first time you call it for a mouse button that was pressed, even if that mouse button has already been released.
+
+* *Parameters*:
+  * **window**: The desired window.
+  * **button**: The desired [mouse button](https://hectarea1996.github.io/cl-glfw/input.html#mouse-buttons).
+* *Returns*:
+  * **state**: One of `+press+` or `+release+`.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button).
+
+### get-cursor-por
+
+```
+(get-cursor-pos window) => xpos ypos
+```
+
+This function returns the position of the cursor, in screen coordinates, relative to the upper-left corner of the content area of the specified window.
+
+If the cursor is disabled (with `+cursor-disabled+`) then the cursor position is unbounded and limited only by the minimum and maximum values of a `double` (in C).
+
+The coordinate can be converted to their integer equivalents with the `floor` function. Casting directly to an integer type works for positive coordinates, but fails for negative ones.
+
+If an error occurs, all the values returned are zero.
+
+* *Parameters*:
+  * **window**: The desired window.
+* *Returns*:
+  * **xpos**: The cursor x-coordinate, relative to the left edge of the content area.
+  * **ypos**: The cursor y-coordinate, relative to the to top edge of the content area.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [set-cursor-pos](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-pos).
+
+### set-cursor-pos
+
+```
+(set-cursor-pos window xpos ypos)
+```
+
+This function sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the content area of the specified window. The window must have input focus. If the window does not have input focus when this function is called, it fails silently.
+
+**Do not use this function** to implement things like camera controls. GLFW already provides the `+cursor-disabled+` cursor mode that hides the cursor, transparently re-centers it and provides unconstrained cursor motion. See [set-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#set-input-mode) for more information.
+
+If the cursor mode is `+cursor-disabled+` then the cursor position is unconstrained and limited only by the minimum and maximum values of a `double` (in C).
+
+* *Parameters*:
+  * **window**: The desired window.
+  * **xpos**: The desired x-coordinate, relative to the left edge of the content area.
+  * **ypos**: The desired y-coordinate, relative to the top edge of the content area.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*:
+  * **Wayland**: This function will only work when the cursor mode is `+cursor-disabled+`, otherwise it will do nothing.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [get-cursor-pos](https://hectarea1996.github.io/cl-glfw/input.html#get-cursor-pos).
+
+### create-cursor
+
+```
+(create-cursor image xhot yhot)
+```
 
