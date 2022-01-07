@@ -119,6 +119,12 @@
         ((>= i (length lst)))
         (setf (mem-aref arr ctype i) (car lst))))
 
+(defun carray->array (carr ctype size)
+    (let ((arr (make-array size)))
+        (dotimes (i size)
+            (setf (aref arr i) (mem-aref carr ctype i)))
+        arr))
+
 
 ;; Functions
 
@@ -158,22 +164,22 @@
 (defun get-joystick-axes (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-axes (raw-glfw:get-joystick-axes jid csize)) (size (mem-ref csize :int)))
-            (if (> size 0) 
-                (array->list arr-axes :float size)
+            (if (> size 0)
+                (carray->array arr-axes :float size)
                 nil))))
         
 (defun get-joystick-buttons (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-buttons (raw-glfw:get-joystick-buttons jid csize)) (size (mem-ref csize :int)))
-            (if (> size 0) 
-                (array->list arr-buttons :int size)
+            (if (> size 0)
+                (carray->array arr-buttons :int size)
                 nil))))
 
 (defun get-joystick-hats (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-hats (raw-glfw:get-joystick-hats jid csize)) (size (mem-ref csize :int)))
             (if (> size 0) 
-                (array->list arr-hats :int size)
+                (carray->array arr-hats :int size)
                 nil))))
 
 (defvar *joysticks-data* (make-hash-table))
@@ -186,8 +192,8 @@
 
 (defun get-gamepad-state (jid)
     (with-foreign-object (cstate '(:struct raw-glfw:gamepadstate))
-        (raw-glfw:get-gamepad-state jid cstate)
-        (mem-ref cstate '(:struct raw-glfw:gamepadstate))))
+        (let ((success (raw-glfw:get-gamepad-state jid cstate)))
+            (values success (mem-ref cstate '(:struct raw-glfw:gamepadstate))))))
         #|(let ((state (make-gamepadstate)))
             (dotimes (i 15)
                 (setf (aref (gamepadstate-buttons state) i) (mem-aref :uchar (raw-glfw:gamepadstate-buttons cstate) i)))

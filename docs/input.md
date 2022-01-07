@@ -878,14 +878,14 @@ There is no need to call this function before other functions that accept a joys
 (get-joystick-axes jid) => axes
 ```
 
-This function returns the values of all axes of the specified joystick. Each element in the list is a value between -1.0 and 1.0.
+This function returns the values of all axes of the specified joystick. Each element in the array is a value between -1.0 and 1.0.
 
 If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
 
 * *Parameters*:
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*: 
-  * **axes**: A list of axis values, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+  * **axes**: An array of axis values, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
 * *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick axis states](https://www.glfw.org/docs/latest/input_guide.html#joystick_axis).
@@ -896,7 +896,7 @@ If the specified joystick is not present this function will return `nil` but wil
 (get-joystick-buttons jid) => buttons
 ```
 
-This function returns the state of all buttons of the specified joystick. Each element in the list is either `+press+` or `+release+`.
+This function returns the state of all buttons of the specified joystick. Each element in the array is either `+press+` or `+release+`.
 
 For backward compatibility with earlier versions that did not have [get-joystick-hats](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-hats), the button array also includes all hats, each represented as four buttons. The hats are in the same order as returned by **get-joystick-hats** and are in the order *up*, *right*, *down* and *left*. To disable these extra buttons, set the [+joystick-hat-buttons+](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS) init hint before initialization.
 
@@ -905,11 +905,311 @@ If the specified joystick is not present this function will return `nil` but wil
 * *Parameters*:
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
-  * **buttons**: A list of button states, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+  * **buttons**: An array of button states, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
 * *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick button states](https://www.glfw.org/docs/latest/input_guide.html#joystick_button).
 
 ### get-joystick-hats
 
+```
+(get-joystick-hats jid) => hats
+```
 
+This function returns the state of all hats of the specified joystick. Each element in the array is one of the following values:
+
+| Name | Value |
+| --- | --- |
+| +hat-centered+ | 0 |
+| +hat-up+ | 1 |
+| +hat-right+ | 2 |
+| +hat-down+ | 4 |
+| +hat-left+ | 8 |
+| +hat-right-up+ | (logior +hat-right+ +hat-up+) |
+| +hat-right-down+ | (logior +hat-right+ +hat-down+) |
+| +hat-left-up+ | (logior +hat-left+ +hat-up+) |
+| +hat-left-down+ | (logior +hat-left+ +hat-down+) |
+
+The diagonal directions are bitwise combinations of the primary (up, right, down and left) directions and you can test for these individually by ANDing it with the corresponding direction.
+
+```
+(when (> (logand (aref hats 2) +hat-right+) 0)
+  ; State of hat 2 could be right-up, right or right-down
+  )
+```
+
+If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **hats**: An array of hat states, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Joystick hat states](https://www.glfw.org/docs/latest/input_guide.html#joystick_hat).
+
+### get-joystick-name
+
+```
+(get-joystick-name jid) => name
+```
+
+This function returns the name, encoded as UTF-8, of the specified joystick. 
+
+If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **name**: The UTF-8 encoded name of the joystick, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Joystick name](https://www.glfw.org/docs/latest/input_guide.html#joystick_name).
+
+### get-joystick-guid
+
+```
+(get-joystick-guid jid) => guid
+```
+
+This function returns the SDL compatible GUID, as a UTF-8 encoded hexadecimal string, of the specified joystick. The returned string is allocated and freed by GLFW. You should not free it yourself.
+
+The GUID is what connects a joystick to a gamepad mapping. A connected joystick will always have a GUID even if there is no gamepad mapping assigned to it.
+
+If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
+
+The GUID uses the format introduced in SDL 2.0.5. This GUID tries to uniquely identify the make and model of a joystick but does not identify a specific unit, e.g. all wired Xbox 360 controllers will have the same GUID on that platform. The GUID for a unit may vary between platforms depending on what hardware information the platform specific APIs provide.
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **guid**: The UTF-8 encoded GUID of the joystick, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad).
+
+### set-joystick-user-data
+
+```
+(set-joystick-user-data jid data)
+```
+
+This function sets the user-defined data of the specified joystick. The current value is retained until the joystick is disconnected. The initial value is `nil`.
+
+This function may be called from the joystick callback, even for a joystick that is being disconnected.
+
+* *Parameters*:
+  * **jid**: The joystick whose data to set.
+  * **data**: The new value.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Access is not synchronized.
+* *See also*: [Joystick user pointer](https://www.glfw.org/docs/latest/input_guide.html#joystick_userptr), [get-joystick-user-data](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-user-data).
+
+### get-joystick-user-data
+
+```
+(get-joystick-user-data jid) => data
+```
+
+This function returns the current value of the user-defined data of the specified joystick. The initial value is `nill`.
+
+This function may be called from the joystick callback, even for a joystick that is being disconnected.
+
+* *Parameters*:
+  * **jid**: The joystick whose data to return.
+* *Returns*:
+  * **data**: The data of the specified joystick.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Access is not synchronized.
+* *See also*: [Joystick user pointer](https://www.glfw.org/docs/latest/input_guide.html#joystick_userptr), [set-joystick-user-data](https://hectarea1996.github.io/cl-glfw/input.html#set-joystick-user-data).
+
+### joystick-is-gamepad
+
+```
+(joystick-is-gamepad jid) => is-gamepad
+```
+
+This function returns whether the specified joystick is both present and has a gamepad mapping.
+
+If the specified joystick is present but does not have a gamepad mapping this function will return `nil` but will not generate an error. Call [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present) to check if a joystick is present regardless of whether it has a mapping.
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **is-gamepad**: `t` if a joystick is both present and has a gamepad mapping, or `nil` otherwise.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [get-gamepad-state](https://hectarea1996.github.io/cl-glfw/input.html#get-gamepad-state).
+
+### set-joystick-callback
+
+```
+(set-joystick-callback callback) => old-callback
+```
+
+This function sets the joystick configuration callback, or removes the currently set callback. This is called when a joystick is connected to or disconnected from the system.
+
+For joystick connection and disconnection events to be delivered on all platforms, you need to call one of the [event processing](https://www.glfw.org/docs/latest/input_guide.html#events) functions. Joystick disconnection may also be detected and the callback called by joystick functions. The function will then return whatever it returns if the joystick is not present.
+
+* *Parameters*:
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Joystick configuration changes](https://www.glfw.org/docs/latest/input_guide.html#joystick_event), [def-joystick-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-joystick-callback).
+
+### update-gamepad-mappings
+
+```
+(update-gamepad-mappings string) => success
+```
+
+This function parses the specified ASCII encoded string and updates the internal list with any gamepad mappings it finds. This string may contain either a single gamepad mapping or many mappings separated by newlines. The parser supports the full format of the `gamecontrollerdb.txt` source file including empty lines and comments.
+
+See [Gamepad mappings](https://www.glfw.org/docs/latest/input_guide.html#gamepad_mapping) for a description of the format.
+
+If there is already a gamepad mapping for a given GUID in the internal list, it will be replaced by the one passed to this function. If the library is terminated and re-initialized the internal list will revert to the built-in default.
+
+* *Parameters*:
+  * **string**: The string containing the gamepad mappings.
+* *Returns*:
+  * **success**: `t` if successful, or `nil` if an error occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad), [get-gamepad-name](https://hectarea1996.github.io/cl-glfw/input.html#get-gamepad-name).
+
+### get-gamepad-name
+
+```
+(get-gamepad-name jid) => name
+```
+
+This function returns the human-readable name of the gamepad from the gamepad mapping assigned to the specified joystick.
+
+If the specified joystick is not present or does not have a gamepad mapping this function will return `nil` but will not generate an error. Call [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present) to check whether it is present regardless of whether it has a mapping.
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*: 
+  * **name**: The UTF-8 encoded name of the gamepad, or `nil` if the joystick is not present, does not have a mapping or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad).
+
+### get-gamepad-state
+
+```
+(get-gamepad-state jid) => success state
+```
+
+This function retrieves the state of the specified joystick remapped to an Xbox-like gamepad.
+
+If the specified joystick is not present or does not have a gamepad mapping this function will return `nil` but will not generate an error. Call [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present) to check whether it is present regardless of whether it has a mapping.
+
+The Guide button may not be available for input as it is often hooked by the system or the Steam client.
+
+Not all devices have all the buttons or axes provided by [gamepadstate](https://hectarea1996.github.io/cl-glfw/input.html#gamepadstate). Unavailable buttons and axes will always report `+release+` and 0.0 respectively.
+
+* *Parameters*:
+  * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
+* *Returns*:
+  * **success**: `t` if successful, or `nil` if no joystick is connected, it has no gamepad mapping or an error occurred.
+  * **state**: The gamepad input state of the joystick.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [update-gamepad-mappings](https://hectarea1996.github.io/cl-glfw/input.html#update-gamepad-mappings), [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad).
+
+### set-clipboard-string
+
+```
+(set-clipboard-string window string)
+```
+
+This function sets the system clipboard to the specified, UTF-8 encoded string.
+
+* *Parameters*:
+  * **window**: Deprecated. Any valid window or `nil`.
+  * **string**: A UTF-8 encoded string.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Clipboard input and output](https://www.glfw.org/docs/latest/input_guide.html#clipboard), [get-clipboard-string](https://hectarea1996.github.io/cl-glfw/input.html#get-clipboard-string).
+
+### get-clipboard-string
+
+```
+(get-clipboard-string window) => clipboard
+```
+
+This function returns the contents of the system clipboard, if it contains or is convertible to a UTF-8 encoded string. If the clipboard is empty or if its contents cannot be converted, `nil` is returned and a [format-unavailable](https://hectarea1996.github.io/cl-glfw/init-version-error.html#format-unavailable) error is generated.
+
+* *Parameters*:
+  * **window**: Deprecated. Any valid window or `nil`.
+* *Returns*:
+  * **clipboard**: The contents of the clipboard as a UTF-8 encoded string, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [format-unavailable](https://hectarea1996.github.io/cl-glfw/init-version-error.html#format-unavailable) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Clipboard input and output](https://www.glfw.org/docs/latest/input_guide.html#clipboard), [set-clipboard-string](https://hectarea1996.github.io/cl-glfw/input.html#set-clipboard-string).
+
+### get-time
+
+```
+(get-time) => time
+```
+
+This function returns the current GLFW time, in seconds. Unless the time has been set using [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time) it measures time elapsed since GLFW was initialized.
+
+This function and [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time) are helper functions on top of [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency) and [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value).
+
+The resolution of the timer is system dependent, but is usually on the order of a few micro- or nanoseconds. It uses the highest-resolution monotonic time source on each supported platform.
+
+* *Returns*:
+  * **time**: The current time, in seconds, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Reading and writing of the internal base time is not atomic, so it needs to be externally synchronized with calls to [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time).
+* *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time).
+
+### set-time
+
+```
+(set-time time)
+```
+
+This function sets the current GLFW time, in seconds. The value must be a positive finite number less than or equal to 18446744073.0, which is approximately 584.5 years.
+
+This function and [get-time](https://hectarea1996.github.io/cl-glfw/input.html#get-time) are helper functions on top of [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency) and [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value).
+
+* *Parameters*:
+  * **time**: The new value, in seconds.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
+* *Remarks*: The upper limit of GLFW time is calculated as floor((2^64 - 1) / 10^9) and is due to implementations storing nanoseconds in 64 bits. The limit may be increased in the future.
+* *Thread safety*: This function may be called from any thread. Reading and writing of the internal base time is not atomic, so it needs to be externally synchronized with calls to [get-time](https://hectarea1996.github.io/cl-glfw/input.html#get-time).
+* *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time).
+
+### get-timer-value
+
+```
+(get-timer-value) => value
+```
+
+This function returns the current value of the raw timer, measured in 1 / frequency seconds. To get the frequency, call [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency).
+
+* *Returns*:
+  * **value**: The value of the timer, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time), [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency).
+
+### get-timer-frequency
+
+```
+(get-timer-frequency) => frequency
+```
+
+This function returns the frequency, in Hz, of the raw timer.
+
+* *Returns*:
+  * **frequency**: The frequency of the timer, in Hz, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time), [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value).
