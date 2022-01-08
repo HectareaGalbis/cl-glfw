@@ -1237,7 +1237,7 @@ This function returns the frequency, in Hz, of the raw timer.
 ### def-key-callback
 
 ```
-(def-key-callback (name (window key scancode action mods) &body body)
+(def-key-callback (name (window key scancode action mods) &body body))
 ```
 
 Defines a key callback. A keyboard key callback function has the following signature:
@@ -1253,7 +1253,7 @@ Defines a key callback. A keyboard key callback function has the following signa
 ### def-char-callback
 
 ```
-(def-char-callback (name (window codepoint) &body body)
+(def-char-callback (name (window codepoint) &body body))
 ```
 
 Defines a Unicode character callback. A Unicode character callback function has the following signature:
@@ -1266,7 +1266,7 @@ Defines a Unicode character callback. A Unicode character callback function has 
 ### def-char-mods-callback
 
 ```
-(def-char-mods-callback (name (window codepoint mods) &body body)
+(def-char-mods-callback (name (window codepoint mods) &body body))
 ```
 
 Defines a Unicode character with modifiers callback. A Unicode character with modifiers callback function has the following signature:
@@ -1280,7 +1280,7 @@ Defines a Unicode character with modifiers callback. A Unicode character with mo
 ### def-mouse-button-callback
 
 ```
-(def-mouse-button-callback (name (window button action mods) &body body)
+(def-mouse-button-callback (name (window button action mods) &body body))
 ```
 
 Defines a mouse button callback. A mouse button callback function has the following signature:
@@ -1295,7 +1295,7 @@ Defines a mouse button callback. A mouse button callback function has the follow
 ### def-cursor-pos-callback
 
 ```
-(def-cursor-pos-callback (name (window xpos ypos) &body body)
+(def-cursor-pos-callback (name (window xpos ypos) &body body))
 ```
 
 Defines a cursor pos callback. A cursor pos callback function has the following signature:
@@ -1309,7 +1309,7 @@ Defines a cursor pos callback. A cursor pos callback function has the following 
 ### def-cursor-enter-callback
 
 ```
-(def-cursor-enter-callback (name (window entered) &body body)
+(def-cursor-enter-callback (name (window entered) &body body))
 ```
 
 Defines a cursor enter/leave callback. A cursor enter/leave callback function has the following signature:
@@ -1322,7 +1322,7 @@ Defines a cursor enter/leave callback. A cursor enter/leave callback function ha
 ### def-scroll-callback
 
 ```
-(def-scroll-callback (name (window xoffset yoffset) &body body)
+(def-scroll-callback (name (window xoffset yoffset) &body body))
 ```
 
 Defines a scroll callback. A scroll callback function has the following signature:
@@ -1336,7 +1336,7 @@ Defines a scroll callback. A scroll callback function has the following signatur
 ### def-drop-callback
 
 ```
-(def-drop-callback (name (window paths) &body body)
+(def-drop-callback (name (window paths) &body body))
 ```
 
 Defines a path drop callback. A path drop callback function has the following signature:
@@ -1349,7 +1349,7 @@ Defines a path drop callback. A path drop callback function has the following si
 ### def-joystick-callback
 
 ```
-(def-joystick-callback (name (jid event) &body body)
+(def-joystick-callback (name (jid event) &body body))
 ```
 
 Defines a joystick configuration callback. A joystick configuration callback function has the following signature:

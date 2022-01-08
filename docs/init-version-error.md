@@ -374,7 +374,7 @@ Once set, the error callback remains set even after the library has been termina
 ### def-error-callback
 
 ```
-(def-error-callback (name (error-code description) &body body)
+(def-error-callback (name (error-code description) &body body))
 ```
 
 Defines an error callback. An error callback function has the following signature:

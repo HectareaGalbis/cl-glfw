@@ -37,6 +37,8 @@ This is the reference documentation for monitor related functions and types. For
 
 ## Macros
 
+* [def-monitor-callback](https://hectarea1996.github.io/cl-glfw/monitor.html#def-monitor-callback): Defines a monitor callback.
+
 ## Struct documentation
 
 ### vidmode
@@ -208,4 +210,159 @@ This function returns a human-readable name, encoded as UTF-8, of the specified 
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Monitor properties](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_properties).
 
+### set-monitor-user-data
+
+```
+(set-monitor-user-data monitor data)
+```
+
+This function sets the user-defined data of the specified monitor. The current value is retained until the monitor is disconnected. The initial value is `nil`.
+
+This function may be called from the monitor callback, even for a monitor that is being disconnected.
+
+* *Parameters*:
+  * **monitor**: The monitor whose data to set.
+  * **data**: The new value.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Access is not synchronized.
+* *See also*: [User data](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_userptr), [get-monitor-user-data](https://hectarea1996.github.io/cl-glfw/monitor.html#get-monitor-user-data).
+
+### get-monitor-user-data
+
+```
+(get-monitor-user-data monitor)
+```
+
+This function returns the current value of the user-defined pointer of the specified monitor. The initial value is `nil`.
+
+This function may be called from the monitor callback, even for a monitor that is being disconnected.
+
+* *Parameters*:
+  * **monitor**: The monitor whose data to return.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Access is not synchronized.
+* *See also*: [User data](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_userptr), [set-monitor-user-data](https://hectarea1996.github.io/cl-glfw/monitor.html#set-monitor-user-data).
+
+### set-monitor-callback
+
+```
+(set-monitor-callback callback) => old-callback
+```
+
+This function sets the monitor configuration callback, or removes the currently set callback. This is called when a monitor is connected to or disconnected from the system.
+
+* *Parameters*:
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Monitor configuration changes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_event), [def-monitor-callback](https://hectarea1996.github.io/cl-glfw/monitor.html#def-monitor-callback).
+
+### get-video-modes
+
+```
+(get-video-modes monitor) => video-modes
+```
+
+This function returns an array of all video modes supported by the specified monitor. The returned array is sorted in ascending order, first by color bit depth (the sum of all channel depths), then by resolution area (the product of width and height), then resolution width and finally by refresh rate.
+
+* *Parameters*:
+  * **monitor**: The monitor to query.
+* *Returns*:
+  * **video-modes**: An array of video modes, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Video modes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_modes), [get-video-mode](https://hectarea1996.github.io/cl-glfw/monitor.html#get-video-mode).
+
+### get-video-mode
+
+```
+(get-video-mode monitor) => video-mode
+```
+
+This function returns the current video mode of the specified monitor. If you have created a full screen window for that monitor, the return value will depend on whether that window is iconified.
+
+* *Parameters*:
+  * **monitor**: The monitor to query.
+* *Returns*:
+  * **video-mode**: The current mode of the monitor, or `nil` if an error occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Video modes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_modes), [get-video-modes](https://hectarea1996.github.io/cl-glfw/monitor.html#get-video-modes).
+
+### set-gamma
+
+```
+(set-gamma monitor gamma)
+```
+
+This function generates an appropriately sized gamma ramp from the specified exponent and then calls [set-gamma-ramp](https://hectarea1996.github.io/cl-glfw/monitor.html#set-gamma-ramp) with it. The value must be a finite number greater than zero.
+
+The software controlled gamma ramp is applied *in addition* to the hardware gamma correction, which today is usually an approximation of sRGB gamma. This means that setting a perfectly linear ramp, or gamma 1.0, will produce the default (usually sRGB-like) behavior.
+
+For gamma correct rendering with OpenGL or OpenGL ES, see the [+srgb-capable+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE) hint.
+
+* *Parameters*:
+  * **monitor**: The monitor whose gamma ramp to set.
+  * **gamma**: The desired exponent.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*:
+  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma).
+
+### get-gamma-ramp
+
+```
+(get-gamma-ramp monitor) => gamma-ramp
+```
+
+This function returns the current gamma ramp of the specified monitor.
+
+* *Parameters*:
+  * **monitor**: The monitor to query.
+* *Returns*:
+  * **gamma-ramp**: The current gamma ramp, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*:
+  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma).
+
+### set-gamma-ramp
+
+```
+(set-gamma-ramp monitor ramp)
+```
+
+This function sets the current gamma ramp for the specified monitor. The original gamma ramp for that monitor is saved by GLFW the first time this function is called and is restored by [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate).
+
+The software controlled gamma ramp is applied *in addition* to the hardware gamma correction, which today is usually an approximation of sRGB gamma. This means that setting a perfectly linear ramp, or gamma 1.0, will produce the default (usually sRGB-like) behavior.
+
+For gamma correct rendering with OpenGL or OpenGL ES, see the [+srgb-capable+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE) hint.
+
+* *Parameters*:
+  * **monitor**: The monitor whose gamma ramp to set.
+  * **ramp**: The gamma ramp to use.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: The size of the specified gamma ramp should match the size of the current ramp for that monitor.
+  * **Windows**: The gamma ramp size must be 256.
+  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma).
+
 ## Macro documentation
+
+### def-monitor-callback
+
+```
+(def-monitor-callback (name (monitor event) &body body))
+```
+
+Defines a monitor callback. A monitor callback function has the following signature:
+
+* *Parameters*:
+  * **monitor**: The monitor that was connected or disconnected.
+  * **event**: One of `+connected+` or `+disconnected+`. Future releases may add more events.
+* *See also*: [Monitor configuration changes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_event), [set-monitor-callback](https://hectarea1996.github.io/cl-glfw/monitor.html#set-monitor-callback).
