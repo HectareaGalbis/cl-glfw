@@ -13,13 +13,13 @@ information, see the [Context guide](https://www.glfw.org/docs/latest/context_gu
 
 ## Functions
 
-
 * [make-context-current window](https://hectarea1996.github.io/cl-glfw/context.html#make-context-current): Makes the context of the specified window current for the calling thread.
 * [get-current-context](https://hectarea1996.github.io/cl-glfw/context.html#get-current-context): Returns the window whose context is current on the calling thread.
 * [swap-interval](https://hectarea1996.github.io/cl-glfw/context.html#swap-interval): Sets the swap interval for the current context.
 * [extension-supported](https://hectarea1996.github.io/cl-glfw/context.html#extension-supported): Returns whether the specified extension is available.
 * [get-proc-address](https://hectarea1996.github.io/cl-glfw/context.html#get-proc-address): Returns the address of the specified function for the current context.
 
+## Function documentation
 
 ### make-context-current
 

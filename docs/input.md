@@ -11,6 +11,7 @@ This is the reference documentation for input related functions and types. For m
 * [Constants](https://hectarea1996.github.io/cl-glfw/input.html#constants)
 * [Structs](https://hectarea1996.github.io/cl-glfw/input.html#structs)
 * [Functions](https://hectarea1996.github.io/cl-glfw/input.html#functions)
+* [Macros](https://hectarea1996.github.io/cl-glfw/input.html#macros)
 
 ## Constants
 
@@ -275,6 +276,11 @@ See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html
 * **+lock-key-mods+** #x00033004
 * **+raw-mouse-motion+** #x00033005
 
+### Joystick configuration
+
+* **+connected+** #x00040001
+* **+disconnected+** #x00040002
+
 ## Structs
 
 * [gamepadstate](https://hectarea1996.github.io/cl-glfw/input.html#gamepadstate): Gamepad input state.
@@ -321,6 +327,18 @@ See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html
 * [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time): Sets the GLFW time.
 * [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value): Returns the current value of the raw timer.
 * [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency): Returns the frequency, in Hz, of the raw timer.
+
+## Macros
+
+* [def-key-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-key-callback): Defines a key callback.
+* [def-char-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-char-callback): Defines a char callback.
+* [def-char-mods-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-char-mods-callback): Defines a char mods callback.
+* [def-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-mouse-button-callback): Defines a mouse button callback.
+* [def-cursor-pos-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-cursor-pos-callback): Defines a cursor pos callback.
+* [def-cursor-enter-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-cursor-enter-callback): Defines a cursor enter callback.
+* [def-scroll-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-scroll-callback): Defines a scroll callback.
+* [def-drop-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-drop-callback): Defines a drop callback.
+* [def-joystick-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-joystick-callback): Defines a joystick callback.
 
 ## Constant documentation
 
@@ -1213,3 +1231,130 @@ This function returns the frequency, in Hz, of the raw timer.
 * *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time), [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value).
+
+## Macro documentation
+
+### def-key-callback
+
+```
+(def-key-callback (name (window key scancode action mods) &body body)
+```
+
+Defines a key callback. A keyboard key callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **key**: 	The [keyboard key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys) that was pressed or released.
+  * **scancode**: The system-specific scancode of the key.
+  * **action**: `+press+`, `+release+` or `+repeat+`. Future releases may add more actions.
+  * **mods**: 	Bit field describing which [modifier keys](https://hectarea1996.github.io/cl-glfw/input.html#modifier-key-flags) were held down.
+* *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key), [set-key-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-key-callback).
+
+### def-char-callback
+
+```
+(def-char-callback (name (window codepoint) &body body)
+```
+
+Defines a Unicode character callback. A Unicode character callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **codepoint**: 	The Unicode code point of the character.
+* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char), [set-char-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-char-callback).
+
+### def-char-mods-callback
+
+```
+(def-char-mods-callback (name (window codepoint mods) &body body)
+```
+
+Defines a Unicode character with modifiers callback. A Unicode character with modifiers callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **codepoint**: 	The Unicode code point of the character.
+  * **mods**: Bit field describing which [modifier keys](https://hectarea1996.github.io/cl-glfw/input.html#modifier-key-flags) were held down.
+* *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char), [set-char-mods-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-char-mods-callback).
+
+### def-mouse-button-callback
+
+```
+(def-mouse-button-callback (name (window button action mods) &body body)
+```
+
+Defines a mouse button callback. A mouse button callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **button**: The [mouse button](https://hectarea1996.github.io/cl-glfw/input.html#mouse-buttons) that was pressed or released.
+  * **action**: One of `+press+` or `+release+`. Future releases may add more actions.
+  * **mods**: Bit field describing which [modifier keys](https://hectarea1996.github.io/cl-glfw/input.html#modifier-key-flags) were held down.
+* *See also*: [Mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button), [set-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-mouse-button-callback).
+
+### def-cursor-pos-callback
+
+```
+(def-cursor-pos-callback (name (window xpos ypos) &body body)
+```
+
+Defines a cursor pos callback. A cursor pos callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **xpos**: The new cursor x-coordinate, relative to the left edge of the content area.
+  * **ypos**: The new cursor y-coordinate, relative to the top edge of the content area.
+* *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [set-cursor-pos-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-pos-callback).
+
+### def-cursor-enter-callback
+
+```
+(def-cursor-enter-callback (name (window entered) &body body)
+```
+
+Defines a cursor enter/leave callback. A cursor enter/leave callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **entered**: `t` if the cursor entered the window's content area, or `nil` if it left it.
+* *See also*: [Cursor enter/leave events](https://www.glfw.org/docs/latest/input_guide.html#cursor_enter), [set-cursor-enter-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-enter-callback).
+
+### def-scroll-callback
+
+```
+(def-scroll-callback (name (window xoffset yoffset) &body body)
+```
+
+Defines a scroll callback. A scroll callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **xoffset**: The scroll offset along the x-axis.
+  * **yoffset**: The scroll offset along the y-axis.
+* *See also*: [Scroll input](https://www.glfw.org/docs/latest/input_guide.html#scrolling), [set-scroll-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-scroll-callback).
+
+### def-drop-callback
+
+```
+(def-drop-callback (name (window paths) &body body)
+```
+
+Defines a path drop callback. A path drop callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that received the event.
+  * **paths**: An array with the UTF-8 encoded file and/or directory paths.
+* *See also*: [Path drop input](https://www.glfw.org/docs/latest/input_guide.html#path_drop), [set-drop-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-drop-callback).
+
+### def-joystick-callback
+
+```
+(def-joystick-callback (name (jid event) &body body)
+```
+
+Defines a joystick configuration callback. A joystick configuration callback function has the following signature:
+
+* *Parameters*:
+  * **jid**: The joystick that was connected or disconnected.
+  * **event**: One of `+connected+` or `+disconnected+`. Future releases may add more events.
+* *See also*: [Joystick configuration changes](https://www.glfw.org/docs/latest/input_guide.html#joystick_event), [set-joystick-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-joystick-callback).

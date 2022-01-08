@@ -377,7 +377,7 @@
 (defmacro def-drop-callback (name (window paths) &body body) 
     (let ((path-count (gensym)) (arr-paths (gensym)))
         `(defcallback ,name ((,window :window) (,path-count :int) (,arr-paths :pointer))
-            (let ((,paths (array->list ,arr-paths :string ,path-count))) 
+            (let ((,paths (carray->array ,arr-paths :string ,path-count))) 
                 ,@body))))
 
 (defmacro def-joystick-callback (name (window jid event) &body body) 

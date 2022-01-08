@@ -249,6 +249,9 @@
         :+cursor-normal+
         :+cursor-hidden+
         :+cursor-disabled+
+        ; Joystick configuration
+        :+connected+                  
+        :+disconnected+   
 
         ; Window
         :+focused+                      
@@ -762,6 +765,10 @@
         :+cursor-normal+
         :+cursor-hidden+
         :+cursor-disabled+
+        ; Joystick configuration
+        :+connected+                  
+        :+disconnected+         
+
 
         ; Window
         :+focused+                      

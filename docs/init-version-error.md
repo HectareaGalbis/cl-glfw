@@ -11,6 +11,7 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 * [Constants](https://hectarea1996.github.io/cl-glfw/init-version-error.html#constants)
 * [Functions](https://hectarea1996.github.io/cl-glfw/init-version-error.html#functions)
+* [Macros](https://hectarea1996.github.io/cl-glfw/init-version-error.html#macros)
 
 ## Constants
 

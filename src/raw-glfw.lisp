@@ -276,6 +276,10 @@
     (+cursor-hidden+                #x00034002)
     (+cursor-disabled+              #x00034003)
 
+    ; Joystick configuration
+    (+connected+                    #x00040001)
+    (+disconnected+                 #x00040002)
+
     ; Window
     (+focused+                      #x00020001                      "Input focus window hint and attribute.")
     (+iconified+                    #x00020002                      "Window iconification window attribute.")
