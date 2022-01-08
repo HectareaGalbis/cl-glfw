@@ -294,7 +294,9 @@
     (with-foreign-object (csize :int)
         (let* ((cextensions (raw-glfw:get-required-instance-extensions csize))
                (size (mem-ref csize :int)))
-            (array->list cextensions :string size))))
+            (if (not (null-pointer-p cextensions)) 
+                (array->list cextensions :string size)
+                nil))))
 
 ; Window
 (defun set-window-icon (window images)
