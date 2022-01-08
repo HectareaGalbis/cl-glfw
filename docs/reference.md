@@ -10,4 +10,4 @@ Here is a list of all modules:
 3. [Input reference](https://hectarea1996.github.io/cl-glfw/input.html)
 4. [Monitor reference](https://hectarea1996.github.io/cl-glfw/monitor.html)
 5. [Vulkan support reference](https://hectarea1996.github.io/cl-glfw/vulkan.html)
-6. Window reference
+6. [Window reference](https://hectarea1996.github.io/cl-glfw/window.html)
