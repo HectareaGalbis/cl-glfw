@@ -325,7 +325,10 @@
     (+cocoa-frame-name+             #x00023002                      "macOS specific window hint.")
     (+cocoa-graphics-switching+     #x00023003                      "macOS specific window hint.")
     (+x11-class-name+               #x00024001                      "X11 specific window hint.")
-    (+x11-instance-name+            #x00024002                      "X11 specific window hint."))
+    (+x11-instance-name+            #x00024002                      "X11 specific window hint.")
+    
+    ; Others
+    (+dont-care+                    -1))
 
 
 ;; Deftypes

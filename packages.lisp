@@ -299,6 +299,9 @@
         :+cocoa-graphics-switching+     
         :+x11-class-name+               
         :+x11-instance-name+
+
+        ; Others
+        :+dont-care+
         
         ;; Structs
 
@@ -817,6 +820,8 @@
         :+x11-class-name+               
         :+x11-instance-name+
         
+        ; Others
+        :+dont-care+
 
         ;; Structs
 

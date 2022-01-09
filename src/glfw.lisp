@@ -113,17 +113,23 @@
     (do ((i size (1- i)) (lst nil (cons (mem-aref arr ctype i) lst)))
         ((< i 0) lst)))
 
-(defun list->array (lst ctype arr)
+(defun list->carray (lst ctype carr)
     (do ((i 0 (1+ i))
          (l lst (cdr lst)))
         ((>= i (length lst)))
-        (setf (mem-aref arr ctype i) (car lst))))
+        (setf (mem-aref carr ctype i) (car lst))))
 
 (defun carray->array (carr ctype size)
     (let ((arr (make-array size)))
         (dotimes (i size)
             (setf (aref arr i) (mem-aref carr ctype i)))
         arr))
+
+(defun array->carray (arr ctype carr)
+    (let ((size (length arr))) 
+        (do ((i 0 (1+ i)))
+            ((>= i size))
+            (setf (mem-aref carr ctype i) (aref arr i)))))
 
 
 ;; Functions
@@ -301,7 +307,7 @@
 ; Window
 (defun set-window-icon (window images)
     (with-foreign-object (cimages '(:struct raw-glfw:image) (length images))
-        (list->array images '(:struct raw-glfw:image) cimages)
+        (array->carray images '(:struct raw-glfw:image) cimages)
         (raw-glfw:set-window-icon window (length images) cimages)
         (dotimes (i (length images))
             (free-converted-object (mem-aptr cimages '(:struct raw-glfw:image) i) '(:struct raw-glfw:image) t))))
