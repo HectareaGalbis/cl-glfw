@@ -878,6 +878,504 @@ A window created with framebuffer transparency may not use whole window transpar
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window transparency](https://www.glfw.org/docs/latest/window_guide.html#window_transparency), [get-window-opacity](https://hectarea1996.github.io/cl-glfw/window.html#get-window-opacity).
 
+### iconify-window
 
+```
+(iconify-window window)
+```
+
+This function iconifies (minimizes) the specified window if it was previously restored. If the window is already iconified, this function does nothing.
+
+If the specified window is a full screen window, the original monitor resolution is restored until the window is restored.
+
+* *Parameters*:
+  * **window**: The window to iconify.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*:
+  * **Wayland**: There is no concept of iconification in wl_shell, this function will emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) when using this deprecated protocol.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [restore-window](https://hectarea1996.github.io/cl-glfw/window.html#restore-window), [maximize-window](https://hectarea1996.github.io/cl-glfw/window.html#maximize-window).
+
+### restore-window
+
+```
+(restore-window window)
+```
+
+This function restores the specified window if it was previously iconified (minimized) or maximized. If the window is already restored, this function does nothing.
+
+If the specified window is a full screen window, the resolution chosen for the window is restored on the selected monitor.
+
+* *Parameters*:
+  * **window**: The window to restore.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [iconify-window](https://hectarea1996.github.io/cl-glfw/window.html#restore-window), [maximize-window](https://hectarea1996.github.io/cl-glfw/window.html#maximize-window).
+
+### maximize-window
+
+```
+(maximize-window window)
+```
+
+This function maximizes the specified window if it was previously not maximized. If the window is already maximized, this function does nothing.
+
+If the specified window is a full screen window, this function does nothing.
+
+* *Parameters*:
+  * **window**: The window to maximize.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [iconify-window](https://hectarea1996.github.io/cl-glfw/window.html#restore-window), [restore-window](https://hectarea1996.github.io/cl-glfw/window.html#maximize-window).
+
+### show-window
+
+```
+(show-window window)
+```
+
+This function makes the specified window visible if it was previously hidden. If the window is already visible or is in full screen mode, this function does nothing.
+
+By default, windowed mode windows are focused when shown Set the [+focus-on-show+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_hint) window hint to change this behavior for all newly created windows, or change the behavior for an existing window with [set-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#set-window-attrib).
+
+* *Parameters*:
+  * **window**: The window to make visible.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window visibility](https://www.glfw.org/docs/latest/window_guide.html#window_hide), [hide-window](https://hectarea1996.github.io/cl-glfw/window.html#hide-window).
+
+### hide-window
+
+```
+(hide-window window)
+```
+
+This function hides the specified window if it was previously visible. If the window is already hidden or is in full screen mode, this function does nothing.
+
+* *Parameters*:
+  * **window**: The window to hide.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window visibility](https://www.glfw.org/docs/latest/window_guide.html#window_hide), [show-window](https://hectarea1996.github.io/cl-glfw/window.html#show-window).
+
+### focus-window
+
+```
+(focus-window window)
+```
+
+This function brings the specified window to front and sets input focus. The window should already be visible and not iconified.
+
+By default, both windowed and full screen mode windows are focused when initially created. Set the [+focused+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) to disable this behavior.
+
+Also by default, windowed mode windows are focused when shown with [show-window](https://hectarea1996.github.io/cl-glfw/window.html#show-window). Set the [+focus-on-show+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_hint) to disable this behavior.
+
+**Do not use this function** to steal focus from other applications unless you are certain that is what the user wants. Focus stealing can be extremely disruptive.
+
+For a less disruptive way of getting the user's attention, see [attention requests](https://www.glfw.org/docs/latest/window_guide.html#window_attention).
+
+* *Parameters*:
+  * **window**: The window to give input focus.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: 
+  * **Wayland**: It is not possible for an application to bring its windows to front, this function will always emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window input focus](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [Window attention request](https://www.glfw.org/docs/latest/window_guide.html#window_attention).
+
+### request-window-attention
+
+This function requests user attention to the specified window. On platforms where this is not supported, attention is requested to the application as a whole.
+
+Once the user has given attention, usually by focusing the window or application, the system will end the request automatically.
+
+* *Parameters*:
+  * **window**: The window to request attention to.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: 
+  * **macOS**: Attention is requested to the application as a whole, not the specific window.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window attention request](https://www.glfw.org/docs/latest/window_guide.html#window_attention).
+
+### get-window-monitor
+
+```
+(get-window-monitor window) => monitor
+```
+
+This function returns the handle of the monitor that the specified window is in full screen on.
+
+* *Parameters*:
+  * **window**: The window to query.
+* *Returns*:
+  * **monitor**: The monitor, or `nil` if the window is in windowed mode or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window monitor](https://www.glfw.org/docs/latest/window_guide.html#window_monitor), [set-window-monitor](https://hectarea1996.github.io/cl-glfw/window.html#set-window-monitor).
+
+### set-window-monitor
+
+```
+(set-window-monitor window monitor xpos ypos width height refreshRate)
+```
+
+This function sets the monitor that the window uses for full screen mode or, if the monitor is `nil`, makes it windowed mode.
+
+When setting a monitor, this function updates the width, height and refresh rate of the desired video mode and switches to the video mode closest to it. The window position is ignored when setting a monitor.
+
+When the monitor is `nil`, the position, width and height are used to place the window content area. The refresh rate is ignored when no monitor is specified.
+
+If you only wish to update the resolution of a full screen window or the size of a windowed mode window, see [set-window-size](https://hectarea1996.github.io/cl-glfw/window.html#set-window-size).
+
+When a window transitions from full screen to windowed mode, this function restores any previous window settings such as whether it is decorated, floating, resizable, has size or aspect ratio limits, etc.
+
+* *Parameters*:
+  * **window**: The window whose monitor, size or video mode to set.
+  * **monitor**: 	The desired monitor, or `nil` to set windowed mode.
+  * **xpos**: The desired x-coordinate of the upper-left corner of the content area.
+  * **ypos**: The desired y-coordinate of the upper-left corner of the content area.
+  * **width**: The desired width, in screen coordinates, of the content area or video mode.
+  * **height**: The desired height, in screen coordinates, of the content area or video mode.
+  * **refreshRate**: The desired refresh rate, in Hz, of the video mode, or `+dont-care+`.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: The OpenGL or OpenGL ES context will not be destroyed or otherwise affected by any resizing or mode switching, although you may need to update your viewport if the framebuffer size has changed.
+  * **Wayland**: The desired window position is ignored, as there is no way for an application to set this property.
+  * **Wayland**: Setting the window to full screen will not attempt to change the mode, no matter what the requested size or refresh rate.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window monitor](https://www.glfw.org/docs/latest/window_guide.html#window_monitor), [Full screen windows](https://www.glfw.org/docs/latest/window_guide.html#window_full_screen), [get-window-monitor](https://hectarea1996.github.io/cl-glfw/window.html#get-window-monitor), [set-window-size](https://hectarea1996.github.io/cl-glfw/window.html#set-window-size).
+
+### get-window-attrib
+
+```
+(get-window-attrib window attrib) => value
+```
+
+This function returns the value of an attribute of the specified window or its OpenGL or OpenGL ES context.
+
+* *Parameters*:
+  * **window**: The window to query.
+  * **attrib**: The [window attribute](https://www.glfw.org/docs/latest/window_guide.html#window_attribs) whose value to return.
+* *Returns*:
+  * **value**: The value of the attribute, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: Framebuffer related hints are not window attributes. See [Framebuffer related attributes](https://www.glfw.org/docs/latest/window_guide.html#window_attribs_fb) for more information. Zero is a valid value for many window and context related attributes so you cannot use a return value of zero as an indication of errors. However, this function should not fail as long as it is passed valid arguments and the library has been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window attributes](https://www.glfw.org/docs/latest/window_guide.html#window_attribs), [set-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#set-window-attrib).
+
+### set-window-attrib
+
+```
+(set-window-attrib window attrib value)
+```
+
+This function sets the value of an attribute of the specified window.
+
+The supported attributes are [+decorated+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_DECORATED_attrib), [+resizable+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_RESIZABLE_attrib), [+floating+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FLOATING_attrib), [+auto-iconify+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_AUTO_ICONIFY_attrib) and [+focus-on-show+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_attrib).
+
+Some of these attributes are ignored for full screen windows. The new value will take effect if the window is later made windowed.
+
+Some of these attributes are ignored for windowed mode windows. The new value will take effect if the window is later made full screen.
+
+* *Parameters*:
+  * **window**: The window to set the attribute for.
+  * **attrib**: A supported window attribute.
+  * **value**: `+true+` or `+false+`.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: Calling [get-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#get-window-attrib) will always return the latest value, even if that value is ignored by the current mode of the window.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window attributes](https://www.glfw.org/docs/latest/window_guide.html#window_attribs), [get-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#get-window-attrib).
+
+### set-window-user-data
+
+```
+(set-window-user-data window data)
+```
+
+This function sets the user-defined pointer of the specified window. The current value is retained until the window is destroyed. The initial value is `nil`.
+
+* *Parameters*:
+  * **window**: The window whose data to set.
+  * **data**: The new value.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Access is not synchronized.
+* *See also*: [User data](https://www.glfw.org/docs/latest/window_guide.html#window_userptr), [get-window-user-data](https://hectarea1996.github.io/cl-glfw/window.html#get-window-user-data).
+
+### get-window-user-data
+
+```
+(get-window-user-data window) => data
+```
+
+This function returns the current value of the user-defined pointer of the specified window. The initial value is `nil`.
+
+* *Parameters*:
+  * **window**: The window whose data to return.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function may be called from any thread. Access is not synchronized.
+* *See also*: [User data](https://www.glfw.org/docs/latest/window_guide.html#window_userptr), [set-window-user-data](https://hectarea1996.github.io/cl-glfw/window.html#set-window-user-data).
+
+### set-window-pos-callback
+
+```
+(set-window-pos-callback window callback) => old-callback
+```
+
+This function sets the position callback of the specified window, which is called when the window is moved. The callback is provided with the position, in screen coordinates, of the upper-left corner of the content area of the window.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Remarks*:
+  * **Wayland**: This callback will never be called, as there is no way for an application to know its global position.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window position](https://www.glfw.org/docs/latest/window_guide.html#window_pos), [def-window-pos-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-pos-callback).
+
+### set-window-size-callback
+
+```
+(set-window-size-callback window callback) => old-callback
+```
+
+This function sets the size callback of the specified window, which is called when the window is resized. The callback is provided with the size, in screen coordinates, of the content area of the window.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window size](https://www.glfw.org/docs/latest/window_guide.html#window_size), [def-window-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-size-callback).
+
+### set-window-close-callback
+
+```
+(set-window-close-callback window callback) => old-callback
+```
+
+This function sets the close callback of the specified window, which is called when the user attempts to close the window, for example by clicking the close widget in the title bar.
+
+The close flag is set before this callback is called, but you can modify it at any time with [set-window-should-close](https://hectarea1996.github.io/cl-glfw/window.html#set-window-should-close).
+
+The close callback is not triggered by [destroy-window](https://hectarea1996.github.io/cl-glfw/window.html#destroy-window).
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Remarks*:
+  * **macOS**: Selecting Quit from the application menu will trigger the close callback for all windows.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window closing and close flag](https://www.glfw.org/docs/latest/window_guide.html#window_close), [def-window-close-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-close-callback).
+
+### set-window-refresh-callback
+
+```
+(set-window-refresh-callback window callback) => old-callback
+```
+
+This function sets the refresh callback of the specified window, which is called when the content area of the window needs to be redrawn, for example if the window has been exposed after having been covered by another window.
+
+On compositing window systems such as Aero, Compiz, Aqua or Wayland, where the window contents are saved off-screen, this callback may be called only very infrequently or never at all.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window damage and refresh](https://www.glfw.org/docs/latest/window_guide.html#window_refresh), [def-window-refresh-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-refresh-callback).
+
+### set-window-focus-callback
+
+```
+(set-window-focus-callback window callback) => old-callback
+```
+
+This function sets the focus callback of the specified window, which is called when the window gains or loses input focus.
+
+After the focus callback is called for a window that lost input focus, synthetic key and mouse button release events will be generated for all such that had been pressed. For more information, see [set-key-callback](https://hectarea1996.github.io/cl-glfw/window.html#set-key-callback) and [set-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/window.html#set-mouse-button-callback).
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window input focus](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [def-window-focus-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-focus-callback).
+
+### set-window-iconify-callback
+
+```
+(set-window-iconify-callback window callback) => old-callback
+```
+
+This function sets the iconification callback of the specified window, which is called when the window is iconified or restored.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Remarks*:
+  * **Wayland**: The wl_shell protocol has no concept of iconification, this callback will never be called when using this deprecated protocol.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [def-window-iconify-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-iconify-callback).
+
+### set-window-maximize-callback
+
+```
+(set-window-maximize-callback window callback) => old-callback
+```
+
+This function sets the maximization callback of the specified window, which is called when the window is maximized or restored.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window maximization](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [def-window-maximize-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-maximize-callback).
+
+### set-framebuffer-size-callback
+
+```
+(set-framebuffer-size-callback window callback) => old-callback
+```
+
+This function sets the framebuffer resize callback of the specified window, which is called when the framebuffer of the specified window is resized.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Framebuffer size](https://www.glfw.org/docs/latest/window_guide.html#window_fbsize), [def-framebuffer-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-framebuffer-size-callback).
+
+### set-window-content-scale-callback
+
+```
+(set-window-content-scale-callback window callback) => old-callback
+```
+
+This function sets the window content scale callback of the specified window, which is called when the content scale of the specified window changes.
+
+* *Parameters*:
+  * **window**: The window whose callback to set.
+  * **callback**: The new callback, or `nil` to remove the currently set callback.
+* *Returns*:
+  * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Window content scale](https://www.glfw.org/docs/latest/window_guide.html#window_scale), [get-window-conent-scale](https://hectarea1996.github.io/cl-glfw/window.html#get-window-content-scale), [def-window-content-scale-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-content-scale-callback).
+
+### poll-events
+
+```
+(poll-events)
+```
+
+This function processes only those events that are already in the event queue and then returns immediately. Processing events will cause the window and input callbacks associated with those events to be called.
+
+On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on those platforms. You can use the [window refresh callback](https://www.glfw.org/docs/latest/window_guide.html#window_refresh) to redraw the contents of your window when necessary during such operations.
+
+Do not assume that callbacks you set will only be called in response to event processing functions like this one. While it is necessary to poll for events, window systems that require GLFW to register callbacks of its own can pass events to GLFW in response to many window system function calls. GLFW will pass those events on to the application callbacks before returning.
+
+Event processing is not required for joystick input to work.
+
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Reentrancy*: This function must not be called from a callback.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events), [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout).
+
+### wait-events
+
+```
+(wait-events)
+```
+
+This function puts the calling thread to sleep until at least one event is available in the event queue. Once one or more events are available, it behaves exactly like [poll-events](https://hectarea1996.github.io/cl-glfw/window.html#poll-events), i.e. the events in the queue are processed and the function then returns immediately. Processing events will cause the window and input callbacks associated with those events to be called.
+
+Since not all events are associated with callbacks, this function may return without a callback having been called even if you are monitoring all callbacks.
+
+On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on those platforms. You can use the [window refresh callback](https://www.glfw.org/docs/latest/window_guide.html#window_refresh) to redraw the contents of your window when necessary during such operations.
+
+Do not assume that callbacks you set will only be called in response to event processing functions like this one. While it is necessary to poll for events, window systems that require GLFW to register callbacks of its own can pass events to GLFW in response to many window system function calls. GLFW will pass those events on to the application callbacks before returning.
+
+Event processing is not required for joystick input to work.
+
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Reentrancy*: This function must not be called from a callback.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [poll-events](https://hectarea1996.github.io/cl-glfw/window.html#poll-events), [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout).
+
+### wait-events-timeout
+
+```
+(wait-events-timeout timeout)
+```
+
+This function puts the calling thread to sleep until at least one event is available in the event queue, or until the specified timeout is reached. If one or more events are available, it behaves exactly like [poll-events](https://hectarea1996.github.io/cl-glfw/window.html#poll-events), i.e. the events in the queue are processed and the function then returns immediately. Processing events will cause the window and input callbacks associated with those events to be called.
+
+The timeout value must be a positive finite number.
+
+Since not all events are associated with callbacks, this function may return without a callback having been called even if you are monitoring all callbacks.
+
+On some platforms, a window move, resize or menu operation will cause event processing to block. This is due to how event processing is designed on those platforms. You can use the [window refresh callback](https://www.glfw.org/docs/latest/window_guide.html#window_refresh) to redraw the contents of your window when necessary during such operations.
+
+Do not assume that callbacks you set will only be called in response to event processing functions like this one. While it is necessary to poll for events, window systems that require GLFW to register callbacks of its own can pass events to GLFW in response to many window system function calls. GLFW will pass those events on to the application callbacks before returning.
+
+Event processing is not required for joystick input to work.
+
+* *Parameters*:
+  * **timeout**: The maximum amount of time, in seconds, to wait.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Reentrancy*: This function must not be called from a callback.
+* *Thread safety*: This function must only be called from the main thread.
+* *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [poll-events](https://hectarea1996.github.io/cl-glfw/window.html#poll-events), [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events).
+
+### post-empty-event
+
+```
+(post-empty-event)
+```
+
+This function posts an empty event from the current thread to the event queue, causing [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events) or [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout) to return.
+
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events), [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout).
+
+### swap-buffers
+
+```
+(swap-buffers window)
+```
+
+This function swaps the front and back buffers of the specified window when rendering with OpenGL or OpenGL ES. If the swap interval is greater than zero, the GPU driver waits the specified number of screen updates before swapping the buffers.
+
+The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a [+no-window-context+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) error.
+
+This function does not apply to Vulkan. If you are rendering with Vulkan, see `vkQueuePresentKHR` instead.
+
+* *Parameters*:
+  * **window**: The window whose buffers to swap.
+* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+no-window-context+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Remarks*: 
+  * **EGL**: The context of the specified window must be current on the calling thread.
+* *Thread safety*: This function may be called from any thread.
+* *See also*: [Buffer swapping](https://www.glfw.org/docs/latest/window_guide.html#buffer_swap), [swap-interval](https://hectarea1996.github.io/cl-glfw/context.html#swap-interval).
 
 ## Macro documentation
