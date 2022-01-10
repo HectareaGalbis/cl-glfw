@@ -117,6 +117,16 @@ This is the reference documentation for window related functions and types, incl
 
 ## Macros
 
+* [def-window-pos-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-pos-callback): Defines a window position callback.
+* [def-window-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-size-callback): Defines a window size callback.
+* [def-window-close-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-close-callback): Defines a window close callback.
+* [def-window-refresh-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-refresh-callback): Defines a window refresh callback.
+* [def-window-focus-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-focus-callback): Defines a window focus callback.
+* [def-window-iconify-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-iconify-callback): Defines a window iconification callback.
+* [def-window-maximize-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-maximize-callback): Defines a window maximization callback.
+* [def-framebuffer-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-framebuffer-size-callback): Defines a window framebuffer size callback.
+* [def-window-content-scale-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-content-scale-callback): Defines a window content scale callback.
+
 ## Constant documentation
 
 ### +focused+
@@ -1379,3 +1389,122 @@ This function does not apply to Vulkan. If you are rendering with Vulkan, see `v
 * *See also*: [Buffer swapping](https://www.glfw.org/docs/latest/window_guide.html#buffer_swap), [swap-interval](https://hectarea1996.github.io/cl-glfw/context.html#swap-interval).
 
 ## Macro documentation
+
+### def-window-pos-callback
+
+```
+(def-window-pos-callback name (window xpos ypos) &body body)
+```
+
+Defines a window position callback. A window position callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that was moved.
+  * **xpos**: The new x-coordinate, in screen coordinates, of the upper-left corner of the content area of the window.
+  * **ypos**: The new y-coordinate, in screen coordinates, of the upper-left corner of the content area of the window.
+* *See also*: [Window position](https://www.glfw.org/docs/latest/window_guide.html#window_pos), [set-window-pos-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-pos-callback).
+
+### def-window-size-callback
+
+```
+(def-window-size-callback name (window width height) &body body)
+```
+
+Defines a window size callback.  A window size callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that was resized.
+  * **width**: 	The new width, in screen coordinates, of the window.
+  * **height**: 	The new height, in screen coordinates, of the window.
+* *See also*: [Window size](https://www.glfw.org/docs/latest/window_guide.html#window_size), [set-window-size-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-size-callback).
+
+### def-window-close-callback
+
+```
+(def-window-close-callback name (window) &body body)
+```
+
+Defines a window close callback. A window close callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that the user attempted to close.
+* *See also*: [Window closing and close flag](https://www.glfw.org/docs/latest/window_guide.html#window_close), [set-window-close-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-close-callback).
+
+### def-window-refresh-callback
+
+```
+(def-window-refresh-callback name (window) &body body)
+```
+
+Defines a window content refresh callback. A window content refresh callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window whose content needs to be refreshed.
+* *See also*: [Window damage and refresh](https://www.glfw.org/docs/latest/window_guide.html#window_refresh), [set-window-refresh-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-refresh-callback).
+
+### def-window-focus-callback
+
+```
+(def-window-focus-callback name (window focused) &body body)
+```
+
+Defines a window focus callback. A window focus callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that gained or lost input focus.
+  * **focused**: `t` if the window was given input focus, or `nil` if it lost it.
+* *See also*: [Window input focus](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [set-window-focus-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-focus-callback).
+
+### def-window-iconify-callback
+
+```
+(def-window-iconify-callback name (window iconified) &body body)
+```
+
+Defines a window iconify callback. A window iconify callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that was iconified or restored.
+  * **iconified**: `t` if the window was iconified, or `nil` if it was restored.
+* *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [set-window-iconify-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-iconify-callback).
+
+### def-window-maximize-callback
+
+```
+(def-window-maximize-callback name (window maximized) &body body)
+```
+
+Defines a window maximize callback. A window maximize callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window that was maximized or restored.
+  * **maximized**: `t` if the window was maximized, or `nil` if it was restored.
+* *See also*: [Window maximization](https://www.glfw.org/docs/latest/window_guide.html#window_maximize), [set-window-maximize-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-maximize-callback).
+
+### def-framebuffer-size-callback
+
+```
+(def-framebuffer-size-callback name (window width height) &body body)
+```
+
+Defines a framebuffer size callback. A framebuffer size callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window whose framebuffer was resized.
+  * **width**: The new width, in pixels, of the framebuffer.
+  * **height**: The new height, in pixels, of the framebuffer.
+* *See also*: [Framebuffers size](https://www.glfw.org/docs/latest/window_guide.html#window_fbsize), [set-framebuffer-size-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-framebuffer-size-callback).
+
+### def-window-content-scale-callback
+
+```
+(def-window-content-scale-callback name (window xscale yscale) &body body)
+```
+
+Defines a window content scale callback. A window content scale callback function has the following signature:
+
+* *Parameters*:
+  * **window**: The window whose content scale changed.
+  * **xscale**: The new x-axis content scale of the window.
+  * **yscale**: The new y-axis content scale of the window.
+* *See also*: [Window content scale](https://www.glfw.org/docs/latest/window_guide.html#window_fbsize), [set-window-content-scale-callback](https://hectarea1996.github.io/cl-glfw/context.html#set-window-content-scale-callback).

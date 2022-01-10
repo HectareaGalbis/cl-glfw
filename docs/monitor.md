@@ -357,7 +357,7 @@ For gamma correct rendering with OpenGL or OpenGL ES, see the [+srgb-capable+](h
 ### def-monitor-callback
 
 ```
-(def-monitor-callback (name (monitor event) &body body))
+(def-monitor-callback name (monitor event) &body body)
 ```
 
 Defines a monitor callback. A monitor callback function has the following signature:
