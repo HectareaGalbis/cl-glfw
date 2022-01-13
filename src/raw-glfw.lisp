@@ -264,6 +264,22 @@
     (+hresize-cursor+               #x00036001                      "The horizontal resize arrow shape.")
     (+vresize-cursor+               #x00036001                      "The vertical resize arrow shape.")
 
+    ; Input mode
+    (+cursor+                       #x00033001)
+    (+sticky-keys+                  #x00033002)
+    (+sticky-mouse-buttons+         #x00033003)
+    (+lock-key-mods+                #x00033004)
+    (+raw-mouse-motion+             #x00033005)
+
+    ; Cursor mode
+    (+cursor-normal+                #x00034001)
+    (+cursor-hidden+                #x00034002)
+    (+cursor-disabled+              #x00034003)
+
+    ; Joystick configuration
+    (+connected+                    #x00040001)
+    (+disconnected+                 #x00040002)
+
     ; Window
     (+focused+                      #x00020001                      "Input focus window hint and attribute.")
     (+iconified+                    #x00020002                      "Window iconification window attribute.")
@@ -309,7 +325,10 @@
     (+cocoa-frame-name+             #x00023002                      "macOS specific window hint.")
     (+cocoa-graphics-switching+     #x00023003                      "macOS specific window hint.")
     (+x11-class-name+               #x00024001                      "X11 specific window hint.")
-    (+x11-instance-name+            #x00024002                      "X11 specific window hint."))
+    (+x11-instance-name+            #x00024002                      "X11 specific window hint.")
+    
+    ; Others
+    (+dont-care+                    -1))
 
 
 ;; Deftypes

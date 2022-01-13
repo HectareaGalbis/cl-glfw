@@ -37,26 +37,26 @@
 (defstruct vidmode
     (width          0)
     (height         0)
-    (redBits        0)
-    (greenBits      0)
-    (blueBits       0)
-    (refreshRate    0))
+    (red-bits        0)
+    (green-bits      0)
+    (blue-bits       0)
+    (refresh-rate    0))
 
 (defmethod translate-from-foreign (ptr (type raw-glfw:c-vidmode))
-    (make-vidmode :width       (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width) 
-                  :height      (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)  
-                  :redBits     (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)  
-                  :greenBits   (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)  
-                  :blueBits    (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)  
-                  :refreshRate (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)))
+    (make-vidmode :width        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width) 
+                  :height       (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)  
+                  :red-bits     (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)  
+                  :green-bits   (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)  
+                  :blue-bits    (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)  
+                  :refresh-rate (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)))
 
 (defmethod translate-into-foreign-memory (value (type raw-glfw:c-vidmode) ptr)
-    (setf (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width)        (vidmode-width       value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)       (vidmode-height      value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)      (vidmode-redBits     value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)    (vidmode-greenBits   value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)     (vidmode-blueBits    value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)  (vidmode-refreshRate value)))
+    (setf (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width)        (vidmode-width        value)
+          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)       (vidmode-height       value)
+          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)      (vidmode-red-bits     value)
+          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)    (vidmode-green-bits   value)
+          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)     (vidmode-blue-bits    value)
+          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)  (vidmode-refresh-rate value)))
 
 (defstruct gammaramp
     (red    (make-array 256 :initial-element 0))
@@ -113,11 +113,23 @@
     (do ((i size (1- i)) (lst nil (cons (mem-aref arr ctype i) lst)))
         ((< i 0) lst)))
 
-(defun list->array (lst ctype arr)
+(defun list->carray (lst ctype carr)
     (do ((i 0 (1+ i))
          (l lst (cdr lst)))
         ((>= i (length lst)))
-        (setf (mem-aref arr ctype i) (car lst))))
+        (setf (mem-aref carr ctype i) (car lst))))
+
+(defun carray->array (carr ctype size)
+    (let ((arr (make-array size)))
+        (dotimes (i size)
+            (setf (aref arr i) (mem-aref carr ctype i)))
+        arr))
+
+(defun array->carray (arr ctype carr)
+    (let ((size (length arr))) 
+        (do ((i 0 (1+ i)))
+            ((>= i size))
+            (setf (mem-aref carr ctype i) (aref arr i)))))
 
 
 ;; Functions
@@ -132,10 +144,6 @@
     (with-foreign-object (description :pointer)
         (let ((error-code (raw-glfw:get-error description)))
             (values error-code (convert-from-foreign description :string)))))
-
-#|(defun set-error-callback (callback)
-    (let ((callback-ptr (if (null callback) (null-pointer) callback)))
-        (raw-glfw:set-error-callback callback-ptr)))|#
 
 ; Input
 (defun get-cursor-pos (window)
@@ -162,22 +170,22 @@
 (defun get-joystick-axes (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-axes (raw-glfw:get-joystick-axes jid csize)) (size (mem-ref csize :int)))
-            (if (> size 0) 
-                (array->list arr-axes :float size)
+            (if (> size 0)
+                (carray->array arr-axes :float size)
                 nil))))
         
 (defun get-joystick-buttons (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-buttons (raw-glfw:get-joystick-buttons jid csize)) (size (mem-ref csize :int)))
-            (if (> size 0) 
-                (array->list arr-buttons :int size)
+            (if (> size 0)
+                (carray->array arr-buttons :int size)
                 nil))))
 
 (defun get-joystick-hats (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-hats (raw-glfw:get-joystick-hats jid csize)) (size (mem-ref csize :int)))
             (if (> size 0) 
-                (array->list arr-hats :int size)
+                (carray->array arr-hats :int size)
                 nil))))
 
 (defvar *joysticks-data* (make-hash-table))
@@ -190,8 +198,8 @@
 
 (defun get-gamepad-state (jid)
     (with-foreign-object (cstate '(:struct raw-glfw:gamepadstate))
-        (raw-glfw:get-gamepad-state jid cstate)
-        (mem-ref cstate '(:struct raw-glfw:gamepadstate))))
+        (let ((success (raw-glfw:get-gamepad-state jid cstate)))
+            (values success (mem-ref cstate '(:struct raw-glfw:gamepadstate))))))
         #|(let ((state (make-gamepadstate)))
             (dotimes (i 15)
                 (setf (aref (gamepadstate-buttons state) i) (mem-aref :uchar (raw-glfw:gamepadstate-buttons cstate) i)))
@@ -292,12 +300,14 @@
     (with-foreign-object (csize :int)
         (let* ((cextensions (raw-glfw:get-required-instance-extensions csize))
                (size (mem-ref csize :int)))
-            (array->list cextensions :string size))))
+            (if (not (null-pointer-p cextensions)) 
+                (array->list cextensions :string size)
+                nil))))
 
 ; Window
 (defun set-window-icon (window images)
     (with-foreign-object (cimages '(:struct raw-glfw:image) (length images))
-        (list->array images '(:struct raw-glfw:image) cimages)
+        (array->carray images '(:struct raw-glfw:image) cimages)
         (raw-glfw:set-window-icon window (length images) cimages)
         (dotimes (i (length images))
             (free-converted-object (mem-aptr cimages '(:struct raw-glfw:image) i) '(:struct raw-glfw:image) t))))
@@ -375,7 +385,7 @@
 (defmacro def-drop-callback (name (window paths) &body body) 
     (let ((path-count (gensym)) (arr-paths (gensym)))
         `(defcallback ,name ((,window :window) (,path-count :int) (,arr-paths :pointer))
-            (let ((,paths (array->list ,arr-paths :string ,path-count))) 
+            (let ((,paths (carray->array ,arr-paths :string ,path-count))) 
                 ,@body))))
 
 (defmacro def-joystick-callback (name (window jid event) &body body) 

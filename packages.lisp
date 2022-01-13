@@ -239,6 +239,19 @@
         :+hand-cursor+                  
         :+hresize-cursor+               
         :+vresize-cursor+ 
+        ; Input mode
+        :+arrow+
+        :+sticky-keys+
+        :+sticky-mouse-buttons+
+        :+lock-key-mods+
+        :+raw-mouse-motion+
+        ; Cursor mode
+        :+cursor-normal+
+        :+cursor-hidden+
+        :+cursor-disabled+
+        ; Joystick configuration
+        :+connected+                  
+        :+disconnected+   
 
         ; Window
         :+focused+                      
@@ -286,6 +299,9 @@
         :+cocoa-graphics-switching+     
         :+x11-class-name+               
         :+x11-instance-name+
+
+        ; Others
+        :+dont-care+
         
         ;; Structs
 
@@ -742,6 +758,20 @@
         :+hand-cursor+                  
         :+hresize-cursor+               
         :+vresize-cursor+ 
+        ; Input mode
+        :+arrow+
+        :+sticky-keys+
+        :+sticky-mouse-buttons+
+        :+lock-key-mods+
+        :+raw-mouse-motion+
+        ; Cursor mode
+        :+cursor-normal+
+        :+cursor-hidden+
+        :+cursor-disabled+
+        ; Joystick configuration
+        :+connected+                  
+        :+disconnected+         
+
 
         ; Window
         :+focused+                      
@@ -790,6 +820,8 @@
         :+x11-class-name+               
         :+x11-instance-name+
         
+        ; Others
+        :+dont-care+
 
         ;; Structs
 
