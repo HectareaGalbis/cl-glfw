@@ -844,6 +844,10 @@ This function sets the cursor boundary crossing callback of the specified window
 
 ### set-scroll-callback
 
+```
+(set-scroll-callback window callback) => old-callback
+```
+
 This function sets the scroll callback of the specified window, which is called when a scrolling device is used, such as a mouse wheel or scrolling area of a touchpad.
 
 The scroll callback receives all scrolling input, like that from a mouse wheel or a touchpad scrolling area.
@@ -858,6 +862,10 @@ The scroll callback receives all scrolling input, like that from a mouse wheel o
 * *See also*: [Scroll input](https://www.glfw.org/docs/latest/input_guide.html#scrolling), [def-scroll-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-scroll-callback).
 
 ### set-drop-callback
+
+```
+(set-drop-callback window callback) => old-callback
+```
 
 This function sets the path drop callback of the specified window, which is called when one or more dragged paths are dropped on the window.
 

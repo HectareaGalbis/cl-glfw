@@ -145,6 +145,9 @@
         (let ((error-code (raw-glfw:get-error description)))
             (values error-code (convert-from-foreign description :string)))))
 
+(defun set-error-callback (callback)
+    (raw-glfw:set-error-callback (get-callback callback)))
+
 ; Input
 (defun get-cursor-pos (window)
     (with-foreign-objects ((xpos :double) (ypos :double))
@@ -166,6 +169,30 @@
                 (setf (mem-aref cpixels :uchar i) (row-major-aref pixels i)))
             (setf (foreign-slot-value cimage (:struct raw-glfw:image) 'pixels) cpixels)
             (raw-glfw:create-cursor cimage xhot yhot))))|#
+
+(defun set-key-callback (window callback)
+    (raw-glfw:set-key-callback window (get-callback callback)))
+
+(defun set-char-callback (window callback)
+    (raw-glfw:set-char-callback window (get-callback callback)))
+
+(defun set-char-mods-callback (window callback)
+    (raw-glfw:set-char-mods-callback window (get-callback callback)))
+
+(defun set-mouse-button-callback (window callback)
+    (raw-glfw:set-mouse-button-callback window (get-callback callback)))
+
+(defun set-cursor-pos-callback (window callback)
+    (raw-glfw:set-cursor-pos-callback window (get-callback callback)))
+
+(defun set-cursor-enter-callback (window callback)
+    (raw-glfw:set-cursor-enter-callback window (get-callback callback)))
+
+(defun set-scroll-callback (window callback)
+    (raw-glfw:set-scroll-callback window (get-callback callback)))
+
+(defun set-drop-callback (window callback)
+    (raw-glfw:set-drop-callback window (get-callback callback)))
 
 (defun get-joystick-axes (jid)
     (with-foreign-object (csize :int)
@@ -195,6 +222,9 @@
 
 (defun get-joystick-user-data (jid)
     (gethash jid *joysticks-data*))
+
+(defun set-joystick-callback (callback)
+    (raw-glfw:set-joystick-callback (get-callback callback)))
 
 (defun get-gamepad-state (jid)
     (with-foreign-object (cstate '(:struct raw-glfw:gamepadstate))
@@ -240,6 +270,9 @@
 
 (defun get-monitor-user-data (monitor)
     (gethash (pointer-address monitor) *monitors-data*))
+
+(defun set-monitor-callback (callback)
+    (raw-glfw:set-monitor-callback (get-callback callback)))
 
 (defun get-video-modes (monitor)
     (with-foreign-object (ccount :int)
@@ -345,6 +378,32 @@
 (defun get-window-user-data (window)
     (gethash (pointer-address window) *monitors-data*))
 
+(defun set-window-pos-callback (window callback)
+    (raw-glfw:set-window-pos-callback window (get-callback callback)))
+
+(defun set-window-size-callback (window callback)
+    (raw-glfw:set-window-size-callback window (get-callback callback)))
+
+(defun set-window-close-callback (window callback)
+    (raw-glfw:set-window-close-callback window (get-callback callback)))
+
+(defun set-window-refresh-callback (window callback)
+    (raw-glfw:set-window-refresh-callback window (get-callback callback)))
+
+(defun set-window-focus-callback (window callback)
+    (raw-glfw:set-window-focus-callback window (get-callback callback)))
+
+(defun set-window-iconify-callback (window callback)
+    (raw-glfw:set-window-iconify-callback window (get-callback callback)))
+
+(defun set-window-maximize-callback (window callback)
+    (raw-glfw:set-window-maximize-callback window (get-callback callback)))
+
+(defun set-framebuffer-size-callback (window callback)
+    (raw-glfw:set-framebuffer-size-callback window (get-callback callback)))
+
+(defun set-window-content-scale-callback (window callback)
+    (raw-glfw:set-window-content-scale-callback window (get-callback callback)))
 
 ;; Macros
 

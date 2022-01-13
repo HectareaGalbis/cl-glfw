@@ -492,8 +492,18 @@
         ; Functions
         :get-version
         :get-error
+        :set-error-callback
         :get-cursor-pos
         :create-cursor
+        :set-key-callback
+        :set-char-callback
+        :set-char-mods-callback
+        :set-mouse-button-callback
+        :set-cursor-pos-callback
+        :set-cursor-enter-callback
+        :set-scroll-callback
+        :set-drop-callback
+        :set-joystick-callback
         :get-joystick-axes
         :get-joystick-buttons
         :get-joystick-hats
@@ -507,6 +517,7 @@
         :get-monitor-content-scale
         :set-monitor-user-pointer
         :get-monitor-user-pointer
+        :set-monitor-callback
         :get-video-modes
         :get-video-mode
         :get-gamma-ramp
@@ -519,7 +530,16 @@
         :get-window-frame-size
         :get-window-content-scale
         :set-window-user-pointer
-        :get-window-user-pointer)
+        :get-window-user-pointer
+        :set-window-pos-callback
+        :set-window-size-callback
+        :set-window-close-callback
+        :set-window-refresh-callback
+        :set-window-focus-callback
+        :set-window-iconify-callback
+        :set-window-maximize-callback
+        :set-framebuffer-size-callback
+        :set-window-content-scale-callback)
     (:export
     
         ;; Constants
