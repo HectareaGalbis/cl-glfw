@@ -241,7 +241,7 @@
 (defun get-monitors ()
     (with-foreign-object (ccount :int)
         (let ((arr-monitors (raw-glfw:get-monitors ccount)))
-            (array->list arr-monitors :monitor (mem-ref ccount :int)))))
+            (carray->array arr-monitors :pointer (mem-ref ccount :int)))))
 
 (defun get-monitor-pos (monitor)
     (with-foreign-objects ((xpos :int) (ypos :int))
@@ -409,86 +409,107 @@
 
 ; Intitalization, version and error
 (defmacro def-error-callback (name (error-code description) &body body)
-    `(defcallback ,name ((,error-code :int) (,description :string))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,error-code :int) (,description :string))
+        (declare (ignorable ,error-code ,description))
         ,@body))
 
 ; Input
 (defmacro def-key-callback (name (window key scancode action mods) &body body)
-    `(defcallback ,name ((,window :window) (,key :int) (,scancode :int) (,action :int) (,mods :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,key :int) (,scancode :int) (,action :int) (,mods :int))
+        (declare (ignorable ,window ,key ,scancode ,action ,mods))
         ,@body))
 
 (defmacro def-char-callback (name (window codepoint) &body body)
-    `(defcallback ,name ((,window :window) (,codepoint :uint))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,codepoint :uint))
+        (declare (ignorable ,window ,codepoint))
         ,@body))
 
 (defmacro def-char-mods-callback (name (window codepoint mods) &body body)  ; DEPRECATED (removed in 4.0)
-    `(defcallback ,name ((,window :window) (,codepoint :uint) (,mods :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,codepoint :uint) (,mods :int))
+        (declare (ignorable ,window ,codepoint ,mods))
         ,@body))
 
 (defmacro def-mouse-button-callback (name (window button action mods) &body body)  
-    `(defcallback ,name ((,window :window) (,button :int) (,action :int) (,mods :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,button :int) (,action :int) (,mods :int))
+        (declare (ignorable ,window ,button ,action ,mods))
         ,@body))
 
 (defmacro def-cursor-pos-callback (name (window xpos ypos) &body body) 
-    `(defcallback ,name ((,window :window) (,xpos :double) (,ypos :double))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xpos :double) (,ypos :double))
+        (declare (ignorable ,window ,xpos ,ypos))
         ,@body))
 
 (defmacro def-cursor-enter-callback (name (window entered) &body body) 
-    `(defcallback ,name ((,window :window) (,entered :boolean))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,entered :boolean))
+        (declare (ignorable ,window ,entered))
         ,@body))
 
 (defmacro def-scroll-callback (name (window xoffset yoffset) &body body) 
-    `(defcallback ,name ((,window :window) (,xoffset :double) (,yoffset :double))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xoffset :double) (,yoffset :double))
+        (declare (ignorable ,window ,xoffset ,yoffset))
         ,@body))
 
 (defmacro def-drop-callback (name (window paths) &body body) 
     (let ((path-count (gensym)) (arr-paths (gensym)))
-        `(defcallback ,name ((,window :window) (,path-count :int) (,arr-paths :pointer))
+        `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,path-count :int) (,arr-paths :pointer))
+            (declare (ignorable ,window))
             (let ((,paths (carray->array ,arr-paths :string ,path-count))) 
+                (declare (ignorable ,paths))
                 ,@body))))
 
 (defmacro def-joystick-callback (name (window jid event) &body body) 
-    `(defcallback ,name ((,window :window) (,jid :int) (,event :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,jid :int) (,event :int))
+        (declare (ignorable ,window ,jid ,event))
         ,@body))
 
 ; Monitor
 (defmacro def-monitor-callback (name (monitor event) &body body) 
-    `(defcallback ,name ((,monitor :monitor) (,event :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,monitor :pointer) (,event :int))
+        (declare (ignorable ,monitor ,event))
         ,@body))
 
 ; Window
 (defmacro def-window-pos-callback (name (window xpos ypos) &body body) 
-    `(defcallback ,name ((,window :window) (,xpos :int) (,ypos :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xpos :int) (,ypos :int))
+        (declare (ignorable ,window ,xpos ,ypos))
         ,@body))
 
 (defmacro def-window-size-callback (name (window width height) &body body) 
-    `(defcallback ,name ((,window :window) (,width :int) (,height :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,width :int) (,height :int))
+        (declare (ignorable ,window ,width ,height))
         ,@body))
 
 (defmacro def-window-close-callback (name (window) &body body) 
-    `(defcallback ,name ((,window :window))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer))
+        (declare (ignorable ,window))
         ,@body))
         
 (defmacro def-window-refresh-callback (name (window) &body body) 
-    `(defcallback ,name ((,window :window))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer))
+        (declare (ignorable ,window))
         ,@body))
 
 (defmacro def-window-focus-callback (name (window focused) &body body) 
-    `(defcallback ,name ((,window :window) (,focused :boolean))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,focused :boolean))
+        (declare (ignorable ,window ,focused))
         ,@body))
 
 (defmacro def-window-iconify-callback (name (window iconified) &body body) 
-    `(defcallback ,name ((,window :window) (,iconified :boolean))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,iconified :boolean))
+        (declare (ignorable ,window ,iconified))
         ,@body))
 
 (defmacro def-window-maximize-callback (name (window maximized) &body body) 
-    `(defcallback ,name ((,window :window) (,maximized :boolean))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,maximized :boolean))
+        (declare (ignorable ,window ,maximized))
         ,@body))
 
-(defmacro def-framebuffer-size-callback (name (window width height) &body body) 
-    `(defcallback ,name ((,window :window) (,width :int) (,height :int))
+(defmacro def-framebuffer-size-callback (name (window width height) &rest body) 
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,width :int) (,height :int))
+        (declare (ignorable ,window ,width ,height))
         ,@body))
 
 (defmacro def-window-content-scale-callback (name (window xscale yscale) &body body) 
-    `(defcallback ,name ((,window :window) (,xscale :int) (,yscale :int))
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xscale :int) (,yscale :int))
+        (declare (ignorable ,window ,xscale ,yscale))
         ,@body))

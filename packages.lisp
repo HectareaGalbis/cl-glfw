@@ -3,6 +3,9 @@
     (:use :cl :cffi)
     (:export
     
+        ;; Types
+        :pointer-or-nil
+
         ;; Constants
 
         ; Initialization, version and error                                                                                                                                                
@@ -301,6 +304,21 @@
         :+x11-instance-name+
 
         ; Others
+        :+no-api+                       
+        :+opengl-api+                   
+        :+opengl-es-api+                
+        :+no-robustness+                
+        :+no-reset-notification+        
+        :+lose-context-on-reset+        
+        :+opengl-any-profile+           
+        :+opengl-core-profile+          
+        :+opengl-compat-profile+        
+        :+any-release-behavior+         
+        :+release-behavior-flush+       
+        :+release-behavior-none+        
+        :+native-context-api+           
+        :+egl-context-api+              
+        :+osmesa-context-api+           
         :+dont-care+
         
         ;; Structs
@@ -841,6 +859,21 @@
         :+x11-instance-name+
         
         ; Others
+        :+no-api+                       
+        :+opengl-api+                   
+        :+opengl-es-api+                
+        :+no-robustness+                
+        :+no-reset-notification+        
+        :+lose-context-on-reset+        
+        :+opengl-any-profile+           
+        :+opengl-core-profile+          
+        :+opengl-compat-profile+        
+        :+any-release-behavior+         
+        :+release-behavior-flush+       
+        :+release-behavior-none+        
+        :+native-context-api+           
+        :+egl-context-api+              
+        :+osmesa-context-api+    
         :+dont-care+
 
         ;; Structs

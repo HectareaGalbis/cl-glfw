@@ -328,6 +328,21 @@
     (+x11-instance-name+            #x00024002                      "X11 specific window hint.")
     
     ; Others
+    (+no-api+                       0)
+    (+opengl-api+                   #x00030001)
+    (+opengl-es-api+                #x00030002)
+    (+no-robustness+                0)
+    (+no-reset-notification+        #x00031001)
+    (+lose-context-on-reset+        #x00031002)
+    (+opengl-any-profile+           0)
+    (+opengl-core-profile+          #x00032001)
+    (+opengl-compat-profile+        #x00032002)
+    (+any-release-behavior+         0)
+    (+release-behavior-flush+       #x00035001)
+    (+release-behavior-none+        #x00035002)
+    (+native-context-api+           #x00036001)
+    (+egl-context-api+              #x00036002)
+    (+osmesa-context-api+           #x00036003)
     (+dont-care+                    -1))
 
 
