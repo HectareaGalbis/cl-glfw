@@ -1,4 +1,4 @@
 # cl-glfw
-Raw and decorated GLFW3 bindings for common lisp.
+Raw and lispified GLFW3 bindings for common lisp.
 
 Reference: [Here](https://hectarea1996.github.io/cl-glfw/)
