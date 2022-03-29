@@ -6,26 +6,26 @@
 
 ; Input
 (defstruct gamepadstate
-    (buttons    (make-array 15 :initial-element raw-glfw:+release+))
-    (axes       (make-array 6  :initial-element 0.0)))
+  (buttons    (make-array 15 :initial-element raw-glfw:+release+))
+  (axes       (make-array 6  :initial-element 0.0)))
 
 (defmethod translate-from-foreign (ptr (type raw-glfw:c-gamepadstate))
-    (let ((gpstate (make-gamepadstate)))
-        (dotimes (i 15)
-            (setf (aref (gamepadstate-buttons gpstate) i) 
-                  (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:buttons) :uchar i)))
-        (dotimes (i 6)
-            (setf (aref (gamepadstate-axes gpstate) i) 
-                  (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:axes) :float i)))
-        gpstate))
+  (let ((gpstate (make-gamepadstate)))
+    (dotimes (i 15)
+      (setf (aref (gamepadstate-buttons gpstate) i)
+            (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:buttons) :uchar i)))
+    (dotimes (i 6)
+      (setf (aref (gamepadstate-axes gpstate) i)
+            (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:axes) :float i)))
+    gpstate))
 
 (defmethod translate-into-foreign-memory (value (type raw-glfw:c-gamepadstate) ptr)
-    (dotimes (i 15)
-        (setf (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:buttons) :uchar i) 
-              (aref (gamepadstate-buttons value) i)))
-    (dotimes (i 6)
-        (setf (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:axes) :float i) 
-              (aref (gamepadstate-axes value) i))))
+  (dotimes (i 15)
+    (setf (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:buttons) :uchar i)
+          (aref (gamepadstate-buttons value) i)))
+  (dotimes (i 6)
+    (setf (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gamepadstate) 'raw-glfw:axes) :float i)
+          (aref (gamepadstate-axes value) i))))
 
 #|(defmethod free-translated-object (pointer (type raw-glfw:c-gamepadstate) param)
     (declare (ignore param))
@@ -35,53 +35,53 @@
 
 ; Monitor
 (defstruct vidmode
-    (width          0)
-    (height         0)
-    (red-bits        0)
-    (green-bits      0)
-    (blue-bits       0)
-    (refresh-rate    0))
+  (width          0)
+  (height         0)
+  (red-bits        0)
+  (green-bits      0)
+  (blue-bits       0)
+  (refresh-rate    0))
 
 (defmethod translate-from-foreign (ptr (type raw-glfw:c-vidmode))
-    (make-vidmode :width        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width) 
-                  :height       (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)  
-                  :red-bits     (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)  
-                  :green-bits   (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)  
-                  :blue-bits    (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)  
-                  :refresh-rate (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)))
+  (make-vidmode :width        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width)
+                :height       (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)
+                :red-bits     (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)
+                :green-bits   (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)
+                :blue-bits    (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)
+                :refresh-rate (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)))
 
 (defmethod translate-into-foreign-memory (value (type raw-glfw:c-vidmode) ptr)
-    (setf (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width)        (vidmode-width        value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)       (vidmode-height       value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)      (vidmode-red-bits     value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)    (vidmode-green-bits   value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)     (vidmode-blue-bits    value)
-          (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)  (vidmode-refresh-rate value)))
+  (setf (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:width)        (vidmode-width        value)
+        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:height)       (vidmode-height       value)
+        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:redBits)      (vidmode-red-bits     value)
+        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:greenBits)    (vidmode-green-bits   value)
+        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:blueBits)     (vidmode-blue-bits    value)
+        (foreign-slot-value ptr '(:struct raw-glfw:vidmode) 'raw-glfw:refreshRate)  (vidmode-refresh-rate value)))
 
 (defstruct gammaramp
-    (red    (make-array 256 :initial-element 0))
-    (green  (make-array 256 :initial-element 0))
-    (blue   (make-array 256 :initial-element 0)))
+  (red    (make-array 256 :initial-element 0))
+  (green  (make-array 256 :initial-element 0))
+  (blue   (make-array 256 :initial-element 0)))
 
 (defmethod translate-from-foreign (ptr (type raw-glfw:c-gammaramp))
-    (let* ((size (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:size))
-           (gramp (make-gammaramp :red (make-array size) :green (make-array size) :blue (make-array size))))
-        (dotimes (i size)
-            (setf (aref (gammaramp-red   gramp) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:red)   :ushort i)
-                  (aref (gammaramp-green gramp) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:green) :ushort i)
-                  (aref (gammaramp-blue  gramp) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:blue)  :ushort i)))))
+  (let* ((size (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:size))
+         (gramp (make-gammaramp :red (make-array size) :green (make-array size) :blue (make-array size))))
+    (dotimes (i size)
+      (setf (aref (gammaramp-red   gramp) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:red)   :ushort i)
+            (aref (gammaramp-green gramp) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:green) :ushort i)
+            (aref (gammaramp-blue  gramp) i) (mem-aref (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:blue)  :ushort i)))))
 
 (defmethod translate-into-foreign-memory (value (type raw-glfw:c-gammaramp) ptr)
-      (setf (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:red)   (foreign-alloc :ushort :initial-contents (gammaramp-red   value))
-            (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:green) (foreign-alloc :ushort :initial-contents (gammaramp-green value))
-            (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:blue)  (foreign-alloc :ushort :initial-contents (gammaramp-blue  value))
-            (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:size)  (min (length (gammaramp-red value)) (length (gammaramp-green value)) (length (gammaramp-blue value)))))
+  (setf (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:red)   (foreign-alloc :ushort :initial-contents (gammaramp-red   value))
+        (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:green) (foreign-alloc :ushort :initial-contents (gammaramp-green value))
+        (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:blue)  (foreign-alloc :ushort :initial-contents (gammaramp-blue  value))
+        (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:size)  (min (length (gammaramp-red value)) (length (gammaramp-green value)) (length (gammaramp-blue value)))))
 
 (defmethod free-translated-object (ptr (type raw-glfw:c-gammaramp) param)
-    (declare (ignore param))
-    (foreign-free (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:red))
-    (foreign-free (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:green))
-    (foreign-free (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:blue)))
+  (declare (ignore param))
+  (foreign-free (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:red))
+  (foreign-free (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:green))
+  (foreign-free (foreign-slot-value ptr '(:struct raw-glfw:gammaramp) 'raw-glfw:blue)))
 
 ; Window
 (defstruct image
@@ -110,8 +110,8 @@
 
 ;; Helper functions
 (defun array->list (arr ctype size)
-    (do ((i size (1- i)) (lst nil (cons (mem-aref arr ctype i) lst)))
-        ((< i 0) lst)))
+  (loop for i from 0 below size
+    collect (mem-aref arr ctype i)))
 
 (defun list->carray (lst ctype carr)
     (do ((i 0 (1+ i))
@@ -126,7 +126,7 @@
         arr))
 
 (defun array->carray (arr ctype carr)
-    (let ((size (length arr))) 
+    (let ((size (length arr)))
         (do ((i 0 (1+ i)))
             ((>= i size))
             (setf (mem-aref carr ctype i) (aref arr i)))))
@@ -161,7 +161,7 @@
         (free-converted-object cimg '(:struct raw-glfw:image) t)))
 
 #|(defun create-cursor (img xhot yhot)
-    (let ((pixels (image-pixels img))) 
+    (let ((pixels (image-pixels img)))
         (with-foreign-objects ((cimage (:struct raw-glfw:image)) (cpixels :uchar (array-total-size pixels)))
             (setf (foreign-slot-value cimage (:struct raw-glfw:image) 'width)  (array-dimension pixels 0)
                   (foreign-slot-value cimage (:struct raw-glfw:image) 'height) (array-dimension pixels 1))
@@ -200,7 +200,7 @@
             (if (> size 0)
                 (carray->array arr-axes :float size)
                 nil))))
-        
+
 (defun get-joystick-buttons (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-buttons (raw-glfw:get-joystick-buttons jid csize)) (size (mem-ref csize :int)))
@@ -211,7 +211,7 @@
 (defun get-joystick-hats (jid)
     (with-foreign-object (csize :int)
         (let* ((arr-hats (raw-glfw:get-joystick-hats jid csize)) (size (mem-ref csize :int)))
-            (if (> size 0) 
+            (if (> size 0)
                 (carray->array arr-hats :int size)
                 nil))))
 
@@ -278,9 +278,9 @@
     (with-foreign-object (ccount :int)
         (let ((arr-vidmodes (raw-glfw:get-video-modes monitor ccount)))
             (array->list arr-vidmodes '(:struct raw-glfw:vidmode) (mem-ref ccount :int)))))
-            #|(if (not (null-pointer-p arr-vidmodes)) 
-                (do ((i (1- (mem-ref ccount)) (1- i)) 
-                    (vidmodes nil (cons (with-foreign-slots ((width height reb-bits green-bits blue-bits refresh-rate) 
+            #|(if (not (null-pointer-p arr-vidmodes))
+                (do ((i (1- (mem-ref ccount)) (1- i))
+                    (vidmodes nil (cons (with-foreign-slots ((width height reb-bits green-bits blue-bits refresh-rate)
                                                              (mem-aptr arr-vidmodes (:struct raw-glfw:vidmode) i)
                                                              (:struct raw-glfw:vidmode))
                                             (make-vidmode width height red-bits green-bits blue-bits refresh-rate)) vidmodes)))
@@ -310,11 +310,11 @@
             ramp)))|#
 
 (defun set-gamma-ramp (monitor ramp)
-    (with-foreign-object (cramp '(:struct raw-glfw:gammaramp))
-        (setf (mem-ref cramp '(:struct raw-glfw:gammaramp)) ramp)
-        (raw-glfw:set-gamma-ramp monitor cramp)
-        (free-converted-object cramp '(:struct raw-glfw:gammaramp) t)))
-    #|(let ((size (gammaramp-size ramp))) 
+  (with-foreign-object (cramp '(:struct raw-glfw:gammaramp))
+    (setf (mem-ref cramp '(:struct raw-glfw:gammaramp)) ramp)
+    (raw-glfw:set-gamma-ramp monitor cramp)
+    (free-converted-object cramp '(:struct raw-glfw:gammaramp) t)
+    #|(let ((size (gammaramp-size ramp)))
         (with-foreign-objects ((cramp (:struct raw-glfw:gammaramp))
                                (cred   :ushort size)
                                (cgreen :ushort size)
@@ -326,16 +326,16 @@
             (setf (foreign-slot-value cram (:struct raw-glfw:gammaramp) 'red)   cred
                   (foreign-slot-value cram (:struct raw-glfw:gammaramp) 'green) cgreen
                   (foreign-slot-value cram (:struct raw-glfw:gammaramp) 'blue)  cblue)
-            (raw-glfw:set-gamma-ramp monitor cramp))))|#
+            (raw-glfw:set-gamma-ramp monitor cramp)))|#))
 
 ; Vulkan support
 (defun get-required-instance-extensions ()
-    (with-foreign-object (csize :int)
-        (let* ((cextensions (raw-glfw:get-required-instance-extensions csize))
-               (size (mem-ref csize :int)))
-            (if (not (null-pointer-p cextensions)) 
-                (array->list cextensions :string size)
-                nil))))
+  (with-foreign-object (csize :int)
+    (let* ((cextensions (raw-glfw:get-required-instance-extensions csize))
+           (size (mem-ref csize :int)))
+      (if (not (null-pointer-p cextensions))
+          (array->list cextensions :string size)
+          nil))))
 
 ; Window
 (defun set-window-icon (window images)
@@ -408,6 +408,13 @@
 ;; Macros
 
 ; Intitalization, version and error
+(defmacro with-glfw (&body body)
+  `(progn
+     (init)
+     (unwind-protect
+       (progn ,@body)
+       (terminate))))
+
 (defmacro def-error-callback (name (error-code description) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,error-code :int) (,description :string))
         (declare (ignorable ,error-code ,description))
@@ -429,87 +436,87 @@
         (declare (ignorable ,window ,codepoint ,mods))
         ,@body))
 
-(defmacro def-mouse-button-callback (name (window button action mods) &body body)  
+(defmacro def-mouse-button-callback (name (window button action mods) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,button :int) (,action :int) (,mods :int))
         (declare (ignorable ,window ,button ,action ,mods))
         ,@body))
 
-(defmacro def-cursor-pos-callback (name (window xpos ypos) &body body) 
+(defmacro def-cursor-pos-callback (name (window xpos ypos) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xpos :double) (,ypos :double))
         (declare (ignorable ,window ,xpos ,ypos))
         ,@body))
 
-(defmacro def-cursor-enter-callback (name (window entered) &body body) 
+(defmacro def-cursor-enter-callback (name (window entered) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,entered :boolean))
         (declare (ignorable ,window ,entered))
         ,@body))
 
-(defmacro def-scroll-callback (name (window xoffset yoffset) &body body) 
+(defmacro def-scroll-callback (name (window xoffset yoffset) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xoffset :double) (,yoffset :double))
         (declare (ignorable ,window ,xoffset ,yoffset))
         ,@body))
 
-(defmacro def-drop-callback (name (window paths) &body body) 
+(defmacro def-drop-callback (name (window paths) &body body)
     (let ((path-count (gensym)) (arr-paths (gensym)))
         `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,path-count :int) (,arr-paths :pointer))
             (declare (ignorable ,window))
-            (let ((,paths (carray->array ,arr-paths :string ,path-count))) 
+            (let ((,paths (carray->array ,arr-paths :string ,path-count)))
                 (declare (ignorable ,paths))
                 ,@body))))
 
-(defmacro def-joystick-callback (name (window jid event) &body body) 
+(defmacro def-joystick-callback (name (window jid event) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,jid :int) (,event :int))
         (declare (ignorable ,window ,jid ,event))
         ,@body))
 
 ; Monitor
-(defmacro def-monitor-callback (name (monitor event) &body body) 
+(defmacro def-monitor-callback (name (monitor event) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,monitor :pointer) (,event :int))
         (declare (ignorable ,monitor ,event))
         ,@body))
 
 ; Window
-(defmacro def-window-pos-callback (name (window xpos ypos) &body body) 
+(defmacro def-window-pos-callback (name (window xpos ypos) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xpos :int) (,ypos :int))
         (declare (ignorable ,window ,xpos ,ypos))
         ,@body))
 
-(defmacro def-window-size-callback (name (window width height) &body body) 
+(defmacro def-window-size-callback (name (window width height) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,width :int) (,height :int))
         (declare (ignorable ,window ,width ,height))
         ,@body))
 
-(defmacro def-window-close-callback (name (window) &body body) 
-    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer))
-        (declare (ignorable ,window))
-        ,@body))
-        
-(defmacro def-window-refresh-callback (name (window) &body body) 
+(defmacro def-window-close-callback (name (window) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer))
         (declare (ignorable ,window))
         ,@body))
 
-(defmacro def-window-focus-callback (name (window focused) &body body) 
+(defmacro def-window-refresh-callback (name (window) &body body)
+    `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer))
+        (declare (ignorable ,window))
+        ,@body))
+
+(defmacro def-window-focus-callback (name (window focused) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,focused :boolean))
         (declare (ignorable ,window ,focused))
         ,@body))
 
-(defmacro def-window-iconify-callback (name (window iconified) &body body) 
+(defmacro def-window-iconify-callback (name (window iconified) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,iconified :boolean))
         (declare (ignorable ,window ,iconified))
         ,@body))
 
-(defmacro def-window-maximize-callback (name (window maximized) &body body) 
+(defmacro def-window-maximize-callback (name (window maximized) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,maximized :boolean))
         (declare (ignorable ,window ,maximized))
         ,@body))
 
-(defmacro def-framebuffer-size-callback (name (window width height) &rest body) 
+(defmacro def-framebuffer-size-callback (name (window width height) &rest body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,width :int) (,height :int))
         (declare (ignorable ,window ,width ,height))
         ,@body))
 
-(defmacro def-window-content-scale-callback (name (window xscale yscale) &body body) 
+(defmacro def-window-content-scale-callback (name (window xscale yscale) &body body)
     `(defcallback ,name raw-glfw:pointer-or-nil ((,window :pointer) (,xscale :int) (,yscale :int))
         (declare (ignorable ,window ,xscale ,yscale))
         ,@body))
