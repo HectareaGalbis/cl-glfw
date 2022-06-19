@@ -84,16 +84,16 @@
 ;; ----
 
 (mcffi:def-foreign-constructor-destructor gammaramp (:struct GLFWgammaramp)
-  (red (cffi:foreign-alloc :ushort :initial-contents red) (cffi:foreign-free red))
-  (green (cffi:foreign-alloc :ushort :initial-contents green) (cffi:foreign-free green))
-  (blue (cffi:foreign-alloc :ushort :initial-contents blue) (cffi:foreign-free blue))
-  size)
+  ((red nil) (cffi:foreign-alloc :ushort :initial-contents red) (cffi:foreign-free red))
+  ((green nil) (cffi:foreign-alloc :ushort :initial-contents green) (cffi:foreign-free green))
+  ((blue nil) (cffi:foreign-alloc :ushort :initial-contents blue) (cffi:foreign-free blue))
+  ((size 0)))
 
 
 (mcffi:def-foreign-constructor-destructor image (:struct GLFWimage)
-  width
-  height
-  (pixels (cffi:foreign-alloc :uchar :initial-contents pixels) (cffi:foreign-free pixels)))
+  ((width 0))
+  ((height 0))
+  ((pixels nil) (cffi:foreign-alloc :uchar :initial-contents pixels) (cffi:foreign-free pixels)))
 
 
 ;; Functions
@@ -266,29 +266,70 @@
 	nil
 	(cffi:foreign-string-to-lisp result))))
 
-;; Por aqui me he quedado
-
 (defvar *joysticks-data* (make-hash-table))
 
-(defun set-joystick-user-data (jid data)
-    (setf (gethash jid *joysticks-data*) data))
+(defun set-joystick-user-pointer (jid data)
+  (setf (gethash jid *joysticks-data*) data))
 
-(defun get-joystick-user-data (jid)
-    (gethash jid *joysticks-data*))
+(defun get-joystick-user-pointer (jid)
+  (gethash jid *joysticks-data*))
+
+(defun joystick-is-gamepad (jid)
+  (let ((result (glfwJoystickIsGamepad jid)))
+    (equal result GLFW_TRUE)))
 
 (defun set-joystick-callback (callback)
-    (raw-glfw:set-joystick-callback (get-callback callback)))
+  (let ((callback-c (if callback (cffi:get-callback callback) (cffi:null-pointer))))
+    (glfwSetJoystickCallback  callback-c)))
 
-(defun get-gamepad-state (jid)
-    (with-foreign-object (cstate '(:struct raw-glfw:gamepadstate))
-        (let ((success (raw-glfw:get-gamepad-state jid cstate)))
-            (values success (mem-ref cstate '(:struct raw-glfw:gamepadstate))))))
+(defun update-gamepad-mappings (string)
+  (cffi:with-foreign-string (string-c string)
+    (let ((result (glfwUpdateGamepadMappings string-c)))
+      (equal result GLFW_TRUE))))
+
+(defun get-gamepad-name (jid)
+  (let ((result (glfwGetGamepadName jid)))
+    (if (cffi:null-pointer-p result)
+	nil
+	(cffi:foreign-string-to-lisp result))))
+
+(defun get-gamepad-state (jid state)
+  (let ((result (glfwGetGamepadState jid state)))
+    (equal result GLFW_TRUE)))
+
+(defun set-clipboard-string (window string)
+  (let ((window-c (or window (cffi:null-pointer))))
+    (cffi:with-foreign-string (string-c string)
+      (glfwSetClipboardString window-c string-c))))
+
+(defun get-clipboard-string (window)
+  (let* ((window-c (or window (cffi:null-pointer)))
+	 (result (glfwGetClipboardString window-c)))
+    (cffi:foreign-string-to-lisp result)))
+
+(defun get-time ()
+  (glfwGetTime))
+
+(defun set-time (time)
+  (glfwSetTime time))
+
+(defun get-timer-value ()
+  (glfwGetTimerValue))
+
+(defun get-timer-frequency ()
+  (glfwGetTimerFrequency))
+
 
 ; Monitor
 (defun get-monitors ()
-    (with-foreign-object (ccount :int)
-        (let ((arr-monitors (raw-glfw:get-monitors ccount)))
-            (carray->array arr-monitors :pointer (mem-ref ccount :int)))))
+  (cffi:with-foreign-object (count-ptr :int)
+    (let* ((result (glfwGetMonitors count-ptr))
+	   (count (cffi:mem-ref count-ptr :int)))
+      (if (> count 0)
+	  (loop for i from 0 below count
+		collect (cffi:mem-aref result :pointer i))))))
+
+;; Por aqui me he quedao
 
 (defun get-monitor-pos (monitor)
     (with-foreign-objects ((xpos :int) (ypos :int))
