@@ -687,7 +687,7 @@
     (monitor GLFWmonitor) (ramp GLFWgammaramp)) 
 
 ; Vulkan support
-(defcfun "glfwVulkanSupported" :boolean
+(defcfun "glfwVulkanSupported" :int
     "Returns whether the Vulkan loader and an ICD have been found.")
 
 (defcfun "glfwGetRequiredInstanceExtensions" :pointer
