@@ -6,5 +6,6 @@
     :depends-on (:cffi :more-cffi)
     :components ((:file "package")
                  (:module "src"
-                  :components ((:file "raw-glfw")
+                  :components ((:file "load-library")
+			       (:file "raw-glfw")
                                (:file "glfw")))))
