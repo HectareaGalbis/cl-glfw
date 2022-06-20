@@ -10,7 +10,7 @@
 
 (defmacro defctypes (&body body)
   `(progn
-     ,@(mapcar (lambda (x) (cons 'defctype x)) body)))
+     ,@(mapcar (lambda (x) (cons 'cffi:defctype x)) body)))
 
 
 ;; Constants
@@ -360,13 +360,10 @@
   (GLFWcharmodsfun :pointer)
   (GLFWdropfun :pointer)
   (GLFWjoystickfun :pointer)
-  (GLFWgamepadstate :pointer)
 
   ;; Monitor
   (GLFWmonitor :pointer)
   (GLFWmonitorfun :pointer)
-  (GLFWvidmode :pointer)
-  (GLFWgammaramp :pointer)
 
   ;; Vulkan support
   (GLFWvkproc :pointer)
@@ -381,20 +378,19 @@
   (GLFWwindowiconifyfun :pointer)
   (GLFWwindowmaximizefun :pointer)
   (GLFWframebuffersizefun :pointer)
-  (GLFWwindowcontentscalefun :pointer)
-  (GLFWimage :pointer))
+  (GLFWwindowcontentscalefun :pointer))
 
   
 ;; Structs
 
-; Input
-(defcstruct GLFWgamepadstate
+;; Input
+(cffi:defcstruct GLFWgamepadstate
     "Gamepad input state."
     (buttons :uchar :count 15)
     (axes    :float :count 6))
 
-; Monitor
-(defcstruct GLFWvidmode
+;; Monitor
+(cffi:defcstruct GLFWvidmode
     "Video mode type."
     (width          :int)
     (height         :int)
@@ -403,15 +399,15 @@
     (blueBits       :int)
     (refreshRate    :int))
 
-(defcstruct GLFWgammaramp
+(cffi:defcstruct GLFWgammaramp
     "Gamma ramp."
     (red    :pointer)
     (green  :pointer)
     (blue   :pointer)
     (size   :int))
 
-; Window
-(defcstruct GLFWimage
+;; Window
+(cffi:defcstruct GLFWimage
     "Image data."
     (width  :int)
     (height :int)
@@ -421,473 +417,473 @@
 ;; Functions
 
 ; Context
-(defcfun "glfwMakeContextCurrent" :void 
+(cffi:defcfun "glfwMakeContextCurrent" :void 
     "Makes the context of the specified window current for the calling thread."
     (window GLFWwindow))
 
-(defcfun "glfwGetCurrentContext" :pointer 
+(cffi:defcfun "glfwGetCurrentContext" :pointer 
     "Returns the window whose context is current on the calling thread.")
 
-(defcfun "glfwSwapInterval" :void
+(cffi:defcfun "glfwSwapInterval" :void
     "Sets the swap interval for the current context."
     (interval :int))
 
 ;; OpenGL
-(defcfun "glfwExtensionSupported" :int
+(cffi:defcfun "glfwExtensionSupported" :int
     "Returns whether the specified extension is available."
     (extension :pointer))
 
 ;; OpenGL
-(defcfun "glfwGetProcAddress" GLFWglproc
+(cffi:defcfun "glfwGetProcAddress" GLFWglproc
     "Returns the address of the specified function for the current context."
     (procname :pointer))
 
 ; Intitalization, version and error
-(defcfun "glfwInit" :int
+(cffi:defcfun "glfwInit" :int
     "Initializes the GLFW library.")
 
-(defcfun "glfwTerminate" :void
+(cffi:defcfun "glfwTerminate" :void
     "Terminates the GLFW library.")
 
-(defcfun "glfwInitHint" :void
+(cffi:defcfun "glfwInitHint" :void
     "Sets the specified init hint to the desired value."
     (hint :int) (value :int))
 
-(defcfun "glfwGetVersion" :void
+(cffi:defcfun "glfwGetVersion" :void
     "Retrieves the version of the GLFW library."
     (major :pointer) (minor :pointer) (rev :pointer))
 
-(defcfun "glfwGetVersionString" :pointer
+(cffi:defcfun "glfwGetVersionString" :pointer
     "Returns a string describing the compile-time configuration.")
 
-(defcfun "glfwGetError" get-error :int
+(cffi:defcfun "glfwGetError" :int
     "Returns and clears the last error for the calling thread."
     (description :pointer))
 
-(defcfun "glfwSetErrorCallback" GLFWerrorfun
+(cffi:defcfun "glfwSetErrorCallback" GLFWerrorfun
     "Sets the error callback."
     (callback :pointer))
 
 ; Input
-(defcfun "glfwGetInputMode" :int
+(cffi:defcfun "glfwGetInputMode" :int
     "Returns the value of an input option for the specified window."
     (window GLFWwindow) (mode :int))
 
-(defcfun "glfwSetInputMode" :void
+(cffi:defcfun "glfwSetInputMode" :void
     "Sets an input option for the specified window."
     (window GLFWwindow) (mode :int) (value :int))
 
-(defcfun "glfwRawMouseMotionSupported" :int
+(cffi:defcfun "glfwRawMouseMotionSupported" :int
     "Returns whether raw mouse motion is supported.")
 
-(defcfun "glfwGetKeyName" :pointer
+(cffi:defcfun "glfwGetKeyName" :pointer
     "Returns the layout-specific name of the specified printable key."
     (key :int) (scancode :int))
 
-(defcfun "glfwGetKeyScancode" :int
+(cffi:defcfun "glfwGetKeyScancode" :int
     "Returns the platform-specific scancode of the specified key."
     (key :int))
 
-(defcfun "glfwGetKey" :int
+(cffi:defcfun "glfwGetKey" :int
     "Returns the last reported state of a keyboard key for the specified window."
     (window GLFWwindow) (key :int))
 
-(defcfun "glfwGetMouseButton" :int
+(cffi:defcfun "glfwGetMouseButton" :int
     "Returns the last reported state of a mouse button for the specified window."
     (window GLFWwindow) (button :int))
 
-(defcfun "glfwGetCursorPos" :void
+(cffi:defcfun "glfwGetCursorPos" :void
     "Retrieves the position of the cursor relative to the content area of the window."
     (window GLFWwindow) (xpos :pointer) (ypos :pointer))
 
-(defcfun "glfwSetCursorPos" :void
+(cffi:defcfun "glfwSetCursorPos" :void
     "Sets the position of the cursor, relative to the content area of the window."
     (window GLFWwindow) (xpos :double) (ypos :double))
 
-(defcfun "glfwCreateCursor" GLFWcursor
+(cffi:defcfun "glfwCreateCursor" GLFWcursor
     "Creates a custom cursor."
     (img :pointer) (xhot :int) (yhot :int))
 
-(defcfun "glfwCreateStandardCursor" GLFWcursor
+(cffi:defcfun "glfwCreateStandardCursor" GLFWcursor
     "Creates a cursor with a standard shape."
     (shape :int))
 
-(defcfun "glfwDestroyCursor" :void
+(cffi:defcfun "glfwDestroyCursor" :void
     "Destroys a cursor."
     (cursor GLFWcursor))
 
-(defcfun "glfwSetCursor" :void
+(cffi:defcfun "glfwSetCursor" :void
     "Sets the cursor for the window."
     (window GLFWwindow) (cursor GLFWcursor))
 
-(defcfun "glfwSetKeyCallback" GLFWkeyfun
+(cffi:defcfun "glfwSetKeyCallback" GLFWkeyfun
     "Sets the key callback."
     (window GLFWwindow) (callback GLFWkeyfun))
 
-(defcfun "glfwSetCharCallback" GLFWcharfun
+(cffi:defcfun "glfwSetCharCallback" GLFWcharfun
     "Sets the Unicode character callback."
     (window GLFWwindow) (callback GLFWcharfun))
 
-(defcfun "glfwSetCharModsCallback" GLFWcharmodsfun
+(cffi:defcfun "glfwSetCharModsCallback" GLFWcharmodsfun
     "Sets the Unicode character with modifiers callback."
     (window GLFWwindow) (callback GLFWcharmodsfun))
 
-(defcfun "glfwSetMouseButtonCallback" GLFWmousebuttonfun
+(cffi:defcfun "glfwSetMouseButtonCallback" GLFWmousebuttonfun
     "Sets the mouse button callback."
     (window GLFWwindow) (callback GLFWmousebuttonfun))
 
-(defcfun "glfwSetCursorPosCallback" GLFWcursorposfun
+(cffi:defcfun "glfwSetCursorPosCallback" GLFWcursorposfun
     "Sets the cursor position callback."
     (window GLFWwindow) (callback GLFWcursorposfun))
 
-(defcfun "glfwSetCursorEnterCallback" GLFWcursorenterfun
+(cffi:defcfun "glfwSetCursorEnterCallback" GLFWcursorenterfun
     "Sets the cursor enter/leave callback."
     (window GLFWwindow) (callback GLFWcursorenterfun))
 
-(defcfun "glfwSetScrollCallback" GLFWscrollfun
+(cffi:defcfun "glfwSetScrollCallback" GLFWscrollfun
     "Sets the scroll callback."
     (window GLFWwindow) (callback GLFWscrollfun))
 
-(defcfun "glfwSetDropCallback" GLFWdropfun
+(cffi:defcfun "glfwSetDropCallback" GLFWdropfun
     "Sets the path drop callback."
     (window GLFWwindow) (callback GLFWdropfun))
 
-(defcfun "glfwJoystickPresent" :int
+(cffi:defcfun "glfwJoystickPresent" :int
     "Returns whether the specified joystick is present."
     (jid :int))
 
-(defcfun "glfwGetJoystickAxes" :pointer
+(cffi:defcfun "glfwGetJoystickAxes" :pointer
     "Returns the values of all axes of the specified joystick."
     (jid :int) (count :pointer))
 
-(defcfun "glfwGetJoystickButtons" :pointer
+(cffi:defcfun "glfwGetJoystickButtons" :pointer
     "Returns the state of all buttons of the specified joystick."
     (jid :int) (count :pointer))
 
-(defcfun "glfwGetJoystickHats" :pointer
+(cffi:defcfun "glfwGetJoystickHats" :pointer
     "Returns the state of all hats of the specified joystick."
     (jid :int) (count :pointer))
 
-(defcfun "glfwGetJoystickName" :pointer
+(cffi:defcfun "glfwGetJoystickName" :pointer
     "Returns the name of the specified joystick."
     (jid :int))
 
-(defcfun "glfwGetJoystickGUID" :pointer
+(cffi:defcfun "glfwGetJoystickGUID" :pointer
     "Returns the SDL compatible GUID of the specified joystick."
     (jid :int))
 
-(defcfun "glfwSetJoystickUserPointer" :void
+(cffi:defcfun "glfwSetJoystickUserPointer" :void
     "Sets the user pointer of the specified joystick."
     (jid :int) (pointer :pointer))
 
-(defcfun "glfwGetJoystickUserPointer" :pointer
+(cffi:defcfun "glfwGetJoystickUserPointer" :pointer
     "Returns the user pointer of the specified joystick."
     (jid :int))
 
-(defcfun "glfwJoystickIsGamepad" :int
+(cffi:defcfun "glfwJoystickIsGamepad" :int
     "Returns whether the specified joystick has a gamepad mapping."
     (jid :int))
 
-(defcfun "glfwSetJoystickCallback" :pointer
+(cffi:defcfun "glfwSetJoystickCallback" :pointer
     "Sets the joystick configuration callback."
     (callback :pointer))
 
-(defcfun "glfwUpdateGamepadMappings" :int
+(cffi:defcfun "glfwUpdateGamepadMappings" :int
     "Adds the specified SDL_GameControllerDB gamepad mappings."
     (string :pointer))
 
-(defcfun "glfwGetGamepadName" :pointer
+(cffi:defcfun "glfwGetGamepadName" :pointer
     "Returns the human-readable gamepad name for the specified joystick."
     (jid :int))
 
-(defcfun "glfwGetGamepadState" :int
+(cffi:defcfun "glfwGetGamepadState" :int
     "Retrieves the state of the specified joystick remapped as a gamepad."
-    (jid :int) (state GLFWgamepadstate))
+    (jid :int) (state :pointer))
 
-(defcfun "glfwSetClipboardString" :void
+(cffi:defcfun "glfwSetClipboardString" :void
     "Sets the clipboard to the specified string."
     (window GLFWwindow) (string :pointer))   ; The window parameter is deprecated
 
-(defcfun "glfwGetClipboardString" :pointer
+(cffi:defcfun "glfwGetClipboardString" :pointer
     "Returns the contents of the clipboard as a string."
     (window GLFWwindow))                    ; The window parameter is deprecated
 
-(defcfun "glfwGetTime" :double
+(cffi:defcfun "glfwGetTime" :double
     "Returns the GLFW time.")
 
-(defcfun "glfwSetTime" :void
+(cffi:defcfun "glfwSetTime" :void
     "Sets the GLFW time."
     (time :double))
 
-(defcfun "glfwGetTimerValue" :uint64
+(cffi:defcfun "glfwGetTimerValue" :uint64
     "Returns the current value of the raw timer.")
 
-(defcfun "glfwGetTimerFrequency" :uint64
+(cffi:defcfun "glfwGetTimerFrequency" :uint64
     "Returns the frequency, in Hz, of the raw timer.")
 
 ; Monitor
-(defcfun "glfwGetMonitors" GLFWmonitor
+(cffi:defcfun "glfwGetMonitors" GLFWmonitor
     "Returns the currently connected monitors."
     (count :pointer))
 
-(defcfun "glfwGetPrimaryMonitor" GLFWmonitor
+(cffi:defcfun "glfwGetPrimaryMonitor" GLFWmonitor
     "Returns the primary monitor.")
 
-(defcfun "glfwGetMonitorPos" :void
+(cffi:defcfun "glfwGetMonitorPos" :void
     "Returns the position of the monitor's viewport on the virtual screen."
     (monitor GLFWmonitor) (xpos :pointer) (ypos :pointer))
 
-(defcfun "glfwGetMonitorWorkarea" :void
+(cffi:defcfun "glfwGetMonitorWorkarea" :void
     "Retrieves the work area of the monitor."
     (monitor GLFWmonitor) (xpos :pointer) (ypos :pointer) 
     (width :pointer) (height :pointer))
 
-(defcfun "glfwGetMonitorPhysicalSize" :void
+(cffi:defcfun "glfwGetMonitorPhysicalSize" :void
     "Returns the physical size of the monitor."
     (monitor GLFWmonitor) (widthMM :pointer) (heightMM :pointer))
 
-(defcfun "glfwGetMonitorContentScale" :void
+(cffi:defcfun "glfwGetMonitorContentScale" :void
     "Retrieves the content scale for the specified monitor."
     (monitor GLFWmonitor) (xscale :pointer) (yscale :pointer))
 
-(defcfun "glfwGetMonitorName" :pointer
+(cffi:defcfun "glfwGetMonitorName" :pointer
     "Returns the name of the specified monitor."
     (monitor GLFWmonitor))
 
-(defcfun "glfwSetMonitorUserPointer" :void
+(cffi:defcfun "glfwSetMonitorUserPointer" :void
     "Sets the user pointer of the specified monitor."
     (monitor GLFWmonitor) (pointer :pointer))
 
-(defcfun "glfwGetMonitorUserPointer" :pointer
+(cffi:defcfun "glfwGetMonitorUserPointer" :pointer
     "Returns the user pointer of the specified monitor."
     (monitor GLFWmonitor))
 
-(defcfun "glfwSetMonitorCallback" GLFWmonitorfun
+(cffi:defcfun "glfwSetMonitorCallback" GLFWmonitorfun
     "Sets the monitor configuration callback."
     (callback GLFWmonitorfun))
 
-(defcfun "glfwGetVideoModes" GLFWvidmode
+(cffi:defcfun "glfwGetVideoModes" :pointer
     "Returns the available video modes for the specified monitor."
     (monitor GLFWmonitor) (count :pointer))
 
-(defcfun "glfwGetVideoMode" GLFWvidmode
+(cffi:defcfun "glfwGetVideoMode" :pointer
     "Returns the current mode of the specified monitor."
     (monitor GLFWmonitor))
 
-(defcfun "glfwSetGamma" :void
+(cffi:defcfun "glfwSetGamma" :void
     "Generates a gamma ramp and sets it for the specified monitor."
     (monitor GLFWmonitor) (gamma :float))
 
-(defcfun "glfwGetGammaRamp" GLFWgammaramp
+(cffi:defcfun "glfwGetGammaRamp" :pointer
     "Returns the current gamma ramp for the specified monitor."
     (monitor GLFWmonitor))
 
-(defcfun "glfwSetGammaRamp" :void
+(cffi:defcfun "glfwSetGammaRamp" :void
     "Sets the current gamma ramp for the specified monitor."
-    (monitor GLFWmonitor) (ramp GLFWgammaramp)) 
+    (monitor GLFWmonitor) (ramp :pointer)) 
 
 ; Vulkan support
-(defcfun "glfwVulkanSupported" :int
+(cffi:defcfun "glfwVulkanSupported" :int
     "Returns whether the Vulkan loader and an ICD have been found.")
 
-(defcfun "glfwGetRequiredInstanceExtensions" :pointer
+(cffi:defcfun "glfwGetRequiredInstanceExtensions" :pointer
     "Returns the Vulkan instance extensions required by GLFW."
     (count :pointer))
 
-(defcfun "glfwGetInstanceProcAddress" GLFWvkproc
+(cffi:defcfun "glfwGetInstanceProcAddress" GLFWvkproc
     "Returns the address of the specified Vulkan instance function."
     (instance :pointer) (procname :pointer))
 
-(defcfun "glfwGetPhysicalDevicePresentationSupport" :int
+(cffi:defcfun "glfwGetPhysicalDevicePresentationSupport" :int
     "Returns whether the specified queue family can present images."
     (instance :pointer) (device :pointer) (queuefamily :uint32))
 
-(defcfun "glfwCreateWindowSurface" :int
+(cffi:defcfun "glfwCreateWindowSurface" :int
     "Creates a Vulkan surface for the specified window."
     (instance :pointer) (window GLFWwindow) (allocator :pointer) (surface :pointer))
 
 ; Window
-(defcfun "glfwDefaultWindowHints" :void
+(cffi:defcfun "glfwDefaultWindowHints" :void
     "Resets all window hints to their default values.")
 
-(defcfun "glfwWindowHint" :void
+(cffi:defcfun "glfwWindowHint" :void
     "Sets the specified window hint to the desired value."
     (hint :int) (value :int))
 
-(defcfun "glfwWindowHintString" :void
+(cffi:defcfun "glfwWindowHintString" :void
     "Sets the specified window hint to the desired value."
     (hint :int) (value :pointer))
 
-(defcfun "glfwCreateWindow" :pointer
+(cffi:defcfun "glfwCreateWindow" :pointer
     "Creates a window and its associated context."
     (width :int) (height :int) (title :pointer) (monitor :pointer) (share :pointer))
 
-(defcfun "glfwDestroyWindow" :void
+(cffi:defcfun "glfwDestroyWindow" :void
     "Destroys the specified window and its context."
     (window GLFWwindow))
 
-(defcfun "glfwWindowShouldClose" :int
+(cffi:defcfun "glfwWindowShouldClose" :int
     "Checks the close flag of the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwSetWindowShouldClose" :void
+(cffi:defcfun "glfwSetWindowShouldClose" :void
     "Sets the close flag of the specified window."
     (window GLFWwindow) (value :int))
 
-(defcfun "glfwSetWindowTitle" :void
+(cffi:defcfun "glfwSetWindowTitle" :void
     "Sets the title of the specified window."
     (window GLFWwindow) (title :pointer))
 
-(defcfun "glfwSetWindowIcon" :void
+(cffi:defcfun "glfwSetWindowIcon" :void
     "Sets the icon for the specified window."
-    (window GLFWwindow) (count :int) (images GLFWimage))
+    (window GLFWwindow) (count :int) (images :pointer))
 
-(defcfun "glfwGetWindowPos" :void
+(cffi:defcfun "glfwGetWindowPos" :void
     "Retrieves the position of the content area of the specified window."
     (window GLFWwindow) (xpos :pointer) (ypos :pointer))
 
-(defcfun "glfwSetWindowPos" :void
+(cffi:defcfun "glfwSetWindowPos" :void
     "Sets the position of the content area of the specified window."
     (window GLFWwindow) (xpos :int) (ypos :int))
 
-(defcfun "glfwGetWindowSize" :void
+(cffi:defcfun "glfwGetWindowSize" :void
     "Retrieves the size of the content area of the specified window."
     (window GLFWwindow) (width :pointer) (height :pointer))
 
-(defcfun "glfwSetWindowSizeLimits" :void
+(cffi:defcfun "glfwSetWindowSizeLimits" :void
     "Sets the size limits of the specified window."
     (window GLFWwindow) (minwidth :int) (minheight :int) (maxwidth :int) (maxheight :int))
 
-(defcfun "glfwSetWindowAspectRatio" :void
+(cffi:defcfun "glfwSetWindowAspectRatio" :void
     "Sets the aspect ratio of the specified window."
     (window GLFWwindow) (numer :int) (denom :int))
 
-(defcfun "glfwSetWindowSize" :void
+(cffi:defcfun "glfwSetWindowSize" :void
     "Sets the size of the content area of the specified window."
     (window GLFWwindow) (width :int) (height :int))
 
-(defcfun "glfwGetFramebufferSize" :void
+(cffi:defcfun "glfwGetFramebufferSize" :void
     "Retrieves the size of the framebuffer of the specified window."
     (window GLFWwindow) (width :pointer) (height :pointer))
 
-(defcfun "glfwGetWindowFrameSize" :void
+(cffi:defcfun "glfwGetWindowFrameSize" :void
     "Retrieves the size of the frame of the window."
     (window GLFWwindow) (left :pointer) (top :pointer) (right :pointer) (bottom :pointer))
 
-(defcfun "glfwGetWindowContentScale" :void
+(cffi:defcfun "glfwGetWindowContentScale" :void
     "Retrieves the content scale for the specified window."
     (window GLFWwindow) (xscale :float) (yscale :float))
 
-(defcfun "glfwGetWindowOpacity" :float
+(cffi:defcfun "glfwGetWindowOpacity" :float
     "Returns the opacity of the whole window."
     (window GLFWwindow))
 
-(defcfun "glfwSetWindowOpacity" :void
+(cffi:defcfun "glfwSetWindowOpacity" :void
     "Sets the opacity of the whole window."
     (window GLFWwindow) (opacity :float))
 
-(defcfun "glfwIconifyWindow" :void
+(cffi:defcfun "glfwIconifyWindow" :void
     "Iconifies the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwRestoreWindow" :void
+(cffi:defcfun "glfwRestoreWindow" :void
     "Restores the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwMaximizeWindow" :void
+(cffi:defcfun "glfwMaximizeWindow" :void
     "Maximizes the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwShowWindow" :void
+(cffi:defcfun "glfwShowWindow" :void
     "Makes the specified window visible."
     (window GLFWwindow))
 
-(defcfun "glfwHideWindow" :void
+(cffi:defcfun "glfwHideWindow" :void
     "Hides the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwFocusWindow" :void
+(cffi:defcfun "glfwFocusWindow" :void
     "Brings the specified window to front and sets input focus."
     (window GLFWwindow))
 
-(defcfun "glfwRequestWindowAttention" :void
+(cffi:defcfun "glfwRequestWindowAttention" :void
     "Requests user attention to the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwGetWindowMonitor" :pointer
+(cffi:defcfun "glfwGetWindowMonitor" :pointer
     "Returns the monitor that the window uses for full screen mode."
     (window GLFWwindow))
 
-(defcfun "glfwSetWindowMonitor" :void
+(cffi:defcfun "glfwSetWindowMonitor" :void
     "Sets the mode, monitor, video mode and placement of a window."
     (window GLFWwindow) (monitor :pointer)
     (xpos :int) (ypos :int) (width :int) (height :int) (refreshRate :int))
 
-(defcfun "glfwGetWindowAttrib" :int
+(cffi:defcfun "glfwGetWindowAttrib" :int
     "Returns an attribute of the specified window."
     (window GLFWwindow) (attrib :int))
 
-(defcfun "glfwSetWindowAttrib" :void
+(cffi:defcfun "glfwSetWindowAttrib" :void
     "Sets an attribute of the specified window."
     (window GLFWwindow) (attrib :int) (value :int))
 
-(defcfun "glfwSetWindowUserPointer" :void
+(cffi:defcfun "glfwSetWindowUserPointer" :void
     "Sets the user pointer of the specified window."
     (window GLFWwindow) (pointer :pointer))
 
-(defcfun "glfwGetWindowUserPointer" :pointer
+(cffi:defcfun "glfwGetWindowUserPointer" :pointer
     "Returns the user pointer of the specified window."
     (window GLFWwindow))
 
-(defcfun "glfwSetWindowPosCallback" GLFWwindowposfun
+(cffi:defcfun "glfwSetWindowPosCallback" GLFWwindowposfun
     "Sets the position callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowposfun))
 
-(defcfun "glfwSetWindowSizeCallback" GLFWwindowsizefun
+(cffi:defcfun "glfwSetWindowSizeCallback" GLFWwindowsizefun
     "Sets the size callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowsizefun))
 
-(defcfun "glfwSetWindowCloseCallback" GLFWwindowclosefun
+(cffi:defcfun "glfwSetWindowCloseCallback" GLFWwindowclosefun
     "Sets the close callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowclosefun))
 
-(defcfun "glfwSetWindowRefreshCallback" GLFWwindowrefreshfun
+(cffi:defcfun "glfwSetWindowRefreshCallback" GLFWwindowrefreshfun
     "Sets the refresh callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowrefreshfun))
 
-(defcfun "glfwSetWindowFocusCallback" GLFWwindowfocusfun
+(cffi:defcfun "glfwSetWindowFocusCallback" GLFWwindowfocusfun
     "Sets the focus callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowfocusfun))
 
-(defcfun "glfwSetWindowIconifyCallback" GLFWwindowiconifyfun
+(cffi:defcfun "glfwSetWindowIconifyCallback" GLFWwindowiconifyfun
     "Sets the iconify callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowiconifyfun))
 
-(defcfun "glfwSetWindowMaximizeCallback" GLFWwindowmaximizefun
+(cffi:defcfun "glfwSetWindowMaximizeCallback" GLFWwindowmaximizefun
     "Sets the maximize callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowmaximizefun))
 
-(defcfun "glfwSetFramebufferSizeCallback" GLFWframebuffersizefun
+(cffi:defcfun "glfwSetFramebufferSizeCallback" GLFWframebuffersizefun
     "Sets the framebuffer resize callback for the specified window."
     (window GLFWwindow) (callback GLFWframebuffersizefun)) 
 
-(defcfun "glfwSetWindowContentScaleCallback" GLFWwindowcontentscalefun
+(cffi:defcfun "glfwSetWindowContentScaleCallback" GLFWwindowcontentscalefun
     "Sets the window content scale callback for the specified window."
     (window GLFWwindow) (callback GLFWwindowcontentscalefun))
 
-(defcfun "glfwPollEvents" :void
+(cffi:defcfun "glfwPollEvents" :void
     "Processes all pending events.")
 
-(defcfun "glfwWaitEvents" :void
+(cffi:defcfun "glfwWaitEvents" :void
     "Waits until events are queued and processes them.")
 
-(defcfun "glfwWaitEventsTimeout" :void
+(cffi:defcfun "glfwWaitEventsTimeout" :void
     "Waits with timeout until events are queued and processes them."
     (timeout :double))
 
-(defcfun "glfwPostEmptyEvent" :void
+(cffi:defcfun "glfwPostEmptyEvent" :void
     "Posts an empty event to the event queue.")
 
-(defcfun "glfwSwapBuffers" :void
+(cffi:defcfun "glfwSwapBuffers" :void
     "Swaps the front and back buffers of the specified window."
     (window GLFWwindow))

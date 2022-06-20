@@ -5,6 +5,21 @@
 
 ;; Structs
 
+;; Constructors and destructors
+(mcffi:def-foreign-constructor-destructor gammaramp (:struct GLFWgammaramp)
+  ((red nil) (cffi:foreign-alloc :ushort :initial-contents red) (cffi:foreign-free red))
+  ((green nil) (cffi:foreign-alloc :ushort :initial-contents green) (cffi:foreign-free green))
+  ((blue nil) (cffi:foreign-alloc :ushort :initial-contents blue) (cffi:foreign-free blue))
+  ((size 0)))
+
+
+(mcffi:def-foreign-constructor-destructor image (:struct GLFWimage)
+  ((width 0))
+  ((height 0))
+  ((pixels nil) (cffi:foreign-alloc :uchar :initial-contents pixels) (cffi:foreign-free pixels)))
+
+
+;; Getters and setters
 (mcffi:def-foreign-accessors gamepadstate (:struct GLFWgamepadstate)
   (buttons :getter ((&optional (index nil))
 		    (if index
@@ -81,19 +96,6 @@
 			     for v in new-value
 			     do (setf (cffi:mem-aref pixels :uchar i) v))))))
 
-;; ----
-
-(mcffi:def-foreign-constructor-destructor gammaramp (:struct GLFWgammaramp)
-  ((red nil) (cffi:foreign-alloc :ushort :initial-contents red) (cffi:foreign-free red))
-  ((green nil) (cffi:foreign-alloc :ushort :initial-contents green) (cffi:foreign-free green))
-  ((blue nil) (cffi:foreign-alloc :ushort :initial-contents blue) (cffi:foreign-free blue))
-  ((size 0)))
-
-
-(mcffi:def-foreign-constructor-destructor image (:struct GLFWimage)
-  ((width 0))
-  ((height 0))
-  ((pixels nil) (cffi:foreign-alloc :uchar :initial-contents pixels) (cffi:foreign-free pixels)))
 
 
 ;; Functions
@@ -131,20 +133,20 @@
 (defun get-version ()
   (cffi:with-foreign-objects ((major-ptr :int) (minor-ptr :int) (rev-ptr :int))
     (glfwGetVersion major-ptr minor-ptr rev-ptr)
-    (values (cffi:mem-ref major :int) (cffi:mem-ref minor :int) (cffi:mem-ref rev :int))))
+    (values (cffi:mem-ref major-ptr :int) (cffi:mem-ref minor-ptr :int) (cffi:mem-ref rev-ptr :int))))
 
 (defun get-version-string ()
   (let ((result (glfwGetVersionString)))
     (cffi:foreign-string-to-lisp result)))
 
 (defun get-error ()
-  (with-foreign-object (description :pointer)
+  (cffi:with-foreign-object (description :pointer)
     (let ((error-code (glfwGetError description)))
       (values error-code (cffi:foreign-string-to-lisp (cffi:mem-ref description :pointer))))))
 
 (let ((current-callback))
   (defun set-error-callback (callback)
-    (let ((callback-c (if callback (get-callback callback) (cffi:null-pointer))))
+    (let ((callback-c (if callback (cffi:get-callback callback) (cffi:null-pointer))))
       (glfwSetErrorCallback callback-c))
     (let ((old-callback current-callback))
       (setf current-callback callback)
@@ -184,7 +186,7 @@
   (glfwSetCursorPos window xpos ypos))
 
 (defun create-cursor (image xhot yhot)
-  (glfwCreateCursor img xhot yhot))
+  (glfwCreateCursor image xhot yhot))
 
 (defun create-standard-cursor (shape)
   (glfwCreateStandardCursor shape))
@@ -246,7 +248,7 @@
 (let ((current-callback))
   (defun set-scroll-callback (window callback)
     (let ((callback-c (if callback (cffi:get-callback callback) (cffi:null-pointer))))
-      (glfwScrollCallback  window callback-c))
+      (glfwSetScrollCallback window callback-c))
     (let ((old-callback current-callback))
       (setf current-callback callback)
       old-callback)))
@@ -273,8 +275,8 @@
           nil))))
         
 (defun get-joystick-buttons (jid)
-  (cffi:with-foreign-object (counter-ptr :int)
-    (let* ((buttons-ptr (glfwGetJoystickButtons jid csize))
+  (cffi:with-foreign-object (count-ptr :int)
+    (let* ((buttons-ptr (glfwGetJoystickButtons jid count-ptr))
 	   (count (cffi:mem-ref count-ptr :int)))
       (if (> count 0)
           (loop for i from 0 below count
@@ -282,8 +284,8 @@
           nil))))
 
 (defun get-joystick-hats (jid)
-  (cffi:with-foreign-object (counter-ptr :int)
-    (let* ((hats-ptr (glfwGetJoystickHats jid csize))
+  (cffi:with-foreign-object (count-ptr :int)
+    (let* ((hats-ptr (glfwGetJoystickHats jid count-ptr))
 	   (count (cffi:mem-ref count-ptr :int)))
       (if (> count 0)
           (loop for i from 0 below count
@@ -291,7 +293,7 @@
           nil))))
 
 (defun get-joystick-name (jid)
-  (let ((result (cffi:glfwGetJoystickName jid)))
+  (let ((result (glfwGetJoystickName jid)))
     (if (cffi:null-pointer-p result)
 	nil
 	(cffi:foreign-string-to-lisp result))))
@@ -377,23 +379,23 @@
 	result)))
 
 (defun get-monitor-pos (monitor)
-  (with-foreign-objects ((xpos-ptr :int) (ypos-ptr :int))
+  (cffi:with-foreign-objects ((xpos-ptr :int) (ypos-ptr :int))
     (glfwGetMonitorPos monitor xpos-ptr ypos-ptr)
     (values (cffi:mem-ref xpos-ptr :int) (cffi:mem-ref ypos-ptr :int))))
 
 (defun get-monitor-workarea (monitor)
-  (with-foreign-objects ((xpos-ptr :int) (ypos-ptr :int) (width-ptr :int) (height-ptr :int))
+  (cffi:with-foreign-objects ((xpos-ptr :int) (ypos-ptr :int) (width-ptr :int) (height-ptr :int))
     (glfwGetMonitorWorkarea monitor xpos-ptr ypos-ptr width-ptr height-ptr)
     (values (cffi:mem-ref xpos-ptr :int) (cffi:mem-ref ypos-ptr :int)
 	    (cffi:mem-ref width-ptr :int) (cffi:mem-ref height-ptr :int))))
 
 (defun get-monitor-physical-size (monitor)
-  (with-foreign-objects ((widthMM-ptr :int) (heightMM-ptr :int))
+  (cffi:with-foreign-objects ((widthMM-ptr :int) (heightMM-ptr :int))
     (glfwGetMonitorPhysicalSize monitor widthMM-ptr heightMM-ptr)
     (values (cffi:mem-ref widthMM-ptr :int) (cffi:mem-ref heightMM-ptr :int))))
 
 (defun get-monitor-content-scale (monitor)
-  (with-foreign-objects ((xscale-ptr :int) (yscale-ptr :int))
+  (cffi:with-foreign-objects ((xscale-ptr :int) (yscale-ptr :int))
     (glfwGetMonitorContentScale monitor xscale-ptr yscale-ptr)
     (values (cffi:mem-ref xscale-ptr :int) (cffi:mem-ref yscale-ptr :int))))
 
@@ -404,21 +406,21 @@
 (defvar *monitors-data* (make-hash-table))
 
 (defun set-monitor-user-pointer (monitor data)
-  (setf (gethash (pointer-address monitor) *monitors-data*) data))
+  (setf (gethash (cffi:pointer-address monitor) *monitors-data*) data))
 
-(defun get-monitor-user-data (monitor)
-  (gethash (pointer-address monitor) *monitors-data*))
+(defun get-monitor-user-pointer (monitor)
+  (gethash (cffi:pointer-address monitor) *monitors-data*))
 
 (let ((current-callback))
   (defun set-monitor-callback (callback)
     (let ((callback-c (or callback (cffi:null-pointer))))
-      (cffi:glfwSetMonitorCallback callback-c))
+      (glfwSetMonitorCallback callback-c))
     (let ((old-callback current-callback))
       (setf current-callback callback)
       old-callback)))
 
 (defun get-video-modes (monitor)
-  (with-foreign-object (count-ptr :int)
+  (cffi:with-foreign-object (count-ptr :int)
     (let* ((result (glfwGetVideoModes monitor count-ptr))
 	   (count (cffi:mem-ref count-ptr :int)))
       (if (> count 0)
@@ -428,7 +430,7 @@
 
 (defun get-video-mode (monitor)
   (let ((result (glfwGetVideoMode monitor)))
-    (if (null-pointer-p cmode)
+    (if (cffi:null-pointer-p result)
 	nil
         result)))
 
@@ -442,7 +444,7 @@
 	result)))
 
 (defun set-gamma-ramp (monitor ramp)
-  (gflwSetGammaRamp monitor ramp))
+  (glfwSetGammaRamp monitor ramp))
 
 
 ;; Vulkan support
@@ -456,7 +458,7 @@
            (count (cffi:mem-ref count-ptr :uint32)))
       (if (> count 0) 
           (loop for i from 0 below count
-	        collect (cffi:foreign-string-to lisp (cffi:mem-aref result :pointer i)))
+	        collect (cffi:foreign-string-to-lisp (cffi:mem-aref result :pointer i)))
           nil))))
 
 (defun get-physical-device-presentation-support (instance device queueFamily)
@@ -511,7 +513,7 @@
 (defun get-window-pos (window)
   (cffi:with-foreign-objects ((xpos-ptr :int) (ypos-ptr :int))
     (glfwGetWindowPos window xpos-ptr ypos-ptr)
-    (values (cffi:mem-ref xpos-ptr :int) (cffi:mem-ref ypos :int))))
+    (values (cffi:mem-ref xpos-ptr :int) (cffi:mem-ref ypos-ptr :int))))
 
 (defun set-window-pos (window xpos ypos)
   (glfwSetWindowPos window xpos ypos))
@@ -591,11 +593,11 @@
 
 (defvar *windows-data* (make-hash-table))
 
-(defun set-window-user-data (window data)
-  (setf (gethash (pointer-address window) *windows-data*) data))
+(defun set-window-user-pointer (window data)
+  (setf (gethash (cffi:pointer-address window) *windows-data*) data))
 
-(defun get-window-user-data (window)
-  (gethash (pointer-address window) *monitors-data*))
+(defun get-window-user-pointer (window)
+  (gethash (cffi:pointer-address window) *monitors-data*))
 
 (let ((current-callback))
   (defun set-window-pos-callback (window callback)
@@ -726,7 +728,7 @@
   (let ((path-count (gensym)) (arr-paths (gensym)))
     `(defcallback ,name :pointer ((,window :pointer) (,path-count :int) (,arr-paths :pointer))
        (let ((,paths (loop for i from 0 below ,path-count
-			   collect (cffi:foreign-string-to-list (cffi:mem-aref ,arr-path :pointer i))))) 
+			   collect (cffi:foreign-string-to-lisp (cffi:mem-aref ,arr-paths :pointer i))))) 
          ,@body))))
 
 (defmacro def-joystick-callback (name (window jid event) &body body) 
