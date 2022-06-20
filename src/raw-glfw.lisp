@@ -698,7 +698,7 @@
     "Returns the address of the specified Vulkan instance function."
     (instance :pointer) (procname :pointer))
 
-(defcfun "glfwGetPhysicalDevicePresentationSupport" :boolean
+(defcfun "glfwGetPhysicalDevicePresentationSupport" :int
     "Returns whether the specified queue family can present images."
     (instance :pointer) (device :pointer) (queuefamily :uint32))
 
@@ -726,13 +726,13 @@
     "Destroys the specified window and its context."
     (window GLFWwindow))
 
-(defcfun "glfwWindowShouldClose" :boolean
+(defcfun "glfwWindowShouldClose" :int
     "Checks the close flag of the specified window."
     (window GLFWwindow))
 
 (defcfun "glfwSetWindowShouldClose" :void
     "Sets the close flag of the specified window."
-    (window GLFWwindow) (value :boolean))
+    (window GLFWwindow) (value :int))
 
 (defcfun "glfwSetWindowTitle" :void
     "Sets the title of the specified window."
@@ -821,7 +821,7 @@
 (defcfun "glfwSetWindowMonitor" :void
     "Sets the mode, monitor, video mode and placement of a window."
     (window GLFWwindow) (monitor :pointer)
-    (xpos :int) (ypos :int) (width :int) (height :int) (refresh-rate :int))
+    (xpos :int) (ypos :int) (width :int) (height :int) (refreshRate :int))
 
 (defcfun "glfwGetWindowAttrib" :int
     "Returns an attribute of the specified window."
