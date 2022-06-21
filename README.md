@@ -1,5 +1,5 @@
 # cl-glfw
-This is a glfw3 bindings library.
+This is a glfw3 bindings library. It allows you to do window and input management.
 
 # Documentation
 
