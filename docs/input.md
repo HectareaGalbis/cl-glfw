@@ -421,14 +421,21 @@ If this bit is set the Num Lock key is enabled and the [+lock-key-mods+](https:/
 (defstruct gamepadstate
     buttons
     axes)
+    
+(gamepadstate-buttons obj &optional index)
+(gamepadstate-axes obj &optional index)
 ```
 
 This describes the input state of a gamepad.
 
 * *Fields*:
-  * **buttons**: The states of each [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons), `+press+` or `+release+`. This must be an array of 15 elements.
-  * **axes**: The states of each [gamepad axis](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-axes), in the range -1.0 to 1.0 inclusive. This must be an array of 6 elements.
+  * **buttons**: The states of each [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons), `+press+` or `+release+`. This must be a list of 15 elements.
+  * **axes**: The states of each [gamepad axis](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-axes), in the range -1.0 to 1.0 inclusive. This must be a list of 6 elements.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [get-gamepad-state](https://www.glfw.org/docs/latest/input_guide.html#get-gamepad-state).
+
+* *Accessors*:
+  * **gamepadstate-buttons**: Returns the list of states of each [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons). If `index` is supplied, the [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons) at `index` position is returned.
+  * **gamepadstate-axes**: Returns the list of states of each [gamepad axis](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-axes). If `index` is supplied, the [gamepad axis](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-axes) at `index` position is returned.
 
 ## Function documentation
 
