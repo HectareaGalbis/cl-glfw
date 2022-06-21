@@ -450,6 +450,15 @@ Context creation API [hint](https://www.glfw.org/docs/latest/window_guide.html#G
     width
     height
     pixels)
+    
+(create-image &key (width 0) (height 0) (pixels nil))
+(destroy-image obj)
+(with-image var (&key (width 0) (height 0) (pixels nil))
+  &body body)
+  
+(image-width obj)
+(image-heigth obj)
+(image-pixels obj &optional height-index width-index)
 ```
 
 This describes a single 2D image. See the documentation for each related function what the expected pixel format is.
