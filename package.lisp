@@ -396,8 +396,8 @@
         #:get-joystick-hats
         #:get-joystick-name
         #:get-joystick-guid
-        #:set-joystick-user-data
-        #:get-joystick-user-data
+        #:set-joystick-user-pointer
+        #:get-joystick-user-pointer
         #:joystick-is-gamepad
         #:set-joystick-callback
         #:update-gamepad-mappings
@@ -418,8 +418,8 @@
         #:get-monitor-physical-size
         #:get-monitor-content-scale
         #:get-monitor-name
-        #:set-monitor-user-data
-        #:get-monitor-user-data
+        #:set-monitor-user-pointer
+        #:get-monitor-user-pointer
         #:set-monitor-callback
         #:get-video-modes
         #:get-video-mode
@@ -466,8 +466,8 @@
         #:set-window-monitor
         #:get-window-attrib
         #:set-window-attrib
-        #:set-window-user-data
-        #:get-window-user-data
+        #:set-window-user-pointer
+        #:get-window-user-pointer
         #:set-window-pos-callback
         #:set-window-size-callback
         #:set-window-close-callback
