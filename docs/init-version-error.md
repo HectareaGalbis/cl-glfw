@@ -15,28 +15,28 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 
 ## Constants
 
-* [+version-major+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-major) 3
-* [+version-minor+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-minor) 3
-* [+version-revision+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-revision) 6 
-* [+true+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#true) 1
-* [+false+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#false) 0   
-* [+joystick-hat-buttons+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#joystick-hat-buttons) #x00050001
-* [+cocoa-chdir-resources+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-chdir-resources) #x00051001    
-* [+cocoa-menubar+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-menubar) #x00051002
+* [GLFW_VERSION-MAJOR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-major) 3
+* [GLFW_VERSION-MINOR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-minor) 3
+* [GLFW_VERSION-REVISION](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-revision) 6 
+* [GLFW_TRUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#true) 1
+* [GLFW_FALSE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#false) 0   
+* [GLFW_JOYSTICK-HAT-BUTTONS](https://hectarea1996.github.io/cl-glfw/init-version-error.html#joystick-hat-buttons) #x00050001
+* [GLFW_COCOA-CHDIR-RESOURCES](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-chdir-resources) #x00051001    
+* [GLFW_COCOA-MENUBAR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-menubar) #x00051002
 
 ### Error codes
 
-* [+no-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) 0
-* [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) #x00010001
-* [+no-current-context+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-current-context) #x00010002
-* [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) #x00010003
-* [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) #x00010004
-* [+out-of-memory+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#out-of-memory) #x00010005
-* [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) #x00010006
-* [+version-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-unavailable) #x00010006
-* [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) #x00010008
-* [+format-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#format-unavailable) #x00010009
-* [+no-window-context+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) #x0001000A
+* [GLFW_NO-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) 0
+* [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) #x00010001
+* [GLFW_NO-CURRENT-CONTEXT](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-current-context) #x00010002
+* [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) #x00010003
+* [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) #x00010004
+* [GLFW_OUT-OF-MEMORY](https://hectarea1996.github.io/cl-glfw/init-version-error.html#out-of-memory) #x00010005
+* [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) #x00010006
+* [GLFW_VERSION-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-unavailable) #x00010006
+* [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) #x00010008
+* [GLFW_FORMAT-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#format-unavailable) #x00010009
+* [GLFW_NO-WINDOW-CONTEXT](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) #x0001000A
 
 ## Functions
 
@@ -57,163 +57,163 @@ For more task-oriented information, see the [Introduction to the API](https://ww
 ### version-major
 
 ```
-(defconstant +version-major+ 3) 
+(defconstant GLFW_VERSION-MAJOR 3) 
 ```
 
 The major version number of the GLFW header. This is incremented when the API is changed in non-compatible ways.
 
-### +version-minor+
+### GLFW_VERSION-MINOR
 
 ```
-(defconstant +version-minor+ 3)
+(defconstant GLFW_VERSION-MINOR 3)
 ```
 
 The minor version number of the GLFW header. This is incremented when features are added to the API but it remains backward-compatible.
 
-### +version-revision+
+### GLFW_VERSION-REVISION
 
 ```
-(defconstant +version-revision+ 6)
+(defconstant GLFW_VERSION-REVISION 6)
 ```
 
 The revision number of the GLFW header. This is incremented when a bug fix release is made that does not contain any API changes.
 
-### +true+
+### GLFW_TRUE
 
 ```
-(defconstant +true+ 1)
+(defconstant GLFW_TRUE 1)
 ```
 
 This is only semantic sugar for the number 1. You can instead use `1` or `true` or `_True` or `GL_TRUE` or `VK_TRUE` or anything else that is equal to one.
 
-### +false+
+### GLFW_FALSE
 
 ```
-(defconstant +false+ 0)
+(defconstant GLFW_FALSE 0)
 ```
 
 This is only semantic sugar for the number 0. You can instead use `0` or `false` or `_False` or `GL_FALSE` or VK_FALSE or anything else that is equal to zero.
 
-### +joystick-hat-buttons+
+### GLFW_JOYSTICK-HAT-BUTTONS
 
 ```
-(defconstant +joystick-hat-buttons+ #x00050001)
+(defconstant GLFW_JOYSTICK-HAT-BUTTONS #x00050001)
 ```
 
 Joystick hat buttons [init hint](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS).
 
-### +cocoa-chdir-resources+
+### GLFW_COCOA-CHDIR-RESOURCES
 
 ```
-(defconstant +cocoa-chdir-resources+ #x00051001)
+(defconstant GLFW_COCOA-CHDIR-RESOURCES #x00051001)
 ```
 
 macOS specific [init hint](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_COCOA_CHDIR_RESOURCES_hint).
 
-### +cocoa-menubar+
+### GLFW_COCOA-MENUBAR
 
 ```
-(defconstant +cocoa-menubar+ #x00051002)
+(defconstant GLFW_COCOA-MENUBAR #x00051002)
 ```
 
 macOS specific [init hint](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_COCOA_MENUBAR_hint).
 
-### +no-error+
+### GLFW_NO-ERROR
 
 ```
-(defconstant +no-error+ 0)
+(defconstant GLFW_NO-ERROR 0)
 ```
 
 No error has occurred.
 
 **Analysis**: Yay.
 
-### +not-initialized+
+### GLFW_NOT-INITIALIZED
 
 ```
-(defconstant +not-initialized+ #x00010001)
+(defconstant GLFW_NOT-INITIALIZED #x00010001)
 ```
 
 This occurs if a GLFW function was called that must not be called unless the library is [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
 
 **Analysis**: Application programmer error. Initialize GLFW before calling any function that requires initialization.
 
-### +no-current-context+
+### GLFW_NO-CURRENT-CONTEXT
 
 ```
-(defconstant +no-current-context+ #x00010002)
+(defconstant GLFW_NO-CURRENT-CONTEXT #x00010002)
 ```
 
 This occurs if a GLFW function was called that needs and operates on the current OpenGL or OpenGL ES context but no context is current on the calling thread. One such function is [swap-interval](https://hectarea1996.github.io/cl-glfw/context.html#swap-interval).
 
 **Analysis**: Application programmer error. Ensure a context is current before calling functions that require a current context.
 
-### +invalid-enum+
+### GLFW_INVALID-ENUM
 
 ```
-(defconstant +invalid-enum+ #x00010003)
+(defconstant GLFW_INVALID-ENUM #x00010003)
 ```
 
-One of the arguments to the function was an invalid enum value, for example requesting [+red-bits+](https://hectarea1996.github.io/cl-glfw/window.html#red-bits) with [get-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#get-window-attrib).
+One of the arguments to the function was an invalid enum value, for example requesting [GLFW_RED-BITS](https://hectarea1996.github.io/cl-glfw/window.html#red-bits) with [get-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#get-window-attrib).
 
 **Analysis**: Application programmer error. Fix the offending call.
 
-### +invalid-value+
+### GLFW_INVALID-VALUE
 
 ```
-(defconstant +invalid-value+ #x00010004)
+(defconstant GLFW_INVALID-VALUE #x00010004)
 ```
 
 One of the arguments to the function was an invalid value, for example requesting a non-existent OpenGL or OpenGL ES version like 2.7.
 
-Requesting a valid but unavailable OpenGL or OpenGL ES version will instead result in a [+version-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-unavailable) error.
+Requesting a valid but unavailable OpenGL or OpenGL ES version will instead result in a [GLFW_VERSION-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-unavailable) error.
 
 **Analysis**: Application programmer error. Fix the offending call.
 
-### +out-of-memory+
+### GLFW_OUT-OF-MEMORY
 
 ```
-(defconstant +out-of-memory+ #x00010005)
+(defconstant GLFW_OUT-OF-MEMORY #x00010005)
 ```
 
 A memory allocation failed.
 
 **Analysis**: A bug in GLFW or the underlying operating system. Report the bug to our [issue tracker](https://github.com/glfw/glfw/issues).
 
-### +api-unavailable+
+### GLFW_API-UNAVAILABLE
 
 ```
-(defconstant +api-unavailable+ #x00010006)
+(defconstant GLFW_API-UNAVAILABLE #x00010006)
 ```
 
 GLFW could not find support for the requested API on the system.
 
 **Analysis**: The installed graphics driver does not support the requested API, or does not support it via the chosen context creation backend. Below are a few examples. Some pre-installed Windows graphics drivers do not support OpenGL. AMD only supports OpenGL ES via EGL, while Nvidia and Intel only support it via a WGL or GLX extension. macOS does not provide OpenGL ES at all. The Mesa EGL, OpenGL and OpenGL ES libraries do not interface with the Nvidia binary driver. Older graphics drivers do not support Vulkan.
 
-### +version-unavailable+
+### GLFW_VERSION-UNAVAILABLE
 
 ```
-(defconstant +version-unavailable+ #x00010007)
+(defconstant GLFW_VERSION-UNAVAILABLE #x00010007)
 ```
 
 The requested OpenGL or OpenGL ES version (including any requested context or framebuffer hints) is not available on this machine.
 
-**Analysis**: The machine does not support your requirements. If your application is sufficiently flexible, downgrade your requirements and try again. Otherwise, inform the user that their machine does not match your requirements. Future invalid OpenGL and OpenGL ES versions, for example OpenGL 4.8 if 5.0 comes out before the 4.x series gets that far, also fail with this error and not [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), because GLFW cannot know what future versions will exist.
+**Analysis**: The machine does not support your requirements. If your application is sufficiently flexible, downgrade your requirements and try again. Otherwise, inform the user that their machine does not match your requirements. Future invalid OpenGL and OpenGL ES versions, for example OpenGL 4.8 if 5.0 comes out before the 4.x series gets that far, also fail with this error and not [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), because GLFW cannot know what future versions will exist.
 
-### +platform-error+
+### GLFW_PLATFORM-ERROR
 
 ```
-(defconstant +platform-error+ #x00010008)
+(defconstant GLFW_PLATFORM-ERROR #x00010008)
 ```
 
 A platform-specific error occurred that does not match any of the more specific categories.
 
 **Analysis**: A bug or configuration error in GLFW, the underlying operating system or its drivers, or a lack of required resources. Report the issue to our [issue tracker](https://github.com/glfw/glfw/issues).
 
-### +format-unavailable+
+### GLFW_FORMAT-UNAVAILABLE
 
 ```
-(defconstant +format-unavailable+ #x00010009)
+(defconstant GLFW_FORMAT-UNAVAILABLE #x00010009)
 ```
 
 If emitted during window creation, the requested pixel format is not supported.
@@ -222,10 +222,10 @@ If emitted when querying the clipboard, the contents of the clipboard could not 
 
 **Analysis**: If emitted during window creation, one or more [hard constraints](https://www.glfw.org/docs/latest/window_guide.html#window_hints_hard) did not match any of the available pixel formats. If your application is sufficiently flexible, downgrade your requirements and try again. Otherwise, inform the user that their machine does not match your requirements. If emitted when querying the clipboard, ignore the error or report it to the user, as appropriate.
 
-### +no-window-context+
+### GLFW_NO-WINDOW-CONTEXT
 
 ```
-(defconstant +no-window-context+ #x0001000A)
+(defconstant GLFW_NO-WINDOW-CONTEXT #x0001000A)
 ```
 
 A window that does not have an OpenGL or OpenGL ES context was passed to a function that requires it to have one.
@@ -248,9 +248,9 @@ Additional calls to this function after successful initialization but before ter
 
 * *Returns*:
   * **success**: `t` if successful, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **macOS**: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's bundle, if present. This can be disabled with the [+cocoa-chdir-resources+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-chdir-resources) init hint.
+  * **macOS**: This function will change the current directory of the application to the `Contents/Resources` subdirectory of the application's bundle, if present. This can be disabled with the [GLFW_COCOA-CHDIR-RESOURCES](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-chdir-resources) init hint.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Initialization and termination](https://www.glfw.org/docs/latest/intro_guide.html#intro_init), [terminate](https://hectarea1996.github.io/cl-glfw/init-version-error.html#terminate).
 
@@ -266,7 +266,7 @@ If GLFW has been successfully initialized, this function should be called before
 
 This function has no effect if GLFW is not initialized.
 
-* *Errors*: Possible errors include [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
 
 > **Warning:**
@@ -290,7 +290,7 @@ Some hints are platform specific. These may be set on any platform but they will
 * *Parameters*:
   * **hint**: The [init hint](https://www.glfw.org/docs/latest/intro_guide.html#init_hints) to set.
   * **value**: The new value of the init hint.
-* *Errors*: Possible errors include [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
+* *Errors*: Possible errors include [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
 * *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Init hints](https://www.glfw.org/docs/latest/intro_guide.html#init_hints), [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
@@ -335,10 +335,10 @@ Do not use the version string to parse the GLFW library version. The [get-versio
 (get-error) => error-code description
 ```
 
-This function returns and clears the [error code](https://hectarea1996.github.io/cl-glfw/init-version-error.html#error-codes) of the last error that occurred on the calling thread, and optionally a UTF-8 encoded human-readable description of it. If no error has occurred since the last call, it returns [+no-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) (zero) and 'nil'.
+This function returns and clears the [error code](https://hectarea1996.github.io/cl-glfw/init-version-error.html#error-codes) of the last error that occurred on the calling thread, and optionally a UTF-8 encoded human-readable description of it. If no error has occurred since the last call, it returns [GLFW_NO-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) (zero) and 'nil'.
 
 * *Returns*:
-  **error-code**: The last error code for the calling thread, or [+no-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) (zero).
+  **error-code**: The last error code for the calling thread, or [GLFW_NO-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-error) (zero).
   **description**: The error description, or `nil`.
 * *Errors*: None.
 * *Remarks*: This function may be called before [init](https://hectarea1996.github.io/cl-glfw/init-version-error.html#init).
