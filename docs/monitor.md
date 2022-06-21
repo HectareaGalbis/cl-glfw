@@ -45,12 +45,19 @@ This is the reference documentation for monitor related functions and types. For
 
 ```
 (defstruct vidmode
-    width
-    height
-    red-bits
-    green-bits
-    blue-bits
-    refresh-rate)
+  width
+  height
+  redBits
+  greenBits
+  blueBits
+  refreshRate)
+    
+(vidmode-width obj)
+(vidmode-height obj)
+(vidmode-redbits obj)
+(vidmode-greenBits obj)
+(vidmode-blueBits obj)
+(vidmode-refreshRate obj)
 ```
 
 This describes a single video mode.
@@ -58,10 +65,19 @@ This describes a single video mode.
 * *Fields*:
   * **width**: The width, in screen coordinates, of the video mode.
   * **height**: The height, in screen coordinates, of the video mode.
-  * **red-bits**: The bit depth of the red channel of the video mode.
-  * **green-bits**: The bit depth of the green channel of the video mode.
-  * **blue-bits**: The bit depth of the blue channel of the video mode.
-  * **refresh-rate**: The refresh rate, in Hz, of the video mode.
+  * **redBits**: The bit depth of the red channel of the video mode.
+  * **greenBits**: The bit depth of the green channel of the video mode.
+  * **blueBits**: The bit depth of the blue channel of the video mode.
+  * **refreshRate**: The refresh rate, in Hz, of the video mode.
+
+* *Accessors*:
+  * **vidmode-width**: Returns the `width` member.
+  * **vidmode-height**: Returns the `height` member.
+  * **vidmode-redBits**: Returns the `redBits` member.
+  * **vidmode-greenBits**: Returns the `greenBits` member.
+  * **vidmode-blueBits**: Returns the `blueBits` member.
+  * **vidmode-refreshRate**: Returns the `refreshRate` member.
+
 * *See also*: [Video modes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_modes), [get-video-mode](https://hectarea1996.github.io/cl-glfw/monitor.html#get-video-mode), [get-video-modes](https://hectarea1996.github.io/cl-glfw/monitor.html#get-video-modes).
 
 ### gammaramp
@@ -70,15 +86,38 @@ This describes a single video mode.
 (defstruct gammaramp
     red
     green
-    blue)
+    blue
+    size)
+    
+(create-gammaramp &key (red nil) (green nil) (blue nil) (size 0))
+(destroy-gammaramp obj)
+(with-gammaramp var (&key (red nil) (green nil) (blue nil) (size 0))
+  &body body)
+(gammaramp-red obj &optional index)
+(gammaramp-green obj &optional index)
+(gammaramp-blue obj &optional index)
+(gammaramp-size obj)
 ```
 
 This describes the gamma ramp for a monitor.
 
 * *Fields*:
-  * **red**: An array of values describing the response of the red channel.
-  * **green**: An array of values describing the response of the green channel.
-  * **blue**: An array of values describing the response of the blue channel.
+  * **red**: A list of values describing the response of the red channel.
+  * **green**: A list of values describing the response of the green channel.
+  * **blue**: A list of values describing the response of the blue channel.
+  * **size**: The number of elements in each list.
+ 
+* *Constructor and destructor*:
+  * **create-gammaramp**: Creates a gammaramp structure. `red`, `green` and `blue` arguments must be lists of size `size`.
+  * **destroy-gammaramp**: Destroys a gammaramp structure.
+  * **with-gammaramp**: Wraps the body expressions with the creation and destruction of a gammaramp structure. The new gammaramp structure is bound to `var`. The arguments are passed to the constructor `create-gammaramp`.
+
+* *Accessors*:
+  * **gammaramp-red**: Returns the `red` member. If `index` is supplied, it returns the element at `index` position.
+  * **gammaramp-green**: Returns the `green` member. If `index` is supplied, it returns the element at `index` position.
+  * **gammaramp-red**: Returns the `blue` member. If `index` is supplied, it returns the element at `index` position.
+  * **gammaramp-red**: Returns the `size` member.
+
 * *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma), [get-gamma-ramp](https://hectarea1996.github.io/cl-glfw/monitor.html#get-gamma-ramp), [set-gamma-ramp](https://hectarea1996.github.io/cl-glfw/monitor.html#set-gamma-ramp).
 
 ## Function documentation
