@@ -113,10 +113,10 @@ This describes the gamma ramp for a monitor.
   * **with-gammaramp**: Wraps the body expressions with the creation and destruction of a gammaramp structure. The new gammaramp structure is bound to `var`. The arguments are passed to the constructor `create-gammaramp`.
 
 * *Accessors*:
-  * **gammaramp-red**: Returns the `red` member. If `index` is supplied, it returns the element at `index` position.
-  * **gammaramp-green**: Returns the `green` member. If `index` is supplied, it returns the element at `index` position.
-  * **gammaramp-red**: Returns the `blue` member. If `index` is supplied, it returns the element at `index` position.
-  * **gammaramp-red**: Returns the `size` member.
+  * **gammaramp-red**: Returns the `red` member. If `index` is supplied, it returns the element at `index` position. This function is setf-able.
+  * **gammaramp-green**: Returns the `green` member. If `index` is supplied, it returns the element at `index` position. This function is setf-able.
+  * **gammaramp-red**: Returns the `blue` member. If `index` is supplied, it returns the element at `index` position. This function is setf-able.
+  * **gammaramp-red**: Returns the `size` member. This function is setf-able.
 
 * *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma), [get-gamma-ramp](https://hectarea1996.github.io/cl-glfw/monitor.html#get-gamma-ramp), [set-gamma-ramp](https://hectarea1996.github.io/cl-glfw/monitor.html#set-gamma-ramp).
 
