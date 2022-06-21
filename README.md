@@ -3,7 +3,7 @@ This is a glfw3 bindings library. It allows you to do window and input managemen
 
 # Documentation
 
-[Here](https://hectarea1996.github.io/cl-glfw/reference.html) is the api reference with explanations of how to use every function of this library.
+[Here](https://hectarea1996.github.io/cl-glfw/) is the api reference with explanations of how to use every function of this library.
 
 # Dependencies
 
