@@ -132,7 +132,7 @@ This function returns an array of handles for all currently connected monitors. 
 
 * *Returns*:
   * **monitors**: An array of monitor handles, or `nil` if no monitors were found or if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Retrieving monitors](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_monitors), [Monitor configuration changes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_event), [get-primary-monitor](https://hectarea1996.github.io/cl-glfw/monitor.html#get-primary-monitor).
 
@@ -146,7 +146,7 @@ This function returns the primary monitor. This is usually the monitor where ele
 
 * *Returns*:
   * **monitor**: The primary monitor, or `nil` if no monitors were found or if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *Remarks*: The primary monitor is always first in the array returned by [get-monitors](https://hectarea1996.github.io/cl-glfw/monitor.html#get-monitors).
 * *See also*: [Retrieving monitors](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_monitors), [get-monitors](https://hectarea1996.github.io/cl-glfw/monitor.html#get-monitors).
@@ -166,7 +166,7 @@ If an error occurs, all the returned values will be zero.
 * *Returns*:
   * **xpos**: The monitor x-coordinate.
   * **ypos**: The monitor y-coordinate.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Monitor properties](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_properties).
 
@@ -187,7 +187,7 @@ If an error occurs, all returned values will be zero.
   * **ypos**: The monitor y-coordinate.
   * **width**: The monitor width.
   * **height**: The monitor height.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Work area](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_workarea).
 
@@ -208,7 +208,7 @@ If an error occurs, all returned values will be zero.
 * *Returns*:
   * **widthMM**: The width, in millimetres, of the monitor's display area.
   * **heightMM**: The height, in millimetres, of the monitor's display area.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Remarks*:
   * **Windows**: On Windows 8 and earlier the physical size is calculated from the current resolution and system DPI instead of querying the monitor EDID data.
 * *Thread safety*: This function must only be called from the main thread.
@@ -229,7 +229,7 @@ The content scale may depend on both the monitor resolution and pixel density an
 * *Returns*:
   * **xscale**: The x-axis content scale.
   * **yscale**: The y-axis content scale.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Content scale](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_scale), [get-window-content-scale](https://hectarea1996.github.io/cl-glfw/monitor.html#get-window-content-scale).
 
@@ -245,7 +245,7 @@ This function returns a human-readable name, encoded as UTF-8, of the specified 
   * **monitor**: The monitor to query.
 * *Returns*:
   * **name**: The UTF-8 encoded name of the monitor, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Monitor properties](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_properties).
 
@@ -262,7 +262,7 @@ This function may be called from the monitor callback, even for a monitor that i
 * *Parameters*:
   * **monitor**: The monitor whose data to set.
   * **data**: The new value.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [User data](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_userptr), [get-monitor-user-data](https://hectarea1996.github.io/cl-glfw/monitor.html#get-monitor-user-data).
 
@@ -278,7 +278,7 @@ This function may be called from the monitor callback, even for a monitor that i
 
 * *Parameters*:
   * **monitor**: The monitor whose data to return.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [User data](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_userptr), [set-monitor-user-data](https://hectarea1996.github.io/cl-glfw/monitor.html#set-monitor-user-data).
 
@@ -294,7 +294,7 @@ This function sets the monitor configuration callback, or removes the currently 
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Monitor configuration changes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_event), [def-monitor-callback](https://hectarea1996.github.io/cl-glfw/monitor.html#def-monitor-callback).
 
@@ -310,7 +310,7 @@ This function returns an array of all video modes supported by the specified mon
   * **monitor**: The monitor to query.
 * *Returns*:
   * **video-modes**: An array of video modes, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Video modes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_modes), [get-video-mode](https://hectarea1996.github.io/cl-glfw/monitor.html#get-video-mode).
 
@@ -326,7 +326,7 @@ This function returns the current video mode of the specified monitor. If you ha
   * **monitor**: The monitor to query.
 * *Returns*:
   * **video-mode**: The current mode of the monitor, or `nil` if an error occurred.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Video modes](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_modes), [get-video-modes](https://hectarea1996.github.io/cl-glfw/monitor.html#get-video-modes).
 
@@ -340,14 +340,14 @@ This function generates an appropriately sized gamma ramp from the specified exp
 
 The software controlled gamma ramp is applied *in addition* to the hardware gamma correction, which today is usually an approximation of sRGB gamma. This means that setting a perfectly linear ramp, or gamma 1.0, will produce the default (usually sRGB-like) behavior.
 
-For gamma correct rendering with OpenGL or OpenGL ES, see the [GLFW_SRGB-CAPABLE](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE) hint.
+For gamma correct rendering with OpenGL or OpenGL ES, see the [GLFW_SRGB_CAPABLE](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE) hint.
 
 * *Parameters*:
   * **monitor**: The monitor whose gamma ramp to set.
   * **gamma**: The desired exponent.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [GLFW_PLATFORM_ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma).
 
@@ -363,9 +363,9 @@ This function returns the current gamma ramp of the specified monitor.
   * **monitor**: The monitor to query.
 * *Returns*:
   * **gamma-ramp**: The current gamma ramp, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [GLFW_PLATFORM_ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma).
 
@@ -379,15 +379,15 @@ This function sets the current gamma ramp for the specified monitor. The origina
 
 The software controlled gamma ramp is applied *in addition* to the hardware gamma correction, which today is usually an approximation of sRGB gamma. This means that setting a perfectly linear ramp, or gamma 1.0, will produce the default (usually sRGB-like) behavior.
 
-For gamma correct rendering with OpenGL or OpenGL ES, see the [GLFW_SRGB-CAPABLE](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE) hint.
+For gamma correct rendering with OpenGL or OpenGL ES, see the [GLFW_SRGB_CAPABLE](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE) hint.
 
 * *Parameters*:
   * **monitor**: The monitor whose gamma ramp to set.
   * **ramp**: The gamma ramp to use.
-* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT_INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: The size of the specified gamma ramp should match the size of the current ramp for that monitor.
   * **Windows**: The gamma ramp size must be 256.
-  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: Gamma handling is a privileged protocol, this function will thus never be implemented and emits [GLFW_PLATFORM_ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamma ramp](https://www.glfw.org/docs/latest/monitor_guide.html#monitor_gamma).
 
