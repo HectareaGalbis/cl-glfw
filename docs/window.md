@@ -466,7 +466,18 @@ This describes a single 2D image. See the documentation for each related functio
 * *Fields*:
   * **width**: The width, in pixels, of this image.
   * **height**: The height, in pixels, of this image.
-  * **pixels**: The pixel data of this image, arranged left-to-right, top-to-bottom.
+  * **pixels**: The (unidimensional) list of pixel data of this image, arranged left-to-right, top-to-bottom.
+ 
+* *Constructor and destructor*:
+  * **create-image**: Creates an image structure.
+  * **destroy-image**: Destroys an image structure.
+  * **with-image**: Wraps the body expressions with the creation and destruction of an image struture. The new image structure is bound to `var`. The arguments are passed to the constructor `create-image`.
+
+* *Accessors*:
+  * **image-width**: Returns the `width` member. This function is setf-able.
+  * **image-height**: Returns the `height` member. This function is setf-able.
+  * **image-pixels**: Returns the `pixels` member. If `height-index` and `width-index` are supplied, then the pixel at that position is returned. This function is setf-able.
+ 
 * *See also*: [Custom cursor creation](https://www.glfw.org/docs/latest/input_guide.html#cursor_custom), [Window icon](https://www.glfw.org/docs/latest/window_guide.html#window_icon).
 
 ## Function documentation
