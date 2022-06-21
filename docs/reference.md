@@ -1,6 +1,4 @@
 
-* [Main page](https://hectarea1996.github.io/cl-glfw/)
-
 ## Reference
 
 Here is a list of all modules:
