@@ -201,7 +201,7 @@ Names of printable alpha-numeric characters are used (e.g. "A", "R", "3", etc.)
 * **GLFW_KEY_F23** 312
 * **GLFW_KEY_F24** 313
 * **GLFW_KEY_F25** 314
-* **GLFW_KEY_KP-0** 320
+* **GLFW_KEY_KP_0** 320
 * **GLFW_KEY_KP_1** 321
 * **GLFW_KEY_KP_2** 322
 * **GLFW_KEY_KP_3** 323
@@ -244,7 +244,7 @@ See [key input](https://www.glfw.org/docs/latest/input_guide.html#input_key) for
 
 See [mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button) for how these are used.
 
-* **GLFW_MOUSE_BUTTON-1** 0
+* **GLFW_MOUSE_BUTTON_1** 0
 * **GLFW_MOUSE_BUTTON_2** 1
 * **GLFW_MOUSE_BUTTON_3** 2
 * **GLFW_MOUSE_BUTTON_4** 3
@@ -396,7 +396,7 @@ If this bit is set one or more Alt keys were held down.
 
 If this bit is set one or more Super keys were held down.
 
-### GLFW_MOD_CAPS-LOCK
+### GLFW_MOD_CAPS_LOCK
 
 ```
 (defconstant GLFW_MOD_CAPS_LOCK #x0010)
@@ -532,7 +532,7 @@ The printable keys are:
 * `GLFW_KEY_WORLD_2`
 * `GLFW_KEY_0` to `GLFW_KEY-9`
 * `GLFW_KEY_A` to `GLFW_KEY-Z`
-* `GLFW_KEY_KP-0` to `GLFW_KEY-KP-9`
+* `GLFW_KEY_KP_0` to `GLFW_KEY-KP-9`
 * `GLFW_KEY_KP_DECIMAL`
 * `GLFW_KEY_KP_DIVIDE`
 * `GLFW_KEY_KP_MULTIPLY`
