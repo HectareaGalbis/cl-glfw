@@ -1,4 +1,14 @@
 # cl-glfw
-Raw and lispified GLFW3 bindings for common lisp.
+This is a glfw3 bindings library.
 
-Reference: [Here](https://hectarea1996.github.io/cl-glfw/)
+# Documentation
+
+[Here](https://hectarea1996.github.io/cl-glfw/) is the api reference with explanations of how to use every function of this library.
+
+# Dependencies
+
+This library depends on [more-cffi](https://github.com/Hectarea1996/more-cffi) library. You only need to clone it into your `quicklisp/local-projects/` folder.
+
+# Installation
+
+First clone the [more-cffi](https://github.com/Hectarea1996/more-cffi) library into your `quicklisp/local-projects/` folder. Then, clone this repository too into your `quicklisp/local-projects/` folder.
