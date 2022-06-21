@@ -15,82 +15,82 @@ This is the reference documentation for input related functions and types. For m
 
 ## Constants
 
-* [+release+](https://hectarea1996.github.io/cl-glfw/input.html#release) 0
-* [+press+](https://hectarea1996.github.io/cl-glfw/input.html#press) 1
-* [+repeat+](https://hectarea1996.github.io/cl-glfw/input.html#repeat) 2
+* [GLFW_RELEASE](https://hectarea1996.github.io/cl-glfw/input.html#release) 0
+* [GLFW_PRESS](https://hectarea1996.github.io/cl-glfw/input.html#press) 1
+* [GLFW_REPEAT](https://hectarea1996.github.io/cl-glfw/input.html#repeat) 2
 
 ### Gamepad axes
 
 See [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad) for how these are used. 
 
-* **+gamepad-axis-left-x+** 0
-* **+gamepad-axis-left-y+** 1
-* **+gamepad-axis-right-x+** 2
-* **+gamepad-axis-right-y+** 3
-* **+gamepad-axis-left-trigger+** 4
-* **+gamepad-axis-right-trigger+** 5
-* **+gamepad-axis-last+** **+gamepad-axis-right-trigger+**
+* **GLFW_GAMEPAD-AXIS-LEFT-X** 0
+* **GLFW_GAMEPAD-AXIS-LEFT-Y** 1
+* **GLFW_GAMEPAD-AXIS-RIGHT-X** 2
+* **GLFW_GAMEPAD-AXIS-RIGHT-Y** 3
+* **GLFW_GAMEPAD-AXIS-LEFT-TRIGGER** 4
+* **GLFW_GAMEPAD-AXIS-RIGHT-TRIGGER** 5
+* **GLFW_GAMEPAD-AXIS-LAST** **GLFW_GAMEPAD-AXIS-RIGHT-TRIGGER**
 
 ### Gamepad buttons
 
 See [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad) for how these are used.
 
-* **+gamepad-button-a+** 0
-* **+gamepad-button-b+** 1
-* **+gamepad-button-x+** 2
-* **+gamepad-button-y+** 3
-* **+gamepad-button-left-bumper+** 4
-* **+gamepad-button-right-bumper+** 5
-* **+gamepad-button-back+** 6
-* **+gamepad-button-start+** 7
-* **+gamepad-button-guide+** 8
-* **+gamepad-button-left-thumb+** 9
-* **+gamepad-button-right-thumb+** 10
-* **+gamepad-button-dpad-up+** 11
-* **+gamepad-button-dpad-right+** 12
-* **+gamepad-button-dpad-down+** 13
-* **+gamepad-button-dpad-left+** 14
-* **+gamepad-button-last+** **+gamepad-button-dpad-left+**
-* **+gamepad-button-cross+** **+gamepad-button-a+**
-* **+gamepad-button-circle+** **+gamepad-button-b+**
-* **+gamepad-button-square+** **+gamepad-button-x+**
-* **+gamepad-button-triangle+** **+gamepad-button-y+**
+* **GLFW_GAMEPAD-BUTTON-A** 0
+* **GLFW_GAMEPAD-BUTTON-B** 1
+* **GLFW_GAMEPAD-BUTTON-X** 2
+* **GLFW_GAMEPAD-BUTTON-Y** 3
+* **GLFW_GAMEPAD-BUTTON-LEFT-BUMPER** 4
+* **GLFW_GAMEPAD-BUTTON-RIGHT-BUMPER** 5
+* **GLFW_GAMEPAD-BUTTON-BACK** 6
+* **GLFW_GAMEPAD-BUTTON-START** 7
+* **GLFW_GAMEPAD-BUTTON-GUIDE** 8
+* **GLFW_GAMEPAD-BUTTON-LEFT-THUMB** 9
+* **GLFW_GAMEPAD-BUTTON-RIGHT-THUMB** 10
+* **GLFW_GAMEPAD-BUTTON-DPAD-UP** 11
+* **GLFW_GAMEPAD-BUTTON-DPAD-RIGHT** 12
+* **GLFW_GAMEPAD-BUTTON-DPAD-DOWN** 13
+* **GLFW_GAMEPAD-BUTTON-DPAD-LEFT** 14
+* **GLFW_GAMEPAD-BUTTON-LAST** **GLFW_GAMEPAD-BUTTON-DPAD-LEFT**
+* **GLFW_GAMEPAD-BUTTON-CROSS** **GLFW_GAMEPAD-BUTTON-A**
+* **GLFW_GAMEPAD-BUTTON-CIRCLE** **GLFW_GAMEPAD-BUTTON-B**
+* **GLFW_GAMEPAD-BUTTON-SQUARE** **GLFW_GAMEPAD-BUTTON-X**
+* **GLFW_GAMEPAD-BUTTON-TRIANGLE** **GLFW_GAMEPAD-BUTTON-Y**
 
 ### Joystick hat states
 
 See [joystick hat input](https://www.glfw.org/docs/latest/input_guide.html#joystick_hat) for how these are used.
 
-* **+hat-centered+** 0
-* **+hat-up+** 1
-* **+hat-right+** 2
-* **+hat-down+** 4
-* **+hat-left+** 8
-* **+hat-right-up+** (logior **+hat-right+** **+hat-up+**)
-* **+hat-right-down+** (logior **+hat-right+** **+hat-down+**)
-* **+hat-left-up+** (logior **+hat-left+** **+hat-up+**)
-* **+hat-left-down+** (logior **+hat-left+** **+hat-down+**)
+* **GLFW_HAT-CENTERED** 0
+* **GLFW_HAT-UP** 1
+* **GLFW_HAT-RIGHT** 2
+* **GLFW_HAT-DOWN** 4
+* **GLFW_HAT-LEFT** 8
+* **GLFW_HAT-RIGHT-UP** (logior **GLFW_HAT-RIGHT** **GLFW_HAT-UP**)
+* **GLFW_HAT-RIGHT-DOWN** (logior **GLFW_HAT-RIGHT** **GLFW_HAT-DOWN**)
+* **GLFW_HAT-LEFT-UP** (logior **GLFW_HAT-LEFT** **GLFW_HAT-UP**)
+* **GLFW_HAT-LEFT-DOWN** (logior **GLFW_HAT-LEFT** **GLFW_HAT-DOWN**)
 
 ### Joysticks
 
 See [joystick input](https://www.glfw.org/docs/latest/input_guide.html#joystick) for how these are used.
 
-* **+joystick-1+** 0
-* **+joystick-2+** 1
-* **+joystick-3+** 2
-* **+joystick-4+** 3
-* **+joystick-5+** 4
-* **+joystick-6+** 5
-* **+joystick-7+** 6
-* **+joystick-8+** 7
-* **+joystick-9+** 8
-* **+joystick-10+** 9
-* **+joystick-11+** 10
-* **+joystick-12+** 11
-* **+joystick-13+** 12
-* **+joystick-14+** 13
-* **+joystick-15+** 14
-* **+joystick-16+** 15
-* **+joystick-last+** **+joystick-16+**
+* **GLFW_JOYSTICK-1** 0
+* **GLFW_JOYSTICK-2** 1
+* **GLFW_JOYSTICK-3** 2
+* **GLFW_JOYSTICK-4** 3
+* **GLFW_JOYSTICK-5** 4
+* **GLFW_JOYSTICK-6** 5
+* **GLFW_JOYSTICK-7** 6
+* **GLFW_JOYSTICK-8** 7
+* **GLFW_JOYSTICK-9** 8
+* **GLFW_JOYSTICK-10** 9
+* **GLFW_JOYSTICK-11** 10
+* **GLFW_JOYSTICK-12** 11
+* **GLFW_JOYSTICK-13** 12
+* **GLFW_JOYSTICK-14** 13
+* **GLFW_JOYSTICK-15** 14
+* **GLFW_JOYSTICK-16** 15
+* **GLFW_JOYSTICK-LAST** **GLFW_JOYSTICK-16**
 
 ### Keyboard keys
 
@@ -106,180 +106,180 @@ Names of printable alpha-numeric characters are used (e.g. "A", "R", "3", etc.)
 * Keys that lack a clear US mapping are named "WORLD_x"
 * For non-printable keys, custom names are used (e.g. "F4", "BACKSPACE", etc.)
 
-* **+key-unknown+** -1
-* **+key-space+** 32
-* **+key-apostrophe+** 39 /* ' */
-* **+key-comma+** 44 /* , */
-* **+key-minus+** 45 /* - */
-* **+key-period+** 46 /* . */
-* **+key-slash+** 47 /* / */
-* **+key-0+** 48
-* **+key-1+** 49
-* **+key-2+** 50
-* **+key-3+** 51
-* **+key-4+** 52
-* **+key-5+** 53
-* **+key-6+** 54
-* **+key-7+** 55
-* **+key-8+** 56
-* **+key-9+** 57
-* **+key-semicolon+** 59 /* ; */
-* **+key-equal+** 61 /* = */
-* **+key-a+** 65
-* **+key-b+** 66
-* **+key-c+** 67
-* **+key-d+** 68
-* **+key-e+** 69
-* **+key-f+** 70
-* **+key-g+** 71
-* **+key-h+** 72
-* **+key-i+** 73
-* **+key-j+** 74
-* **+key-k+** 75
-* **+key-l+** 76
-* **+key-m+** 77
-* **+key-n+** 78
-* **+key-o+** 79
-* **+key-p+** 80
-* **+key-q+** 81
-* **+key-r+** 82
-* **+key-s+** 83
-* **+key-t+** 84
-* **+key-u+** 85
-* **+key-v+** 86
-* **+key-w+** 87
-* **+key-x+** 88
-* **+key-y+** 89
-* **+key-z+** 90
-* **+key-left-bracket+** 91 /* [ */
-* **+key-backslash+** 92 /* \ */
-* **+key-right-bracket+** 93 /* ] */
-* **+key-grave-accent+** 96 /* ` */
-* **+key-world-1+** 161 /* non-US #1 */
-* **+key-world-2+** 162 /* non-US #2 */
-* **+key-escape+** 256
-* **+key-enter+** 257
-* **+key-tab+** 258
-* **+key-backspace+** 259
-* **+key-insert+** 260
-* **+key-delete+** 261
-* **+key-right+** 262
-* **+key-left+** 263
-* **+key-down+** 264
-* **+key-up+** 265
-* **+key-page-up+** 266
-* **+key-page-down+** 267
-* **+key-home+** 268
-* **+key-end+** 269
-* **+key-caps-lock+** 280
-* **+key-scroll-lock+** 281
-* **+key-num-lock+** 282
-* **+key-print-screen+** 283
-* **+key-pause+** 284
-* **+key-f1+** 290
-* **+key-f2+** 291
-* **+key-f3+** 292
-* **+key-f4+** 293
-* **+key-f5+** 294
-* **+key-f6+** 295
-* **+key-f7+** 296
-* **+key-f8+** 297
-* **+key-f9+** 298
-* **+key-f10+** 299
-* **+key-f11+** 300
-* **+key-f12+** 301
-* **+key-f13+** 302
-* **+key-f14+** 303
-* **+key-f15+** 304
-* **+key-f16+** 305
-* **+key-f17+** 306 
-* **+key-f18+** 307
-* **+key-f19+** 308
-* **+key-f20+** 309
-* **+key-f21+** 310
-* **+key-f22+** 311
-* **+key-f23+** 312
-* **+key-f24+** 313
-* **+key-f25+** 314
-* **+key-kp-0+** 320
-* **+key-kp-1+** 321
-* **+key-kp-2+** 322
-* **+key-kp-3+** 323
-* **+key-kp-4+** 324
-* **+key-kp-5+** 325
-* **+key-kp-6+** 326
-* **+key-kp-7+** 327
-* **+key-kp-8+** 328
-* **+key-kp-9+** 329
-* **+key-kp-decimal+** 330
-* **+key-kp-divide+** 331
-* **+key-kp-multiply+** 332
-* **+key-kp-subtract+** 333
-* **+key-kp-add+** 334
-* **+key-kp-enter+** 335
-* **+key-kp-equal+** 336
-* **+key-left-shift+** 340
-* **+key-left-control+** 341
-* **+key-left-alt+** 342
-* **+key-left-super+** 343
-* **+key-right-shift+** 344
-* **+key-right-control+** 345
-* **+key-right-alt+** 346
-* **+key-right-super+** 347
-* **+key-menu+** 348
-* **+key-last+** **+key-menu+**
+* **GLFW_KEY-UNKNOWN** -1
+* **GLFW_KEY-SPACE** 32
+* **GLFW_KEY-APOSTROPHE** 39 /* ' */
+* **GLFW_KEY-COMMA** 44 /* , */
+* **GLFW_KEY-MINUS** 45 /* - */
+* **GLFW_KEY-PERIOD** 46 /* . */
+* **GLFW_KEY-SLASH** 47 /* / */
+* **GLFW_KEY-0** 48
+* **GLFW_KEY-1** 49
+* **GLFW_KEY-2** 50
+* **GLFW_KEY-3** 51
+* **GLFW_KEY-4** 52
+* **GLFW_KEY-5** 53
+* **GLFW_KEY-6** 54
+* **GLFW_KEY-7** 55
+* **GLFW_KEY-8** 56
+* **GLFW_KEY-9** 57
+* **GLFW_KEY-SEMICOLON** 59 /* ; */
+* **GLFW_KEY-EQUAL** 61 /* = */
+* **GLFW_KEY-A** 65
+* **GLFW_KEY-B** 66
+* **GLFW_KEY-C** 67
+* **GLFW_KEY-D** 68
+* **GLFW_KEY-E** 69
+* **GLFW_KEY-F** 70
+* **GLFW_KEY-G** 71
+* **GLFW_KEY-H** 72
+* **GLFW_KEY-I** 73
+* **GLFW_KEY-J** 74
+* **GLFW_KEY-K** 75
+* **GLFW_KEY-L** 76
+* **GLFW_KEY-M** 77
+* **GLFW_KEY-N** 78
+* **GLFW_KEY-O** 79
+* **GLFW_KEY-P** 80
+* **GLFW_KEY-Q** 81
+* **GLFW_KEY-R** 82
+* **GLFW_KEY-S** 83
+* **GLFW_KEY-T** 84
+* **GLFW_KEY-U** 85
+* **GLFW_KEY-V** 86
+* **GLFW_KEY-W** 87
+* **GLFW_KEY-X** 88
+* **GLFW_KEY-Y** 89
+* **GLFW_KEY-Z** 90
+* **GLFW_KEY-LEFT-BRACKET** 91 /* [ */
+* **GLFW_KEY-BACKSLASH** 92 /* \ */
+* **GLFW_KEY-RIGHT-BRACKET** 93 /* ] */
+* **GLFW_KEY-GRAVE-ACCENT** 96 /* ` */
+* **GLFW_KEY-WORLD-1** 161 /* non-US #1 */
+* **GLFW_KEY-WORLD-2** 162 /* non-US #2 */
+* **GLFW_KEY-ESCAPE** 256
+* **GLFW_KEY-ENTER** 257
+* **GLFW_KEY-TAB** 258
+* **GLFW_KEY-BACKSPACE** 259
+* **GLFW_KEY-INSERT** 260
+* **GLFW_KEY-DELETE** 261
+* **GLFW_KEY-RIGHT** 262
+* **GLFW_KEY-LEFT** 263
+* **GLFW_KEY-DOWN** 264
+* **GLFW_KEY-UP** 265
+* **GLFW_KEY-PAGE-UP** 266
+* **GLFW_KEY-PAGE-DOWN** 267
+* **GLFW_KEY-HOME** 268
+* **GLFW_KEY-END** 269
+* **GLFW_KEY-CAPS-LOCK** 280
+* **GLFW_KEY-SCROLL-LOCK** 281
+* **GLFW_KEY-NUM-LOCK** 282
+* **GLFW_KEY-PRINT-SCREEN** 283
+* **GLFW_KEY-PAUSE** 284
+* **GLFW_KEY-F1** 290
+* **GLFW_KEY-F2** 291
+* **GLFW_KEY-F3** 292
+* **GLFW_KEY-F4** 293
+* **GLFW_KEY-F5** 294
+* **GLFW_KEY-F6** 295
+* **GLFW_KEY-F7** 296
+* **GLFW_KEY-F8** 297
+* **GLFW_KEY-F9** 298
+* **GLFW_KEY-F10** 299
+* **GLFW_KEY-F11** 300
+* **GLFW_KEY-F12** 301
+* **GLFW_KEY-F13** 302
+* **GLFW_KEY-F14** 303
+* **GLFW_KEY-F15** 304
+* **GLFW_KEY-F16** 305
+* **GLFW_KEY-F17** 306 
+* **GLFW_KEY-F18** 307
+* **GLFW_KEY-F19** 308
+* **GLFW_KEY-F20** 309
+* **GLFW_KEY-F21** 310
+* **GLFW_KEY-F22** 311
+* **GLFW_KEY-F23** 312
+* **GLFW_KEY-F24** 313
+* **GLFW_KEY-F25** 314
+* **GLFW_KEY-KP-0** 320
+* **GLFW_KEY-KP-1** 321
+* **GLFW_KEY-KP-2** 322
+* **GLFW_KEY-KP-3** 323
+* **GLFW_KEY-KP-4** 324
+* **GLFW_KEY-KP-5** 325
+* **GLFW_KEY-KP-6** 326
+* **GLFW_KEY-KP-7** 327
+* **GLFW_KEY-KP-8** 328
+* **GLFW_KEY-KP-9** 329
+* **GLFW_KEY-KP-DECIMAL** 330
+* **GLFW_KEY-KP-DIVIDE** 331
+* **GLFW_KEY-KP-MULTIPLY** 332
+* **GLFW_KEY-KP-SUBTRACT** 333
+* **GLFW_KEY-KP-ADD** 334
+* **GLFW_KEY-KP-ENTER** 335
+* **GLFW_KEY-KP-EQUAL** 336
+* **GLFW_KEY-LEFT-SHIFT** 340
+* **GLFW_KEY-LEFT-CONTROL** 341
+* **GLFW_KEY-LEFT-ALT** 342
+* **GLFW_KEY-LEFT-SUPER** 343
+* **GLFW_KEY-RIGHT-SHIFT** 344
+* **GLFW_KEY-RIGHT-CONTROL** 345
+* **GLFW_KEY-RIGHT-ALT** 346
+* **GLFW_KEY-RIGHT-SUPER** 347
+* **GLFW_KEY-MENU** 348
+* **GLFW_KEY-LAST** **GLFW_KEY-MENU**
 
 ### Modifier key flags
 
 See [key input](https://www.glfw.org/docs/latest/input_guide.html#input_key) for how these are used.
 
-* [+mod-shift+](https://hectarea1996.github.io/cl-glfw/input.html#mod-shift) #x0001
-* [+mod-control+](https://hectarea1996.github.io/cl-glfw/input.html#mod-control) #x0002
-* [+mod-alt+](https://hectarea1996.github.io/cl-glfw/input.html#mod-alt) #x0004
-* [+mod-super+](https://hectarea1996.github.io/cl-glfw/input.html#mod-super) #x0008
-* [+mod-caps-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-caps-lock) #x0010
-* [+mod-num-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-num-lock) #x0020
+* [GLFW_MOD-SHIFT](https://hectarea1996.github.io/cl-glfw/input.html#mod-shift) #x0001
+* [GLFW_MOD-CONTROL](https://hectarea1996.github.io/cl-glfw/input.html#mod-control) #x0002
+* [GLFW_MOD-ALT](https://hectarea1996.github.io/cl-glfw/input.html#mod-alt) #x0004
+* [GLFW_MOD-SUPER](https://hectarea1996.github.io/cl-glfw/input.html#mod-super) #x0008
+* [GLFW_MOD-CAPS-LOCK](https://hectarea1996.github.io/cl-glfw/input.html#mod-caps-lock) #x0010
+* [GLFW_MOD-NUM-LOCK](https://hectarea1996.github.io/cl-glfw/input.html#mod-num-lock) #x0020
 
 ### Mouse buttons
 
 See [mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button) for how these are used.
 
-* **+mouse-button-1+** 0
-* **+mouse-button-2+** 1
-* **+mouse-button-3+** 2
-* **+mouse-button-4+** 3
-* **+mouse-button-5+** 4
-* **+mouse-button-6+** 5
-* **+mouse-button-7+** 6
-* **+mouse-button-8+** 7
-* **+mouse-button-last+** **+mouse-button-8+**
-* **+mouse-button-left+** **+mouse-button-1+**
-* **+mouse-button-right+** **+mouse-button-2+**
-* **+mouse-button-middle+** **+mouse-button-3+**
+* **GLFW_MOUSE-BUTTON-1** 0
+* **GLFW_MOUSE-BUTTON-2** 1
+* **GLFW_MOUSE-BUTTON-3** 2
+* **GLFW_MOUSE-BUTTON-4** 3
+* **GLFW_MOUSE-BUTTON-5** 4
+* **GLFW_MOUSE-BUTTON-6** 5
+* **GLFW_MOUSE-BUTTON-7** 6
+* **GLFW_MOUSE-BUTTON-8** 7
+* **GLFW_MOUSE-BUTTON-LAST** **GLFW_MOUSE-BUTTON-8**
+* **GLFW_MOUSE-BUTTON-LEFT** **GLFW_MOUSE-BUTTON-1**
+* **GLFW_MOUSE-BUTTON-RIGHT** **GLFW_MOUSE-BUTTON-2**
+* **GLFW_MOUSE-BUTTON-MIDDLE** **GLFW_MOUSE-BUTTON-3**
 
 ### Standard cursor shapes
 
 See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html#cursor_standard) for how these are used.
 
-* **+arrow-cursor+** #x00036001
-* **+ibeam-cursor+** #x00036002
-* **+crosshair-cursor+** #x00036003
-* **+hand-cursor+** #x00036004
-* **+hresize-cursor+** #x00036005
-* **+vresize-cursor+** #x00036006
+* **GLFW_ARROW-CURSOR** #x00036001
+* **GLFW_IBEAM-CURSOR** #x00036002
+* **GLFW_CROSSHAIR-CURSOR** #x00036003
+* **GLFW_HAND-CURSOR** #x00036004
+* **GLFW_HRESIZE-CURSOR** #x00036005
+* **GLFW_VRESIZE-CURSOR** #x00036006
 
 ### Input mode
 
-* **+cursor+** #x00033001
-* **+sticky-keys+** #x00033002
-* **+sticky-mouse-buttons+** #x00033003
-* **+lock-key-mods+** #x00033004
-* **+raw-mouse-motion+** #x00033005
+* **GLFW_CURSOR** #x00033001
+* **GLFW_STICKY-KEYS** #x00033002
+* **GLFW_STICKY-MOUSE-BUTTONS** #x00033003
+* **GLFW_LOCK-KEY-MODS** #x00033004
+* **GLFW_RAW-MOUSE-MOTION** #x00033005
 
 ### Joystick configuration
 
-* **+connected+** #x00040001
-* **+disconnected+** #x00040002
+* **GLFW_CONNECTED** #x00040001
+* **GLFW_DISCONNECTED** #x00040002
 
 ## Structs
 
@@ -342,75 +342,75 @@ See [standard cursor creation](https://www.glfw.org/docs/latest/input_guide.html
 
 ## Constant documentation
 
-### +release+
+### GLFW_RELEASE
 
 ```
-(defconstant +release+ 0)
+(defconstant GLFW_RELEASE 0)
 ```
 
 The key or mouse button was released.
 
-### +press+
+### GLFW_PRESS
 
 ```
-(defconstant +press+ 1)
+(defconstant GLFW_PRESS 1)
 ```
 
 The key or mouse button was pressed.
 
-### +repeat+
+### GLFW_REPEAT
 
 ```
-(defconstant +repeat+ 2)
+(defconstant GLFW_REPEAT 2)
 ```
 
-### +mod-shift+
+### GLFW_MOD-SHIFT
 
 ```
-(defconstant +mod-shift+ #x0001)
+(defconstant GLFW_MOD-SHIFT #x0001)
 ```
 
 If this bit is set one or more Shift keys were held down.
 
-### +mod-control+
+### GLFW_MOD-CONTROL
 
 ```
-(defconstant +mod-control+ #x0002)
+(defconstant GLFW_MOD-CONTROL #x0002)
 ```
 
 If this bit is set one or more Control keys were held down.
 
-### +mod-alt+
+### GLFW_MOD-ALT
 
 ```
-(defconstant +mod-alt+ #x0004)
+(defconstant GLFW_MOD-ALT #x0004)
 ```
 
 If this bit is set one or more Alt keys were held down.
 
-### +mod-super+
+### GLFW_MOD-SUPER
 
 ```
-(defconstant +mod-super+ #x0008)
+(defconstant GLFW_MOD-SUPER #x0008)
 ```
 
 If this bit is set one or more Super keys were held down.
 
-### +mod-caps-lock+
+### GLFW_MOD-CAPS-LOCK
 
 ```
-(defconstant +mod-caps-lock+ #x0010)
+(defconstant GLFW_MOD-CAPS-LOCK #x0010)
 ```
 
-If this bit is set the Caps Lock key is enabled and the [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) input mode is set.
+If this bit is set the Caps Lock key is enabled and the [GLFW_LOCK-KEY-MODS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) input mode is set.
 
-### +mod-num-lock+
+### GLFW_MOD-NUM-LOCK
 
 ```
-(defconstant +mod-num-lock+ #x0020)
+(defconstant GLFW_MOD-NUM-LOCK #x0020)
 ```
 
-If this bit is set the Num Lock key is enabled and the [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) input mode is set.
+If this bit is set the Num Lock key is enabled and the [GLFW_LOCK-KEY-MODS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) input mode is set.
 
 
 ## Struct documentation
@@ -429,7 +429,7 @@ If this bit is set the Num Lock key is enabled and the [+lock-key-mods+](https:/
 This describes the input state of a gamepad.
 
 * *Fields*:
-  * **buttons**: The states of each [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons), `+press+` or `+release+`. This must be a list of 15 elements.
+  * **buttons**: The states of each [gamepad button](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-buttons), `GLFW_PRESS` or `GLFW_RELEASE`. This must be a list of 15 elements.
   * **axes**: The states of each [gamepad axis](https://hectarea1996.github.io/cl-glfw/input.html#gamepad-axes), in the range -1.0 to 1.0 inclusive. This must be a list of 6 elements.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [get-gamepad-state](https://www.glfw.org/docs/latest/input_guide.html#get-gamepad-state).
 
@@ -445,14 +445,14 @@ This describes the input state of a gamepad.
 (get-input-mode window mode) => value-mode
 ```
 
-This function returns the value of an input option for the specified window. The mode must be one of `+cursor+`, `+sticky-keys+`, `+sticky-mouse-buttons+`, `+lock-key-mods+` or `+raw-mouse-motion+`.
+This function returns the value of an input option for the specified window. The mode must be one of `GLFW_CURSOR`, `GLFW_STICKY-KEYS`, `GLFW_STICKY-MOUSE-BUTTONS`, `GLFW_LOCK-KEY-MODS` or `GLFW_RAW-MOUSE-MOTION`.
 
 * *Parameters*:
   * **window**: The window to query.
-  * **mode**: One of [+cursor+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_CURSOR), [+sticky-keys+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS), [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS), [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) or [+raw-mouse-motion+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_RAW_MOUSE_MOTION).
+  * **mode**: One of [GLFW_CURSOR](https://www.glfw.org/docs/latest/input_guide.html#GLFW_CURSOR), [GLFW_STICKY-KEYS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS), [GLFW_STICKY-MOUSE-BUTTONS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS), [GLFW_LOCK-KEY-MODS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) or [GLFW_RAW-MOUSE-MOTION](https://www.glfw.org/docs/latest/input_guide.html#GLFW_RAW_MOUSE_MOTION).
 * *Returns*:
   * **value-mode**: The value of the specified input mode.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [set-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#set-input-mode).
 
@@ -462,27 +462,27 @@ This function returns the value of an input option for the specified window. The
 (set-input-mode window mode value)
 ```
 
-This function sets an input mode option for the specified window. The mode must be one of [+cursor+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_CURSOR), [+sticky-keys+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS), [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS), [+lock-key-mods+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) or [+raw-mouse-motion+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_RAW_MOUSE_MOTION).
+This function sets an input mode option for the specified window. The mode must be one of [GLFW_CURSOR](https://www.glfw.org/docs/latest/input_guide.html#GLFW_CURSOR), [GLFW_STICKY-KEYS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS), [GLFW_STICKY-MOUSE-BUTTONS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS), [GLFW_LOCK-KEY-MODS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_LOCK_KEY_MODS) or [GLFW_RAW-MOUSE-MOTION](https://www.glfw.org/docs/latest/input_guide.html#GLFW_RAW_MOUSE_MOTION).
 
-If the mode is `+cursor+`, the value must be one of the following cursor modes:
+If the mode is `GLFW_CURSOR`, the value must be one of the following cursor modes:
 
-* `+cursor-normal+` makes the cursor visible and behaving normally.
-* `+cursor-hidden+` makes the cursor invisible when it is over the content area of the window but does not restrict the cursor from leaving.
-* `+cursor-disabled+` hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera controls.
+* `GLFW_CURSOR-NORMAL` makes the cursor visible and behaving normally.
+* `GLFW_CURSOR-HIDDEN` makes the cursor invisible when it is over the content area of the window but does not restrict the cursor from leaving.
+* `GLFW_CURSOR-DISABLED` hides and grabs the cursor, providing virtual and unlimited cursor movement. This is useful for implementing for example 3D camera controls.
 
-If the mode is `+sticky-keys+`, the value must be either `+true+` to enable sticky keys, or `+false+` to disable it. If sticky keys are enabled, a key press will ensure that [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key) returns `+press+` the next time it is called even if the key had been released before the call. This is useful when you are only interested in whether keys have been pressed but not when or in which order.
+If the mode is `GLFW_STICKY-KEYS`, the value must be either `GLFW_TRUE` to enable sticky keys, or `GLFW_FALSE` to disable it. If sticky keys are enabled, a key press will ensure that [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key) returns `GLFW_PRESS` the next time it is called even if the key had been released before the call. This is useful when you are only interested in whether keys have been pressed but not when or in which order.
 
-If the mode is `+sticky-mouse-buttons+`, the value must be either `+true+` to enable sticky mouse buttons, or `+false+` to disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that [get-mouse-button](https://hectarea1996.github.io/cl-glfw/input.html#get-mouse-button) returns `+press+` the next time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have been pressed but not when or in which order.
+If the mode is `GLFW_STICKY-MOUSE-BUTTONS`, the value must be either `GLFW_TRUE` to enable sticky mouse buttons, or `GLFW_FALSE` to disable it. If sticky mouse buttons are enabled, a mouse button press will ensure that [get-mouse-button](https://hectarea1996.github.io/cl-glfw/input.html#get-mouse-button) returns `GLFW_PRESS` the next time it is called even if the mouse button had been released before the call. This is useful when you are only interested in whether mouse buttons have been pressed but not when or in which order.
 
-If the mode is `+lock-key-mods+`, the value must be either `+true+` to enable lock key modifier bits, or `+false+` to disable them. If enabled, callbacks that receive modifier bits will also have the [+mod-caps-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-caps-lock) bit set when the event was generated with Caps Lock on, and the [+mod-num-lock+](https://hectarea1996.github.io/cl-glfw/input.html#mod-num-lock) bit when Num Lock was on.
+If the mode is `GLFW_LOCK-KEY-MODS`, the value must be either `GLFW_TRUE` to enable lock key modifier bits, or `GLFW_FALSE` to disable them. If enabled, callbacks that receive modifier bits will also have the [GLFW_MOD-CAPS-LOCK](https://hectarea1996.github.io/cl-glfw/input.html#mod-caps-lock) bit set when the event was generated with Caps Lock on, and the [GLFW_MOD-NUM-LOCK](https://hectarea1996.github.io/cl-glfw/input.html#mod-num-lock) bit when Num Lock was on.
 
-If the mode is `+raw-mouse-motion+`, the value must be either `+true+` to enable raw (unscaled and unaccelerated) mouse motion when the cursor is disabled, or `+false+` to disable it. If raw motion is not supported, attempting to set this will emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error). Call [raw-mouse-motion-supported](https://hectarea1996.github.io/cl-glfw/input.html#raw-mouse-motion-supported) to check for support.
+If the mode is `GLFW_RAW-MOUSE-MOTION`, the value must be either `GLFW_TRUE` to enable raw (unscaled and unaccelerated) mouse motion when the cursor is disabled, or `GLFW_FALSE` to disable it. If raw motion is not supported, attempting to set this will emit [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error). Call [raw-mouse-motion-supported](https://hectarea1996.github.io/cl-glfw/input.html#raw-mouse-motion-supported) to check for support.
 
 * *Parameters*:
   * **window**: The window whose input mode to set.
-  * **mode**: 	One of `+cursor+`, `+sticky-keys+`, `+sticky-mouse-buttons+`, `+lock-key-mods+` or `+raw-mouse-motion+`.
+  * **mode**: 	One of `GLFW_CURSOR`, `GLFW_STICKY-KEYS`, `GLFW_STICKY-MOUSE-BUTTONS`, `GLFW_LOCK-KEY-MODS` or `GLFW_RAW-MOUSE-MOTION`.
   * **value**: The new value of the specified input mode.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [get-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#get-input-mode).
 
@@ -492,13 +492,13 @@ If the mode is `+raw-mouse-motion+`, the value must be either `+true+` to enable
 (raw-mouse-motion-supported) => supported
 ```
 
-This function returns whether raw mouse motion is supported on the current system. This status does not change after GLFW has been initialized so you only need to check this once. If you attempt to enable raw motion on a system that does not support it, [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) will be emitted.
+This function returns whether raw mouse motion is supported on the current system. This status does not change after GLFW has been initialized so you only need to check this once. If you attempt to enable raw motion on a system that does not support it, [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) will be emitted.
 
 Raw mouse motion is closer to the actual motion of the mouse across a surface. It is not affected by the scaling and acceleration applied to the motion of the desktop cursor. That processing is suitable for a cursor while raw motion is better for controlling for example a 3D camera. Because of this, raw mouse motion is only provided when the cursor is disabled.
 
 * *Returns*: 
   * **supported**: `t` if raw mouse motion is supported on the current machine, or `nil` otherwise.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Raw mouse motion](https://www.glfw.org/docs/latest/input_guide.html#raw_mouse_motion), [set-input-mode](https://hectarea1996.github.io/cl-glfw/init-version-error.html#set-input-mode).
 
@@ -512,42 +512,42 @@ This function returns the name of the specified printable key, encoded as UTF-8.
 
 **Do not use this function** for [text input](https://www.glfw.org/docs/latest/input_guide.html#input_char). You will break text input for many languages even if it happens to work for yours.
 
-If the key is `+key-unknown+`, the scancode is used to identify the key, otherwise the scancode is ignored. If you specify a non-printable key, or `+key-unknown+` and a scancode that maps to a non-printable key, this function returns `nil` but does not emit an error.
+If the key is `GLFW_KEY-UNKNOWN`, the scancode is used to identify the key, otherwise the scancode is ignored. If you specify a non-printable key, or `GLFW_KEY-UNKNOWN` and a scancode that maps to a non-printable key, this function returns `nil` but does not emit an error.
 
 This behavior allows you to always pass in the arguments in the [key callback](https://www.glfw.org/docs/latest/input_guide.html#input_key) without modification.
 
 The printable keys are:
 
-* `+key-apostrophe+`
-* `+key-comma+`
-* `+key-minus+`
-* `+key-period+`
-* `+key-slash+`
-* `+key-semicolon+`
-* `+key-equal+`
-* `+key-left-bracket+`
-* `+key-right-bracket+`
-* `+key-backslash+`
-* `+key-world-1+`
-* `+key-world-2+`
-* `+key-0+` to `+key-9+`
-* `+key-a+` to `+key-z+`
-* `+key-kp-0+` to `+key-kp-9+`
-* `+key-kp-decimal+`
-* `+key-kp-divide+`
-* `+key-kp-multiply+`
-* `+key-kp-subtract+`
-* `+key-kp-add+`
-* `+key-kp-equal+`
+* `GLFW_KEY-APOSTROPHE`
+* `GLFW_KEY-COMMA`
+* `GLFW_KEY-MINUS`
+* `GLFW_KEY-PERIOD`
+* `GLFW_KEY-SLASH`
+* `GLFW_KEY-SEMICOLON`
+* `GLFW_KEY-EQUAL`
+* `GLFW_KEY-LEFT-BRACKET`
+* `GLFW_KEY-RIGHT-BRACKET`
+* `GLFW_KEY-BACKSLASH`
+* `GLFW_KEY-WORLD-1`
+* `GLFW_KEY-WORLD-2`
+* `GLFW_KEY-0` to `GLFW_KEY-9`
+* `GLFW_KEY-A` to `GLFW_KEY-Z`
+* `GLFW_KEY-KP-0` to `GLFW_KEY-KP-9`
+* `GLFW_KEY-KP-DECIMAL`
+* `GLFW_KEY-KP-DIVIDE`
+* `GLFW_KEY-KP-MULTIPLY`
+* `GLFW_KEY-KP-SUBTRACT`
+* `GLFW_KEY-KP-ADD`
+* `GLFW_KEY-KP-EQUAL`
 
 Names for printable keys depend on keyboard layout, while names for non-printable keys are the same across layouts but depend on the application language and should be localized along with other user interface text.
 
 * *Parameters*:
-  * **key**: The key to query, or `+key-unknown+`.
+  * **key**: The key to query, or `GLFW_KEY-UNKNOWN`.
   * **scancode**: The scancode of the key to query.
 * *Returns*: 
   * **name**: The UTF-8 encoded, layout-specific name of the key, or `nil`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: The contents of the returned string may change when a keyboard layout change event is received.
 * *See also*: [Key names](https://www.glfw.org/docs/latest/input_guide.html#input_key_name).
 
@@ -559,12 +559,12 @@ Names for printable keys depend on keyboard layout, while names for non-printabl
 
 This function returns the platform-specific scancode of the specified key.
 
-If the key is `+key-unknown+` or does not exist on the keyboard this method will return `-1`.
+If the key is `GLFW_KEY-UNKNOWN` or does not exist on the keyboard this method will return `-1`.
 
 * *Parameters*:
   * **key**: Any [named key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys).
 * *Returns*: The platform-specific scancode for the key, or `-1` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key).
 
@@ -574,9 +574,9 @@ If the key is `+key-unknown+` or does not exist on the keyboard this method will
 (get-key window key) => state
 ```
 
-This function returns the last state reported for the specified key to the specified window. The returned state is one of `+press+` or `+release+`. The higher-level action `+repeat+` is only reported to the key callback.
+This function returns the last state reported for the specified key to the specified window. The returned state is one of `GLFW_PRESS` or `GLFW_RELEASE`. The higher-level action `GLFW_REPEAT` is only reported to the key callback.
 
-If the [+sticky-keys+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS) input mode is enabled, this function returns `+press+` the first time you call it for a key that was pressed, even if that key has already been released.
+If the [GLFW_STICKY-KEYS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_KEYS) input mode is enabled, this function returns `GLFW_PRESS` the first time you call it for a key that was pressed, even if that key has already been released.
 
 The key functions deal with physical keys, with [key tokens](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys) named after their use on the standard US keyboard layout. If you want to input text, use the Unicode character callback instead.
 
@@ -586,10 +586,10 @@ The [modifier key bit masks](https://hectarea1996.github.io/cl-glfw/input.html#m
 
 * *Parameters*:
   * **window**: The desired window.
-  * **key**: The desired [keyboard key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys). `+key-unknown+` is not a valid key for this function.
+  * **key**: The desired [keyboard key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys). `GLFW_KEY-UNKNOWN` is not a valid key for this function.
 * *Returns*: 
-  * **state**: One of `+press+` or `+release+`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+  * **state**: One of `GLFW_PRESS` or `GLFW_RELEASE`.
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key).
 
@@ -599,16 +599,16 @@ The [modifier key bit masks](https://hectarea1996.github.io/cl-glfw/input.html#m
 (get-mouse-button window button) => state
 ```
 
-This function returns the last state reported for the specified mouse button to the specified window. The returned state is one of `+press+` or `+release+`.
+This function returns the last state reported for the specified mouse button to the specified window. The returned state is one of `GLFW_PRESS` or `GLFW_RELEASE`.
 
-If the [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS) input mode is enabled, this function returns `+press+` the first time you call it for a mouse button that was pressed, even if that mouse button has already been released.
+If the [GLFW_STICKY-MOUSE-BUTTONS](https://www.glfw.org/docs/latest/input_guide.html#GLFW_STICKY_MOUSE_BUTTONS) input mode is enabled, this function returns `GLFW_PRESS` the first time you call it for a mouse button that was pressed, even if that mouse button has already been released.
 
 * *Parameters*:
   * **window**: The desired window.
   * **button**: The desired [mouse button](https://hectarea1996.github.io/cl-glfw/input.html#mouse-buttons).
 * *Returns*:
-  * **state**: One of `+press+` or `+release+`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+  * **state**: One of `GLFW_PRESS` or `GLFW_RELEASE`.
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button).
 
@@ -620,7 +620,7 @@ If the [+sticky-mouse-buttons+](https://www.glfw.org/docs/latest/input_guide.htm
 
 This function returns the position of the cursor, in screen coordinates, relative to the upper-left corner of the content area of the specified window.
 
-If the cursor is disabled (with `+cursor-disabled+`) then the cursor position is unbounded and limited only by the minimum and maximum values of a `double` (in C).
+If the cursor is disabled (with `GLFW_CURSOR-DISABLED`) then the cursor position is unbounded and limited only by the minimum and maximum values of a `double` (in C).
 
 The coordinate can be converted to their integer equivalents with the `floor` function. Casting directly to an integer type works for positive coordinates, but fails for negative ones.
 
@@ -631,7 +631,7 @@ If an error occurs, all the values returned are zero.
 * *Returns*:
   * **xpos**: The cursor x-coordinate, relative to the left edge of the content area.
   * **ypos**: The cursor y-coordinate, relative to the to top edge of the content area.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [set-cursor-pos](https://hectarea1996.github.io/cl-glfw/input.html#set-cursor-pos).
 
@@ -643,17 +643,17 @@ If an error occurs, all the values returned are zero.
 
 This function sets the position, in screen coordinates, of the cursor relative to the upper-left corner of the content area of the specified window. The window must have input focus. If the window does not have input focus when this function is called, it fails silently.
 
-**Do not use this function** to implement things like camera controls. GLFW already provides the `+cursor-disabled+` cursor mode that hides the cursor, transparently re-centers it and provides unconstrained cursor motion. See [set-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#set-input-mode) for more information.
+**Do not use this function** to implement things like camera controls. GLFW already provides the `GLFW_CURSOR-DISABLED` cursor mode that hides the cursor, transparently re-centers it and provides unconstrained cursor motion. See [set-input-mode](https://hectarea1996.github.io/cl-glfw/input.html#set-input-mode) for more information.
 
-If the cursor mode is `+cursor-disabled+` then the cursor position is unconstrained and limited only by the minimum and maximum values of a `double` (in C).
+If the cursor mode is `GLFW_CURSOR-DISABLED` then the cursor position is unconstrained and limited only by the minimum and maximum values of a `double` (in C).
 
 * *Parameters*:
   * **window**: The desired window.
   * **xpos**: The desired x-coordinate, relative to the left edge of the content area.
   * **ypos**: The desired y-coordinate, relative to the top edge of the content area.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **Wayland**: This function will only work when the cursor mode is `+cursor-disabled+`, otherwise it will do nothing.
+  * **Wayland**: This function will only work when the cursor mode is `GLFW_CURSOR-DISABLED`, otherwise it will do nothing.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [get-cursor-pos](https://hectarea1996.github.io/cl-glfw/input.html#get-cursor-pos).
 
@@ -675,7 +675,7 @@ The cursor hotspot is specified in pixels, relative to the upper-left corner of 
   * **yhot**: The desired y-coordinate, in pixels, of the cursor hotspot.
 * *Returns*:
   * **cursor**: The handle of the created cursor, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object), [destroy-cursor](https://hectarea1996.github.io/cl-glfw/input.html#destroy-cursor), [create-standard-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-standard-cursor).
 
@@ -690,7 +690,7 @@ Returns a cursor with a [standard shape](https://hectarea1996.github.io/cl-glfw/
 * *Parameters*:
   * **shape**: One of the [standard shapes](https://hectarea1996.github.io/cl-glfw/input.html#standard-cursor-shapes).
 * *Returns*: A new cursor ready to use or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object), [create-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-cursor).
 
@@ -706,7 +706,7 @@ If the specified cursor is current for any window, that window will be reverted 
 
 * *Parameters*:
   * **cursor**: The cursor object to destroy.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Reentrancy*: This function must not be called from a callback.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object), [create-cursor](https://hectarea1996.github.io/cl-glfw/input.html#create-cursor).
@@ -717,14 +717,14 @@ If the specified cursor is current for any window, that window will be reverted 
 (set-cursor window cursor)
 ```
 
-This function sets the cursor image to be used when the cursor is over the content area of the specified window. The set cursor will only be visible when the [cursor mode](https://www.glfw.org/docs/latest/input_guide.html#cursor_mode) of the window is `+cursor-normal+`.
+This function sets the cursor image to be used when the cursor is over the content area of the specified window. The set cursor will only be visible when the [cursor mode](https://www.glfw.org/docs/latest/input_guide.html#cursor_mode) of the window is `GLFW_CURSOR-NORMAL`.
 
 On some platforms, the set cursor may not be visible unless the window also has input focus.
 
 * *Parameters*:
   * **window**: The window to set the cursor for.
   * **cursor**: The cursor to set, or `nil` to switch back to the default arrow cursor.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor objects](https://www.glfw.org/docs/latest/input_guide.html#cursor_object).
 
@@ -740,7 +740,7 @@ The key functions deal with physical keys, with layout independent [key tokens](
 
 When a window loses input focus, it will generate synthetic key release events for all pressed keys. You can tell these events from user-generated events by the fact that the synthetic ones are generated after the focus loss event has been processed, i.e. after the [window focus callback](https://hectarea1996.github.io/cl-glfw/window.html#set-window-focus-callback) has been called.
 
-The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have a GLFW key token. Such keys have `key` set to `+key-unknown+`, their state is not saved and so it cannot be queried with [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key).
+The scancode of a key is specific to that platform or sometimes even to that machine. Scancodes are intended to allow users to bind keys that don't have a GLFW key token. Such keys have `key` set to `GLFW_KEY-UNKNOWN`, their state is not saved and so it cannot be queried with [get-key](https://hectarea1996.github.io/cl-glfw/input.html#get-key).
 
 Sometimes GLFW needs to generate synthetic key events, in which case the scancode may be zero.
 
@@ -749,7 +749,7 @@ Sometimes GLFW needs to generate synthetic key events, in which case the scancod
   * **callback**: The new key callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key), [def-key-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-key-callback).
 
@@ -770,7 +770,7 @@ The character callback behaves as system text input normally does and will not b
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char), [def-char-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-char-callback).
 
@@ -789,7 +789,7 @@ The character with modifiers callback is intended for implementing custom Unicod
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Text input](https://www.glfw.org/docs/latest/input_guide.html#input_char), [def-char-mods-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-char-mods-callback).
 
@@ -811,7 +811,7 @@ When a window loses input focus, it will generate synthetic mouse button release
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button), [def-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-mouse-button-callback).
 
@@ -828,7 +828,7 @@ This function sets the cursor position callback of the specified window, which i
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor position](https://www.glfw.org/docs/latest/input_guide.html#cursor_pos), [def-cursor-pos-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-cursor-pos-callback).
 
@@ -845,7 +845,7 @@ This function sets the cursor boundary crossing callback of the specified window
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Cursor enter/leave events](https://www.glfw.org/docs/latest/input_guide.html#cursor_enter), [def-cursor-enter-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-cursor-enter-callback).
 
@@ -864,7 +864,7 @@ The scroll callback receives all scrolling input, like that from a mouse wheel o
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Scroll input](https://www.glfw.org/docs/latest/input_guide.html#scrolling), [def-scroll-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-scroll-callback).
 
@@ -881,7 +881,7 @@ This function sets the path drop callback of the specified window, which is call
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*: 
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Remarks*:
   * **Wayland**: File drop is currently unimplemented.
 * *Thread safety*: This function must only be called from the main thread.
@@ -901,7 +901,7 @@ There is no need to call this function before other functions that accept a joys
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **present**: `t` if the joystick is present, or `nil` otherwise.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick input](https://www.glfw.org/docs/latest/input_guide.html#joystick).
 
@@ -919,7 +919,7 @@ If the specified joystick is not present this function will return `nil` but wil
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*: 
   * **axes**: An array of axis values, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick axis states](https://www.glfw.org/docs/latest/input_guide.html#joystick_axis).
 
@@ -929,9 +929,9 @@ If the specified joystick is not present this function will return `nil` but wil
 (get-joystick-buttons jid) => buttons
 ```
 
-This function returns the state of all buttons of the specified joystick. Each element in the array is either `+press+` or `+release+`.
+This function returns the state of all buttons of the specified joystick. Each element in the array is either `GLFW_PRESS` or `GLFW_RELEASE`.
 
-For backward compatibility with earlier versions that did not have [get-joystick-hats](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-hats), the button array also includes all hats, each represented as four buttons. The hats are in the same order as returned by **get-joystick-hats** and are in the order *up*, *right*, *down* and *left*. To disable these extra buttons, set the [+joystick-hat-buttons+](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS) init hint before initialization.
+For backward compatibility with earlier versions that did not have [get-joystick-hats](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-hats), the button array also includes all hats, each represented as four buttons. The hats are in the same order as returned by **get-joystick-hats** and are in the order *up*, *right*, *down* and *left*. To disable these extra buttons, set the [GLFW_JOYSTICK-HAT-BUTTONS](https://www.glfw.org/docs/latest/intro_guide.html#GLFW_JOYSTICK_HAT_BUTTONS) init hint before initialization.
 
 If the specified joystick is not present this function will return `nil` but will not generate an error. This can be used instead of first calling [joystick-present](https://hectarea1996.github.io/cl-glfw/input.html#joystick-present).
 
@@ -939,7 +939,7 @@ If the specified joystick is not present this function will return `nil` but wil
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **buttons**: An array of button states, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick button states](https://www.glfw.org/docs/latest/input_guide.html#joystick_button).
 
@@ -953,20 +953,20 @@ This function returns the state of all hats of the specified joystick. Each elem
 
 | Name | Value |
 | --- | --- |
-| +hat-centered+ | 0 |
-| +hat-up+ | 1 |
-| +hat-right+ | 2 |
-| +hat-down+ | 4 |
-| +hat-left+ | 8 |
-| +hat-right-up+ | (logior +hat-right+ +hat-up+) |
-| +hat-right-down+ | (logior +hat-right+ +hat-down+) |
-| +hat-left-up+ | (logior +hat-left+ +hat-up+) |
-| +hat-left-down+ | (logior +hat-left+ +hat-down+) |
+| GLFW_HAT-CENTERED | 0 |
+| GLFW_HAT-UP | 1 |
+| GLFW_HAT-RIGHT | 2 |
+| GLFW_HAT-DOWN | 4 |
+| GLFW_HAT-LEFT | 8 |
+| GLFW_HAT-RIGHT-UP | (logior GLFW_HAT-RIGHT GLFW_HAT-UP) |
+| GLFW_HAT-RIGHT-DOWN | (logior GLFW_HAT-RIGHT GLFW_HAT-DOWN) |
+| GLFW_HAT-LEFT-UP | (logior GLFW_HAT-LEFT GLFW_HAT-UP) |
+| GLFW_HAT-LEFT-DOWN | (logior GLFW_HAT-LEFT GLFW_HAT-DOWN) |
 
 The diagonal directions are bitwise combinations of the primary (up, right, down and left) directions and you can test for these individually by ANDing it with the corresponding direction.
 
 ```
-(when (> (logand (aref hats 2) +hat-right+) 0)
+(when (> (logand (aref hats 2) GLFW_HAT-RIGHT) 0)
   ; State of hat 2 could be right-up, right or right-down
   )
 ```
@@ -977,7 +977,7 @@ If the specified joystick is not present this function will return `nil` but wil
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **hats**: An array of hat states, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick hat states](https://www.glfw.org/docs/latest/input_guide.html#joystick_hat).
 
@@ -995,7 +995,7 @@ If the specified joystick is not present this function will return `nil` but wil
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **name**: The UTF-8 encoded name of the joystick, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick name](https://www.glfw.org/docs/latest/input_guide.html#joystick_name).
 
@@ -1017,7 +1017,7 @@ The GUID uses the format introduced in SDL 2.0.5. This GUID tries to uniquely id
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **guid**: The UTF-8 encoded GUID of the joystick, or `nil` if the joystick is not present or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad).
 
@@ -1034,7 +1034,7 @@ This function may be called from the joystick callback, even for a joystick that
 * *Parameters*:
   * **jid**: The joystick whose data to set.
   * **data**: The new value.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [Joystick user pointer](https://www.glfw.org/docs/latest/input_guide.html#joystick_userptr), [get-joystick-user-data](https://hectarea1996.github.io/cl-glfw/input.html#get-joystick-user-data).
 
@@ -1052,7 +1052,7 @@ This function may be called from the joystick callback, even for a joystick that
   * **jid**: The joystick whose data to return.
 * *Returns*:
   * **data**: The data of the specified joystick.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [Joystick user pointer](https://www.glfw.org/docs/latest/input_guide.html#joystick_userptr), [set-joystick-user-data](https://hectarea1996.github.io/cl-glfw/input.html#set-joystick-user-data).
 
@@ -1070,7 +1070,7 @@ If the specified joystick is present but does not have a gamepad mapping this fu
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **is-gamepad**: `t` if a joystick is both present and has a gamepad mapping, or `nil` otherwise.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [get-gamepad-state](https://hectarea1996.github.io/cl-glfw/input.html#get-gamepad-state).
 
@@ -1088,7 +1088,7 @@ For joystick connection and disconnection events to be delivered on all platform
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Joystick configuration changes](https://www.glfw.org/docs/latest/input_guide.html#joystick_event), [def-joystick-callback](https://hectarea1996.github.io/cl-glfw/input.html#def-joystick-callback).
 
@@ -1108,7 +1108,7 @@ If there is already a gamepad mapping for a given GUID in the internal list, it 
   * **string**: The string containing the gamepad mappings.
 * *Returns*:
   * **success**: `t` if successful, or `nil` if an error occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad), [get-gamepad-name](https://hectarea1996.github.io/cl-glfw/input.html#get-gamepad-name).
 
@@ -1126,7 +1126,7 @@ If the specified joystick is not present or does not have a gamepad mapping this
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*: 
   * **name**: The UTF-8 encoded name of the gamepad, or `nil` if the joystick is not present, does not have a mapping or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad).
 
@@ -1142,14 +1142,14 @@ If the specified joystick is not present or does not have a gamepad mapping this
 
 The Guide button may not be available for input as it is often hooked by the system or the Steam client.
 
-Not all devices have all the buttons or axes provided by [gamepadstate](https://hectarea1996.github.io/cl-glfw/input.html#gamepadstate). Unavailable buttons and axes will always report `+release+` and 0.0 respectively.
+Not all devices have all the buttons or axes provided by [gamepadstate](https://hectarea1996.github.io/cl-glfw/input.html#gamepadstate). Unavailable buttons and axes will always report `GLFW_RELEASE` and 0.0 respectively.
 
 * *Parameters*:
   * **jid**: The [joystick](https://hectarea1996.github.io/cl-glfw/input.html#joysticks) to query.
 * *Returns*:
   * **success**: `t` if successful, or `nil` if no joystick is connected, it has no gamepad mapping or an error occurred.
   * **state**: The gamepad input state of the joystick.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Gamepad input](https://www.glfw.org/docs/latest/input_guide.html#gamepad), [update-gamepad-mappings](https://hectarea1996.github.io/cl-glfw/input.html#update-gamepad-mappings), [joystick-is-gamepad](https://hectarea1996.github.io/cl-glfw/input.html#joystick-is-gamepad).
 
@@ -1164,7 +1164,7 @@ This function sets the system clipboard to the specified, UTF-8 encoded string.
 * *Parameters*:
   * **window**: Deprecated. Any valid window or `nil`.
   * **string**: A UTF-8 encoded string.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Clipboard input and output](https://www.glfw.org/docs/latest/input_guide.html#clipboard), [get-clipboard-string](https://hectarea1996.github.io/cl-glfw/input.html#get-clipboard-string).
 
@@ -1180,7 +1180,7 @@ This function returns the contents of the system clipboard, if it contains or is
   * **window**: Deprecated. Any valid window or `nil`.
 * *Returns*:
   * **clipboard**: The contents of the clipboard as a UTF-8 encoded string, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [format-unavailable](https://hectarea1996.github.io/cl-glfw/init-version-error.html#format-unavailable) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [format-unavailable](https://hectarea1996.github.io/cl-glfw/init-version-error.html#format-unavailable) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Clipboard input and output](https://www.glfw.org/docs/latest/input_guide.html#clipboard), [set-clipboard-string](https://hectarea1996.github.io/cl-glfw/input.html#set-clipboard-string).
 
@@ -1198,7 +1198,7 @@ The resolution of the timer is system dependent, but is usually on the order of 
 
 * *Returns*:
   * **time**: The current time, in seconds, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Reading and writing of the internal base time is not atomic, so it needs to be externally synchronized with calls to [set-time](https://hectarea1996.github.io/cl-glfw/input.html#set-time).
 * *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time).
 
@@ -1214,7 +1214,7 @@ This function and [get-time](https://hectarea1996.github.io/cl-glfw/input.html#g
 
 * *Parameters*:
   * **time**: The new value, in seconds.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
 * *Remarks*: The upper limit of GLFW time is calculated as floor((2^64 - 1) / 10^9) and is due to implementations storing nanoseconds in 64 bits. The limit may be increased in the future.
 * *Thread safety*: This function may be called from any thread. Reading and writing of the internal base time is not atomic, so it needs to be externally synchronized with calls to [get-time](https://hectarea1996.github.io/cl-glfw/input.html#get-time).
 * *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time).
@@ -1229,7 +1229,7 @@ This function returns the current value of the raw timer, measured in 1 / freque
 
 * *Returns*:
   * **value**: The value of the timer, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time), [get-timer-frequency](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-frequency).
 
@@ -1243,7 +1243,7 @@ This function returns the frequency, in Hz, of the raw timer.
 
 * *Returns*:
   * **frequency**: The frequency of the timer, in Hz, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Time input](https://www.glfw.org/docs/latest/input_guide.html#time), [get-timer-value](https://hectarea1996.github.io/cl-glfw/input.html#get-timer-value).
 
@@ -1261,7 +1261,7 @@ Defines a key callback. A keyboard key callback function has the following signa
   * **window**: The window that received the event.
   * **key**: 	The [keyboard key](https://hectarea1996.github.io/cl-glfw/input.html#keyboard-keys) that was pressed or released.
   * **scancode**: The system-specific scancode of the key.
-  * **action**: `+press+`, `+release+` or `+repeat+`. Future releases may add more actions.
+  * **action**: `GLFW_PRESS`, `GLFW_RELEASE` or `GLFW_REPEAT`. Future releases may add more actions.
   * **mods**: 	Bit field describing which [modifier keys](https://hectarea1996.github.io/cl-glfw/input.html#modifier-key-flags) were held down.
 * *See also*: [Key input](https://www.glfw.org/docs/latest/input_guide.html#input_key), [set-key-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-key-callback).
 
@@ -1303,7 +1303,7 @@ Defines a mouse button callback. A mouse button callback function has the follow
 * *Parameters*:
   * **window**: The window that received the event.
   * **button**: The [mouse button](https://hectarea1996.github.io/cl-glfw/input.html#mouse-buttons) that was pressed or released.
-  * **action**: One of `+press+` or `+release+`. Future releases may add more actions.
+  * **action**: One of `GLFW_PRESS` or `GLFW_RELEASE`. Future releases may add more actions.
   * **mods**: Bit field describing which [modifier keys](https://hectarea1996.github.io/cl-glfw/input.html#modifier-key-flags) were held down.
 * *See also*: [Mouse button input](https://www.glfw.org/docs/latest/input_guide.html#input_mouse_button), [set-mouse-button-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-mouse-button-callback).
 
@@ -1371,5 +1371,5 @@ Defines a joystick configuration callback. A joystick configuration callback fun
 
 * *Parameters*:
   * **jid**: The joystick that was connected or disconnected.
-  * **event**: One of `+connected+` or `+disconnected+`. Future releases may add more events.
+  * **event**: One of `GLFW_CONNECTED` or `GLFW_DISCONNECTED`. Future releases may add more events.
 * *See also*: [Joystick configuration changes](https://www.glfw.org/docs/latest/input_guide.html#joystick_event), [set-joystick-callback](https://hectarea1996.github.io/cl-glfw/input.html#set-joystick-callback).
