@@ -32,7 +32,7 @@ The availability of a Vulkan loader and even an ICD does not by itself guarantee
 
 * *Returns*:
   * **supported**: `t` if Vulkan is minimally available, or `nil` otherwise.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Querying for Vulkan support](https://www.glfw.org/docs/latest/vulkan_guide.html#vulkan_support).
 
@@ -44,13 +44,13 @@ The availability of a Vulkan loader and even an ICD does not by itself guarantee
 
 This function returns an array of names of Vulkan instance extensions required by GLFW for creating Vulkan surfaces for GLFW windows. If successful, the list will always contain `VK_KHR_surface`, so if you don't require any additional extensions you can pass this list directly to the `VkInstanceCreateInfo` struct.
 
-If Vulkan is not available on the machine, this function returns `nil` and generates a [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available.
+If Vulkan is not available on the machine, this function returns `nil` and generates a [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available.
 
 If Vulkan is available but no set of extensions allowing window surface creation was found, this function returns `nil`. You may still use Vulkan for off-screen rendering and compute work.
 
 * *Returns*:
   * **extensions**: An array of ASCII encoded extension names, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable).
 * *Remarks*: Additional extensions may be required by future versions of GLFW. You should check if any extensions you wish to enable are already in the returned array, as it is an error to specify an extension more than once in the `VkInstanceCreateInfo` struct.
   * **macOS**: GLFW currently supports both the `VK_MVK_macos_surface` and the newer `VK_EXT_metal_surface` extensions.
 * *Thread safety*: This function may be called from any thread.
@@ -71,7 +71,7 @@ This function returns the address of the specified Vulkan core or extension func
 * `vkCreateInstance`
 * `vkGetInstanceProcAddr`
 
-If Vulkan is not available on the machine, this function returns `nil` and generates a [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available.
+If Vulkan is not available on the machine, this function returns `nil` and generates a [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available.
 
 This function is equivalent to calling `vkGetInstanceProcAddr` with a platform-specific query of the Vulkan loader as a fallback.
 
@@ -80,7 +80,7 @@ This function is equivalent to calling `vkGetInstanceProcAddr` with a platform-s
   * **procname**: he ASCII encoded name of the function.
 * *Returns*: 
   * **function**: The address of the function, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Querying Vulkan function pointers](https://www.glfw.org/docs/latest/vulkan_guide.html#vulkan_proc).
 
@@ -92,7 +92,7 @@ This function is equivalent to calling `vkGetInstanceProcAddr` with a platform-s
 
 This function returns whether the specified queue family of the specified physical device supports presentation to the platform GLFW was built for.
 
-If Vulkan or the required window surface creation instance extensions are not available on the machine, or if the specified instance was not created with the required extensions, this function returns `nil` and generates a [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available and [get-required-instance-extensions](https://hectarea1996.github.io/cl-glfw/vulkan.html#get-required-instance-extensions) to check what instance extensions are required.
+If Vulkan or the required window surface creation instance extensions are not available on the machine, or if the specified instance was not created with the required extensions, this function returns `nil` and generates a [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available and [get-required-instance-extensions](https://hectarea1996.github.io/cl-glfw/vulkan.html#get-required-instance-extensions) to check what instance extensions are required.
 
 * *Parameters*:
   * **instance**: The instance that the physical device belongs to.
@@ -100,7 +100,7 @@ If Vulkan or the required window surface creation instance extensions are not av
   * **queuefamily**: The index of the queue family to query.
 * *Returns*: 
   * **supported**: `t` if the queue family supports presentation, or `nil` otherwise.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: 
   * **macOS**: This function currently always returns `t`, as the `VK_MVK_macos_surface` and `VK_EXT_metal_surface` extensions do not provide a `vkGetPhysicalDevice*PresentationSupport` type function.
 * *Thread safety*: This function may be called from any thread. For synchronization details of Vulkan objects, see the Vulkan specification.
@@ -116,11 +116,11 @@ If Vulkan or the required window surface creation instance extensions are not av
 
 This function creates a Vulkan surface for the specified window.
 
-If the Vulkan loader or at least one minimally functional ICD were not found, this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available.
+If the Vulkan loader or at least one minimally functional ICD were not found, this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) to check whether Vulkan is at least minimally available.
 
-If the required window surface creation instance extensions are not available or if the specified instance was not created with these extensions enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and generates a [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [get-required-instance-extensions](https://hectarea1996.github.io/cl-glfw/vulkan.html#get-required-instance-extensions) to check what instance extensions are required.
+If the required window surface creation instance extensions are not available or if the specified instance was not created with these extensions enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and generates a [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) error. Call [get-required-instance-extensions](https://hectarea1996.github.io/cl-glfw/vulkan.html#get-required-instance-extensions) to check what instance extensions are required.
 
-The window surface cannot be shared with another API so the window must have been created with the [client api hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CLIENT_API_attrib) set to `+no-api+` otherwise it generates a [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) error and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.
+The window surface cannot be shared with another API so the window must have been created with the [client api hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CLIENT_API_attrib) set to `GLFW_NO-API` otherwise it generates a [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) error and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.
 
 The window surface must be destroyed before the specified Vulkan instance. It is the responsibility of the caller to destroy the window surface. GLFW does not destroy it for you. Call `vkDestroySurfaceKHR` to destroy the surface.
 
@@ -131,7 +131,7 @@ The window surface must be destroyed before the specified Vulkan instance. It is
   * **surface**: Where to store the handle of the surface. This is set to `VK_NULL_HANDLE` if an error occurred.
 * *Returns*:
   * **result**: `VK_SUCCESS` if successful, or a Vulkan error code if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) and [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) and [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value).
 * *Remarks*: If an error occurs before the creation call is made, GLFW returns the Vulkan error code most appropriate for the error. Appropriate use of [vulkan-supported](https://hectarea1996.github.io/cl-glfw/vulkan.html#vulkan-supported) and [get-required-instance-extensions](https://hectarea1996.github.io/cl-glfw/vulkan.html#get-required-instance-extensions) should eliminate almost all occurrences of these errors.
   * **macOS**: This function currently only supports the `VK_MVK_macos_surface` extension from MoltenVK.
   * **macOS**: This function creates and sets a `CAMetalLayer` instance for the window content view, which is required for MoltenVK to function.
