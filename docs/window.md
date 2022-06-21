@@ -54,12 +54,12 @@ This is the reference documentation for window related functions and types, incl
 * [GLFW_CONTEXT-RELEASE-BEHAVIOR](https://hectarea1996.github.io/cl-glfw/window.html#context-release-behavior) #x00022009
 * [GLFW_CONTEXT-NO-ERROR](https://hectarea1996.github.io/cl-glfw/window.html#context-no-error) #x0002200A
 * [GLFW_CONTEXT-CREATION-API](https://hectarea1996.github.io/cl-glfw/window.html#context-creation-api) #x0002200B
-* GLFW_*+SCALE-TO-MONITOR** #x0002200C
-* GLFW_*+COCOA-RETINA-FRAMEBUFFER** #x00023001
-* GLFW_*+COCOA-FRAME-NAME** #x00023002
-* GLFW_*+COCOA-GRAPHICS-SWITCHING** #x00023003
-* GLFW_*+X11-CLASS-NAME** #x00024001
-* GLFW_*+X11-INSTANCE-NAME** #x00024002
+* **GLFW_SCALE-TO-MONITOR** #x0002200C
+* **GLFW_COCOA-RETINA-FRAMEBUFFER** #x00023001
+* **GLFW_COCOA-FRAME-NAME** #x00023002
+* **GLFW_COCOA-GRAPHICS-SWITCHING** #x00023003
+* **GLFW_X11-CLASS-NAME** #x00024001
+* **GLFW_X11-INSTANCE-NAME** #x00024002
 
 ## Structs
 
