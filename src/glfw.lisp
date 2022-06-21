@@ -84,14 +84,14 @@
 (mcffi:def-foreign-accessors image (:struct GLFWimage)
   width
   height
-  (pixels :getter ((&optional (width-index nil) (height-index nil))
+  (pixels :getter ((&optional (height-index nil) (width-index nil))
 		   (if (and width-index height-index)
-		       (cffi:mem-aref pixels :uchar (+ (* width height-index) width))
+		       (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
 		       (loop for i from 0 below (* width height)
 			     collect (cffi:mem-aref pixels :uchar i))))
-	  :setter ((new-value &optional (width-index nil) (height-index nil))
+	  :setter ((new-value &optional (height-index nil) (width-index nil))
 		   (if (and width-index height-index)
-		       (setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width)) new-value)
+		       (setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index)) new-value)
 		       (loop for i from 0 below (* width height)
 			     for v in new-value
 			     do (setf (cffi:mem-aref pixels :uchar i) v))))))
