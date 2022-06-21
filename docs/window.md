@@ -15,51 +15,51 @@ This is the reference documentation for window related functions and types, incl
 
 ## Constants
 
-* [+focused+](https://hectarea1996.github.io/cl-glfw/window.html#focused) #x00020001
-* [+iconified+](https://hectarea1996.github.io/cl-glfw/window.html#iconified) #x00020002
-* [+resizable+](https://hectarea1996.github.io/cl-glfw/window.html#resizable) #x00020003
-* [+visible+](https://hectarea1996.github.io/cl-glfw/window.html#visible) #x00020004
-* [+decorated+](https://hectarea1996.github.io/cl-glfw/window.html#decorated) #x00020005
-* [+auto-iconify+](https://hectarea1996.github.io/cl-glfw/window.html#iconify) #x00020006
-* [+floating+](https://hectarea1996.github.io/cl-glfw/window.html#floating) #x00020007
-* [+maximized+](https://hectarea1996.github.io/cl-glfw/window.html#maximized) #x00020008
-* [+center-cursor+](https://hectarea1996.github.io/cl-glfw/window.html#center-cursor) #x00020009
-* [+transparent-framebuffer+](https://hectarea1996.github.io/cl-glfw/window.html#transparent-framebuffer) #x0002000A
-* [+hovered+](https://hectarea1996.github.io/cl-glfw/window.html#hovered) #x0002000B
-* [+focus-on-show+](https://hectarea1996.github.io/cl-glfw/window.html#focus-on-show) #x0002000C
-* [+red-bits+](https://hectarea1996.github.io/cl-glfw/window.html#red-bits) #x00021001
-* [+green-bits+](https://hectarea1996.github.io/cl-glfw/window.html#green-bits) #x00021002
-* [+blue-bits+](https://hectarea1996.github.io/cl-glfw/window.html#blue-bits) #x00021003
-* [+alpha-bits+](https://hectarea1996.github.io/cl-glfw/window.html#alpha-bits) #x00021004
-* [+depth-bits+](https://hectarea1996.github.io/cl-glfw/window.html#depth-bits) #x00021005
-* [+stencil-bits+](https://hectarea1996.github.io/cl-glfw/window.html#stencil-bits) #x00021006
-* [+accum-red-bits+](https://hectarea1996.github.io/cl-glfw/window.html#accum-red-bits) #x00021007
-* [+accum-green-bits+](https://hectarea1996.github.io/cl-glfw/window.html#accum-green-bits) #x00021008
-* [+accum-blue-bits+](https://hectarea1996.github.io/cl-glfw/window.html#accum-blue-bits) #x00021009
-* [+accum-alpha-bits+](https://hectarea1996.github.io/cl-glfw/window.html#accum-alpha-bits) #x0002100A
-* [+aux-buffers+](https://hectarea1996.github.io/cl-glfw/window.html#aux-buffers) #x0002100B
-* [+stereo+](https://hectarea1996.github.io/cl-glfw/window.html#stereo) #x0002100C
-* [+samples+](https://hectarea1996.github.io/cl-glfw/window.html#samples) #x0002100D
-* [+srgb-capable+](https://hectarea1996.github.io/cl-glfw/window.html#srgb-capable) #x0002100E
-* [+refresh-rate+](https://hectarea1996.github.io/cl-glfw/window.html#refresh-rate) #x0002100F
-* [+doublebuffer+](https://hectarea1996.github.io/cl-glfw/window.html#doublebuffer) #x00021010
-* [+client-api+](https://hectarea1996.github.io/cl-glfw/window.html#client-api) #x00022001
-* [+context-version-major+](https://hectarea1996.github.io/cl-glfw/window.html#context-version-major) #x00022002
-* [+context-version-minor+](https://hectarea1996.github.io/cl-glfw/window.html#context-version-minor) #x00022003
-* [+context-revision+](https://hectarea1996.github.io/cl-glfw/window.html#revision) #x00022004
-* [+context-robustness+](https://hectarea1996.github.io/cl-glfw/window.html#context-robustness) #x00022005
-* [+opengl-forward-compat+](https://hectarea1996.github.io/cl-glfw/window.html#opengl-forward-compat) #x00022006
-* [+opengl-debug-context+](https://hectarea1996.github.io/cl-glfw/window.html#opengl-debug-context) #x00022007
-* [+opengl-profile+](https://hectarea1996.github.io/cl-glfw/window.html#opengl-profile) #x00022008
-* [+context-release-behavior+](https://hectarea1996.github.io/cl-glfw/window.html#context-release-behavior) #x00022009
-* [+context-no-error+](https://hectarea1996.github.io/cl-glfw/window.html#context-no-error) #x0002200A
-* [+context-creation-api+](https://hectarea1996.github.io/cl-glfw/window.html#context-creation-api) #x0002200B
-* **+scale-to-monitor+** #x0002200C
-* **+cocoa-retina-framebuffer+** #x00023001
-* **+cocoa-frame-name+** #x00023002
-* **+cocoa-graphics-switching+** #x00023003
-* **+x11-class-name+** #x00024001
-* **+x11-instance-name+** #x00024002
+* [GLFW_FOCUSED](https://hectarea1996.github.io/cl-glfw/window.html#focused) #x00020001
+* [GLFW_ICONIFIED](https://hectarea1996.github.io/cl-glfw/window.html#iconified) #x00020002
+* [GLFW_RESIZABLE](https://hectarea1996.github.io/cl-glfw/window.html#resizable) #x00020003
+* [GLFW_VISIBLE](https://hectarea1996.github.io/cl-glfw/window.html#visible) #x00020004
+* [GLFW_DECORATED](https://hectarea1996.github.io/cl-glfw/window.html#decorated) #x00020005
+* [GLFW_AUTO-ICONIFY](https://hectarea1996.github.io/cl-glfw/window.html#iconify) #x00020006
+* [GLFW_FLOATING](https://hectarea1996.github.io/cl-glfw/window.html#floating) #x00020007
+* [GLFW_MAXIMIZED](https://hectarea1996.github.io/cl-glfw/window.html#maximized) #x00020008
+* [GLFW_CENTER-CURSOR](https://hectarea1996.github.io/cl-glfw/window.html#center-cursor) #x00020009
+* [GLFW_TRANSPARENT-FRAMEBUFFER](https://hectarea1996.github.io/cl-glfw/window.html#transparent-framebuffer) #x0002000A
+* [GLFW_HOVERED](https://hectarea1996.github.io/cl-glfw/window.html#hovered) #x0002000B
+* [GLFW_FOCUS-ON-SHOW](https://hectarea1996.github.io/cl-glfw/window.html#focus-on-show) #x0002000C
+* [GLFW_RED-BITS](https://hectarea1996.github.io/cl-glfw/window.html#red-bits) #x00021001
+* [GLFW_GREEN-BITS](https://hectarea1996.github.io/cl-glfw/window.html#green-bits) #x00021002
+* [GLFW_BLUE-BITS](https://hectarea1996.github.io/cl-glfw/window.html#blue-bits) #x00021003
+* [GLFW_ALPHA-BITS](https://hectarea1996.github.io/cl-glfw/window.html#alpha-bits) #x00021004
+* [GLFW_DEPTH-BITS](https://hectarea1996.github.io/cl-glfw/window.html#depth-bits) #x00021005
+* [GLFW_STENCIL-BITS](https://hectarea1996.github.io/cl-glfw/window.html#stencil-bits) #x00021006
+* [GLFW_ACCUM-RED-BITS](https://hectarea1996.github.io/cl-glfw/window.html#accum-red-bits) #x00021007
+* [GLFW_ACCUM-GREEN-BITS](https://hectarea1996.github.io/cl-glfw/window.html#accum-green-bits) #x00021008
+* [GLFW_ACCUM-BLUE-BITS](https://hectarea1996.github.io/cl-glfw/window.html#accum-blue-bits) #x00021009
+* [GLFW_ACCUM-ALPHA-BITS](https://hectarea1996.github.io/cl-glfw/window.html#accum-alpha-bits) #x0002100A
+* [GLFW_AUX-BUFFERS](https://hectarea1996.github.io/cl-glfw/window.html#aux-buffers) #x0002100B
+* [GLFW_STEREO](https://hectarea1996.github.io/cl-glfw/window.html#stereo) #x0002100C
+* [GLFW_SAMPLES](https://hectarea1996.github.io/cl-glfw/window.html#samples) #x0002100D
+* [GLFW_SRGB-CAPABLE](https://hectarea1996.github.io/cl-glfw/window.html#srgb-capable) #x0002100E
+* [GLFW_REFRESH-RATE](https://hectarea1996.github.io/cl-glfw/window.html#refresh-rate) #x0002100F
+* [GLFW_DOUBLEBUFFER](https://hectarea1996.github.io/cl-glfw/window.html#doublebuffer) #x00021010
+* [GLFW_CLIENT-API](https://hectarea1996.github.io/cl-glfw/window.html#client-api) #x00022001
+* [GLFW_CONTEXT-VERSION-MAJOR](https://hectarea1996.github.io/cl-glfw/window.html#context-version-major) #x00022002
+* [GLFW_CONTEXT-VERSION-MINOR](https://hectarea1996.github.io/cl-glfw/window.html#context-version-minor) #x00022003
+* [GLFW_CONTEXT-REVISION](https://hectarea1996.github.io/cl-glfw/window.html#revision) #x00022004
+* [GLFW_CONTEXT-ROBUSTNESS](https://hectarea1996.github.io/cl-glfw/window.html#context-robustness) #x00022005
+* [GLFW_OPENGL-FORWARD-COMPAT](https://hectarea1996.github.io/cl-glfw/window.html#opengl-forward-compat) #x00022006
+* [GLFW_OPENGL-DEBUG-CONTEXT](https://hectarea1996.github.io/cl-glfw/window.html#opengl-debug-context) #x00022007
+* [GLFW_OPENGL-PROFILE](https://hectarea1996.github.io/cl-glfw/window.html#opengl-profile) #x00022008
+* [GLFW_CONTEXT-RELEASE-BEHAVIOR](https://hectarea1996.github.io/cl-glfw/window.html#context-release-behavior) #x00022009
+* [GLFW_CONTEXT-NO-ERROR](https://hectarea1996.github.io/cl-glfw/window.html#context-no-error) #x0002200A
+* [GLFW_CONTEXT-CREATION-API](https://hectarea1996.github.io/cl-glfw/window.html#context-creation-api) #x0002200B
+* GLFW_*+SCALE-TO-MONITOR** #x0002200C
+* GLFW_*+COCOA-RETINA-FRAMEBUFFER** #x00023001
+* GLFW_*+COCOA-FRAME-NAME** #x00023002
+* GLFW_*+COCOA-GRAPHICS-SWITCHING** #x00023003
+* GLFW_*+X11-CLASS-NAME** #x00024001
+* GLFW_*+X11-INSTANCE-NAME** #x00024002
 
 ## Structs
 
@@ -129,314 +129,314 @@ This is the reference documentation for window related functions and types, incl
 
 ## Constant documentation
 
-### +focused+
+### GLFW_FOCUSED
 
 ```
-(defconstant +focused+ #x00020001)
+(defconstant GLFW_FOCUSED #x00020001)
 ```
 
 Input focus [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) or [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +iconified+
+### GLFW_ICONIFIED
 
 ```
-(defconstant +iconified+ #x00020002)
+(defconstant GLFW_ICONIFIED #x00020002)
 ```
 
 Window iconification [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +resizable+
+### GLFW_RESIZABLE
 
 ```
-(defconstant +resizable+ #x00020003)
+(defconstant GLFW_RESIZABLE #x00020003)
 ```
 
 Window resize-ability [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +visible+
+### GLFW_VISIBLE
 
 ```
-(defconstant +visible+ #x00020004)
+(defconstant GLFW_VISIBLE #x00020004)
 ```
 
 Window visibily [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +decorated+
+### GLFW_DECORATED
 
 ```
-(defconstant +decorated+ #x00020005)
+(defconstant GLFW_DECORATED #x00020005)
 ```
 
 Window decoration [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +auto-iconify+
+### GLFW_AUTO-ICONIFY
 
 ```
-(defconstant +auto-iconify+ #x00020006)
+(defconstant GLFW_AUTO-ICONIFY #x00020006)
 ```
 
 Window auto-iconification [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +floating+
+### GLFW_FLOATING
 
 ```
-(defconstant +floating+ #x00020007)
+(defconstant GLFW_FLOATING #x00020007)
 ```
 
 Window decoration [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +maximized+
+### GLFW_MAXIMIZED
 
 ```
-(defconstant +maximized+ #x00020008)
+(defconstant GLFW_MAXIMIZED #x00020008)
 ```
 
 Window maximization [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +center-cursor+
+### GLFW_CENTER-CURSOR
 
 ```
-(defconstant +center-cursor+ #x00020009)
+(defconstant GLFW_CENTER-CURSOR #x00020009)
 ```
 
 Cursor centering [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint).
 
-### +transparent-framebuffer+
+### GLFW_TRANSPARENT-FRAMEBUFFER
 
 ```
-(defconstant +transparent-framebuffer+ #x0002000A)
+(defconstant GLFW_TRANSPARENT-FRAMEBUFFER #x0002000A)
 ```
 
 Window framebuffer transparency [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) and [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +hovered+
+### GLFW_HOVERED
 
 ```
-(defconstant +hovered+ #x0002000B)
+(defconstant GLFW_HOVERED #x0002000B)
 ```
 
 Mouse cursor hover [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +focus-on-show+
+### GLFW_FOCUS-ON-SHOW
 
 ```
-(defconstant +focus-on-show+ #x0002000C)
+(defconstant GLFW_FOCUS-ON-SHOW #x0002000C)
 ```
 
 Input focus [window hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) or [window attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_attrib).
 
-### +red-bits+
+### GLFW_RED-BITS
 
 ```
-(defconstant +red-bits+ #x00021001)
+(defconstant GLFW_RED-BITS #x00021001)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_RED_BITS).
 
-### +green-bits+
+### GLFW_GREEN-BITS
 
 ```
-(defconstant +green-bits+ #x00021002)
+(defconstant GLFW_GREEN-BITS #x00021002)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_GREEN_BITS).
 
-### +blue-bits+
+### GLFW_BLUE-BITS
 
 ```
-(defconstant +blue-bits+ #x00021003)
+(defconstant GLFW_BLUE-BITS #x00021003)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_BLUE_BITS).
 
-### +alpha-bits+
+### GLFW_ALPHA-BITS
 
 ```
-(defconstant +alpha-bits+ #x00021004)
+(defconstant GLFW_ALPHA-BITS #x00021004)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_ALPHA_BITS).
 
-### +depth-bits+
+### GLFW_DEPTH-BITS
 
 ```
-(defconstant +depth-bits+ #x00021005)
+(defconstant GLFW_DEPTH-BITS #x00021005)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_DEPTH_BITS).
 
-### +stencil-bits+
+### GLFW_STENCIL-BITS
 
 ```
-(defconstant +stencil-bits+ #x00021006)
+(defconstant GLFW_STENCIL-BITS #x00021006)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_STENCIL_BITS).
 
-### +accum-red-bits+
+### GLFW_ACCUM-RED-BITS
 
 ```
-(defconstant +accum-red-bits+ #x00021007)
+(defconstant GLFW_ACCUM-RED-BITS #x00021007)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_ACCUM_RED_BITS).
 
-### +accum-green-bits+
+### GLFW_ACCUM-GREEN-BITS
 
 ```
-(defconstant +accum-green-bits+ #x00021008)
+(defconstant GLFW_ACCUM-GREEN-BITS #x00021008)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_ACCUM_GREEN_BITS).
 
-### +accum-blue-bits+
+### GLFW_ACCUM-BLUE-BITS
 
 ```
-(defconstant +accum-blue-bits+ #x00021009)
+(defconstant GLFW_ACCUM-BLUE-BITS #x00021009)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_ACCUM_BLUE_BITS).
 
-### +accum-alpha-bits+
+### GLFW_ACCUM-ALPHA-BITS
 
 ```
-(defconstant +accum-alpha-bits+ #x0002100A)
+(defconstant GLFW_ACCUM-ALPHA-BITS #x0002100A)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_ACCUM_ALPHA_BITS).
 
-### +aux-buffers+
+### GLFW_AUX-BUFFERS
 
 ```
-(defconstant +aux-buffers+ #x0002100B)
+(defconstant GLFW_AUX-BUFFERS #x0002100B)
 ```
 
 Framebuffer auxiliary buffer [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_AUX_BUFFERS).
 
-### +stereo+
+### GLFW_STEREO
 
 ```
-(defconstant +stereo+ #x0002100C)
+(defconstant GLFW_STEREO #x0002100C)
 ```
 
 OpenGL stereoscopic rendering [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_STEREO).
 
-### +samples+
+### GLFW_SAMPLES
 
 ```
-(defconstant +samples+ #x0002100D)
+(defconstant GLFW_SAMPLES #x0002100D)
 ```
 
 Framebuffer MSAA samples [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SAMPLES).
 
-### +srgb-capable+
+### GLFW_SRGB-CAPABLE
 
 ```
-(defconstant +srgb-capable+ #x0002100E)
+(defconstant GLFW_SRGB-CAPABLE #x0002100E)
 ```
 
 Framebuffer sRGB [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_SRGB_CAPABLE).
 
-### +refresh-rate+
+### GLFW_REFRESH-RATE
 
 ```
-(defconstant +refresh-rate+ #x0002100F)
+(defconstant GLFW_REFRESH-RATE #x0002100F)
 ```
 
 Framebuffer bit depth [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_REFRESH_RATE).
 
-### +doublebuffer+
+### GLFW_DOUBLEBUFFER
 
 ```
-(defconstant +doublebuffer+ #x00021010)
+(defconstant GLFW_DOUBLEBUFFER #x00021010)
 ```
 
 Framebuffer double buffering [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_DOUBLEBUFFER).
 
-### +client-api+
+### GLFW_CLIENT-API
 
 ```
-(defconstant +client-api+ #x00022001)
+(defconstant GLFW_CLIENT-API #x00022001)
 ```
 
 Context client API [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CLIENT_API_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CLIENT_API_attrib).
 
-### +context-version-major+
+### GLFW_CONTEXT-VERSION-MAJOR
 
 ```
-(defconstant +context-version-major+ #x00022002)
+(defconstant GLFW_CONTEXT-VERSION-MAJOR #x00022002)
 ```
 
 Context client API major version [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_VERSION_MAJOR_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_VERSION_MAJOR_attrib).
 
-### +context-version-minor+
+### GLFW_CONTEXT-VERSION-MINOR
 
 ```
-(defconstant +context-version-minor+ #x00022003)
+(defconstant GLFW_CONTEXT-VERSION-MINOR #x00022003)
 ```
 
 Context client API minor version [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_VERSION_MINOR_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_VERSION_MINOR_attrib).
 
-### +context-revision+
+### GLFW_CONTEXT-REVISION
 
 ```
-(defconstant +context-revision+ #x00022004)
+(defconstant GLFW_CONTEXT-REVISION #x00022004)
 ```
 
 Context client API revision number [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_REVISION_attrib).
 
-### +context-robustness+
+### GLFW_CONTEXT-ROBUSTNESS
 
 ```
-(defconstant +context-robustness+ #x00022005)
+(defconstant GLFW_CONTEXT-ROBUSTNESS #x00022005)
 ```
 
 Context client API revision number [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_ROBUSTNESS_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_ROBUSTNESS_attrib).
 
-### +opengl-forward-compat+
+### GLFW_OPENGL-FORWARD-COMPAT
 
 ```
-(defconstant +opengl-forward-compat+ #x00022006)
+(defconstant GLFW_OPENGL-FORWARD-COMPAT #x00022006)
 ```
 
 OpenGL forward-compatibility [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_FORWARD_COMPAT_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_FORWARD_COMPAT_attrib).
 
-### +opengl-debug-context+
+### GLFW_OPENGL-DEBUG-CONTEXT
 
 ```
-(defconstant +opengl-debug-context+ #x00022007)
+(defconstant GLFW_OPENGL-DEBUG-CONTEXT #x00022007)
 ```
 
 Debug mode context [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_DEBUG_CONTEXT_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_DEBUG_CONTEXT_attrib).
 
-### +opengl-profile+
+### GLFW_OPENGL-PROFILE
 
 ```
-(defconstant +opengl-profile+ #x00022008)
+(defconstant GLFW_OPENGL-PROFILE #x00022008)
 ```
 
 OpenGL profile [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_PROFILE_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_PROFILE_attrib).
 
-### +context-release-behavior+
+### GLFW_CONTEXT-RELEASE-BEHAVIOR
 
 ```
-(defconstant +context-release-behavior+ #x00022009)
+(defconstant GLFW_CONTEXT-RELEASE-BEHAVIOR #x00022009)
 ```
 
 Context flush-on-release [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_RELEASE_BEHAVIOR_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_RELEASE_BEHAVIOR_attrib).
 
-### +context-no-error+
+### GLFW_CONTEXT-NO-ERROR
 
 ```
-(defconstant +context-no-error+ #x0002200A)
+(defconstant GLFW_CONTEXT-NO-ERROR #x0002200A)
 ```
 
 Context error suppression [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_NO_ERROR_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_NO_ERROR_attrib).
 
-### +context-creation-api+
+### GLFW_CONTEXT-CREATION-API
 
 ```
-(defconstant +context-creation-api+ #x0002200B)
+(defconstant GLFW_CONTEXT-CREATION-API #x0002200B)
 ```
 
 Context creation API [hint](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_CREATION_API_hint) and [attribute](https://www.glfw.org/docs/latest/window_guide.html#GLFW_CONTEXT_CREATION_API_attrib).
@@ -490,7 +490,7 @@ This describes a single 2D image. See the documentation for each related functio
 
 This function resets all window hints to their [default values](https://www.glfw.org/docs/latest/window_guide.html#window_hints_values).
 
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window creation hints](https://www.glfw.org/docs/latest/window_guide.html#window_hints), [window-hint](https://hectarea1996.github.io/cl-glfw/window.html#window-hint), [window-hint-string](https://hectarea1996.github.io/cl-glfw/window.html#window-hint-string).
 
@@ -511,7 +511,7 @@ Some hints are platform specific. These may be set on any platform but they will
 * *Parameters*:
   * **hint**: The [window hint](https://www.glfw.org/docs/latest/window_guide.html#window_hints) to set.
   * **value**: The new value of the window hint.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), and [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window creation hints](https://www.glfw.org/docs/latest/window_guide.html#window_hints), [window-hint-string](https://hectarea1996.github.io/cl-glfw/window.html#window-hint-string), [default-window-hints](https://hectarea1996.github.io/cl-glfw/window.html#default-window-hints).
 
@@ -528,7 +528,7 @@ Some hints are platform specific. These may be set on any platform but they will
 * *Parameters*:
   * **hint**: The [window hint](https://www.glfw.org/docs/latest/window_guide.html#window_hints) to set.
   * **value**: The new value of the window hint.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), and [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), and [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window creation hints](https://www.glfw.org/docs/latest/window_guide.html#window_hints), [window-hint](https://hectarea1996.github.io/cl-glfw/window.html#window-hint), [default-window-hints](https://hectarea1996.github.io/cl-glfw/window.html#default-window-hints).
 
@@ -550,7 +550,7 @@ For full screen windows, the specified size becomes the resolution of the window
 
 Once you have created the window, you can switch it between windowed and full screen mode with [set-window-monitor](https://hectarea1996.github.io/cl-glfw/window.html#set-window-monitor). This will not affect its OpenGL or OpenGL ES context.
 
-By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially invisible using the `+visible+` window hint, set its [position](https://www.glfw.org/docs/latest/window_guide.html#window_pos) and then [show](https://www.glfw.org/docs/latest/window_guide.html#window_hide) it.
+By default, newly created windows use the placement recommended by the window system. To create the window at a specific position, make it initially invisible using the `GLFW_VISIBLE` window hint, set its [position](https://www.glfw.org/docs/latest/window_guide.html#window_pos) and then [show](https://www.glfw.org/docs/latest/window_guide.html#window_hide) it.
 
 As long as at least one full screen window is not iconified, the screensaver is prohibited from starting.
 
@@ -566,19 +566,19 @@ The [swap interval](https://www.glfw.org/docs/latest/window_guide.html#buffer_sw
   * **share**: 	The window whose context to share resources with, or `nil` to not share resources.
 * *Returns*:
   * **window**: The handle of the created window, or `nil` if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), [+api-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) and [+version-unavailable+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-unavailable).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value), [GLFW_API-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#api-unavailable) and [GLFW_VERSION-UNAVAILABLE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#version-unavailable).
 * *Remarks*:
   * **Windows**: Window creation will fail if the Microsoft GDI software OpenGL implementation is the only one available.
   * **Windows**: If the executable has an icon resource named `GLFW_ICON`, it will be set as the initial icon for the window. If no such icon is present, the `IDI_APPLICATION` icon will be used instead. To set a different icon, see [set-window-icon](https://hectarea1996.github.io/cl-glfw/window.html#set-window-icon).
   * **Windows**: The context to share resources with must not be current on any other thread.
-  * **macOS**: The OS only supports forward-compatible core profile contexts for OpenGL versions 3.2 and later. Before creating an OpenGL context of version 3.2 or later you must set the [+opengl-forward-compat+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_FORWARD_COMPAT_hint) and [+opengl-profile+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_PROFILE_hint) hints accordingly. OpenGL 3.0 and 3.1 contexts are not supported at all on macOS.
+  * **macOS**: The OS only supports forward-compatible core profile contexts for OpenGL versions 3.2 and later. Before creating an OpenGL context of version 3.2 or later you must set the [GLFW_OPENGL-FORWARD-COMPAT](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_FORWARD_COMPAT_hint) and [GLFW_OPENGL-PROFILE](https://www.glfw.org/docs/latest/window_guide.html#GLFW_OPENGL_PROFILE_hint) hints accordingly. OpenGL 3.0 and 3.1 contexts are not supported at all on macOS.
   * **macOS**: The GLFW window has no icon, as it is not a document window, but the dock icon will be the same as the application bundle's icon. For more information on bundles, see the [Bundle Programming Guide](https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/) in the Mac Developer Library.
-  * **macOS**: The first time a window is created the menu bar is created. If GLFW finds a MainMenu.nib it is loaded and assumed to contain a menu bar. Otherwise a minimal menu bar is created manually with common commands like Hide, Quit and About. The About entry opens a minimal about dialog with information from the application's bundle. Menu bar creation can be disabled entirely with the [+cocoa-menubar+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-menubar) init hint.
-  * **macOS**: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the [+cocoa-retina-framebuffer+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_COCOA_RETINA_FRAMEBUFFER_hint) hint is `+true+` and the `NSHighResolutionCapable` key is enabled in the application bundle's `Info.plist`. For more information, see [High Resolution Guidelines for OS X](https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html) in the Mac Developer Library. The GLFW test and example programs use a custom `Info.plist` template for this, which can be found as `CMake/MacOSXBundleInfo.plist.in` in the source tree.
-  * **macOS**: When activating frame autosaving with [+cocoa-frame-name+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_COCOA_FRAME_NAME_hint), the specified window size and position may be overridden by previously saved values.
+  * **macOS**: The first time a window is created the menu bar is created. If GLFW finds a MainMenu.nib it is loaded and assumed to contain a menu bar. Otherwise a minimal menu bar is created manually with common commands like Hide, Quit and About. The About entry opens a minimal about dialog with information from the application's bundle. Menu bar creation can be disabled entirely with the [GLFW_COCOA-MENUBAR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#cocoa-menubar) init hint.
+  * **macOS**: On OS X 10.10 and later the window frame will not be rendered at full resolution on Retina displays unless the [GLFW_COCOA-RETINA-FRAMEBUFFER](https://www.glfw.org/docs/latest/window_guide.html#GLFW_COCOA_RETINA_FRAMEBUFFER_hint) hint is `GLFW_TRUE` and the `NSHighResolutionCapable` key is enabled in the application bundle's `Info.plist`. For more information, see [High Resolution Guidelines for OS X](https://developer.apple.com/library/mac/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Explained/Explained.html) in the Mac Developer Library. The GLFW test and example programs use a custom `Info.plist` template for this, which can be found as `CMake/MacOSXBundleInfo.plist.in` in the source tree.
+  * **macOS**: When activating frame autosaving with [GLFW_COCOA-FRAME-NAME](https://www.glfw.org/docs/latest/window_guide.html#GLFW_COCOA_FRAME_NAME_hint), the specified window size and position may be overridden by previously saved values.
   * **X11**: Some window managers will not respect the placement of initially hidden windows.
   * **X11**: Due to the asynchronous nature of X11, it may take a moment for a window to reach its requested state. This means you may not be able to query the final size, position or other attributes directly after window creation.
-  * **X11**: The class part of the `WM_CLASS` window property will by default be set to the window title passed to this function. The instance part will use the contents of the `RESOURCE_NAME` environment variable, if present and not empty, or fall back to the window title. Set the [+x11-class-name+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_X11_CLASS_NAME_hint) and [+x11-instance-name+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_X11_INSTANCE_NAME_hint) window hints to override this.
+  * **X11**: The class part of the `WM_CLASS` window property will by default be set to the window title passed to this function. The instance part will use the contents of the `RESOURCE_NAME` environment variable, if present and not empty, or fall back to the window title. Set the [GLFW_X11-CLASS-NAME](https://www.glfw.org/docs/latest/window_guide.html#GLFW_X11_CLASS_NAME_hint) and [GLFW_X11-INSTANCE-NAME](https://www.glfw.org/docs/latest/window_guide.html#GLFW_X11_INSTANCE_NAME_hint) window hints to override this.
   * **Wayland**: Compositors should implement the xdg-decoration protocol for GLFW to decorate the window properly. If this protocol isn't supported, or if the compositor prefers client-side decorations, a very simple fallback frame will be drawn using the wp_viewporter protocol. A compositor can still emit close, maximize or fullscreen events, using for instance a keybind mechanism. If neither of these protocols is supported, the window won't be decorated.
   * **Wayland**: A full screen window will not attempt to change the mode, no matter what the requested size or refresh rate.
   * **Wayland**: Screensaver inhibition requires the idle-inhibit protocol to be implemented in the user's compositor.
@@ -597,7 +597,7 @@ If the context of the specified window is current on the main thread, it is deta
 
 * *Parameters*:
   * **window**: The window to destroy.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 
 > **Note**: The context of the specified window must not be current on any other thread when this function is called.
 
@@ -617,7 +617,7 @@ This function returns the value of the close flag of the specified window.
   * **window**: The window to query.
 * *Returns*: 
   * **should-close**: The value of the close flag.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [Window closing and close flag](https://www.glfw.org/docs/latest/window_guide.html#window_close).
 
@@ -632,7 +632,7 @@ This function sets the value of the close flag of the specified window. This can
 * *Parameters*:
   * **window**: The window whose flag to change.
   * **value**: The new value.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [Window closing and close flag](https://www.glfw.org/docs/latest/window_guide.html#window_close).
 
@@ -647,7 +647,7 @@ This function sets the window title, encoded as UTF-8, of the specified window.
 * *Parameters*:
   * **window**: The window whose title to change.
   * **title**: The UTF-8 encoded window title.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
   * **macOS**: The window title will not be updated until the next time you process events.
 * *Thread safety*: This function must only be called from the main thread.
@@ -668,10 +668,10 @@ The desired image sizes varies depending on platform and system settings. The se
 * *Parameters*:
   * **window**: The window whose icon to set.
   * **images**: The array of images to create the icon from. This is ignored if length of the array is zero.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
   * **macOS**: The GLFW window has no icon, as it is not a document window, so this function does nothing. The dock icon will be the same as the application bundle's icon. For more information on bundles, see the [Bundle Programming Guide](https://developer.apple.com/library/mac/documentation/CoreFoundation/Conceptual/CFBundles/) in the Mac Developer Library.
-  * **Wayland**: There is no existing protocol to change an icon, the window will thus inherit the one defined in the application's desktop file. This function always emits [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: There is no existing protocol to change an icon, the window will thus inherit the one defined in the application's desktop file. This function always emits [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *See also*: [Window icon](https://www.glfw.org/docs/latest/window_guide.html#window_icon).
 
 ### get-window-pos
@@ -689,9 +689,9 @@ If an error occurs, all returned values will be zero.
 * *Returns*:
   * **xpos**: The x-coordinate of the upper-left corner of the content area.
   * **ypos**: The y-coordinate of the upper-left corner of the content area.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **Wayland**: There is no way for an application to retrieve the global position of its windows, this function will always emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: There is no way for an application to retrieve the global position of its windows, this function will always emit [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window position](https://www.glfw.org/docs/latest/window_guide.html#window_pos), [set-window-pos](https://hectarea1996.github.io/cl-glfw/window.html#set-window-pos).
 
@@ -711,9 +711,9 @@ The window manager may put limits on what positions are allowed. GLFW cannot and
   * **window**: The window to query.
   * **xpos**: The x-coordinate of the upper-left corner of the content area.
   * **ypos**: The y-coordinate of the upper-left corner of the content area.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **Wayland**: There is no way for an application to set the global position of its windows, this function will always emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: There is no way for an application to set the global position of its windows, this function will always emit [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window position](https://www.glfw.org/docs/latest/window_guide.html#window_pos), [get-window-pos](https://hectarea1996.github.io/cl-glfw/window.html#get-window-pos).
 
@@ -732,7 +732,7 @@ If an error occurs, all returned values will be zero.
 * *Returns*:
   * **windth**: The width, in screen coordinates, of the content area.
   * **height**: The height, in screen coordinates, of the content area.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window size](https://www.glfw.org/docs/latest/window_guide.html#window_size), [set-window-size](https://hectarea1996.github.io/cl-glfw/window.html#set-window-size).
 
@@ -750,11 +750,11 @@ The maximum dimensions must be greater than or equal to the minimum dimensions a
 
 * *Parameters*:
   * **window**: The window to set limits for.
-  * **minwidth**: The minimum width, in screen coordinates, of the content area, or `+dont-care+`.
-  * **minheight**: The minimum height, in screen coordinates, of the content area, or `+dont-care+`.
-  * **maxwidth**: The maximum width, in screen coordinates, of the content area, or `+dont-care+`.
-  * **maxheight**: The maximum height, in screen coordinates, of the content area, or `+dont-care+`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **minwidth**: The minimum width, in screen coordinates, of the content area, or `GLFW_DONT-CARE`.
+  * **minheight**: The minimum height, in screen coordinates, of the content area, or `GLFW_DONT-CARE`.
+  * **maxwidth**: The maximum width, in screen coordinates, of the content area, or `GLFW_DONT-CARE`.
+  * **maxheight**: The maximum height, in screen coordinates, of the content area, or `GLFW_DONT-CARE`.
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: If you set size limits and an aspect ratio that conflict, the results are undefined.
   * **Wayland**: The size limits will not be applied until the window is actually resized, either by the user or by the compositor.
 * *Thread safety*: This function must only be called from the main thread.
@@ -776,9 +776,9 @@ The aspect ratio is applied immediately to a windowed mode window and may cause 
 
 * *Parameters*:
   * **window**: The window to set limits for.
-  * **numer**: The numerator of the desired aspect ratio, or `+dont-care+`.
-  * **denom**: The denominator of the desired aspect ratio, or `+dont-care+`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **numer**: The numerator of the desired aspect ratio, or `GLFW_DONT-CARE`.
+  * **denom**: The denominator of the desired aspect ratio, or `GLFW_DONT-CARE`.
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: If you set size limits and an aspect ratio that conflict, the results are undefined.
   * **Wayland**: The aspect ratio will not be applied until the window is actually resized, either by the user or by the compositor.
 * *Thread safety*: This function must only be called from the main thread.
@@ -802,7 +802,7 @@ The window manager may put limits on what sizes are allowed. GLFW cannot and sho
   * **window**: The window to resize.
   * **width**: The desired width, in screen coordinates, of the window content area.
   * **height**: The desired height, in screen coordinates, of the window content area.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
   * **Wayland**: A full screen window will not attempt to change the mode, no matter what the requested size.
 * *See also*: [Window size](https://www.glfw.org/docs/latest/window_guide.html#window_size), [get-window-size](https://hectarea1996.github.io/cl-glfw/window.html#get-window-size), [set-window-monitor](https://hectarea1996.github.io/cl-glfw/window.html#set-window-monitor).
@@ -822,7 +822,7 @@ If an error occurs, all returned values will be zero.
 * *Returns*:
   * **width**: The width, in pixels, of the framebuffer.
   * **height**: The height, in pixels, of the framebuffer.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Framebuffer size](https://www.glfw.org/docs/latest/window_guide.html#window_fbsize), [set-framebuffer-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#set-framebuffer-size-callback).
 
@@ -845,7 +845,7 @@ If an error occurs, all returned values will be zero.
   * **top**: The size, in screen coordinates, of the top edge of the window frame.
   * **right**: The size, in screen coordinates, of the fight edge of the window frame.
   * **bottom**: The size, in screen coordinates, of the bottom edge of the window frame.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window size](https://www.glfw.org/docs/latest/window_guide.html#window_size).
 
@@ -864,7 +864,7 @@ On systems where each monitors can have its own content scale, the window conten
 * *Returns*:
   * **xscale**: The x-axis content scale.
   * **yscale**: The y-axis content scale.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window content scale](https://www.glfw.org/docs/latest/window_guide.html#window_scale), [set-window-content-scale-callback](https://hectarea1996.github.io/cl-glfw/window.html#set-window-content-scale-callback), [get-monitor-content-scale](https://hectarea1996.github.io/cl-glfw/window.html#get-monitor-content-scale).
 
@@ -883,7 +883,7 @@ The initial opacity value for newly created windows is one.
 * *Parameters*:
   * **window**: The window to query.
 * *Returns*: The opacity value of the specified window.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window transparency](https://www.glfw.org/docs/latest/window_guide.html#window_transparency), [set-window-opacity](https://hectarea1996.github.io/cl-glfw/window.html#set-window-opacity).
 
@@ -904,7 +904,7 @@ A window created with framebuffer transparency may not use whole window transpar
 * *Parameters*:
   * **window**: The window to set the opacity for.
   * **opacity**: The desired opacity of the specified window.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window transparency](https://www.glfw.org/docs/latest/window_guide.html#window_transparency), [get-window-opacity](https://hectarea1996.github.io/cl-glfw/window.html#get-window-opacity).
 
@@ -920,9 +920,9 @@ If the specified window is a full screen window, the original monitor resolution
 
 * *Parameters*:
   * **window**: The window to iconify.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*:
-  * **Wayland**: There is no concept of iconification in wl_shell, this function will emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) when using this deprecated protocol.
+  * **Wayland**: There is no concept of iconification in wl_shell, this function will emit [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error) when using this deprecated protocol.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [restore-window](https://hectarea1996.github.io/cl-glfw/window.html#restore-window), [maximize-window](https://hectarea1996.github.io/cl-glfw/window.html#maximize-window).
 
@@ -938,7 +938,7 @@ If the specified window is a full screen window, the resolution chosen for the w
 
 * *Parameters*:
   * **window**: The window to restore.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [iconify-window](https://hectarea1996.github.io/cl-glfw/window.html#restore-window), [maximize-window](https://hectarea1996.github.io/cl-glfw/window.html#maximize-window).
 
@@ -954,7 +954,7 @@ If the specified window is a full screen window, this function does nothing.
 
 * *Parameters*:
   * **window**: The window to maximize.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window iconification](https://www.glfw.org/docs/latest/window_guide.html#window_iconify), [iconify-window](https://hectarea1996.github.io/cl-glfw/window.html#restore-window), [restore-window](https://hectarea1996.github.io/cl-glfw/window.html#maximize-window).
 
@@ -966,11 +966,11 @@ If the specified window is a full screen window, this function does nothing.
 
 This function makes the specified window visible if it was previously hidden. If the window is already visible or is in full screen mode, this function does nothing.
 
-By default, windowed mode windows are focused when shown Set the [+focus-on-show+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_hint) window hint to change this behavior for all newly created windows, or change the behavior for an existing window with [set-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#set-window-attrib).
+By default, windowed mode windows are focused when shown Set the [GLFW_FOCUS-ON-SHOW](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_hint) window hint to change this behavior for all newly created windows, or change the behavior for an existing window with [set-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#set-window-attrib).
 
 * *Parameters*:
   * **window**: The window to make visible.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window visibility](https://www.glfw.org/docs/latest/window_guide.html#window_hide), [hide-window](https://hectarea1996.github.io/cl-glfw/window.html#hide-window).
 
@@ -984,7 +984,7 @@ This function hides the specified window if it was previously visible. If the wi
 
 * *Parameters*:
   * **window**: The window to hide.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window visibility](https://www.glfw.org/docs/latest/window_guide.html#window_hide), [show-window](https://hectarea1996.github.io/cl-glfw/window.html#show-window).
 
@@ -996,9 +996,9 @@ This function hides the specified window if it was previously visible. If the wi
 
 This function brings the specified window to front and sets input focus. The window should already be visible and not iconified.
 
-By default, both windowed and full screen mode windows are focused when initially created. Set the [+focused+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) to disable this behavior.
+By default, both windowed and full screen mode windows are focused when initially created. Set the [GLFW_FOCUSED](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUSED_hint) to disable this behavior.
 
-Also by default, windowed mode windows are focused when shown with [show-window](https://hectarea1996.github.io/cl-glfw/window.html#show-window). Set the [+focus-on-show+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_hint) to disable this behavior.
+Also by default, windowed mode windows are focused when shown with [show-window](https://hectarea1996.github.io/cl-glfw/window.html#show-window). Set the [GLFW_FOCUS-ON-SHOW](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_hint) to disable this behavior.
 
 **Do not use this function** to steal focus from other applications unless you are certain that is what the user wants. Focus stealing can be extremely disruptive.
 
@@ -1006,9 +1006,9 @@ For a less disruptive way of getting the user's attention, see [attention reques
 
 * *Parameters*:
   * **window**: The window to give input focus.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: 
-  * **Wayland**: It is not possible for an application to bring its windows to front, this function will always emit [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **Wayland**: It is not possible for an application to bring its windows to front, this function will always emit [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window input focus](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [Window attention request](https://www.glfw.org/docs/latest/window_guide.html#window_attention).
@@ -1021,7 +1021,7 @@ Once the user has given attention, usually by focusing the window or application
 
 * *Parameters*:
   * **window**: The window to request attention to.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: 
   * **macOS**: Attention is requested to the application as a whole, not the specific window.
 * *Thread safety*: This function must only be called from the main thread.
@@ -1039,7 +1039,7 @@ This function returns the handle of the monitor that the specified window is in 
   * **window**: The window to query.
 * *Returns*:
   * **monitor**: The monitor, or `nil` if the window is in windowed mode or an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window monitor](https://www.glfw.org/docs/latest/window_guide.html#window_monitor), [set-window-monitor](https://hectarea1996.github.io/cl-glfw/window.html#set-window-monitor).
 
@@ -1066,8 +1066,8 @@ When a window transitions from full screen to windowed mode, this function resto
   * **ypos**: The desired y-coordinate of the upper-left corner of the content area.
   * **width**: The desired width, in screen coordinates, of the content area or video mode.
   * **height**: The desired height, in screen coordinates, of the content area or video mode.
-  * **refreshRate**: The desired refresh rate, in Hz, of the video mode, or `+dont-care+`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **refreshRate**: The desired refresh rate, in Hz, of the video mode, or `GLFW_DONT-CARE`.
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: The OpenGL or OpenGL ES context will not be destroyed or otherwise affected by any resizing or mode switching, although you may need to update your viewport if the framebuffer size has changed.
   * **Wayland**: The desired window position is ignored, as there is no way for an application to set this property.
   * **Wayland**: Setting the window to full screen will not attempt to change the mode, no matter what the requested size or refresh rate.
@@ -1087,7 +1087,7 @@ This function returns the value of an attribute of the specified window or its O
   * **attrib**: The [window attribute](https://www.glfw.org/docs/latest/window_guide.html#window_attribs) whose value to return.
 * *Returns*:
   * **value**: The value of the attribute, or zero if an [error](https://www.glfw.org/docs/latest/intro_guide.html#error_handling) occurred.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: Framebuffer related hints are not window attributes. See [Framebuffer related attributes](https://www.glfw.org/docs/latest/window_guide.html#window_attribs_fb) for more information. Zero is a valid value for many window and context related attributes so you cannot use a return value of zero as an indication of errors. However, this function should not fail as long as it is passed valid arguments and the library has been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window attributes](https://www.glfw.org/docs/latest/window_guide.html#window_attribs), [set-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#set-window-attrib).
@@ -1100,7 +1100,7 @@ This function returns the value of an attribute of the specified window or its O
 
 This function sets the value of an attribute of the specified window.
 
-The supported attributes are [+decorated+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_DECORATED_attrib), [+resizable+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_RESIZABLE_attrib), [+floating+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FLOATING_attrib), [+auto-iconify+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_AUTO_ICONIFY_attrib) and [+focus-on-show+](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_attrib).
+The supported attributes are [GLFW_DECORATED](https://www.glfw.org/docs/latest/window_guide.html#GLFW_DECORATED_attrib), [GLFW_RESIZABLE](https://www.glfw.org/docs/latest/window_guide.html#GLFW_RESIZABLE_attrib), [GLFW_FLOATING](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FLOATING_attrib), [GLFW_AUTO-ICONIFY](https://www.glfw.org/docs/latest/window_guide.html#GLFW_AUTO_ICONIFY_attrib) and [GLFW_FOCUS-ON-SHOW](https://www.glfw.org/docs/latest/window_guide.html#GLFW_FOCUS_ON_SHOW_attrib).
 
 Some of these attributes are ignored for full screen windows. The new value will take effect if the window is later made windowed.
 
@@ -1109,8 +1109,8 @@ Some of these attributes are ignored for windowed mode windows. The new value wi
 * *Parameters*:
   * **window**: The window to set the attribute for.
   * **attrib**: A supported window attribute.
-  * **value**: `+true+` or `+false+`.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-enum+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+  * **value**: `GLFW_TRUE` or `GLFW_FALSE`.
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-ENUM](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-enum), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: Calling [get-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#get-window-attrib) will always return the latest value, even if that value is ignored by the current mode of the window.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window attributes](https://www.glfw.org/docs/latest/window_guide.html#window_attribs), [get-window-attrib](https://hectarea1996.github.io/cl-glfw/window.html#get-window-attrib).
@@ -1126,7 +1126,7 @@ This function sets the user-defined pointer of the specified window. The current
 * *Parameters*:
   * **window**: The window whose data to set.
   * **data**: The new value.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [User data](https://www.glfw.org/docs/latest/window_guide.html#window_userptr), [get-window-user-data](https://hectarea1996.github.io/cl-glfw/window.html#get-window-user-data).
 
@@ -1140,7 +1140,7 @@ This function returns the current value of the user-defined pointer of the speci
 
 * *Parameters*:
   * **window**: The window whose data to return.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function may be called from any thread. Access is not synchronized.
 * *See also*: [User data](https://www.glfw.org/docs/latest/window_guide.html#window_userptr), [set-window-user-data](https://hectarea1996.github.io/cl-glfw/window.html#set-window-user-data).
 
@@ -1157,7 +1157,7 @@ This function sets the position callback of the specified window, which is calle
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Remarks*:
   * **Wayland**: This callback will never be called, as there is no way for an application to know its global position.
 * *Thread safety*: This function must only be called from the main thread.
@@ -1176,7 +1176,7 @@ This function sets the size callback of the specified window, which is called wh
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window size](https://www.glfw.org/docs/latest/window_guide.html#window_size), [def-window-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-size-callback).
 
@@ -1197,7 +1197,7 @@ The close callback is not triggered by [destroy-window](https://hectarea1996.git
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Remarks*:
   * **macOS**: Selecting Quit from the application menu will trigger the close callback for all windows.
 * *Thread safety*: This function must only be called from the main thread.
@@ -1218,7 +1218,7 @@ On compositing window systems such as Aero, Compiz, Aqua or Wayland, where the w
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window damage and refresh](https://www.glfw.org/docs/latest/window_guide.html#window_refresh), [def-window-refresh-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-refresh-callback).
 
@@ -1237,7 +1237,7 @@ After the focus callback is called for a window that lost input focus, synthetic
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window input focus](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [def-window-focus-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-focus-callback).
 
@@ -1254,7 +1254,7 @@ This function sets the iconification callback of the specified window, which is 
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Remarks*:
   * **Wayland**: The wl_shell protocol has no concept of iconification, this callback will never be called when using this deprecated protocol.
 * *Thread safety*: This function must only be called from the main thread.
@@ -1273,7 +1273,7 @@ This function sets the maximization callback of the specified window, which is c
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window maximization](https://www.glfw.org/docs/latest/window_guide.html#window_focus), [def-window-maximize-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-maximize-callback).
 
@@ -1290,7 +1290,7 @@ This function sets the framebuffer resize callback of the specified window, whic
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Framebuffer size](https://www.glfw.org/docs/latest/window_guide.html#window_fbsize), [def-framebuffer-size-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-framebuffer-size-callback).
 
@@ -1307,7 +1307,7 @@ This function sets the window content scale callback of the specified window, wh
   * **callback**: The new callback, or `nil` to remove the currently set callback.
 * *Returns*:
   * **old-callback**: The previously set callback, or `nil` if no callback was set or the library had not been [initialized](https://www.glfw.org/docs/latest/intro_guide.html#intro_init).
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized).
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Window content scale](https://www.glfw.org/docs/latest/window_guide.html#window_scale), [get-window-conent-scale](https://hectarea1996.github.io/cl-glfw/window.html#get-window-content-scale), [def-window-content-scale-callback](https://hectarea1996.github.io/cl-glfw/window.html#def-window-content-scale-callback).
 
@@ -1325,7 +1325,7 @@ Do not assume that callbacks you set will only be called in response to event pr
 
 Event processing is not required for joystick input to work.
 
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Reentrancy*: This function must not be called from a callback.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events), [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout).
@@ -1346,7 +1346,7 @@ Do not assume that callbacks you set will only be called in response to event pr
 
 Event processing is not required for joystick input to work.
 
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Reentrancy*: This function must not be called from a callback.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [poll-events](https://hectarea1996.github.io/cl-glfw/window.html#poll-events), [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout).
@@ -1371,7 +1371,7 @@ Event processing is not required for joystick input to work.
 
 * *Parameters*:
   * **timeout**: The maximum amount of time, in seconds, to wait.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+invalid-value+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_INVALID-VALUE](https://hectarea1996.github.io/cl-glfw/init-version-error.html#invalid-value) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Reentrancy*: This function must not be called from a callback.
 * *Thread safety*: This function must only be called from the main thread.
 * *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [poll-events](https://hectarea1996.github.io/cl-glfw/window.html#poll-events), [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events).
@@ -1384,7 +1384,7 @@ Event processing is not required for joystick input to work.
 
 This function posts an empty event from the current thread to the event queue, causing [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events) or [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout) to return.
 
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Thread safety*: This function may be called from any thread.
 * *See also*: [Event processing](https://www.glfw.org/docs/latest/input_guide.html#events), [wait-events](https://hectarea1996.github.io/cl-glfw/window.html#wait-events), [wait-events-timeout](https://hectarea1996.github.io/cl-glfw/window.html#wait-events-timeout).
 
@@ -1396,13 +1396,13 @@ This function posts an empty event from the current thread to the event queue, c
 
 This function swaps the front and back buffers of the specified window when rendering with OpenGL or OpenGL ES. If the swap interval is greater than zero, the GPU driver waits the specified number of screen updates before swapping the buffers.
 
-The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a [+no-window-context+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) error.
+The specified window must have an OpenGL or OpenGL ES context. Specifying a window without a context will generate a [GLFW_NO-WINDOW-CONTEXT](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) error.
 
 This function does not apply to Vulkan. If you are rendering with Vulkan, see `vkQueuePresentKHR` instead.
 
 * *Parameters*:
   * **window**: The window whose buffers to swap.
-* *Errors*: Possible errors include [+not-initialized+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [+no-window-context+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) and [+platform-error+](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
+* *Errors*: Possible errors include [GLFW_NOT-INITIALIZED](https://hectarea1996.github.io/cl-glfw/init-version-error.html#not-initialized), [GLFW_NO-WINDOW-CONTEXT](https://hectarea1996.github.io/cl-glfw/init-version-error.html#no-window-context) and [GLFW_PLATFORM-ERROR](https://hectarea1996.github.io/cl-glfw/init-version-error.html#platform-error).
 * *Remarks*: 
   * **EGL**: The context of the specified window must be current on the calling thread.
 * *Thread safety*: This function may be called from any thread.
