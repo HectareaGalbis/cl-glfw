@@ -7,16 +7,24 @@
 
 ;; Constructors and destructors
 (mcffi:def-foreign-constructor-destructor gammaramp (:struct GLFWgammaramp)
-  ((red nil) (cffi:foreign-alloc :ushort :initial-contents red) (cffi:foreign-free red))
-  ((green nil) (cffi:foreign-alloc :ushort :initial-contents green) (cffi:foreign-free green))
-  ((blue nil) (cffi:foreign-alloc :ushort :initial-contents blue) (cffi:foreign-free blue))
-  ((size 0)))
+  (red :init-form nil
+       :create    (cffi:foreign-alloc :ushort :initial-contents red)
+       :destroy   (cffi:foreign-free red))
+  (green :init-form nil
+	 :create    (cffi:foreign-alloc :ushort :initial-contents green)
+	 :destroy   (cffi:foreign-free green))
+  (blue :init-form nil
+	:create    (cffi:foreign-alloc :ushort :initial-contents blue)
+	:destroy   (cffi:foreign-free blue))
+  (size :init-form 0))
 
 
 (mcffi:def-foreign-constructor-destructor image (:struct GLFWimage)
-  ((width 0))
-  ((height 0))
-  ((pixels nil) (cffi:foreign-alloc :uchar :initial-contents pixels) (cffi:foreign-free pixels)))
+  (width :init-form 0)
+  (height :init-form 0)
+  (pixels :init-form  nil
+	  :create     (cffi:foreign-alloc :uchar :initial-contents pixels)
+	  :destroy    (cffi:foreign-free pixels)))
 
 
 ;; Getters and setters
