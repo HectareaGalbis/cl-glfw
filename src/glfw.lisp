@@ -5,105 +5,100 @@
 
 ;; Structs
 
-;; Constructors and destructors
-(mcffi:def-foreign-constructor-destructor gammaramp (:struct GLFWgammaramp)
-  (red :init-form nil
-       :create    (cffi:foreign-alloc :ushort :initial-contents red)
-       :destroy   (cffi:foreign-free red))
-  (green :init-form nil
-	 :create    (cffi:foreign-alloc :ushort :initial-contents green)
-	 :destroy   (cffi:foreign-free green))
-  (blue :init-form nil
-	:create    (cffi:foreign-alloc :ushort :initial-contents blue)
-	:destroy   (cffi:foreign-free blue))
-  (size :init-form 0))
-
-
-(mcffi:def-foreign-constructor-destructor image (:struct GLFWimage)
-  (width :init-form 0)
-  (height :init-form 0)
-  (pixels :init-form  nil
-	  :create     (cffi:foreign-alloc :uchar :initial-contents pixels)
-	  :destroy    (cffi:foreign-free pixels)))
-
-
-;; Getters and setters
-(mcffi:def-foreign-accessors gamepadstate (:struct GLFWgamepadstate)
-  (buttons :getter ((&optional (index nil))
-		    (if index
-			(cffi:mem-aref buttons :uchar index)
-			(loop for i from 0 below 15
-			      collect (cffi:mem-aref buttons :uchar i))))
-	   :setter nil)
-  (axes    :getter ((&optional (index nil))
-		    (if index
-			(cffi:mem-aref axes :float index)
-			(loop for i from 0 below 6
-			      collect (cffi:mem-aref axes :float i))))
-	   :setter nil))
-
-
-(mcffi:def-foreign-accessors vidmode (:struct GLFWvidmode)
-  (width :setter nil)
-  (height :setter nil)
-  (redBits :setter nil)
-  (greenBits :setter nil)
-  (blueBits :setter nil)
-  (refreshRate :setter nil))
-
-
-(mcffi:def-foreign-accessors gammaramp (:struct GLFWgammaramp)
-  (red   :getter ((&optional (index nil))
-		  (if index
-		      (cffi:mem-aref red :ushort index)
-		      (loop for i from 0 below size
-			    collect (cffi:mem-aref red :ushort i))))
-         :setter ((new-value &optional (index nil))
-		  (if index
-		      (setf (cffi:mem-aref red :ushort index) new-value)
-		      (loop for i from 0 below size
-			    for v in new-value
-			    do (setf (cffi:mem-aref red :ushort i) v)))))
-  (green :getter ((&optional (index nil))
-		  (if index
-		      (cffi:mem-aref green :ushort index)
-		      (loop for i from 0 below size
-			    collect (cffi:mem-aref green :ushort i))))
-         :setter ((new-value &optional (index nil))
-		  (if index
-		      (setf (cffi:mem-aref green :ushort index) new-value)
-		      (loop for i from 0 below size
-			    for v in new-value
-			    do (setf (cffi:mem-aref green :ushort i) v)))))
-  (blue  :getter ((&optional (index nil))
-		  (if index
-		      (cffi:mem-aref blue :ushort index)
-		      (loop for i from 0 below size
-			    collect (cffi:mem-aref blue :ushort i))))
-         :setter ((new-value &optional (index nil))
-		  (if index
-		      (setf (cffi:mem-aref blue :ushort index) new-value)
-		      (loop for i from 0 below size
-			    for v in new-value
-			    do (setf (cffi:mem-aref blue :ushort i) v)))))
+;; Functions for GLFWgammaramp
+(mcffi:def-foreign-struct-functions gammaramp (:struct GLFWgammaramp) (:enable-default-create
+								       :enable-default-get
+								       :enable-default-set)
+  (red :create    ((red nil)
+		   (cffi:foreign-alloc :ushort :initial-contents red))
+       :destroy   (cffi:foreign-free red)
+       :get       ((&optional (index nil))
+		   (if index
+		       (cffi:mem-aref red :ushort index)
+		       (loop for i from 0 below size
+			     collect (cffi:mem-aref red :ushort i))))
+       :set       ((new-value &optional (index nil))
+		   (if index
+		       (setf (cffi:mem-aref red :ushort index) new-value)
+		       (loop for i from 0 below size
+			     for v in new-value
+			     do (setf (cffi:mem-aref red :ushort i) v)))))
+  (green :create  ((green nil)
+		   (cffi:foreign-alloc :ushort :initial-contents green))
+	 :destroy (cffi:foreign-free green)
+	 :get     ((&optional (index nil))
+		   (if index
+		       (cffi:mem-aref green :ushort index)
+		       (loop for i from 0 below size
+			     collect (cffi:mem-aref green :ushort i))))
+         :set     ((new-value &optional (index nil))
+		   (if index
+		       (setf (cffi:mem-aref green :ushort index) new-value)
+		       (loop for i from 0 below size
+			     for v in new-value
+			     do (setf (cffi:mem-aref green :ushort i) v)))))
+  (blue :create   ((blue nil)
+		   (cffi:foreign-alloc :ushort :initial-contents blue))
+	:destroy  (cffi:foreign-free blue)
+	:get      ((&optional (index nil))
+		   (if index
+		       (cffi:mem-aref blue :ushort index)
+		       (loop for i from 0 below size
+			     collect (cffi:mem-aref blue :ushort i))))
+        :set      ((new-value &optional (index nil))
+		   (if index
+		       (setf (cffi:mem-aref blue :ushort index) new-value)
+		       (loop for i from 0 below size
+			     for v in new-value
+			     do (setf (cffi:mem-aref blue :ushort i) v)))))
   size)
 
 
-(mcffi:def-foreign-accessors image (:struct GLFWimage)
+;; Functions for GLFWimage
+(mcffi:def-foreign-struct-functions image (:struct GLFWimage) (:enable-default-create
+							       :enable-default-get
+							       :enable-default-set)
   width
   height
-  (pixels :getter ((&optional (height-index nil) (width-index nil))
-		   (if (and width-index height-index)
-		       (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
-		       (loop for i from 0 below (* width height)
-			     collect (cffi:mem-aref pixels :uchar i))))
-	  :setter ((new-value &optional (height-index nil) (width-index nil))
-		   (if (and width-index height-index)
-		       (setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index)) new-value)
-		       (loop for i from 0 below (* width height)
-			     for v in new-value
-			     do (setf (cffi:mem-aref pixels :uchar i) v))))))
+  (pixels :create  ((pixels nil)
+		    (if pixels
+			(cffi:foreign-alloc :uchar :initial-contents pixels)
+			(cffi:null-pointer)))
+	  :destroy (cffi:foreign-free pixels)
+	  :get     ((&optional (height-index nil) (width-index nil))
+		    (if (and width-index height-index)
+			(cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
+			(loop for i from 0 below (* width height)
+			      collect (cffi:mem-aref pixels :uchar i))))
+	  :set     ((new-value &optional (height-index nil) (width-index nil))
+		    (if (and width-index height-index)
+			(setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index)) new-value)
+			(progn
+			  (when (cffi:null-pointer-p pixels)
+			    (cffi:foreign-free pixels))
+			  (cffi:foreign-alloc :uchar :initial-contents new-value))))))
 
+
+;; Functions for GLFWgamepadstate
+(mcffi:def-foreign-struct-functions gamepadstate (:struct GLFWgamepadstate) (:no-constructor
+									     :no-destructor)
+  (buttons :get ((&optional (index nil))
+		 (if index
+		     (cffi:mem-aref buttons :uchar index)
+		     (loop for i from 0 below 15
+			   collect (cffi:mem-aref buttons :uchar i)))))
+  (axes    :get ((&optional (index nil))
+		 (if index
+		     (cffi:mem-aref axes :float index)
+		     (loop for i from 0 below 6
+			   collect (cffi:mem-aref axes :float i))))))
+
+
+;; Functions for GLFWvidmode
+(mcffi:def-foreign-struct-functions vidmode (:struct GLFWvidmode) (:no-constructor
+								   :no-destructor
+								   :enable-default-get
+								   :include-invisibles))
 
 
 ;; Functions
