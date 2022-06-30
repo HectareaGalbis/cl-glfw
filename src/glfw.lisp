@@ -104,6 +104,7 @@
 ;; Functions
 
 ;; Context
+
 (defun make-context-current (window)
   (let ((window-c (or window (cffi:null-pointer))))
     (glfwMakeContextCurrent window-c)))
