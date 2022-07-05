@@ -6,11 +6,10 @@
 ;; Structs
 
 ;; Functions for GLFWgammaramp
-(mcffi:def-foreign-struct-functions gammaramp (:struct GLFWgammaramp) (:enable-default-create
-								       :enable-default-get
-								       :enable-default-set)
-  (red :create    ((red nil)
-		   (cffi:foreign-alloc :ushort :initial-contents red))
+(mcffi:def-foreign-struct "GLFWgammaramp" gammaramp nil
+  (:enable-default-create :enable-default-get :enable-default-set)
+  (red :init-form nil
+       :create    (cffi:foreign-alloc :ushort :initial-contents red)
        :destroy   (cffi:foreign-free red)
        :get       ((&optional (index nil))
 		   (if index
@@ -23,8 +22,8 @@
 		       (loop for i from 0 below size
 			     for v in new-value
 			     do (setf (cffi:mem-aref red :ushort i) v)))))
-  (green :create  ((green nil)
-		   (cffi:foreign-alloc :ushort :initial-contents green))
+  (green :init-form nil
+	 :create  (cffi:foreign-alloc :ushort :initial-contents green)
 	 :destroy (cffi:foreign-free green)
 	 :get     ((&optional (index nil))
 		   (if index
@@ -37,8 +36,8 @@
 		       (loop for i from 0 below size
 			     for v in new-value
 			     do (setf (cffi:mem-aref green :ushort i) v)))))
-  (blue :create   ((blue nil)
-		   (cffi:foreign-alloc :ushort :initial-contents blue))
+  (blue :init-form nil
+	:create   (cffi:foreign-alloc :ushort :initial-contents blue)
 	:destroy  (cffi:foreign-free blue)
 	:get      ((&optional (index nil))
 		   (if index
@@ -55,15 +54,14 @@
 
 
 ;; Functions for GLFWimage
-(mcffi:def-foreign-struct-functions image (:struct GLFWimage) (:enable-default-create
-							       :enable-default-get
-							       :enable-default-set)
+(mcffi:def-foreign-struct "GLFWimage" image nil
+  (:enable-default-create :enable-default-get :enable-default-set)
   width
   height
-  (pixels :create  ((pixels nil)
-		    (if pixels
-			(cffi:foreign-alloc :uchar :initial-contents pixels)
-			(cffi:null-pointer)))
+  (pixels :init-form nil
+	  :create  (if pixels
+		       (cffi:foreign-alloc :uchar :initial-contents pixels)
+		       (cffi:null-pointer))
 	  :destroy (cffi:foreign-free pixels)
 	  :get     ((&optional (height-index nil) (width-index nil))
 		    (if (and width-index height-index)
@@ -80,8 +78,8 @@
 
 
 ;; Functions for GLFWgamepadstate
-(mcffi:def-foreign-struct-functions gamepadstate (:struct GLFWgamepadstate) (:no-constructor
-									     :no-destructor)
+(mcffi:def-foreign-struct "GLFWgamepadstate" gamepadstate nil
+  (:no-constructor :no-destructor)
   (buttons :get ((&optional (index nil))
 		 (if index
 		     (cffi:mem-aref buttons :uchar index)
@@ -95,10 +93,8 @@
 
 
 ;; Functions for GLFWvidmode
-(mcffi:def-foreign-struct-functions vidmode (:struct GLFWvidmode) (:no-constructor
-								   :no-destructor
-								   :enable-default-get
-								   :include-invisibles))
+(mcffi:def-foreign-struct "GLFWvidmode" vidmode nil
+  (:no-constructor :no-destructor :enable-default-get :include-invisibles))
 
 
 ;; Functions
