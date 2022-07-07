@@ -465,8 +465,11 @@
   (let ((result (glfwGetPhysicalDevicePresentationSupport instance device queueFamily)))
     (equal result GLFW_TRUE)))
 
-(defun create-window-surface (instance window allocator surface)
-  (glfwCreateWindowSurface instance window allocator surface))
+(defun create-window-surface (instance window allocator)
+  (let ((allocator-c (or allocator (cffi:null-pointer))))
+    (cffi:with-foreign-object (surface 'VKSurfaceKHR)
+      (let ((result (glfwCreateWindowSurface instance window allocator-c surface)))
+	(values (cffi:mem-ref surface 'VkSurfaceKHR) result)))))
 
 
 ;; Window

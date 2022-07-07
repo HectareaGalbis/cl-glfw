@@ -365,9 +365,6 @@
   (GLFWmonitor :pointer)
   (GLFWmonitorfun :pointer)
 
-  ;; Vulkan support
-  (GLFWvkproc :pointer)
-
   ;; Window
   (GLFWwindow :pointer)
   (GLFWwindowposfun :pointer)
@@ -379,6 +376,20 @@
   (GLFWwindowmaximizefun :pointer)
   (GLFWframebuffersizefun :pointer)
   (GLFWwindowcontentscalefun :pointer))
+
+;; Vulkan support
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (if (= 8 (cffi:foreign-type-size :pointer))
+      (progn
+        (cffi:defctype non-dispatch-handle :pointer))
+      (progn
+        (cffi:defctype non-dispatch-handle :uint64))))
+(cffi:defctype VkInstance non-dispatch-handle)
+(cffi:defctype VkPhysicalDevice non-dispatch-handle)
+(cffi:defctype VkSurfaceKHR non-dispatch-handle)
+(cffi:defctype VkResult :int)
+(cffi:defctype GLFWvkproc :pointer)
+
 
   
 ;; Structs
@@ -692,15 +703,15 @@
 
 (cffi:defcfun "glfwGetInstanceProcAddress" GLFWvkproc
     "Returns the address of the specified Vulkan instance function."
-    (instance :pointer) (procname :pointer))
+    (instance VkInstance) (procname :pointer))
 
 (cffi:defcfun "glfwGetPhysicalDevicePresentationSupport" :int
     "Returns whether the specified queue family can present images."
-    (instance :pointer) (device :pointer) (queuefamily :uint32))
+    (instance VkInstance) (device VkPhysicalDevice) (queuefamily :uint32))
 
-(cffi:defcfun "glfwCreateWindowSurface" :int
+(cffi:defcfun "glfwCreateWindowSurface" VkResult
     "Creates a Vulkan surface for the specified window."
-    (instance :pointer) (window GLFWwindow) (allocator :pointer) (surface :pointer))
+    (instance VkInstance) (window GLFWwindow) (allocator :pointer) (surface VkSurfaceKHR))
 
 ; Window
 (cffi:defcfun "glfwDefaultWindowHints" :void
