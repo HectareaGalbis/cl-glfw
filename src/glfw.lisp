@@ -9,7 +9,8 @@
 (mcffi:def-foreign-struct "GLFWgammaramp" gammaramp nil
   (:enable-default-create :enable-default-get :enable-default-set)
   (red :init-form nil
-       :create    (cffi:foreign-alloc :ushort :initial-contents red)
+       :create    ((red-arg)
+		   (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg)))
        :destroy   (cffi:foreign-free red)
        :get       ((&optional (index nil))
 		   (if index
@@ -23,7 +24,8 @@
 			     for v in new-value
 			     do (setf (cffi:mem-aref red :ushort i) v)))))
   (green :init-form nil
-	 :create  (cffi:foreign-alloc :ushort :initial-contents green)
+	 :create  ((green-arg)
+		   (setf green (cffi:foreign-alloc :ushort :initial-contents green-arg)))
 	 :destroy (cffi:foreign-free green)
 	 :get     ((&optional (index nil))
 		   (if index
@@ -37,7 +39,8 @@
 			     for v in new-value
 			     do (setf (cffi:mem-aref green :ushort i) v)))))
   (blue :init-form nil
-	:create   (cffi:foreign-alloc :ushort :initial-contents blue)
+	:create   ((blue-arg)
+		   (setf blue (cffi:foreign-alloc :ushort :initial-contents blue-arg)))
 	:destroy  (cffi:foreign-free blue)
 	:get      ((&optional (index nil))
 		   (if index
@@ -59,9 +62,10 @@
   width
   height
   (pixels :init-form nil
-	  :create  (if pixels
-		       (cffi:foreign-alloc :uchar :initial-contents pixels)
-		       (cffi:null-pointer))
+	  :create  ((pixels-arg)
+		    (setf pixels (if pixels-arg
+				     (cffi:foreign-alloc :uchar :initial-contents pixels-arg)
+				     (cffi:null-pointer))))
 	  :destroy (cffi:foreign-free pixels)
 	  :get     ((&optional (height-index nil) (width-index nil))
 		    (if (and width-index height-index)
