@@ -7,7 +7,7 @@
 
 ;; Functions for GLFWgammaramp
 (mcffi:def-foreign-struct "GLFWgammaramp" gammaramp nil
-  (:enable-default-create :enable-default-get :enable-default-set)
+  (:default-create :default-get :default-set)
   (red :init-form nil
        :create    ((red-arg)
 		   (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg)))
@@ -58,7 +58,7 @@
 
 ;; Functions for GLFWimage
 (mcffi:def-foreign-struct "GLFWimage" image nil
-  (:enable-default-create :enable-default-get :enable-default-set)
+  (:default-create :default-get :default-set)
   width
   height
   (pixels :init-form nil
@@ -98,7 +98,7 @@
 
 ;; Functions for GLFWvidmode
 (mcffi:def-foreign-struct "GLFWvidmode" vidmode nil
-  (:no-constructor :no-destructor :enable-default-get :include-invisibles))
+  (:no-constructor :no-destructor :default-get :include-invisibles))
 
 
 ;; Functions
