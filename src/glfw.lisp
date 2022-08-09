@@ -6,7 +6,7 @@
 ;; Structs
 
 ;; Functions for GLFWgammaramp
-(mcffi:def-foreign-struct "GLFWgammaramp" gammaramp nil
+(mcffi:def-foreign-struct nil "GLFWgammaramp" gammaramp
   (:default-create :default-get :default-set)
   (red :init-form nil
        :create    ((red-arg)
@@ -57,7 +57,7 @@
 
 
 ;; Functions for GLFWimage
-(mcffi:def-foreign-struct "GLFWimage" image nil
+(mcffi:def-foreign-struct nil "GLFWimage" image
   (:default-create :default-get :default-set)
   width
   height
@@ -82,7 +82,7 @@
 
 
 ;; Functions for GLFWgamepadstate
-(mcffi:def-foreign-struct "GLFWgamepadstate" gamepadstate nil
+(mcffi:def-foreign-struct nil "GLFWgamepadstate" gamepadstate
   (:no-constructor :no-destructor)
   (buttons :get ((&optional (index nil))
 		 (if index
@@ -97,7 +97,7 @@
 
 
 ;; Functions for GLFWvidmode
-(mcffi:def-foreign-struct "GLFWvidmode" vidmode nil
+(mcffi:def-foreign-struct nil "GLFWvidmode" vidmode
   (:no-constructor :no-destructor :default-get :include-invisibles))
 
 
