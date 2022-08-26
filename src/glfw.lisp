@@ -604,7 +604,7 @@
   (setf (gethash (cffi:pointer-address window) *windows-data*) data))
 
 (defun get-window-user-pointer (window)
-  (gethash (cffi:pointer-address window) *monitors-data*))
+  (gethash (cffi:pointer-address window) *windows-data*))
 
 (let ((current-callback))
   (defun set-window-pos-callback (window callback)
@@ -698,88 +698,88 @@
 
 ; Intitalization, version and error
 (defmacro def-error-callback (name (error-code description) &body body)
-  `(defcallback ,name :void ((,error-code :int) (,description :string))
+  `(cffi:defcallback ,name :void ((,error-code :int) (,description :string))
      ,@body))
 
 ; Input
 (defmacro def-key-callback (name (window key scancode action mods) &body body)
-  `(defcallback ,name :void ((,window :pointer) (,key :int) (,scancode :int)
+  `(cffi:defcallback ,name :void ((,window :pointer) (,key :int) (,scancode :int)
 					       (,action :int) (,mods :int))
      ,@body))
 
 (defmacro def-char-callback (name (window codepoint) &body body)
-  `(defcallback ,name :void ((,window :pointer) (,codepoint :uint))   
+  `(cffi:defcallback ,name :void ((,window :pointer) (,codepoint :uint))   
      ,@body))
 
 (defmacro def-char-mods-callback (name (window codepoint mods) &body body)  ; DEPRECATED (removed in 4.0)
-  `(defcallback ,name :void ((,window :pointer) (,codepoint :uint) (,mods :int))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,codepoint :uint) (,mods :int))
      ,@body))
 
 (defmacro def-mouse-button-callback (name (window button action mods) &body body)  
-  `(defcallback ,name :void ((,window :pointer) (,button :int) (,action :int) (,mods :int))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,button :int) (,action :int) (,mods :int))
      ,@body))
 
 (defmacro def-cursor-pos-callback (name (window xpos ypos) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,xpos :double) (,ypos :double))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,xpos :double) (,ypos :double))
      ,@body))
 
 (defmacro def-cursor-enter-callback (name (window entered) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,entered :boolean))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,entered :boolean))
      ,@body))
 
 (defmacro def-scroll-callback (name (window xoffset yoffset) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,xoffset :double) (,yoffset :double))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,xoffset :double) (,yoffset :double))
      ,@body))
 
 (defmacro def-drop-callback (name (window paths) &body body) 
   (let ((path-count (gensym)) (arr-paths (gensym)))
-    `(defcallback ,name :pointer ((,window :pointer) (,path-count :int) (,arr-paths :pointer))
+    `(cffi:defcallback ,name :pointer ((,window :pointer) (,path-count :int) (,arr-paths :pointer))
        (let ((,paths (loop for i from 0 below ,path-count
 			   collect (cffi:foreign-string-to-lisp (cffi:mem-aref ,arr-paths :pointer i))))) 
          ,@body))))
 
 (defmacro def-joystick-callback (name (window jid event) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,jid :int) (,event :int))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,jid :int) (,event :int))
      ,@body))
 
 ; Monitor
 (defmacro def-monitor-callback (name (monitor event) &body body) 
-  `(defcallback ,name :void ((,monitor :pointer) (,event :int))
+  `(cffi:defcallback ,name :void ((,monitor :pointer) (,event :int))
      ,@body))
 
 ; Window
 (defmacro def-window-pos-callback (name (window xpos ypos) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,xpos :int) (,ypos :int))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,xpos :int) (,ypos :int))
      ,@body))
 
 (defmacro def-window-size-callback (name (window width height) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,width :int) (,height :int))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,width :int) (,height :int))
      ,@body))
 
 (defmacro def-window-close-callback (name (window) &body body) 
-  `(defcallback ,name :void ((,window :pointer))
+  `(cffi:defcallback ,name :void ((,window :pointer))
      ,@body))
         
 (defmacro def-window-refresh-callback (name (window) &body body) 
-  `(defcallback ,name :void ((,window :pointer))
+  `(cffi:defcallback ,name :void ((,window :pointer))
      ,@body))
 
 (defmacro def-window-focus-callback (name (window focused) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,focused :boolean))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,focused :boolean))
      ,@body))
 
 (defmacro def-window-iconify-callback (name (window iconified) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,iconified :boolean))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,iconified :boolean))
      ,@body))
 
 (defmacro def-window-maximize-callback (name (window maximized) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,maximized :boolean))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,maximized :boolean))
      ,@body))
 
-(defmacro def-framebuffer-size-callback (name (window width height) &rest body) 
-  `(defcallback ,name :void ((,window :pointer) (,width :int) (,height :int))
+(defmacro def-framebuffer-size-callback (name (window width height) &body body) 
+  `(cffi:defcallback ,name :void ((,window :pointer) (,width :int) (,height :int))
      ,@body))
 
 (defmacro def-window-content-scale-callback (name (window xscale yscale) &body body) 
-  `(defcallback ,name :void ((,window :pointer) (,xscale :int) (,yscale :int))
+  `(cffi:defcallback ,name :void ((,window :pointer) (,xscale :int) (,yscale :int))
      ,@body))
