@@ -6,7 +6,7 @@
 ;; Helper functions and macros
 (defmacro defconstants (&body body)
   `(progn
-     ,@(mapcar (lambda (x) (cons 'defconstant x)) body)))
+     ,@(mapcar (lambda (x) (cons 'adp:defconstant x)) body)))
 
 (defmacro defctypes (&body body)
   `(progn

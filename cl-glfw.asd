@@ -3,9 +3,9 @@
     :description "GLFW bindings"
     :author "Héctor Galbis Sanchis <hectometrocuadrado@gmail.com>"
     :license "MIT"
-    :depends-on (:cffi :more-cffi)
+    :depends-on (:cffi :more-cffi :adp)
     :components ((:file "package")
                  (:module "src"
                   :components ((:file "load-library")
-			       (:file "raw-glfw")
-                               (:file "glfw")))))
+			       (:file "bindings")
+                               (:file "context")))))
