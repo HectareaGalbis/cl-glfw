@@ -8,4 +8,9 @@
                  (:module "src"
                   :components ((:file "load-library")
 			       (:file "bindings")
-                               (:file "context")))))
+                               (:file "context")
+			       (:file "initialization")
+			       (:file "input")
+			       (:file "monitor")
+			       (:file "vulkan")
+			       (:file "window")))))

@@ -12,6 +12,13 @@
   `(progn
      ,@(mapcar (lambda (x) (cons 'cffi:defctype x)) body)))
 
+(deftype pointer (&optional (subtype '*))
+  (declare (ignore subtype))
+  '(satisfies cffi:pointerp))
+
+(cffi:defcfun "memcpy" :void
+  (destination :pointer) (source :pointer) (num :size))
+
 
 ;; ----- types -----
 
@@ -63,10 +70,6 @@
 (cffi:defctype VkSurfaceKHR non-dispatch-handle)
 (cffi:defctype VkResult :int)
 (cffi:defctype GLFWvkproc :pointer)
-
-(deftype pointer (&optional (subtype '*))
-  (declare (ignore subtype))
-  '(satisfies cffi:pointerp))
 
   
 ;; ----- Structs -----
