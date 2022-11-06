@@ -12,7 +12,7 @@
 (adp:mini-table-of-contents)
 
 
-(adp:subheader "Constants")
+(adp:subheader "Constants" initialization-constants-subheader)
 
 (defconstants
 
