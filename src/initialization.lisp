@@ -3,11 +3,11 @@
 
 (adp:write-in-file #P"docs/api/initialization")
 
-(adp:header "Initialization, version and error reference" initialization-header)
+(adp:header "Initialization, version and error reference" initialization-reference-header)
 
 (adp:subheader "Description")
 
-(adp:text "This is the reference documentation for initialization and termination of the library, version management and error handling. For more task-oriented information, see the " @h(introduction-header) ".")
+(adp:text "This is the reference documentation for initialization and termination of the library, version management and error handling.")
 
 (adp:mini-table-of-contents)
 

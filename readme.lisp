@@ -12,6 +12,11 @@
 (adp:table-of-contents)
 
 
+(adp:subheader "Documentation")
+
+(adp:text "This project offers you " @h(api-reference-header) " with a brief description of each function. If you find some description unclear, don't hesitate to post an issue. However, the main documentation source must be the " @w("GLFW official documentation" "https://www.glfw.org/documentation.html") ".")
+
+
 (adp:subheader "Installation")
 
 (adp:text "This project is available on Ultralisp. If you don't have it, eval the next expression in your REPL:")

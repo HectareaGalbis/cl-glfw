@@ -3,11 +3,11 @@
 
 (adp:write-in-file #P"docs/api/input")
 
-(adp:header "Input reference")
+(adp:header "Input reference" input-reference-header)
 
 (adp:subheader "Description")
 
-(adp:text "This is the reference documentation for input related functions and types. For more task-oriented information, see the " @h(input-guide-header) ".")
+(adp:text "This is the reference documentation for input related functions and types.")
 
 (adp:mini-table-of-contents)
 
@@ -300,22 +300,22 @@
 (adp:deftype gamepadstate ()
   'pointer)
 
-(mcffi:def-foreign-struct gamepadstate
+(mcffi:define-foreign-struct (:struct GLFWgamepadstate) gamepadstate
   (:no-constructor :no-destructor)
-  (buttons :get ((&optional (index nil))
-		 (if index
-		     (cffi:mem-aref buttons :uchar index)
-		     (let ((buttons-array (make-array 15)))
-		       (loop for i from 0 below 15
-			     do (setf (aref buttons-array i) (cffi:mem-aref buttons :uchar i)))
-		       (values buttons-array)))))
-  (axes    :get ((&optional (index nil))
-		 (if index
-		     (cffi:mem-aref axes :float index)
-		     (let ((axes-array (make-array 6)))
-		       (loop for i from 0 below 6
-			     do (setf (aref axes-array i) (cffi:mem-aref axes :float i)))
-		       (values axes-array))))))
+  (buttons :reader ((&optional (index nil))
+		    (if index
+			(cffi:mem-aref buttons :uchar index)
+			(let ((buttons-array (make-array 15)))
+			  (loop for i from 0 below 15
+				do (setf (aref buttons-array i) (cffi:mem-aref buttons :uchar i)))
+			  (values buttons-array)))))
+  (axes    :reader ((&optional (index nil))
+		    (if index
+			(cffi:mem-aref axes :float index)
+			(let ((axes-array (make-array 6)))
+			  (loop for i from 0 below 6
+				do (setf (aref axes-array i) (cffi:mem-aref axes :float i)))
+			  (values axes-array))))))
 
 
 (adp:subheader "Functions")
@@ -382,7 +382,7 @@
 (adp:subsubheader "glfwSetCursorPos")
 
 (adp:defun set-cursor-pos (window xpos ypos)
-  (declare (type pointer window) (type double xpos ypos))
+  (declare (type pointer window) (type double-float xpos ypos))
   "Sets the position of the cursor, relative to the content area of the window."
   (glfwSetCursorPos window xpos ypos))
 
@@ -545,7 +545,7 @@
 	      :create (let ((paths-array (make-array path_count)))
 			(loop for i from 0 below path_count
 			      do (setf (aref paths-array i)
-				       (cffi:foregin-string-to-lisp (cffi:mem-aref paths :pointer i))))
+				       (cffi:foreign-string-to-lisp (cffi:mem-aref paths :pointer i))))
 			(values paths-array))))
 
 (adp:defun set-drop-callback (window callback)
@@ -694,7 +694,7 @@
 (adp:defun get-gamepad-state (jid)
   (declare (type fixnum jid))
   "Returns the state of the specified joystick remapped as a gamepad (or NIL)."
-  (let* ((state (cffi:foreign-alloc '(:struct gamepadstate)))
+  (let* ((state (cffi:foreign-alloc '(:struct GLFWgamepadstate)))
 	 (result (glfwGetGamepadState jid state)))
     (if (equal result GLFW_TRUE)
 	state
@@ -727,7 +727,7 @@
 (adp:subsubheader "glfwSetTime")
 
 (adp:defun set-time (time)
-  (declare (type double time))
+  (declare (type double-float time))
   "Sets the GLFW time."
   (glfwSetTime time))
 

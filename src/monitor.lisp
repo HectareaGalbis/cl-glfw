@@ -3,13 +3,14 @@
 
 (adp:write-in-file #P"docs/api/monitor")
 
-(adp:header "Monitor reference")
+(adp:header "Monitor reference" monitor-reference-header)
 
 (adp:subheader "Description")
 
-(adp:text "This is the reference documentation for monitor related functions and types. For more task-oriented information, see the " @h(monitor-guide-header) ".")
+(adp:text "This is the reference documentation for monitor related functions and types.")
 
 (adp:mini-table-of-contents)
+
 
 (adp:subheader "Types")
 
@@ -26,8 +27,8 @@
 (adp:deftype vidmode ()
   'pointer)
 
-(mcffi:define-foreign-struct nil "GLFWvidmode" vidmode
-  (:no-constructor :no-destructor :default-get :include-invisibles))
+(mcffi:define-foreign-struct (:struct GLFWvidmode) vidmode
+  (:no-constructor :no-destructor :default-readers :include-invisibles))
 
 
 (adp:subsubheader "GLFWgammaramp")
@@ -36,80 +37,80 @@
   "Gamma ramp."
   'pointer)
 
-(mcffi:define-foreign-struct nil "GLFWgammaramp" gammaramp
-  (:default-create :default-get :default-set)
+(mcffi:define-foreign-struct (:struct GLFWgammaramp) gammaramp
+  (:default-constructors :default-readers :default-writers)
   (red :initform nil
-       :create   ((red-arg)
-		  (if red-arg
-		      (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg))
-		      (setf red (cffi:null-pointer))))
-       :destroy  (cffi:foreign-free red)
-       :get      ((&optional (index nil))
-		  (if index
-		      (cffi:mem-aref red :ushort index)
-		      (if (cffi:null-pointer-p red)
-			  nil
-			  (let ((red-array (make-array size)))
-			    (loop for i from 0 below size
-				  do (setf (aref red-array i) (cffi:mem-aref red :ushort i)))
-			    (values red-array)))))
-       :set      ((new-value &optional (index nil))
-		  (if index
-		      (setf (cffi:mem-aref red :ushort index) new-value)
-		      (progn
-			(when (not (cffi:null-pointer-p red))
-			  (cffi:foreign-free red))
-			(if new-value
-			    (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg))
-			    (setf red (cffi:null-pointer)))))))
+       :constructor ((red-arg)
+		     (if red-arg
+			 (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg))
+			 (setf red (cffi:null-pointer))))
+       :destructor  (cffi:foreign-free red)
+       :reader      ((&optional (index nil))
+		     (if index
+			 (cffi:mem-aref red :ushort index)
+			 (if (cffi:null-pointer-p red)
+			     nil
+			     (let ((red-array (make-array size)))
+			       (loop for i from 0 below size
+				     do (setf (aref red-array i) (cffi:mem-aref red :ushort i)))
+			       (values red-array)))))
+       :writer      ((new-value &optional (index nil))
+		     (if index
+			 (setf (cffi:mem-aref red :ushort index) new-value)
+			 (progn
+			   (when (not (cffi:null-pointer-p red))
+			     (cffi:foreign-free red))
+			   (if new-value
+			       (setf red (cffi:foreign-alloc :ushort :initial-contents new-value))
+			       (setf red (cffi:null-pointer)))))))
   (green :initform nil
-	 :create   ((green-arg)
-		    (if green-arg
-			(setf green (cffi:foreign-alloc :ushort :initial-contents green-arg))
-			(setf green (cffi:null-pointer))))
-	 :destroy  (cffi:foreign-free green)
-	 :get      ((&optional (index nil))
-		    (if index
-			(cffi:mem-aref green :ushort index)
-			(if (cffi:null-pointer-p green)
-			    nil
-			    (let ((green-array (make-array size)))
-			      (loop for i from 0 below size
-				    do (setf (aref green-array i) (cffi:mem-aref green :ushort i)))
-			      (values green-array)))))
-	 :set      ((new-value &optional (index nil))
-		    (if index
-			(setf (cffi:mem-aref green :ushort index) new-value)
-			(progn
-			  (when (not (cffi:null-pointer-p green))
-			    (cffi:foreign-free green))
-			  (if new-value
-			      (setf green (cffi:foreign-alloc :ushort :initial-contents green-arg))
-			      (setf green (cffi:null-pointer)))))))
+	 :constructor ((green-arg)
+		       (if green-arg
+			   (setf green (cffi:foreign-alloc :ushort :initial-contents green-arg))
+			   (setf green (cffi:null-pointer))))
+	 :destructor  (cffi:foreign-free green)
+	 :reader      ((&optional (index nil))
+		       (if index
+			   (cffi:mem-aref green :ushort index)
+			   (if (cffi:null-pointer-p green)
+			       nil
+			       (let ((green-array (make-array size)))
+				 (loop for i from 0 below size
+				       do (setf (aref green-array i) (cffi:mem-aref green :ushort i)))
+				 (values green-array)))))
+	 :writer      ((new-value &optional (index nil))
+		       (if index
+			   (setf (cffi:mem-aref green :ushort index) new-value)
+			   (progn
+			     (when (not (cffi:null-pointer-p green))
+			       (cffi:foreign-free green))
+			     (if new-value
+				 (setf green (cffi:foreign-alloc :ushort :initial-contents new-value))
+				 (setf green (cffi:null-pointer)))))))
   (blue :initform nil
-	:create   ((blue-arg)
-		   (if blue-arg
-		       (setf blue (cffi:foreign-alloc :ushort :initial-contents blue-arg))
-		       (setf blue (cffi:null-pointer))))
-	:destroy  (cffi:foreign-free blue)
-	:get      ((&optional (index nil))
-		   (if index
-		       (cffi:mem-aref blue :ushort index)
-		       (if (cffi:null-pointer-p blue)
-			   nil
-			   (let ((blue-array (make-array size)))
-			     (loop for i from 0 below size
-				   do (setf (aref blue-array i) (cffi:mem-aref blue :ushort i)))
-			     (values blue-array)))))
-	:set      ((new-value &optional (index nil))
-		   (if index
-		       (setf (cffi:mem-aref blue :ushort index) new-value)
-		       (progn
-			 (when (not (cffi:null-pointer-p blue))
-			   (cffi:foreign-free blue))
-			 (if new-value
-			     (setf blue (cffi:foreign-alloc :ushort :initial-contents blue-arg))
-			     (setf blue (cffi:null-pointer)))))))
+	:constructor ((blue-arg)
+		      (if blue-arg
+			  (setf blue (cffi:foreign-alloc :ushort :initial-contents blue-arg))
+			  (setf blue (cffi:null-pointer))))
+	:destructor  (cffi:foreign-free blue)
+	:reader      ((&optional (index nil))
+		      (if index
+			  (cffi:mem-aref blue :ushort index)
+			  (if (cffi:null-pointer-p blue)
+			      nil
+			      (let ((blue-array (make-array size)))
+				(loop for i from 0 below size
+				      do (setf (aref blue-array i) (cffi:mem-aref blue :ushort i)))
+				(values blue-array)))))
+	:writer      ((new-value &optional (index nil))
+		      (if index
+			  (setf (cffi:mem-aref blue :ushort index) new-value)
+			  (progn
+			    (when (not (cffi:null-pointer-p blue))
+			      (cffi:foreign-free blue))
+			    (if new-value
+				(setf blue (cffi:foreign-alloc :ushort :initial-contents new-value))
+				(setf blue (cffi:null-pointer)))))))
   size)
 
 
@@ -125,7 +126,7 @@
       (if (> count 0)
 	  (let ((monitors-array (make-array count)))
 	    (loop for i from 0 below count
-	       do (setf (aref monitors-array) (cffi:mem-aref result :pointer i)))
+	       do (setf (aref monitors-array i) (cffi:mem-aref result :pointer i)))
 	    (values monitors-array))
 	  nil))))
 

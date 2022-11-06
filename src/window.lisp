@@ -3,11 +3,11 @@
 
 (adp:write-in-file #P"docs/api/window")
 
-(adp:header "Window reference")
+(adp:header "Window reference" window-reference-header)
 
 (adp:subheader "Description")
 
-(adp:text "This is the reference documentation for window related functions and types, including creation, deletion and event polling. For more task-oriented information, see the " @h(window-guide-header) ".")
+(adp:text "This is the reference documentation for window related functions and types, including creation, deletion and event polling.")
 
 (adp:mini-table-of-contents)
 
@@ -102,43 +102,43 @@
   'pointer)
 
 (mcffi:define-foreign-struct (:struct GLFWimage) image
-    (:default-create :default-get :default-set)
+    (:default-constructors :default-readers :default-writers)
   width
   height
   (pixels :initform nil
-	  :create  ((pixels-arg)
-		    (setf pixels (if pixels-arg
-				     (cffi:foreign-alloc :uchar :count (* width height))
-				     (cffi:null-pointer)))
-		    (when pixels-arg
-		      (loop for i from 0 below height
-			    do (loop for j from 0 below width
-				     for index = (+ (* width i) j)
-				     do (setf (cffi:mem-aref pixels :uchar index) (aref pixels-arg i j))))))
-	  :destroy (when (not (cffi:null-pointer-p pixels))
-		     (cffi:foreign-free pixels))
-	  :get     ((&optional (height-index nil) (width-index nil))
-		    (if (and width-index height-index)
-			(cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
-			(let ((pixels-array (make-array (list height width))))
+	  :constructor ((pixels-arg)
+			(setf pixels (if pixels-arg
+					 (cffi:foreign-alloc :uchar :count (* width height))
+					 (cffi:null-pointer)))
+			(when pixels-arg
 			  (loop for i from 0 below height
 				do (loop for j from 0 below width
-					 do (setf (aref pixels-array i j) (cffi:mem-aref pixels :uchar (+ (* width i) j)))))
-			  (values pixels-array))))
-	  :set     ((new-value &optional (height-index nil) (width-index nil))
-		    (if (and width-index height-index)
-			(setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index)) new-value)
-			(progn
-			  (when (not (cffi:null-pointer-p pixels))
-			    (cffi:foreign-free pixels))
-			  (setf pixels (if new-value
-					   (cffi:foreign-alloc :uchar :count (* width height))
-					   (cffi:null-pointer)))
-			  (when new-value
-			    (loop for i from 0 below height
-				  do (loop for j from 0 below width
-					   for index = (+ (* width i) j)
-					   do (setf (cffi:mem-aref pixels :uchar index) (aref new-value i j))))))))))
+					 for index = (+ (* width i) j)
+					 do (setf (cffi:mem-aref pixels :uchar index) (aref pixels-arg i j))))))
+	  :destructor  (when (not (cffi:null-pointer-p pixels))
+			 (cffi:foreign-free pixels))
+	  :reader      ((&optional (height-index nil) (width-index nil))
+			(if (and width-index height-index)
+			    (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
+			    (let ((pixels-array (make-array (list height width))))
+			      (loop for i from 0 below height
+				    do (loop for j from 0 below width
+					     do (setf (aref pixels-array i j) (cffi:mem-aref pixels :uchar (+ (* width i) j)))))
+			      (values pixels-array))))
+	  :writer      ((new-value &optional (height-index nil) (width-index nil))
+			(if (and width-index height-index)
+			    (setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index)) new-value)
+			    (progn
+			      (when (not (cffi:null-pointer-p pixels))
+				(cffi:foreign-free pixels))
+			      (setf pixels (if new-value
+					       (cffi:foreign-alloc :uchar :count (* width height))
+					       (cffi:null-pointer)))
+			      (when new-value
+				(loop for i from 0 below height
+				      do (loop for j from 0 below width
+					       for index = (+ (* width i) j)
+					       do (setf (cffi:mem-aref pixels :uchar index) (aref new-value i j))))))))))
 
 (adp:itemize (:item (adp:bold "Warning") ": If you want to modify the PIXELS member, you must change WIDTH and HEIGHT first."))
 
@@ -161,7 +161,7 @@
     (glfwWindowHintString hint value-c)))
 
 (adp:defun create-window (width height title monitor share)
-  (declare (type fixnum width height) (type string title) (type (or null monitor) monitor) (or null window share))
+  (declare (type fixnum width height) (type string title) (type (or null monitor) monitor) (type (or null window) share))
   "Creates a window (or returns NIL) and its associated context."
   (cffi:with-foreign-string (title-c title)
     (let* ((monitor-c (or monitor (cffi:null-pointer)))
@@ -183,7 +183,7 @@
     (equal result GLFW_TRUE)))
 
 (adp:defun set-window-should-close (window value)
-  (declare (type window window) (type fixnum value))
+  (declare (type window window) (type boolean value))
   "Sets the close flag (t or NIL) of the specified window."
   (let ((value-c (if value GLFW_TRUE GLFW_FALSE)))
     (glfwSetWindowShouldClose window value-c)))
@@ -195,12 +195,12 @@
     (glfwSetWindowTitle window title-c)))
 
 (adp:defun set-window-icon (window images)
-  (declare (type window window) (type (vector image) images))
+  (declare (type window window) (type (or null (vector image)) images))
   "Sets the icon for the specified window. IMAGES must be a vector or NIL."
   (if images
-      (cffi:with-foreign-object (images-c (:struct GLFWimage) (length images))
+      (cffi:with-foreign-object (images-c '(:struct GLFWimage) (length images))
 	(loop for i from 0 below (length images)
-	      do (memcpy (mem-aptr images-c '(:struct GFLWimage) i) (aref images i) (cffi:foreign-type-size '(:struct GLFWimage))))
+	      do (memcpy (cffi:mem-aptr images-c '(:struct GLFWimage) i) (aref images i) (cffi:foreign-type-size '(:struct GLFWimage))))
 	(glfwSetWindowIcon window (length images) images-c))
       (glfwSetWindowIcon window 0 (cffi:null-pointer))))
 
@@ -334,7 +334,7 @@
 	result)))
 
 (adp:defun set-window-attrib (window attrib value)
-  (declare (type window window) (type fixnum attrib value))
+  (declare (type window window) (type (or boolean fixnum) attrib value))
   "Sets an attribute of the specified window. Boolean attributes must be T or NIL."
   (let ((value-c (if (member attrib *bool-attributes*)
 		     (if value GLFW_TRUE GLFW_FALSE)
@@ -493,7 +493,7 @@
   (glfwWaitEvents))
 
 (adp:defun wait-events-timeout (timeout)
-  (declare (type double timeout))
+  (declare (type double-float timeout))
   "Waits with timeout until events are queued and processes them."
   (glfwWaitEventsTimeout timeout))
 

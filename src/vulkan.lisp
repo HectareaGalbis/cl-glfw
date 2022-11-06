@@ -3,11 +3,11 @@
 
 (adp:write-in-file #P"docs/api/vulkan")
 
-(adp:header "Vulkan support reference")
+(adp:header "Vulkan support reference" vulkan-reference-header)
 
 (adp:subheader "Description")
 
-(adp:text "This is the reference documentation for Vulkan related functions and types. For more task-oriented information, see the " @h(vulkan-guide-header) ".")
+(adp:text "This is the reference documentation for Vulkan related functions and types.")
 
 (adp:mini-table-of-contents)
 

@@ -3,11 +3,11 @@
 
 (adp:write-in-file #P"docs/api/context")
 
-(adp:header "Context reference")
+(adp:header "Context reference" context-reference-header)
 
 (adp:subheader "Description")
 
-(adp:text "This is the reference documentation for OpenGL and OpenGL ES context related functions. For more task-oriented information, see the " @h(context-guide-header) ".")
+(adp:text "This is the reference documentation for OpenGL and OpenGL ES context related functions.")
 
 (adp:mini-table-of-contents)
 
