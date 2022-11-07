@@ -307,8 +307,8 @@ Returns the error code and desccription of the last error for the calling thread
 #### Macro: DEFINE-ERROR-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME933 (ERROR-CODE DESCRIPTION)
-                                 &BODY CALLBACK-BODY934)
+(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME238 (ERROR-CODE DESCRIPTION)
+                                 &BODY CALLBACK-BODY239)
   ...)
 ```
 

@@ -547,7 +547,7 @@ X11 specific window hint.
 #### Function: CREATE-IMAGE
 
 ```Lisp
-(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G1125) 0) ((:HEIGHT G1126) 0)
+(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G430) 0) ((:HEIGHT G431) 0)
                           ((:PIXELS PIXELS-ARG) NIL))
   ...)
 ```
@@ -559,7 +559,7 @@ Constructor of IMAGE.
 #### Function: DESTROY-IMAGE
 
 ```Lisp
-(defun GLFW:DESTROY-IMAGE (ARG1128)
+(defun GLFW:DESTROY-IMAGE (ARG433)
   ...)
 ```
 
@@ -570,7 +570,7 @@ Destructor of IMAGE.
 #### Macro: WITH-IMAGE
 
 ```Lisp
-(defmacro GLFW:WITH-IMAGE (VAR1137 ARGS1138 &BODY BODY1139)
+(defmacro GLFW:WITH-IMAGE (VAR442 ARGS443 &BODY BODY444)
   ...)
 ```
 
@@ -581,42 +581,42 @@ Wrap the body forms with CREATE-IMAGE and DESTROY-IMAGE.
 #### Function: IMAGE-WIDTH
 
 ```Lisp
-(defun GLFW:IMAGE-WIDTH (G1129)
+(defun GLFW:IMAGE-WIDTH (G434)
   ...)
 ```
 
 #### Function: IMAGE-HEIGHT
 
 ```Lisp
-(defun GLFW:IMAGE-HEIGHT (G1130)
+(defun GLFW:IMAGE-HEIGHT (G435)
   ...)
 ```
 
 #### Function: IMAGE-PIXELS
 
 ```Lisp
-(defun GLFW:IMAGE-PIXELS (G1131 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
+(defun GLFW:IMAGE-PIXELS (G436 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
   ...)
 ```
 
 #### Function: (SETF IMAGE-WIDTH)
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-WIDTH) (G1133 G1132)
+(defun (SETF GLFW:IMAGE-WIDTH) (G438 G437)
   ...)
 ```
 
 #### Function: (SETF IMAGE-HEIGHT)
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-HEIGHT) (G1135 G1134)
+(defun (SETF GLFW:IMAGE-HEIGHT) (G440 G439)
   ...)
 ```
 
 #### Function: (SETF IMAGE-PIXELS)
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G1136 &OPTIONAL (HEIGHT-INDEX NIL)
+(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G441 &OPTIONAL (HEIGHT-INDEX NIL)
                                  (WIDTH-INDEX NIL))
   ...)
 ```
@@ -999,8 +999,8 @@ Returns the user pointer of the specified window.
 #### Macro: DEFINE-WINDOW-POS-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME1143 (WINDOW XPOS YPOS)
-                                      &BODY CALLBACK-BODY1144)
+(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME448 (WINDOW XPOS YPOS) &BODY
+                                      CALLBACK-BODY449)
   ...)
 ```
 
@@ -1022,8 +1022,8 @@ Sets the position callback for the specified window.
 #### Macro: DEFINE-WINDOW-SIZE-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME1150 (WINDOW WIDTH HEIGHT)
-                                       &BODY CALLBACK-BODY1151)
+(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME455 (WINDOW WIDTH HEIGHT)
+                                       &BODY CALLBACK-BODY456)
   ...)
 ```
 
@@ -1045,8 +1045,8 @@ Sets the size callback for the specified window.
 #### Macro: DEFINE-WINDOW-CLOSE-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME1157 (WINDOW) &BODY
-                                        CALLBACK-BODY1158)
+(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME462 (WINDOW) &BODY
+                                        CALLBACK-BODY463)
   ...)
 ```
 
@@ -1068,8 +1068,8 @@ Sets the close callback for the specified window.
 #### Macro: DEFINE-WINDOW-REFRESH-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME1162 (WINDOW) &BODY
-                                          CALLBACK-BODY1163)
+(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME467 (WINDOW) &BODY
+                                          CALLBACK-BODY468)
   ...)
 ```
 
@@ -1091,8 +1091,8 @@ Sets the refresh callback for the specified window.
 #### Macro: DEFINE-WINDOW-FOCUS-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME1167 (WINDOW FOCUSED)
-                                        &BODY CALLBACK-BODY1168)
+(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME472 (WINDOW FOCUSED) &BODY
+                                        CALLBACK-BODY473)
   ...)
 ```
 
@@ -1114,8 +1114,8 @@ Sets the focus callback for the specified window.
 #### Macro: DEFINE-WINDOW-ICONIFY-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME1173 (WINDOW ICONIFIED)
-                                          &BODY CALLBACK-BODY1174)
+(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME478 (WINDOW ICONIFIED)
+                                          &BODY CALLBACK-BODY479)
   ...)
 ```
 
@@ -1137,8 +1137,8 @@ Sets the iconify callback for the specified window.
 #### Macro: DEFINE-WINDOW-MAXIMIZE-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME1179 (WINDOW MAXIMIZED)
-                                           &BODY CALLBACK-BODY1180)
+(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME484 (WINDOW MAXIMIZED)
+                                           &BODY CALLBACK-BODY485)
   ...)
 ```
 
@@ -1160,9 +1160,9 @@ Sets the maximize callback for the specified window.
 #### Macro: DEFINE-FRAMEBUFFER-SIZE-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME1185
+(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME490
                                             (WINDOW WIDTH HEIGHT) &BODY
-                                            CALLBACK-BODY1186)
+                                            CALLBACK-BODY491)
   ...)
 ```
 
@@ -1184,9 +1184,9 @@ Sets the framebuffer resize callback for the specified window.
 #### Macro: DEFINE-WINDOW-CONTENT-SCALE-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME1192
+(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME497
                                                 (WINDOW XSCALE YSCALE) &BODY
-                                                CALLBACK-BODY1193)
+                                                CALLBACK-BODY498)
   ...)
 ```
 

@@ -62,42 +62,42 @@ The function pointer type for monitor configuration callbacks.
 #### Function: VIDMODE-WIDTH
 
 ```Lisp
-(defun GLFW:VIDMODE-WIDTH (G1064)
+(defun GLFW:VIDMODE-WIDTH (G369)
   ...)
 ```
 
 #### Function: VIDMODE-HEIGHT
 
 ```Lisp
-(defun GLFW:VIDMODE-HEIGHT (G1065)
+(defun GLFW:VIDMODE-HEIGHT (G370)
   ...)
 ```
 
 #### Function: VIDMODE-REDBITS
 
 ```Lisp
-(defun GLFW:VIDMODE-REDBITS (G1066)
+(defun GLFW:VIDMODE-REDBITS (G371)
   ...)
 ```
 
 #### Function: VIDMODE-GREENBITS
 
 ```Lisp
-(defun GLFW:VIDMODE-GREENBITS (G1067)
+(defun GLFW:VIDMODE-GREENBITS (G372)
   ...)
 ```
 
 #### Function: VIDMODE-BLUEBITS
 
 ```Lisp
-(defun GLFW:VIDMODE-BLUEBITS (G1068)
+(defun GLFW:VIDMODE-BLUEBITS (G373)
   ...)
 ```
 
 #### Function: VIDMODE-REFRESHRATE
 
 ```Lisp
-(defun GLFW:VIDMODE-REFRESHRATE (G1069)
+(defun GLFW:VIDMODE-REFRESHRATE (G374)
   ...)
 ```
 
@@ -119,7 +119,7 @@ Gamma ramp.
 ```Lisp
 (defun GLFW:CREATE-GAMMARAMP (&KEY ((:RED RED-ARG) NIL)
                               ((:GREEN GREEN-ARG) NIL) ((:BLUE BLUE-ARG) NIL)
-                              ((:SIZE G1071) 0))
+                              ((:SIZE G376) 0))
   ...)
 ```
 
@@ -130,7 +130,7 @@ Constructor of GAMMARAMP.
 #### Function: DESTROY-GAMMARAMP
 
 ```Lisp
-(defun GLFW:DESTROY-GAMMARAMP (ARG1073)
+(defun GLFW:DESTROY-GAMMARAMP (ARG378)
   ...)
 ```
 
@@ -141,7 +141,7 @@ Destructor of GAMMARAMP.
 #### Macro: WITH-GAMMARAMP
 
 ```Lisp
-(defmacro GLFW:WITH-GAMMARAMP (VAR1083 ARGS1084 &BODY BODY1085)
+(defmacro GLFW:WITH-GAMMARAMP (VAR388 ARGS389 &BODY BODY390)
   ...)
 ```
 
@@ -152,56 +152,56 @@ Wrap the body forms with CREATE-GAMMARAMP and DESTROY-GAMMARAMP.
 #### Function: GAMMARAMP-RED
 
 ```Lisp
-(defun GLFW:GAMMARAMP-RED (G1074 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMMARAMP-RED (G379 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: GAMMARAMP-GREEN
 
 ```Lisp
-(defun GLFW:GAMMARAMP-GREEN (G1075 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMMARAMP-GREEN (G380 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: GAMMARAMP-BLUE
 
 ```Lisp
-(defun GLFW:GAMMARAMP-BLUE (G1076 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMMARAMP-BLUE (G381 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: GAMMARAMP-SIZE
 
 ```Lisp
-(defun GLFW:GAMMARAMP-SIZE (G1077)
+(defun GLFW:GAMMARAMP-SIZE (G382)
   ...)
 ```
 
 #### Function: (SETF GAMMARAMP-RED)
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-RED) (NEW-VALUE G1078 &OPTIONAL (INDEX NIL))
+(defun (SETF GLFW:GAMMARAMP-RED) (NEW-VALUE G383 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: (SETF GAMMARAMP-GREEN)
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-GREEN) (NEW-VALUE G1079 &OPTIONAL (INDEX NIL))
+(defun (SETF GLFW:GAMMARAMP-GREEN) (NEW-VALUE G384 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: (SETF GAMMARAMP-BLUE)
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-BLUE) (NEW-VALUE G1080 &OPTIONAL (INDEX NIL))
+(defun (SETF GLFW:GAMMARAMP-BLUE) (NEW-VALUE G385 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: (SETF GAMMARAMP-SIZE)
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-SIZE) (G1082 G1081)
+(defun (SETF GLFW:GAMMARAMP-SIZE) (G387 G386)
   ...)
 ```
 
@@ -329,8 +329,8 @@ Returns the user pointer of the specified monitor.
 #### Macro: DEFINE-MONITOR-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-MONITOR-CALLBACK (CALLBACK-NAME1099 (MONITOR EVENT) &BODY
-                                   CALLBACK-BODY1100)
+(defmacro DEFINE-MONITOR-CALLBACK (CALLBACK-NAME404 (MONITOR EVENT) &BODY
+                                   CALLBACK-BODY405)
   ...)
 ```
 
