@@ -4,7 +4,6 @@ Welcome to the GLFW bindings!
 
 GLFW is a free, Open Source, multi-platform library for OpenGL, OpenGL ES and Vulkan application development. It provides a simple, platform-independent API for creating windows, contexts and surfaces, reading input, handling events, etc.
 
-* [More-cffi API](/docs/mcffi-api.md#more-cffi-api)
 * [cl-glfw](/README.md#cl-glfw)
   * [Documentation](/README.md#documentation)
   * [Installation](/README.md#installation)

@@ -1564,14 +1564,14 @@ The function pointer type for joystick configuration callbacks.
 #### Function: GAMEPADSTATE-BUTTONS
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-BUTTONS (G956 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-BUTTONS (G953 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 #### Function: GAMEPADSTATE-AXES
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-AXES (G957 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-AXES (G954 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
@@ -1751,9 +1751,9 @@ Sets the cursor for the window.
 #### Macro: DEFINE-KEY-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME973
+(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME970
                                (WINDOW KEY SCANCODE ACTION MODS) &BODY
-                               CALLBACK-BODY974)
+                               CALLBACK-BODY971)
   ...)
 ```
 
@@ -1777,8 +1777,8 @@ Sets the key callback.
 #### Macro: DEFINE-CHAR-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME983 (WINDOW CODEPOINT) &BODY
-                                CALLBACK-BODY984)
+(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME980 (WINDOW CODEPOINT) &BODY
+                                CALLBACK-BODY981)
   ...)
 ```
 
@@ -1802,8 +1802,8 @@ Sets the Unicode character callback.
 #### Macro: DEFINE-CHAR-MODS-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME990 (WINDOW CODEPOINT MODS)
-                                     &BODY CALLBACK-BODY991)
+(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME987 (WINDOW CODEPOINT MODS)
+                                     &BODY CALLBACK-BODY988)
   ...)
 ```
 
@@ -1827,9 +1827,9 @@ Sets the Unicode character with modifiers callback.
 #### Macro: DEFINE-MOUSE-BUTTON-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME998
+(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME995
                                         (WINDOW BUTTON ACTION MODS) &BODY
-                                        CALLBACK-BODY999)
+                                        CALLBACK-BODY996)
   ...)
 ```
 
@@ -1853,8 +1853,8 @@ Sets the mouse button callback.
 #### Macro: DEFINE-CURSOR-POS-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME1007 (WINDOW XPOS YPOS)
-                                      &BODY CALLBACK-BODY1008)
+(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME1004 (WINDOW XPOS YPOS)
+                                      &BODY CALLBACK-BODY1005)
   ...)
 ```
 
@@ -1878,8 +1878,8 @@ Sets the cursor position callback.
 #### Macro: DEFINE-CURSOR-ENTER-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME1015 (WINDOW ENTERED)
-                                        &BODY CALLBACK-BODY1016)
+(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME1012 (WINDOW ENTERED)
+                                        &BODY CALLBACK-BODY1013)
   ...)
 ```
 
@@ -1903,8 +1903,8 @@ Sets the cursor enter/leave callback.
 #### Macro: DEFINE-SCROLL-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME1022 (WINDOW XOFFSET YOFFSET)
-                                  &BODY CALLBACK-BODY1023)
+(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME1019 (WINDOW XOFFSET YOFFSET)
+                                  &BODY CALLBACK-BODY1020)
   ...)
 ```
 
@@ -1928,8 +1928,8 @@ Sets the scroll callback.
 #### Macro: DEFINE-DROP-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME1030 (WINDOW PATHS) &BODY
-                                CALLBACK-BODY1031)
+(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME1027 (WINDOW PATHS) &BODY
+                                CALLBACK-BODY1028)
   ...)
 ```
 
@@ -2070,8 +2070,8 @@ Returns whether the specified joystick has a gamepad mapping (t or NIL).
 #### Macro: DEFINE-JOYSTICK-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME1047 (JID EVENT) &BODY
-                                    CALLBACK-BODY1048)
+(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME1044 (JID EVENT) &BODY
+                                    CALLBACK-BODY1045)
   ...)
 ```
 
