@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/other")
+(adp:in-file #P"docs/api/other")
 
 (adp:header "Other constants")
 

@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/monitor")
+(adp:in-file #P"docs/api/monitor")
 
 (adp:header "Monitor reference" monitor-reference-header)
 

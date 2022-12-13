@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/vulkan")
+(adp:in-file #P"docs/api/vulkan")
 
 (adp:header "Vulkan support reference" vulkan-reference-header)
 

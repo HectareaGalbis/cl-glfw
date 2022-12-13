@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/input")
+(adp:in-file #P"docs/api/input")
 
 (adp:header "Input reference" input-reference-header)
 

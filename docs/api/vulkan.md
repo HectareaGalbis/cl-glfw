@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the reference documentation for Vulkan related functions and types.
+This is the reference documentation for Vulkan related functions and types\.
 
 * [Vulkan support reference](/docs/api/vulkan.md#vulkan-support-reference)
   * [Description](/docs/api/vulkan.md#description)
@@ -15,7 +15,7 @@ This is the reference documentation for Vulkan related functions and types.
 
 ## Types
 
-#### Type: NON-DISPATCH-HANDLE
+#### Type: NON\-DISPATCH\-HANDLE
 
 ```Lisp
 (deftype NON-DISPATCH-HANDLE NIL
@@ -47,7 +47,7 @@ This is the reference documentation for Vulkan related functions and types.
 
 ### glfwVulkanSupported
 
-#### Function: VULKAN-SUPPORTED
+#### Function: VULKAN\-SUPPORTED
 
 ```Lisp
 (defun GLFW:VULKAN-SUPPORTED NIL
@@ -60,7 +60,7 @@ Returns (t or NIL) whether the Vulkan loader and an ICD have been found.
 
 ### glfwGetRequiredInstanceExtensions
 
-#### Function: GET-REQUIRED-INSTANCE-EXTENSIONS
+#### Function: GET\-REQUIRED\-INSTANCE\-EXTENSIONS
 
 ```Lisp
 (defun GLFW:GET-REQUIRED-INSTANCE-EXTENSIONS NIL
@@ -73,7 +73,7 @@ Returns a vector with the Vulkan instance extensions required by GLFW.
 
 ### glfwGetPhysicalDevicePresentationSupport
 
-#### Function: GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT
+#### Function: GET\-PHYSICAL\-DEVICE\-PRESENTATION\-SUPPORT
 
 ```Lisp
 (defun GLFW:GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT (INSTANCE DEVICE
@@ -87,7 +87,7 @@ Returns (t or NIL) whether the specified queue family can present images.
 
 ### glfwCreateWindowSurface
 
-#### Function: CREATE-WINDOW-SURFACE
+#### Function: CREATE\-WINDOW\-SURFACE
 
 ```Lisp
 (defun GLFW:CREATE-WINDOW-SURFACE (INSTANCE WINDOW ALLOCATOR)

@@ -1,10 +1,10 @@
-# Initialization, version and error reference
+# Initialization\, version and error reference
 
 ## Description
 
-This is the reference documentation for initialization and termination of the library, version management and error handling.
+This is the reference documentation for initialization and termination of the library\, version management and error handling\.
 
-* [Initialization, version and error reference](/docs/api/initialization.md#initialization-version-and-error-reference)
+* [Initialization\, version and error reference](/docs/api/initialization.md#initialization-version-and-error-reference)
   * [Description](/docs/api/initialization.md#description)
   * [Constants](/docs/api/initialization.md#constants)
   * [Types](/docs/api/initialization.md#types)
@@ -252,7 +252,7 @@ Terminates the GLFW library.
 
 ### glfwInitHint
 
-#### Function: INIT-HINT
+#### Function: INIT\-HINT
 
 ```Lisp
 (defun GLFW:INIT-HINT (HINT VALUE)
@@ -265,7 +265,7 @@ Sets the specified init hint to the desired value.
 
 ### glfwGetVersion
 
-#### Function: GET-VERSION
+#### Function: GET\-VERSION
 
 ```Lisp
 (defun GLFW:GET-VERSION NIL
@@ -278,7 +278,7 @@ Retrieves the version of the GLFW library. Returns three values.
 
 ### glfwGetVersionString
 
-#### Function: GET-VERSION-STRING
+#### Function: GET\-VERSION\-STRING
 
 ```Lisp
 (defun GLFW:GET-VERSION-STRING NIL
@@ -291,7 +291,7 @@ Returns a string describing the compile-time configuration.
 
 ### glfwGetError
 
-#### Function: GET-ERROR
+#### Function: GET\-ERROR
 
 ```Lisp
 (defun GLFW:GET-ERROR NIL
@@ -304,11 +304,11 @@ Returns the error code and desccription of the last error for the calling thread
 
 ### glfwSetErrorCallback
 
-#### Macro: DEFINE-ERROR-CALLBACK
+#### Macro: DEFINE\-ERROR\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME238 (ERROR-CODE DESCRIPTION)
-                                 &BODY CALLBACK-BODY239)
+(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME10 (ERROR-CODE DESCRIPTION) &BODY
+                                 CALLBACK-BODY11)
   ...)
 ```
 
@@ -316,7 +316,7 @@ Returns the error code and desccription of the last error for the calling thread
 Defines an error callback.
 ````
 
-#### Function: SET-ERROR-CALLBACK
+#### Function: SET\-ERROR\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-ERROR-CALLBACK (CALLBACK)

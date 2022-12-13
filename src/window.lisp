@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/window")
+(adp:in-file #P"docs/api/window")
 
 (adp:header "Window reference" window-reference-header)
 
@@ -140,7 +140,7 @@
 					       for index = (+ (* width i) j)
 					       do (setf (cffi:mem-aref pixels :uchar index) (aref new-value i j))))))))))
 
-(adp:itemize (:item (adp:bold "Warning") ": If you want to modify the PIXELS member, you must change WIDTH and HEIGHT first."))
+(adp:itemize (adp:item (adp:bold "Warning") ": If you want to modify the PIXELS member, you must change WIDTH and HEIGHT first."))
 
 
 (adp:subheader "Functions")

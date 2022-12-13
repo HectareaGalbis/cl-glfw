@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/initialization")
+(adp:in-file #P"docs/api/initialization")
 
 (adp:header "Initialization, version and error reference" initialization-reference-header)
 

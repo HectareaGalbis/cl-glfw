@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the reference documentation for window related functions and types, including creation, deletion and event polling.
+This is the reference documentation for window related functions and types\, including creation\, deletion and event polling\.
 
 * [Window reference](/docs/api/window.md#window-reference)
   * [Description](/docs/api/window.md#description)
@@ -544,10 +544,10 @@ X11 specific window hint.
   ...)
 ```
 
-#### Function: CREATE-IMAGE
+#### Function: CREATE\-IMAGE
 
 ```Lisp
-(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G430) 0) ((:HEIGHT G431) 0)
+(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G4) 0) ((:HEIGHT G5) 0)
                           ((:PIXELS PIXELS-ARG) NIL))
   ...)
 ```
@@ -556,10 +556,10 @@ X11 specific window hint.
 Constructor of IMAGE.
 ````
 
-#### Function: DESTROY-IMAGE
+#### Function: DESTROY\-IMAGE
 
 ```Lisp
-(defun GLFW:DESTROY-IMAGE (ARG433)
+(defun GLFW:DESTROY-IMAGE (ARG7)
   ...)
 ```
 
@@ -567,10 +567,10 @@ Constructor of IMAGE.
 Destructor of IMAGE.
 ````
 
-#### Macro: WITH-IMAGE
+#### Macro: WITH\-IMAGE
 
 ```Lisp
-(defmacro GLFW:WITH-IMAGE (VAR442 ARGS443 &BODY BODY444)
+(defmacro GLFW:WITH-IMAGE (VAR16 ARGS17 &BODY BODY18)
   ...)
 ```
 
@@ -578,54 +578,54 @@ Destructor of IMAGE.
 Wrap the body forms with CREATE-IMAGE and DESTROY-IMAGE.
 ````
 
-#### Function: IMAGE-WIDTH
+#### Function: IMAGE\-WIDTH
 
 ```Lisp
-(defun GLFW:IMAGE-WIDTH (G434)
+(defun GLFW:IMAGE-WIDTH (G8)
   ...)
 ```
 
-#### Function: IMAGE-HEIGHT
+#### Function: IMAGE\-HEIGHT
 
 ```Lisp
-(defun GLFW:IMAGE-HEIGHT (G435)
+(defun GLFW:IMAGE-HEIGHT (G9)
   ...)
 ```
 
-#### Function: IMAGE-PIXELS
+#### Function: IMAGE\-PIXELS
 
 ```Lisp
-(defun GLFW:IMAGE-PIXELS (G436 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
+(defun GLFW:IMAGE-PIXELS (G10 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
   ...)
 ```
 
-#### Function: (SETF IMAGE-WIDTH)
+#### Function: \(SETF IMAGE\-WIDTH\)
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-WIDTH) (G438 G437)
+(defun (SETF GLFW:IMAGE-WIDTH) (G12 G11)
   ...)
 ```
 
-#### Function: (SETF IMAGE-HEIGHT)
+#### Function: \(SETF IMAGE\-HEIGHT\)
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-HEIGHT) (G440 G439)
+(defun (SETF GLFW:IMAGE-HEIGHT) (G14 G13)
   ...)
 ```
 
-#### Function: (SETF IMAGE-PIXELS)
+#### Function: \(SETF IMAGE\-PIXELS\)
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G441 &OPTIONAL (HEIGHT-INDEX NIL)
+(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G15 &OPTIONAL (HEIGHT-INDEX NIL)
                                  (WIDTH-INDEX NIL))
   ...)
 ```
 
-* **Warning**: If you want to modify the PIXELS member, you must change WIDTH and HEIGHT first.
+* **Warning**\: If you want to modify the PIXELS member\, you must change WIDTH and HEIGHT first\.
 
 ## Functions
 
-#### Function: DELFAULT-WINDOW-HINTS
+#### Function: DELFAULT\-WINDOW\-HINTS
 
 ```Lisp
 (defun DELFAULT-WINDOW-HINTS NIL
@@ -636,7 +636,7 @@ Wrap the body forms with CREATE-IMAGE and DESTROY-IMAGE.
 Resets all window hints to their default values.
 ````
 
-#### Function: WINDOW-HINT
+#### Function: WINDOW\-HINT
 
 ```Lisp
 (defun GLFW:WINDOW-HINT (HINT VALUE)
@@ -647,7 +647,7 @@ Resets all window hints to their default values.
 Sets the specified window hint to the desired value.
 ````
 
-#### Function: WINDOW-HINT-STRING
+#### Function: WINDOW\-HINT\-STRING
 
 ```Lisp
 (defun GLFW:WINDOW-HINT-STRING (HINT VALUE)
@@ -658,7 +658,7 @@ Sets the specified window hint to the desired value.
 Sets the specified window hint to the desired value.
 ````
 
-#### Function: CREATE-WINDOW
+#### Function: CREATE\-WINDOW
 
 ```Lisp
 (defun GLFW:CREATE-WINDOW (WIDTH HEIGHT TITLE MONITOR SHARE)
@@ -669,7 +669,7 @@ Sets the specified window hint to the desired value.
 Creates a window (or returns NIL) and its associated context.
 ````
 
-#### Function: DESTROY-WINDOW
+#### Function: DESTROY\-WINDOW
 
 ```Lisp
 (defun GLFW:DESTROY-WINDOW (WINDOW)
@@ -680,7 +680,7 @@ Creates a window (or returns NIL) and its associated context.
 Destroys the specified window and its context.
 ````
 
-#### Function: WINDOW-SHOULD-CLOSE
+#### Function: WINDOW\-SHOULD\-CLOSE
 
 ```Lisp
 (defun GLFW:WINDOW-SHOULD-CLOSE (WINDOW)
@@ -691,7 +691,7 @@ Destroys the specified window and its context.
 Checks the close flag (t or NIL) of the specified window.
 ````
 
-#### Function: SET-WINDOW-SHOULD-CLOSE
+#### Function: SET\-WINDOW\-SHOULD\-CLOSE
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SHOULD-CLOSE (WINDOW VALUE)
@@ -702,7 +702,7 @@ Checks the close flag (t or NIL) of the specified window.
 Sets the close flag (t or NIL) of the specified window.
 ````
 
-#### Function: SET-WINDOW-TITLE
+#### Function: SET\-WINDOW\-TITLE
 
 ```Lisp
 (defun GLFW:SET-WINDOW-TITLE (WINDOW TITLE)
@@ -713,7 +713,7 @@ Sets the close flag (t or NIL) of the specified window.
 Sets the title of the specified window.
 ````
 
-#### Function: SET-WINDOW-ICON
+#### Function: SET\-WINDOW\-ICON
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ICON (WINDOW IMAGES)
@@ -724,7 +724,7 @@ Sets the title of the specified window.
 Sets the icon for the specified window. IMAGES must be a vector or NIL.
 ````
 
-#### Function: GET-WINDOW-POS
+#### Function: GET\-WINDOW\-POS
 
 ```Lisp
 (defun GLFW:GET-WINDOW-POS (WINDOW)
@@ -735,7 +735,7 @@ Sets the icon for the specified window. IMAGES must be a vector or NIL.
 Returns the x-position and y-position of the content area of the specified window.
 ````
 
-#### Function: SET-WINDOW-POS
+#### Function: SET\-WINDOW\-POS
 
 ```Lisp
 (defun GLFW:SET-WINDOW-POS (WINDOW XPOS YPOS)
@@ -746,7 +746,7 @@ Returns the x-position and y-position of the content area of the specified windo
 Sets the position of the content area of the specified window.
 ````
 
-#### Function: GET-WINDOW-SIZE
+#### Function: GET\-WINDOW\-SIZE
 
 ```Lisp
 (defun GLFW:GET-WINDOW-SIZE (WINDOW)
@@ -757,7 +757,7 @@ Sets the position of the content area of the specified window.
 Returns the width and height of the content area of the specified window.
 ````
 
-#### Function: SET-WINDOW-SIZE-LIMITS
+#### Function: SET\-WINDOW\-SIZE\-LIMITS
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SIZE-LIMITS (WINDOW MINWIDTH MINHEIGHT MAXWIDTH
@@ -769,7 +769,7 @@ Returns the width and height of the content area of the specified window.
 Sets the size limits of the specified window.
 ````
 
-#### Function: SET-WINDOW-ASPECT-RATIO
+#### Function: SET\-WINDOW\-ASPECT\-RATIO
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ASPECT-RATIO (WINDOW NUMER DENOM)
@@ -780,7 +780,7 @@ Sets the size limits of the specified window.
 Sets the aspect ratio of the specified window.
 ````
 
-#### Function: SET-WINDOW-SIZE
+#### Function: SET\-WINDOW\-SIZE
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SIZE (WINDOW WIDTH HEIGHT)
@@ -791,7 +791,7 @@ Sets the aspect ratio of the specified window.
 Sets the size of the content area of the specified window.
 ````
 
-#### Function: GET-FRAMEBUFFER-SIZE
+#### Function: GET\-FRAMEBUFFER\-SIZE
 
 ```Lisp
 (defun GLFW:GET-FRAMEBUFFER-SIZE (WINDOW)
@@ -802,7 +802,7 @@ Sets the size of the content area of the specified window.
 Returns the width and height of the framebuffer of the specified window.
 ````
 
-#### Function: GET-WINDOW-FRAME-SIZE
+#### Function: GET\-WINDOW\-FRAME\-SIZE
 
 ```Lisp
 (defun GLFW:GET-WINDOW-FRAME-SIZE (WINDOW)
@@ -813,7 +813,7 @@ Returns the width and height of the framebuffer of the specified window.
 Returns the left, top, right and bottom edges of the frame of the window.
 ````
 
-#### Function: GET-WINDOW-CONTENT-SCALE
+#### Function: GET\-WINDOW\-CONTENT\-SCALE
 
 ```Lisp
 (defun GLFW:GET-WINDOW-CONTENT-SCALE (WINDOW)
@@ -824,7 +824,7 @@ Returns the left, top, right and bottom edges of the frame of the window.
 Returns the xscale and yscale of the specified window.
 ````
 
-#### Function: GET-WINDOW-OPACITY
+#### Function: GET\-WINDOW\-OPACITY
 
 ```Lisp
 (defun GLFW:GET-WINDOW-OPACITY (WINDOW)
@@ -835,7 +835,7 @@ Returns the xscale and yscale of the specified window.
 Returns the opacity of the whole window.
 ````
 
-#### Function: SET-WINDOW-OPACITY
+#### Function: SET\-WINDOW\-OPACITY
 
 ```Lisp
 (defun GLFW:SET-WINDOW-OPACITY (WINDOW OPACITY)
@@ -846,7 +846,7 @@ Returns the opacity of the whole window.
 Sets the opacity of the whole window.
 ````
 
-#### Function: ICONIFY-WINDOW
+#### Function: ICONIFY\-WINDOW
 
 ```Lisp
 (defun GLFW:ICONIFY-WINDOW (WINDOW)
@@ -857,7 +857,7 @@ Sets the opacity of the whole window.
 Iconifies the specified window.
 ````
 
-#### Function: RESTORE-WINDOW
+#### Function: RESTORE\-WINDOW
 
 ```Lisp
 (defun GLFW:RESTORE-WINDOW (WINDOW)
@@ -868,7 +868,7 @@ Iconifies the specified window.
 Restores the specified window.
 ````
 
-#### Function: MAXIMIZE-WINDOW
+#### Function: MAXIMIZE\-WINDOW
 
 ```Lisp
 (defun GLFW:MAXIMIZE-WINDOW (WINDOW)
@@ -879,7 +879,7 @@ Restores the specified window.
 Maximizes the specified window.
 ````
 
-#### Function: SHOW-WINDOW
+#### Function: SHOW\-WINDOW
 
 ```Lisp
 (defun GLFW:SHOW-WINDOW (WINDOW)
@@ -890,7 +890,7 @@ Maximizes the specified window.
 Makes the specified window visible.
 ````
 
-#### Function: HIDE-WINDOW
+#### Function: HIDE\-WINDOW
 
 ```Lisp
 (defun GLFW:HIDE-WINDOW (WINDOW)
@@ -901,7 +901,7 @@ Makes the specified window visible.
 Hides the specified window.
 ````
 
-#### Function: FOCUS-WINDOW
+#### Function: FOCUS\-WINDOW
 
 ```Lisp
 (defun GLFW:FOCUS-WINDOW (WINDOW)
@@ -912,7 +912,7 @@ Hides the specified window.
 Brings the specified window to front and sets input focus.
 ````
 
-#### Function: REQUEST-WINDOW-ATTENTION
+#### Function: REQUEST\-WINDOW\-ATTENTION
 
 ```Lisp
 (defun GLFW:REQUEST-WINDOW-ATTENTION (WINDOW)
@@ -923,7 +923,7 @@ Brings the specified window to front and sets input focus.
 Requests user attention to the specified window.
 ````
 
-#### Function: GET-WINDOW-MONITOR
+#### Function: GET\-WINDOW\-MONITOR
 
 ```Lisp
 (defun GLFW:GET-WINDOW-MONITOR (WINDOW)
@@ -934,7 +934,7 @@ Requests user attention to the specified window.
 Returns the monitor (or NIL) that the window uses for full screen mode.
 ````
 
-#### Function: SET-WINDOW-MONITOR
+#### Function: SET\-WINDOW\-MONITOR
 
 ```Lisp
 (defun GLFW:SET-WINDOW-MONITOR (WINDOW MONITOR XPOS YPOS WIDTH HEIGHT
@@ -946,7 +946,7 @@ Returns the monitor (or NIL) that the window uses for full screen mode.
 Sets the mode, monitor, video mode and placement of a window.
 ````
 
-#### Function: GET-WINDOW-ATTRIB
+#### Function: GET\-WINDOW\-ATTRIB
 
 ```Lisp
 (defun GLFW:GET-WINDOW-ATTRIB (WINDOW ATTRIB)
@@ -957,7 +957,7 @@ Sets the mode, monitor, video mode and placement of a window.
 Returns an attribute of the specified window. Boolean attributes will be T or NIL.
 ````
 
-#### Function: SET-WINDOW-ATTRIB
+#### Function: SET\-WINDOW\-ATTRIB
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ATTRIB (WINDOW ATTRIB VALUE)
@@ -968,13 +968,13 @@ Returns an attribute of the specified window. Boolean attributes will be T or NI
 Sets an attribute of the specified window. Boolean attributes must be T or NIL.
 ````
 
-#### Variable: \*WINDOWS-DATA\*
+#### Variable: \*WINDOWS\-DATA\*
 
 ```Lisp
 (defvar *WINDOWS-DATA* (MAKE-HASH-TABLE))
 ```
 
-#### Function: SET-WINDOW-USER-POINTER
+#### Function: SET\-WINDOW\-USER\-POINTER
 
 ```Lisp
 (defun GLFW:SET-WINDOW-USER-POINTER (WINDOW DATA)
@@ -985,7 +985,7 @@ Sets an attribute of the specified window. Boolean attributes must be T or NIL.
 Sets the user pointer of the specified window.
 ````
 
-#### Function: GET-WINDOW-USER-POINTER
+#### Function: GET\-WINDOW\-USER\-POINTER
 
 ```Lisp
 (defun GLFW:GET-WINDOW-USER-POINTER (WINDOW)
@@ -996,11 +996,11 @@ Sets the user pointer of the specified window.
 Returns the user pointer of the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-POS-CALLBACK
+#### Macro: DEFINE\-WINDOW\-POS\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME448 (WINDOW XPOS YPOS) &BODY
-                                      CALLBACK-BODY449)
+(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME22 (WINDOW XPOS YPOS) &BODY
+                                      CALLBACK-BODY23)
   ...)
 ```
 
@@ -1008,7 +1008,7 @@ Returns the user pointer of the specified window.
 Defines a position callback.
 ````
 
-#### Function: SET-WINDOW-POS-CALLBACK
+#### Function: SET\-WINDOW\-POS\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-POS-CALLBACK (WINDOW CALLBACK)
@@ -1019,11 +1019,11 @@ Defines a position callback.
 Sets the position callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-SIZE-CALLBACK
+#### Macro: DEFINE\-WINDOW\-SIZE\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME455 (WINDOW WIDTH HEIGHT)
-                                       &BODY CALLBACK-BODY456)
+(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME29 (WINDOW WIDTH HEIGHT)
+                                       &BODY CALLBACK-BODY30)
   ...)
 ```
 
@@ -1031,7 +1031,7 @@ Sets the position callback for the specified window.
 Defines a size callback.
 ````
 
-#### Function: SET-WINDOW-SIZE-CALLBACK
+#### Function: SET\-WINDOW\-SIZE\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SIZE-CALLBACK (WINDOW CALLBACK)
@@ -1042,11 +1042,11 @@ Defines a size callback.
 Sets the size callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-CLOSE-CALLBACK
+#### Macro: DEFINE\-WINDOW\-CLOSE\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME462 (WINDOW) &BODY
-                                        CALLBACK-BODY463)
+(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME36 (WINDOW) &BODY
+                                        CALLBACK-BODY37)
   ...)
 ```
 
@@ -1054,7 +1054,7 @@ Sets the size callback for the specified window.
 Defines a close callback.
 ````
 
-#### Function: SET-WINDOW-CLOSE-CALLBACK
+#### Function: SET\-WINDOW\-CLOSE\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-CLOSE-CALLBACK (WINDOW CALLBACK)
@@ -1065,11 +1065,11 @@ Defines a close callback.
 Sets the close callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-REFRESH-CALLBACK
+#### Macro: DEFINE\-WINDOW\-REFRESH\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME467 (WINDOW) &BODY
-                                          CALLBACK-BODY468)
+(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME41 (WINDOW) &BODY
+                                          CALLBACK-BODY42)
   ...)
 ```
 
@@ -1077,7 +1077,7 @@ Sets the close callback for the specified window.
 Defines a refresh callback.
 ````
 
-#### Function: SET-WINDOW-REFRESH-CALLBACK
+#### Function: SET\-WINDOW\-REFRESH\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-REFRESH-CALLBACK (WINDOW CALLBACK)
@@ -1088,11 +1088,11 @@ Defines a refresh callback.
 Sets the refresh callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-FOCUS-CALLBACK
+#### Macro: DEFINE\-WINDOW\-FOCUS\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME472 (WINDOW FOCUSED) &BODY
-                                        CALLBACK-BODY473)
+(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME46 (WINDOW FOCUSED) &BODY
+                                        CALLBACK-BODY47)
   ...)
 ```
 
@@ -1100,7 +1100,7 @@ Sets the refresh callback for the specified window.
 Defines a focus callback.
 ````
 
-#### Function: SET-WINDOW-FOCUS-CALLBACK
+#### Function: SET\-WINDOW\-FOCUS\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-FOCUS-CALLBACK (WINDOW CALLBACK)
@@ -1111,11 +1111,11 @@ Defines a focus callback.
 Sets the focus callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-ICONIFY-CALLBACK
+#### Macro: DEFINE\-WINDOW\-ICONIFY\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME478 (WINDOW ICONIFIED)
-                                          &BODY CALLBACK-BODY479)
+(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME52 (WINDOW ICONIFIED)
+                                          &BODY CALLBACK-BODY53)
   ...)
 ```
 
@@ -1123,7 +1123,7 @@ Sets the focus callback for the specified window.
 Defines an iconify callback.
 ````
 
-#### Function: SET-WINDOW-ICONIFY-CALLBACK
+#### Function: SET\-WINDOW\-ICONIFY\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ICONIFY-CALLBACK (WINDOW CALLBACK)
@@ -1134,11 +1134,11 @@ Defines an iconify callback.
 Sets the iconify callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-MAXIMIZE-CALLBACK
+#### Macro: DEFINE\-WINDOW\-MAXIMIZE\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME484 (WINDOW MAXIMIZED)
-                                           &BODY CALLBACK-BODY485)
+(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME58 (WINDOW MAXIMIZED)
+                                           &BODY CALLBACK-BODY59)
   ...)
 ```
 
@@ -1146,7 +1146,7 @@ Sets the iconify callback for the specified window.
 Defines a maximize callback.
 ````
 
-#### Function: SET-WINDOW-MAXIMIZE-CALLBACK
+#### Function: SET\-WINDOW\-MAXIMIZE\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-MAXIMIZE-CALLBACK (WINDOW CALLBACK)
@@ -1157,12 +1157,12 @@ Defines a maximize callback.
 Sets the maximize callback for the specified window.
 ````
 
-#### Macro: DEFINE-FRAMEBUFFER-SIZE-CALLBACK
+#### Macro: DEFINE\-FRAMEBUFFER\-SIZE\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME490
+(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME64
                                             (WINDOW WIDTH HEIGHT) &BODY
-                                            CALLBACK-BODY491)
+                                            CALLBACK-BODY65)
   ...)
 ```
 
@@ -1170,7 +1170,7 @@ Sets the maximize callback for the specified window.
 Defines a framebuffer resize callback.
 ````
 
-#### Function: SET-FRAMEBUFFER-SIZE-CALLBACK
+#### Function: SET\-FRAMEBUFFER\-SIZE\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-FRAMEBUFFER-SIZE-CALLBACK (WINDOW CALLBACK)
@@ -1181,12 +1181,12 @@ Defines a framebuffer resize callback.
 Sets the framebuffer resize callback for the specified window.
 ````
 
-#### Macro: DEFINE-WINDOW-CONTENT-SCALE-CALLBACK
+#### Macro: DEFINE\-WINDOW\-CONTENT\-SCALE\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME497
+(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME71
                                                 (WINDOW XSCALE YSCALE) &BODY
-                                                CALLBACK-BODY498)
+                                                CALLBACK-BODY72)
   ...)
 ```
 
@@ -1194,7 +1194,7 @@ Sets the framebuffer resize callback for the specified window.
 Defines a window content scale callback.
 ````
 
-#### Function: SET-WINDOW-CONTENT-SCALE-CALLBACK
+#### Function: SET\-WINDOW\-CONTENT\-SCALE\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-WINDOW-CONTENT-SCALE-CALLBACK (WINDOW CALLBACK)
@@ -1205,7 +1205,7 @@ Defines a window content scale callback.
 Sets the window content scale callback for the specified window.
 ````
 
-#### Function: POLL-EVENTS
+#### Function: POLL\-EVENTS
 
 ```Lisp
 (defun GLFW:POLL-EVENTS NIL
@@ -1216,7 +1216,7 @@ Sets the window content scale callback for the specified window.
 Processes all pending events.
 ````
 
-#### Function: WAIT-EVENTS
+#### Function: WAIT\-EVENTS
 
 ```Lisp
 (defun GLFW:WAIT-EVENTS NIL
@@ -1227,7 +1227,7 @@ Processes all pending events.
 Waits until events are queued and processes them.
 ````
 
-#### Function: WAIT-EVENTS-TIMEOUT
+#### Function: WAIT\-EVENTS\-TIMEOUT
 
 ```Lisp
 (defun GLFW:WAIT-EVENTS-TIMEOUT (TIMEOUT)
@@ -1238,7 +1238,7 @@ Waits until events are queued and processes them.
 Waits with timeout until events are queued and processes them.
 ````
 
-#### Function: POST-EMPTY-EVENT
+#### Function: POST\-EMPTY\-EVENT
 
 ```Lisp
 (defun GLFW:POST-EMPTY-EVENT NIL
@@ -1249,7 +1249,7 @@ Waits with timeout until events are queued and processes them.
 Posts an empty event to the event queue.
 ````
 
-#### Function: SWAP-BUFFERS
+#### Function: SWAP\-BUFFERS
 
 ```Lisp
 (defun GLFW:SWAP-BUFFERS (WINDOW)

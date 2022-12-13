@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the reference documentation for input related functions and types.
+This is the reference documentation for input related functions and types\.
 
 * [Input reference](/docs/api/input.md#input-reference)
   * [Description](/docs/api/input.md#description)
@@ -1561,17 +1561,17 @@ The function pointer type for joystick configuration callbacks.
   ...)
 ```
 
-#### Function: GAMEPADSTATE-BUTTONS
+#### Function: GAMEPADSTATE\-BUTTONS
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-BUTTONS (G258 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-BUTTONS (G4 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
-#### Function: GAMEPADSTATE-AXES
+#### Function: GAMEPADSTATE\-AXES
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-AXES (G259 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-AXES (G5 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
@@ -1579,7 +1579,7 @@ The function pointer type for joystick configuration callbacks.
 
 ### glfwGetInputMode
 
-#### Function: GET-INPUT-MODE
+#### Function: GET\-INPUT\-MODE
 
 ```Lisp
 (defun GLFW:GET-INPUT-MODE (WINDOW MODE)
@@ -1592,7 +1592,7 @@ Returns the value of an input option for the specified window.
 
 ### glfwSetInputMode
 
-#### Function: SET-INPUT-MODE
+#### Function: SET\-INPUT\-MODE
 
 ```Lisp
 (defun GLFW:SET-INPUT-MODE (WINDOW MODE VALUE)
@@ -1605,7 +1605,7 @@ Sets an input option for the specified window.
 
 ### glfwRawMouseMotionSupported
 
-#### Function: RAW-MOUSE-MOTION-SUPPORTED
+#### Function: RAW\-MOUSE\-MOTION\-SUPPORTED
 
 ```Lisp
 (defun GLFW:RAW-MOUSE-MOTION-SUPPORTED NIL
@@ -1618,7 +1618,7 @@ Returns whether raw mouse motion is supported (t or NIL).
 
 ### glfwGetKeyName
 
-#### Function: GET-KEY-NAME
+#### Function: GET\-KEY\-NAME
 
 ```Lisp
 (defun GLFW:GET-KEY-NAME (KEY SCANCODE)
@@ -1631,7 +1631,7 @@ Returns the layout-specific name of the specified printable key.
 
 ### glfwGetKeyScancode
 
-#### Function: GET-KEY-SCANCODE
+#### Function: GET\-KEY\-SCANCODE
 
 ```Lisp
 (defun GLFW:GET-KEY-SCANCODE (KEY)
@@ -1644,7 +1644,7 @@ Returns the platform-specific scancode of the specified key.
 
 ### glfwGetKey
 
-#### Function: GET-KEY
+#### Function: GET\-KEY
 
 ```Lisp
 (defun GLFW:GET-KEY (WINDOW KEY)
@@ -1657,7 +1657,7 @@ Returns the last reported state of a keyboard key for the specified window.
 
 ### glfwGetMouseButton
 
-#### Function: GET-MOUSE-BUTTON
+#### Function: GET\-MOUSE\-BUTTON
 
 ```Lisp
 (defun GLFW:GET-MOUSE-BUTTON (WINDOW BUTTON)
@@ -1670,7 +1670,7 @@ Returns the last reported state of a mouse button for the specified window.
 
 ### glfwGetCursorPos
 
-#### Function: GET-CURSOR-POS
+#### Function: GET\-CURSOR\-POS
 
 ```Lisp
 (defun GLFW:GET-CURSOR-POS (WINDOW)
@@ -1683,7 +1683,7 @@ Returns the x-position and y-position of the cursor relative to the content area
 
 ### glfwSetCursorPos
 
-#### Function: SET-CURSOR-POS
+#### Function: SET\-CURSOR\-POS
 
 ```Lisp
 (defun GLFW:SET-CURSOR-POS (WINDOW XPOS YPOS)
@@ -1696,7 +1696,7 @@ Sets the position of the cursor, relative to the content area of the window.
 
 ### glfwCreateCursor
 
-#### Function: CREATE-CURSOR
+#### Function: CREATE\-CURSOR
 
 ```Lisp
 (defun GLFW:CREATE-CURSOR (IMAGE XHOT YHOT)
@@ -1709,7 +1709,7 @@ Creates a custom cursor.
 
 ### glfwCreateStandardCursor
 
-#### Function: CREATE-STANDARD-CURSOR
+#### Function: CREATE\-STANDARD\-CURSOR
 
 ```Lisp
 (defun GLFW:CREATE-STANDARD-CURSOR (SHAPE)
@@ -1722,7 +1722,7 @@ Creates a cursor with a standard shape.
 
 ### glfwDestroyCursor
 
-#### Function: DESTROY-CURSOR
+#### Function: DESTROY\-CURSOR
 
 ```Lisp
 (defun GLFW:DESTROY-CURSOR (CURSOR)
@@ -1735,7 +1735,7 @@ Destroys a cursor.
 
 ### glfwSetCursor
 
-#### Function: SET-CURSOR
+#### Function: SET\-CURSOR
 
 ```Lisp
 (defun GLFW:SET-CURSOR (WINDOW CURSOR)
@@ -1748,12 +1748,12 @@ Sets the cursor for the window.
 
 ### glfwSetKeyCallback
 
-#### Macro: DEFINE-KEY-CALLBACK
+#### Macro: DEFINE\-KEY\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME275
+(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME21
                                (WINDOW KEY SCANCODE ACTION MODS) &BODY
-                               CALLBACK-BODY276)
+                               CALLBACK-BODY22)
   ...)
 ```
 
@@ -1761,7 +1761,7 @@ Sets the cursor for the window.
 Defines a key callback.
 ````
 
-#### Function: SET-KEY-CALLBACK
+#### Function: SET\-KEY\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-KEY-CALLBACK (WINDOW CALLBACK)
@@ -1774,11 +1774,11 @@ Sets the key callback.
 
 ### glfwSetCharCallback
 
-#### Macro: DEFINE-CHAR-CALLBACK
+#### Macro: DEFINE\-CHAR\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME285 (WINDOW CODEPOINT) &BODY
-                                CALLBACK-BODY286)
+(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME31 (WINDOW CODEPOINT) &BODY
+                                CALLBACK-BODY32)
   ...)
 ```
 
@@ -1786,7 +1786,7 @@ Sets the key callback.
 Defines an Unicode character callback.
 ````
 
-#### Function: SET-CHAR-CALLBACK
+#### Function: SET\-CHAR\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-CHAR-CALLBACK (WINDOW CALLBACK)
@@ -1799,11 +1799,11 @@ Sets the Unicode character callback.
 
 ### glfwSetCharModsCallback
 
-#### Macro: DEFINE-CHAR-MODS-CALLBACK
+#### Macro: DEFINE\-CHAR\-MODS\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME292 (WINDOW CODEPOINT MODS)
-                                     &BODY CALLBACK-BODY293)
+(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME38 (WINDOW CODEPOINT MODS)
+                                     &BODY CALLBACK-BODY39)
   ...)
 ```
 
@@ -1811,7 +1811,7 @@ Sets the Unicode character callback.
 Defines an Unicode character with modifiers callback.
 ````
 
-#### Function: SET-CHAR-MODS-CALLBACK
+#### Function: SET\-CHAR\-MODS\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-CHAR-MODS-CALLBACK (WINDOW CALLBACK)
@@ -1824,12 +1824,12 @@ Sets the Unicode character with modifiers callback.
 
 ### glfwSetMouseButtonCallback
 
-#### Macro: DEFINE-MOUSE-BUTTON-CALLBACK
+#### Macro: DEFINE\-MOUSE\-BUTTON\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME300
+(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME46
                                         (WINDOW BUTTON ACTION MODS) &BODY
-                                        CALLBACK-BODY301)
+                                        CALLBACK-BODY47)
   ...)
 ```
 
@@ -1837,7 +1837,7 @@ Sets the Unicode character with modifiers callback.
 Defines a mouse button callback.
 ````
 
-#### Function: SET-MOUSE-BUTTON-CALLBACK
+#### Function: SET\-MOUSE\-BUTTON\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-MOUSE-BUTTON-CALLBACK (WINDOW CALLBACK)
@@ -1850,11 +1850,11 @@ Sets the mouse button callback.
 
 ### glfwSetCursorPosCallback
 
-#### Macro: DEFINE-CURSOR-POS-CALLBACK
+#### Macro: DEFINE\-CURSOR\-POS\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME309 (WINDOW XPOS YPOS) &BODY
-                                      CALLBACK-BODY310)
+(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME55 (WINDOW XPOS YPOS) &BODY
+                                      CALLBACK-BODY56)
   ...)
 ```
 
@@ -1862,7 +1862,7 @@ Sets the mouse button callback.
 Defines a cursor position callback.
 ````
 
-#### Function: SET-CURSOR-POS-CALLBACK
+#### Function: SET\-CURSOR\-POS\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-CURSOR-POS-CALLBACK (WINDOW CALLBACK)
@@ -1875,11 +1875,11 @@ Sets the cursor position callback.
 
 ### glfwSetCursorEnterCallback
 
-#### Macro: DEFINE-CURSOR-ENTER-CALLBACK
+#### Macro: DEFINE\-CURSOR\-ENTER\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME317 (WINDOW ENTERED) &BODY
-                                        CALLBACK-BODY318)
+(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME63 (WINDOW ENTERED) &BODY
+                                        CALLBACK-BODY64)
   ...)
 ```
 
@@ -1887,7 +1887,7 @@ Sets the cursor position callback.
 Defines a cursor enter/leave callback.
 ````
 
-#### Function: SET-CURSOR-ENTER-CALLBACK
+#### Function: SET\-CURSOR\-ENTER\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-CURSOR-ENTER-CALLBACK (WINDOW CALLBACK)
@@ -1900,11 +1900,11 @@ Sets the cursor enter/leave callback.
 
 ### glfwSetScrollCallback
 
-#### Macro: DEFINE-SCROLL-CALLBACK
+#### Macro: DEFINE\-SCROLL\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME324 (WINDOW XOFFSET YOFFSET)
-                                  &BODY CALLBACK-BODY325)
+(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME70 (WINDOW XOFFSET YOFFSET)
+                                  &BODY CALLBACK-BODY71)
   ...)
 ```
 
@@ -1912,7 +1912,7 @@ Sets the cursor enter/leave callback.
 Defines a scroll callback.
 ````
 
-#### Function: SET-SCROLL-CALLBACK
+#### Function: SET\-SCROLL\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-SCROLL-CALLBACK (WINDOW CALLBACK)
@@ -1925,11 +1925,11 @@ Sets the scroll callback.
 
 ### glfwSetDropCallback
 
-#### Macro: DEFINE-DROP-CALLBACK
+#### Macro: DEFINE\-DROP\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME332 (WINDOW PATHS) &BODY
-                                CALLBACK-BODY333)
+(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME78 (WINDOW PATHS) &BODY
+                                CALLBACK-BODY79)
   ...)
 ```
 
@@ -1937,7 +1937,7 @@ Sets the scroll callback.
 Defines a path drop callback. The argument PATHS is a vector.
 ````
 
-#### Function: SET-DROP-CALLBACK
+#### Function: SET\-DROP\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-DROP-CALLBACK (WINDOW CALLBACK)
@@ -1950,7 +1950,7 @@ Sets the path drop callback.
 
 ### glfwJoystickPresent
 
-#### Function: JOYSTICK-PRESENT
+#### Function: JOYSTICK\-PRESENT
 
 ```Lisp
 (defun GLFW:JOYSTICK-PRESENT (JID)
@@ -1963,7 +1963,7 @@ Returns whether the specified joystick is present (t or NIL).
 
 ### glfwGetJoystickAxes
 
-#### Function: GET-JOYSTICK-AXES
+#### Function: GET\-JOYSTICK\-AXES
 
 ```Lisp
 (defun GLFW:GET-JOYSTICK-AXES (JID)
@@ -1976,7 +1976,7 @@ Returns a vector (or NIL) with the values of all axes of the specified joystick.
 
 ### glfwGetJoystickButtons
 
-#### Function: GET-JOYSTICK-BUTTONS
+#### Function: GET\-JOYSTICK\-BUTTONS
 
 ```Lisp
 (defun GLFW:GET-JOYSTICK-BUTTONS (JID)
@@ -1989,7 +1989,7 @@ Returns a vector (or NIL) with the state of all buttons of the specified joystic
 
 ### glfwGetJoystickHats
 
-#### Function: GET-JOYSTICK-HATS
+#### Function: GET\-JOYSTICK\-HATS
 
 ```Lisp
 (defun GLFW:GET-JOYSTICK-HATS (JID)
@@ -2002,7 +2002,7 @@ Returns a vector (or NIL) with the state of all hats of the specified joystick.
 
 ### glfwGetJoystickName
 
-#### Function: GET-JOYSTICK-NAME
+#### Function: GET\-JOYSTICK\-NAME
 
 ```Lisp
 (defun GLFW:GET-JOYSTICK-NAME (JID)
@@ -2015,7 +2015,7 @@ Returns the name (or NIL) of the specified joystick.
 
 ### glfwGetJoystickGUID
 
-#### Function: GET-JOYSTICK-GUID
+#### Function: GET\-JOYSTICK\-GUID
 
 ```Lisp
 (defun GLFW:GET-JOYSTICK-GUID (JID)
@@ -2028,7 +2028,7 @@ Returns the SDL compatible GUID (or NIL) of the specified joystick.
 
 ### glfwSetJoystickUserPointer
 
-#### Function: SET-JOYSTICK-USER-POINTER
+#### Function: SET\-JOYSTICK\-USER\-POINTER
 
 ```Lisp
 (defun GLFW:SET-JOYSTICK-USER-POINTER (JID DATA)
@@ -2041,7 +2041,7 @@ Sets the user pointer of the specified joystick.
 
 ### glfwGetJoystickUserPointer
 
-#### Function: GET-JOYSTICK-USER-POINTER
+#### Function: GET\-JOYSTICK\-USER\-POINTER
 
 ```Lisp
 (defun GLFW:GET-JOYSTICK-USER-POINTER (JID)
@@ -2054,7 +2054,7 @@ Returns the user pointer of the specified joystick.
 
 ### glfwJoystickIsGamepad
 
-#### Function: JOYSTICK-IS-GAMEPAD
+#### Function: JOYSTICK\-IS\-GAMEPAD
 
 ```Lisp
 (defun GLFW:JOYSTICK-IS-GAMEPAD (JID)
@@ -2067,11 +2067,11 @@ Returns whether the specified joystick has a gamepad mapping (t or NIL).
 
 ### glfwSetJoystickCallback
 
-#### Macro: DEFINE-JOYSTICK-CALLBACK
+#### Macro: DEFINE\-JOYSTICK\-CALLBACK
 
 ```Lisp
-(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME349 (JID EVENT) &BODY
-                                    CALLBACK-BODY350)
+(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME95 (JID EVENT) &BODY
+                                    CALLBACK-BODY96)
   ...)
 ```
 
@@ -2079,7 +2079,7 @@ Returns whether the specified joystick has a gamepad mapping (t or NIL).
 Defines a joystick configuration callback.
 ````
 
-#### Function: SET-JOYSTICK-CALLBACK
+#### Function: SET\-JOYSTICK\-CALLBACK
 
 ```Lisp
 (defun GLFW:SET-JOYSTICK-CALLBACK (CALLBACK)
@@ -2092,7 +2092,7 @@ Sets the joystick configuration callback.
 
 ### glfwUpdateGamepadMappings
 
-#### Function: UPDATE-GAMEPAD-MAPPINGS
+#### Function: UPDATE\-GAMEPAD\-MAPPINGS
 
 ```Lisp
 (defun GLFW:UPDATE-GAMEPAD-MAPPINGS (STRING)
@@ -2105,7 +2105,7 @@ Adds the specified SDL_GameControllerDB gamepad mappings. Returns t or NIL.
 
 ### glfwGetGamepadName
 
-#### Function: GET-GAMEPAD-NAME
+#### Function: GET\-GAMEPAD\-NAME
 
 ```Lisp
 (defun GLFW:GET-GAMEPAD-NAME (JID)
@@ -2118,7 +2118,7 @@ Returns the human-readable gamepad name (or NIL) for the specified joystick.
 
 ### glfwGetGamepadState
 
-#### Function: GET-GAMEPAD-STATE
+#### Function: GET\-GAMEPAD\-STATE
 
 ```Lisp
 (defun GLFW:GET-GAMEPAD-STATE (JID)
@@ -2131,7 +2131,7 @@ Returns the state of the specified joystick remapped as a gamepad (or NIL).
 
 ### glfwSetClipboardString
 
-#### Function: SET-CLIPBOARD-STRING
+#### Function: SET\-CLIPBOARD\-STRING
 
 ```Lisp
 (defun GLFW:SET-CLIPBOARD-STRING (WINDOW STRING)
@@ -2144,7 +2144,7 @@ Sets the clipboard to the specified string.
 
 ### glfwGetClipboardString
 
-#### Function: GET-CLIPBOARD-STRING
+#### Function: GET\-CLIPBOARD\-STRING
 
 ```Lisp
 (defun GLFW:GET-CLIPBOARD-STRING (WINDOW)
@@ -2157,7 +2157,7 @@ Returns the contents of the clipboard as a string.
 
 ### glfwGetTime
 
-#### Function: GET-TIME
+#### Function: GET\-TIME
 
 ```Lisp
 (defun GLFW:GET-TIME NIL
@@ -2170,7 +2170,7 @@ Returns the GLFW time.
 
 ### glfwSetTime
 
-#### Function: SET-TIME
+#### Function: SET\-TIME
 
 ```Lisp
 (defun GLFW:SET-TIME (TIME)
@@ -2183,7 +2183,7 @@ Sets the GLFW time.
 
 ### glfwGetTimerValue
 
-#### Function: GET-TIMER-VALUE
+#### Function: GET\-TIMER\-VALUE
 
 ```Lisp
 (defun GLFW:GET-TIMER-VALUE NIL
@@ -2196,7 +2196,7 @@ Returns the current value of the raw timer.
 
 ### glfwGetTimerFrequency
 
-#### Function: GET-TIMER-FREQUENCY
+#### Function: GET\-TIMER\-FREQUENCY
 
 ```Lisp
 (defun GLFW:GET-TIMER-FREQUENCY NIL

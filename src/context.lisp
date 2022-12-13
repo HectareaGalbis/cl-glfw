@@ -1,7 +1,7 @@
 
 (in-package :glfw)
 
-(adp:write-in-file #P"docs/api/context")
+(adp:in-file #P"docs/api/context")
 
 (adp:header "Context reference" context-reference-header)
 
