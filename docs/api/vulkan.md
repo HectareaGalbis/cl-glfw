@@ -1,53 +1,53 @@
-# Vulkan support reference
+<h1 id="header:GLFW:VULKAN-REFERENCE-HEADER">Vulkan support reference</h1>
 
-## Description
+<h2 id="header:ADP:HEADERTAG81">Description</h2>
 
 This is the reference documentation for Vulkan related functions and types\.
 
-* [Vulkan support reference](/docs/api/vulkan.md#vulkan-support-reference)
-  * [Description](/docs/api/vulkan.md#description)
-  * [Types](/docs/api/vulkan.md#types)
-  * [Functions](/docs/api/vulkan.md#functions)
-    * [glfwVulkanSupported](/docs/api/vulkan.md#glfwvulkansupported)
-    * [glfwGetRequiredInstanceExtensions](/docs/api/vulkan.md#glfwgetrequiredinstanceextensions)
-    * [glfwGetPhysicalDevicePresentationSupport](/docs/api/vulkan.md#glfwgetphysicaldevicepresentationsupport)
-    * [glfwCreateWindowSurface](/docs/api/vulkan.md#glfwcreatewindowsurface)
+* <a href="/docs/api/vulkan.md#header:GLFW:VULKAN-REFERENCE-HEADER">Vulkan support reference</a>
+  * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG81">Description</a>
+  * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG82">Types</a>
+  * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG83">Functions</a>
+    * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG84">glfwVulkanSupported</a>
+    * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG85">glfwGetRequiredInstanceExtensions</a>
+    * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG86">glfwGetPhysicalDevicePresentationSupport</a>
+    * <a href="/docs/api/vulkan.md#header:ADP:HEADERTAG87">glfwCreateWindowSurface</a>
 
-## Types
+<h2 id="header:ADP:HEADERTAG82">Types</h2>
 
-#### Type: NON\-DISPATCH\-HANDLE
+<h4 id="type:GLFW:NON-DISPATCH-HANDLE">Type: NON-DISPATCH-HANDLE</h4>
 
 ```Lisp
 (deftype NON-DISPATCH-HANDLE NIL
   ...)
 ```
 
-#### Type: VKINSTANCE
+<h4 id="type:GLFW:VKINSTANCE">Type: VKINSTANCE</h4>
 
 ```Lisp
 (deftype VKINSTANCE NIL
   ...)
 ```
 
-#### Type: VKPHYSICALDEVICE
+<h4 id="type:GLFW:VKPHYSICALDEVICE">Type: VKPHYSICALDEVICE</h4>
 
 ```Lisp
 (deftype VKPHYSICALDEVICE NIL
   ...)
 ```
 
-#### Type: VKALLOCATIONCALLBACKS
+<h4 id="type:GLFW:VKALLOCATIONCALLBACKS">Type: VKALLOCATIONCALLBACKS</h4>
 
 ```Lisp
 (deftype VKALLOCATIONCALLBACKS NIL
   ...)
 ```
 
-## Functions
+<h2 id="header:ADP:HEADERTAG83">Functions</h2>
 
-### glfwVulkanSupported
+<h3 id="header:ADP:HEADERTAG84">glfwVulkanSupported</h3>
 
-#### Function: VULKAN\-SUPPORTED
+<h4 id="function:GLFW:VULKAN-SUPPORTED">Function: VULKAN-SUPPORTED</h4>
 
 ```Lisp
 (defun GLFW:VULKAN-SUPPORTED NIL
@@ -58,9 +58,9 @@ This is the reference documentation for Vulkan related functions and types\.
 Returns (t or NIL) whether the Vulkan loader and an ICD have been found.
 ````
 
-### glfwGetRequiredInstanceExtensions
+<h3 id="header:ADP:HEADERTAG85">glfwGetRequiredInstanceExtensions</h3>
 
-#### Function: GET\-REQUIRED\-INSTANCE\-EXTENSIONS
+<h4 id="function:GLFW:GET-REQUIRED-INSTANCE-EXTENSIONS">Function: GET-REQUIRED-INSTANCE-EXTENSIONS</h4>
 
 ```Lisp
 (defun GLFW:GET-REQUIRED-INSTANCE-EXTENSIONS NIL
@@ -71,9 +71,9 @@ Returns (t or NIL) whether the Vulkan loader and an ICD have been found.
 Returns a vector with the Vulkan instance extensions required by GLFW.
 ````
 
-### glfwGetPhysicalDevicePresentationSupport
+<h3 id="header:ADP:HEADERTAG86">glfwGetPhysicalDevicePresentationSupport</h3>
 
-#### Function: GET\-PHYSICAL\-DEVICE\-PRESENTATION\-SUPPORT
+<h4 id="function:GLFW:GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT">Function: GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT</h4>
 
 ```Lisp
 (defun GLFW:GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT (INSTANCE DEVICE
@@ -85,9 +85,9 @@ Returns a vector with the Vulkan instance extensions required by GLFW.
 Returns (t or NIL) whether the specified queue family can present images.
 ````
 
-### glfwCreateWindowSurface
+<h3 id="header:ADP:HEADERTAG87">glfwCreateWindowSurface</h3>
 
-#### Function: CREATE\-WINDOW\-SURFACE
+<h4 id="function:GLFW:CREATE-WINDOW-SURFACE">Function: CREATE-WINDOW-SURFACE</h4>
 
 ```Lisp
 (defun GLFW:CREATE-WINDOW-SURFACE (INSTANCE WINDOW ALLOCATOR)

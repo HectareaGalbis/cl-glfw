@@ -1,22 +1,22 @@
-# Context reference
+<h1 id="header:GLFW:CONTEXT-REFERENCE-HEADER">Context reference</h1>
 
-## Description
+<h2 id="header:ADP:HEADERTAG10">Description</h2>
 
 This is the reference documentation for OpenGL and OpenGL ES context related functions\.
 
-* [Context reference](/docs/api/context.md#context-reference)
-  * [Description](/docs/api/context.md#description)
-  * [Functions](/docs/api/context.md#functions)
-    * [glfwMakeContextCurrent](/docs/api/context.md#glfwmakecontextcurrent)
-    * [glfwGetCurrentContext](/docs/api/context.md#glfwgetcurrentcontext)
-    * [glfwSwapInterval](/docs/api/context.md#glfwswapinterval)
-    * [glfwExtensionSupported](/docs/api/context.md#glfwextensionsupported)
+* <a href="/docs/api/context.md#header:GLFW:CONTEXT-REFERENCE-HEADER">Context reference</a>
+  * <a href="/docs/api/context.md#header:ADP:HEADERTAG10">Description</a>
+  * <a href="/docs/api/context.md#header:ADP:HEADERTAG11">Functions</a>
+    * <a href="/docs/api/context.md#header:ADP:HEADERTAG12">glfwMakeContextCurrent</a>
+    * <a href="/docs/api/context.md#header:ADP:HEADERTAG13">glfwGetCurrentContext</a>
+    * <a href="/docs/api/context.md#header:ADP:HEADERTAG14">glfwSwapInterval</a>
+    * <a href="/docs/api/context.md#header:ADP:HEADERTAG15">glfwExtensionSupported</a>
 
-## Functions
+<h2 id="header:ADP:HEADERTAG11">Functions</h2>
 
-### glfwMakeContextCurrent
+<h3 id="header:ADP:HEADERTAG12">glfwMakeContextCurrent</h3>
 
-#### Function: MAKE\-CONTEXT\-CURRENT
+<h4 id="function:GLFW:MAKE-CONTEXT-CURRENT">Function: MAKE-CONTEXT-CURRENT</h4>
 
 ```Lisp
 (defun GLFW:MAKE-CONTEXT-CURRENT (WINDOW)
@@ -27,9 +27,9 @@ This is the reference documentation for OpenGL and OpenGL ES context related fun
 Makes the context of the specified window current for the calling thread.
 ````
 
-### glfwGetCurrentContext
+<h3 id="header:ADP:HEADERTAG13">glfwGetCurrentContext</h3>
 
-#### Function: GET\-CURRENT\-CONTEXT
+<h4 id="function:GLFW:GET-CURRENT-CONTEXT">Function: GET-CURRENT-CONTEXT</h4>
 
 ```Lisp
 (defun GLFW:GET-CURRENT-CONTEXT NIL
@@ -40,9 +40,9 @@ Makes the context of the specified window current for the calling thread.
 Returns the window whose context is current on the calling thread.
 ````
 
-### glfwSwapInterval
+<h3 id="header:ADP:HEADERTAG14">glfwSwapInterval</h3>
 
-#### Function: SWAP\-INTERVAL
+<h4 id="function:GLFW:SWAP-INTERVAL">Function: SWAP-INTERVAL</h4>
 
 ```Lisp
 (defun GLFW:SWAP-INTERVAL (INTERVAL)
@@ -53,9 +53,9 @@ Returns the window whose context is current on the calling thread.
 Sets the swap interval for the current context.
 ````
 
-### glfwExtensionSupported
+<h3 id="header:ADP:HEADERTAG15">glfwExtensionSupported</h3>
 
-#### Function: EXTENSION\-SUPPORTED
+<h4 id="function:GLFW:EXTENSION-SUPPORTED">Function: EXTENSION-SUPPORTED</h4>
 
 ```Lisp
 (defun GLFW:EXTENSION-SUPPORTED (EXTENSION)

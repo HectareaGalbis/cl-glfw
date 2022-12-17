@@ -1,19 +1,19 @@
-# Window reference
+<h1 id="header:GLFW:WINDOW-REFERENCE-HEADER">Window reference</h1>
 
-## Description
+<h2 id="header:ADP:HEADERTAG88">Description</h2>
 
 This is the reference documentation for window related functions and types\, including creation\, deletion and event polling\.
 
-* [Window reference](/docs/api/window.md#window-reference)
-  * [Description](/docs/api/window.md#description)
-  * [Constants](/docs/api/window.md#constants)
-  * [Types](/docs/api/window.md#types)
-    * [GFLWimage](/docs/api/window.md#gflwimage)
-  * [Functions](/docs/api/window.md#functions)
+* <a href="/docs/api/window.md#header:GLFW:WINDOW-REFERENCE-HEADER">Window reference</a>
+  * <a href="/docs/api/window.md#header:ADP:HEADERTAG88">Description</a>
+  * <a href="/docs/api/window.md#header:ADP:HEADERTAG89">Constants</a>
+  * <a href="/docs/api/window.md#header:ADP:HEADERTAG90">Types</a>
+    * <a href="/docs/api/window.md#header:ADP:HEADERTAG91">GFLWimage</a>
+  * <a href="/docs/api/window.md#header:ADP:HEADERTAG92">Functions</a>
 
-## Constants
+<h2 id="header:ADP:HEADERTAG89">Constants</h2>
 
-#### Constant: GLFW\_FOCUSED
+<h4 id="symbol:GLFW:GLFW_FOCUSED">Constant: GLFW_FOCUSED</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_FOCUSED 131073)
@@ -23,7 +23,7 @@ This is the reference documentation for window related functions and types\, inc
 Input focus window hint and attribute.
 ````
 
-#### Constant: GLFW\_ICONIFIED
+<h4 id="symbol:GLFW:GLFW_ICONIFIED">Constant: GLFW_ICONIFIED</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_ICONIFIED 131074)
@@ -33,7 +33,7 @@ Input focus window hint and attribute.
 Window iconification window attribute.
 ````
 
-#### Constant: GLFW\_RESIZABLE
+<h4 id="symbol:GLFW:GLFW_RESIZABLE">Constant: GLFW_RESIZABLE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_RESIZABLE 131075)
@@ -43,7 +43,7 @@ Window iconification window attribute.
 Window resize_ability window hint and attribute.
 ````
 
-#### Constant: GLFW\_VISIBLE
+<h4 id="symbol:GLFW:GLFW_VISIBLE">Constant: GLFW_VISIBLE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_VISIBLE 131076)
@@ -53,7 +53,7 @@ Window resize_ability window hint and attribute.
 Window visibility window hint and attribute.
 ````
 
-#### Constant: GLFW\_DECORATED
+<h4 id="symbol:GLFW:GLFW_DECORATED">Constant: GLFW_DECORATED</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_DECORATED 131077)
@@ -63,7 +63,7 @@ Window visibility window hint and attribute.
 Window decoration window hint and attribute.
 ````
 
-#### Constant: GLFW\_AUTO\_ICONIFY
+<h4 id="symbol:GLFW:GLFW_AUTO_ICONIFY">Constant: GLFW_AUTO_ICONIFY</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_AUTO_ICONIFY 131078)
@@ -73,7 +73,7 @@ Window decoration window hint and attribute.
 Window auto_iconification window hint and attribute.
 ````
 
-#### Constant: GLFW\_FLOATING
+<h4 id="symbol:GLFW:GLFW_FLOATING">Constant: GLFW_FLOATING</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_FLOATING 131079)
@@ -83,7 +83,7 @@ Window auto_iconification window hint and attribute.
 Window decoration window hint and attribute.
 ````
 
-#### Constant: GLFW\_MAXIMIZED
+<h4 id="symbol:GLFW:GLFW_MAXIMIZED">Constant: GLFW_MAXIMIZED</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_MAXIMIZED 131080)
@@ -93,7 +93,7 @@ Window decoration window hint and attribute.
 Window maximization window hint and attribute.
 ````
 
-#### Constant: GLFW\_CENTER\_CURSOR
+<h4 id="symbol:GLFW:GLFW_CENTER_CURSOR">Constant: GLFW_CENTER_CURSOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CENTER_CURSOR 131081)
@@ -103,7 +103,7 @@ Window maximization window hint and attribute.
 Cursor centering window hint.
 ````
 
-#### Constant: GLFW\_TRANSPARENT\_FRAMEBUFFER
+<h4 id="symbol:GLFW:GLFW_TRANSPARENT_FRAMEBUFFER">Constant: GLFW_TRANSPARENT_FRAMEBUFFER</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_TRANSPARENT_FRAMEBUFFER 131082)
@@ -113,7 +113,7 @@ Cursor centering window hint.
 Window framebuffer transparency hint and attribute.
 ````
 
-#### Constant: GLFW\_HOVERED
+<h4 id="symbol:GLFW:GLFW_HOVERED">Constant: GLFW_HOVERED</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_HOVERED 131083)
@@ -123,7 +123,7 @@ Window framebuffer transparency hint and attribute.
 Mouse cursor hover window attribute.
 ````
 
-#### Constant: GLFW\_FOCUS\_ON\_SHOW
+<h4 id="symbol:GLFW:GLFW_FOCUS_ON_SHOW">Constant: GLFW_FOCUS_ON_SHOW</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_FOCUS_ON_SHOW 131084)
@@ -133,7 +133,7 @@ Mouse cursor hover window attribute.
 Input focus on calling show window hint and attribute.
 ````
 
-#### Constant: GLFW\_RED\_BITS
+<h4 id="symbol:GLFW:GLFW_RED_BITS">Constant: GLFW_RED_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_RED_BITS 135169)
@@ -143,7 +143,7 @@ Input focus on calling show window hint and attribute.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_GREEN\_BITS
+<h4 id="symbol:GLFW:GLFW_GREEN_BITS">Constant: GLFW_GREEN_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_GREEN_BITS 135170)
@@ -153,7 +153,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_BLUE\_BITS
+<h4 id="symbol:GLFW:GLFW_BLUE_BITS">Constant: GLFW_BLUE_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_BLUE_BITS 135171)
@@ -163,7 +163,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_ALPHA\_BITS
+<h4 id="symbol:GLFW:GLFW_ALPHA_BITS">Constant: GLFW_ALPHA_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_ALPHA_BITS 135172)
@@ -173,7 +173,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_DEPTH\_BITS
+<h4 id="symbol:GLFW:GLFW_DEPTH_BITS">Constant: GLFW_DEPTH_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_DEPTH_BITS 135173)
@@ -183,7 +183,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_STENCIL\_BITS
+<h4 id="symbol:GLFW:GLFW_STENCIL_BITS">Constant: GLFW_STENCIL_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_STENCIL_BITS 135174)
@@ -193,7 +193,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_ACCUM\_RED\_BITS
+<h4 id="symbol:GLFW:GLFW_ACCUM_RED_BITS">Constant: GLFW_ACCUM_RED_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_ACCUM_RED_BITS 135175)
@@ -203,7 +203,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_ACCUM\_GREEN\_BITS
+<h4 id="symbol:GLFW:GLFW_ACCUM_GREEN_BITS">Constant: GLFW_ACCUM_GREEN_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_ACCUM_GREEN_BITS 135176)
@@ -213,7 +213,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_ACCUM\_BLUE\_BITS
+<h4 id="symbol:GLFW:GLFW_ACCUM_BLUE_BITS">Constant: GLFW_ACCUM_BLUE_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_ACCUM_BLUE_BITS 135177)
@@ -223,7 +223,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_ACCUM\_ALPHA\_BITS
+<h4 id="symbol:GLFW:GLFW_ACCUM_ALPHA_BITS">Constant: GLFW_ACCUM_ALPHA_BITS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_ACCUM_ALPHA_BITS 135178)
@@ -233,7 +233,7 @@ Framebuffer bit depth hint.
 Framebuffer bit depth hint.
 ````
 
-#### Constant: GLFW\_AUX\_BUFFERS
+<h4 id="symbol:GLFW:GLFW_AUX_BUFFERS">Constant: GLFW_AUX_BUFFERS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_AUX_BUFFERS 135179)
@@ -243,7 +243,7 @@ Framebuffer bit depth hint.
 Framebuffer auxiliary buffer hint.
 ````
 
-#### Constant: GLFW\_STEREO
+<h4 id="symbol:GLFW:GLFW_STEREO">Constant: GLFW_STEREO</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_STEREO 135180)
@@ -253,7 +253,7 @@ Framebuffer auxiliary buffer hint.
 OpenGL stereoscopic rendering hint.
 ````
 
-#### Constant: GLFW\_SAMPLES
+<h4 id="symbol:GLFW:GLFW_SAMPLES">Constant: GLFW_SAMPLES</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_SAMPLES 135181)
@@ -263,7 +263,7 @@ OpenGL stereoscopic rendering hint.
 Framebuffer MSAA samples hint.
 ````
 
-#### Constant: GLFW\_SRGB\_CAPABLE
+<h4 id="symbol:GLFW:GLFW_SRGB_CAPABLE">Constant: GLFW_SRGB_CAPABLE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_SRGB_CAPABLE 135182)
@@ -273,7 +273,7 @@ Framebuffer MSAA samples hint.
 Framebuffer sRGB hint.
 ````
 
-#### Constant: GLFW\_REFRESH\_RATE
+<h4 id="symbol:GLFW:GLFW_REFRESH_RATE">Constant: GLFW_REFRESH_RATE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_REFRESH_RATE 135183)
@@ -283,7 +283,7 @@ Framebuffer sRGB hint.
 Monitor refresh rate hint.
 ````
 
-#### Constant: GLFW\_DOUBLEBUFFER
+<h4 id="symbol:GLFW:GLFW_DOUBLEBUFFER">Constant: GLFW_DOUBLEBUFFER</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_DOUBLEBUFFER 135184)
@@ -293,7 +293,7 @@ Monitor refresh rate hint.
 Framebuffer double buffering hint.
 ````
 
-#### Constant: GLFW\_CLIENT\_API
+<h4 id="symbol:GLFW:GLFW_CLIENT_API">Constant: GLFW_CLIENT_API</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CLIENT_API 139265)
@@ -303,7 +303,7 @@ Framebuffer double buffering hint.
 Context client API hint and attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_VERSION\_MAJOR
+<h4 id="symbol:GLFW:GLFW_CONTEXT_VERSION_MAJOR">Constant: GLFW_CONTEXT_VERSION_MAJOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_VERSION_MAJOR 139266)
@@ -313,7 +313,7 @@ Context client API hint and attribute.
 Context client API major version hint and attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_VERSION\_MINOR
+<h4 id="symbol:GLFW:GLFW_CONTEXT_VERSION_MINOR">Constant: GLFW_CONTEXT_VERSION_MINOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_VERSION_MINOR 139267)
@@ -323,7 +323,7 @@ Context client API major version hint and attribute.
 Context client API minor version hint and attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_REVISION
+<h4 id="symbol:GLFW:GLFW_CONTEXT_REVISION">Constant: GLFW_CONTEXT_REVISION</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_REVISION 139268)
@@ -333,7 +333,7 @@ Context client API minor version hint and attribute.
 Context client API revision number attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_ROBUSTNESS
+<h4 id="symbol:GLFW:GLFW_CONTEXT_ROBUSTNESS">Constant: GLFW_CONTEXT_ROBUSTNESS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_ROBUSTNESS 139269)
@@ -343,7 +343,7 @@ Context client API revision number attribute.
 Context robustness hint and attribute.
 ````
 
-#### Constant: GLFW\_OPENGL\_FORWARD\_COMPAT
+<h4 id="symbol:GLFW:GLFW_OPENGL_FORWARD_COMPAT">Constant: GLFW_OPENGL_FORWARD_COMPAT</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_OPENGL_FORWARD_COMPAT 139270)
@@ -353,7 +353,7 @@ Context robustness hint and attribute.
 OpenGL forward_compatibility hint and attribute.
 ````
 
-#### Constant: GLFW\_OPENGL\_DEBUG\_CONTEXT
+<h4 id="symbol:GLFW:GLFW_OPENGL_DEBUG_CONTEXT">Constant: GLFW_OPENGL_DEBUG_CONTEXT</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_OPENGL_DEBUG_CONTEXT 139271)
@@ -363,7 +363,7 @@ OpenGL forward_compatibility hint and attribute.
 Debug mode context hint and attribute.
 ````
 
-#### Constant: GLFW\_OPENGL\_PROFILE
+<h4 id="symbol:GLFW:GLFW_OPENGL_PROFILE">Constant: GLFW_OPENGL_PROFILE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_OPENGL_PROFILE 139272)
@@ -373,7 +373,7 @@ Debug mode context hint and attribute.
 OpenGL profile hint and attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_RELEASE\_BEHAVIOR
+<h4 id="symbol:GLFW:GLFW_CONTEXT_RELEASE_BEHAVIOR">Constant: GLFW_CONTEXT_RELEASE_BEHAVIOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_RELEASE_BEHAVIOR 139273)
@@ -383,7 +383,7 @@ OpenGL profile hint and attribute.
 Context flush_on_release hint and attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_NO\_ERROR
+<h4 id="symbol:GLFW:GLFW_CONTEXT_NO_ERROR">Constant: GLFW_CONTEXT_NO_ERROR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_NO_ERROR 139274)
@@ -393,7 +393,7 @@ Context flush_on_release hint and attribute.
 Context error suppression hint and attribute.
 ````
 
-#### Constant: GLFW\_CONTEXT\_CREATION\_API
+<h4 id="symbol:GLFW:GLFW_CONTEXT_CREATION_API">Constant: GLFW_CONTEXT_CREATION_API</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_CONTEXT_CREATION_API 139275)
@@ -403,7 +403,7 @@ Context error suppression hint and attribute.
 Context creation API hint and attribute.
 ````
 
-#### Constant: GLFW\_SCALE\_TO\_MONITOR
+<h4 id="symbol:GLFW:GLFW_SCALE_TO_MONITOR">Constant: GLFW_SCALE_TO_MONITOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_SCALE_TO_MONITOR 139276)
@@ -413,7 +413,7 @@ Context creation API hint and attribute.
 Window content area scaling window window hint.
 ````
 
-#### Constant: GLFW\_COCOA\_RETINA\_FRAMEBUFFER
+<h4 id="symbol:GLFW:GLFW_COCOA_RETINA_FRAMEBUFFER">Constant: GLFW_COCOA_RETINA_FRAMEBUFFER</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_COCOA_RETINA_FRAMEBUFFER 143361)
@@ -423,7 +423,7 @@ Window content area scaling window window hint.
 macOS specific window hint.
 ````
 
-#### Constant: GLFW\_COCOA\_FRAME\_NAME
+<h4 id="symbol:GLFW:GLFW_COCOA_FRAME_NAME">Constant: GLFW_COCOA_FRAME_NAME</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_COCOA_FRAME_NAME 143362)
@@ -433,7 +433,7 @@ macOS specific window hint.
 macOS specific window hint.
 ````
 
-#### Constant: GLFW\_COCOA\_GRAPHICS\_SWITCHING
+<h4 id="symbol:GLFW:GLFW_COCOA_GRAPHICS_SWITCHING">Constant: GLFW_COCOA_GRAPHICS_SWITCHING</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_COCOA_GRAPHICS_SWITCHING 143363)
@@ -443,7 +443,7 @@ macOS specific window hint.
 macOS specific window hint.
 ````
 
-#### Constant: GLFW\_X11\_CLASS\_NAME
+<h4 id="symbol:GLFW:GLFW_X11_CLASS_NAME">Constant: GLFW_X11_CLASS_NAME</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_X11_CLASS_NAME 147457)
@@ -453,7 +453,7 @@ macOS specific window hint.
 X11 specific window hint.
 ````
 
-#### Constant: GLFW\_X11\_INSTANCE\_NAME
+<h4 id="symbol:GLFW:GLFW_X11_INSTANCE_NAME">Constant: GLFW_X11_INSTANCE_NAME</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_X11_INSTANCE_NAME 147458)
@@ -463,91 +463,91 @@ X11 specific window hint.
 X11 specific window hint.
 ````
 
-## Types
+<h2 id="header:ADP:HEADERTAG90">Types</h2>
 
-#### Type: WINDOW
+<h4 id="type:GLFW:WINDOW">Type: WINDOW</h4>
 
 ```Lisp
 (deftype WINDOW NIL
   ...)
 ```
 
-#### Type: WINDOWPOSFUN
+<h4 id="type:GLFW:WINDOWPOSFUN">Type: WINDOWPOSFUN</h4>
 
 ```Lisp
 (deftype WINDOWPOSFUN NIL
   ...)
 ```
 
-#### Type: WINDOWSIZEFUN
+<h4 id="type:GLFW:WINDOWSIZEFUN">Type: WINDOWSIZEFUN</h4>
 
 ```Lisp
 (deftype WINDOWSIZEFUN NIL
   ...)
 ```
 
-#### Type: WINDOWCLOSEFUN
+<h4 id="type:GLFW:WINDOWCLOSEFUN">Type: WINDOWCLOSEFUN</h4>
 
 ```Lisp
 (deftype WINDOWCLOSEFUN NIL
   ...)
 ```
 
-#### Type: WINDOWREFRESHFUN
+<h4 id="type:GLFW:WINDOWREFRESHFUN">Type: WINDOWREFRESHFUN</h4>
 
 ```Lisp
 (deftype WINDOWREFRESHFUN NIL
   ...)
 ```
 
-#### Type: WINDOWFOCUSFUN
+<h4 id="type:GLFW:WINDOWFOCUSFUN">Type: WINDOWFOCUSFUN</h4>
 
 ```Lisp
 (deftype WINDOWFOCUSFUN NIL
   ...)
 ```
 
-#### Type: WINDOWICONIFYFUN
+<h4 id="type:GLFW:WINDOWICONIFYFUN">Type: WINDOWICONIFYFUN</h4>
 
 ```Lisp
 (deftype WINDOWICONIFYFUN NIL
   ...)
 ```
 
-#### Type: WINDOWMAXIMIZEFUN
+<h4 id="type:GLFW:WINDOWMAXIMIZEFUN">Type: WINDOWMAXIMIZEFUN</h4>
 
 ```Lisp
 (deftype WINDOWMAXIMIZEFUN NIL
   ...)
 ```
 
-#### Type: FRAMEBUFFERSIZEFUN
+<h4 id="type:GLFW:FRAMEBUFFERSIZEFUN">Type: FRAMEBUFFERSIZEFUN</h4>
 
 ```Lisp
 (deftype FRAMEBUFFERSIZEFUN NIL
   ...)
 ```
 
-#### Type: WINDOWCONTENTSCALEFUN
+<h4 id="type:GLFW:WINDOWCONTENTSCALEFUN">Type: WINDOWCONTENTSCALEFUN</h4>
 
 ```Lisp
 (deftype WINDOWCONTENTSCALEFUN NIL
   ...)
 ```
 
-### GFLWimage
+<h3 id="header:ADP:HEADERTAG91">GFLWimage</h3>
 
-#### Type: IMAGE
+<h4 id="type:GLFW:IMAGE">Type: IMAGE</h4>
 
 ```Lisp
 (deftype IMAGE NIL
   ...)
 ```
 
-#### Function: CREATE\-IMAGE
+<h4 id="function:GLFW:CREATE-IMAGE">Function: CREATE-IMAGE</h4>
 
 ```Lisp
-(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G4) 0) ((:HEIGHT G5) 0)
+(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G1911) 0) ((:HEIGHT G1912) 0)
                           ((:PIXELS PIXELS-ARG) NIL))
   ...)
 ```
@@ -556,10 +556,10 @@ X11 specific window hint.
 Constructor of IMAGE.
 ````
 
-#### Function: DESTROY\-IMAGE
+<h4 id="function:GLFW:DESTROY-IMAGE">Function: DESTROY-IMAGE</h4>
 
 ```Lisp
-(defun GLFW:DESTROY-IMAGE (ARG7)
+(defun GLFW:DESTROY-IMAGE (ARG1914)
   ...)
 ```
 
@@ -567,10 +567,10 @@ Constructor of IMAGE.
 Destructor of IMAGE.
 ````
 
-#### Macro: WITH\-IMAGE
+<h4 id="function:GLFW:WITH-IMAGE">Macro: WITH-IMAGE</h4>
 
 ```Lisp
-(defmacro GLFW:WITH-IMAGE (VAR16 ARGS17 &BODY BODY18)
+(defmacro GLFW:WITH-IMAGE (VAR1923 ARGS1924 &BODY BODY1925)
   ...)
 ```
 
@@ -578,54 +578,54 @@ Destructor of IMAGE.
 Wrap the body forms with CREATE-IMAGE and DESTROY-IMAGE.
 ````
 
-#### Function: IMAGE\-WIDTH
+<h4 id="function:GLFW:IMAGE-WIDTH">Function: IMAGE-WIDTH</h4>
 
 ```Lisp
-(defun GLFW:IMAGE-WIDTH (G8)
+(defun GLFW:IMAGE-WIDTH (G1915)
   ...)
 ```
 
-#### Function: IMAGE\-HEIGHT
+<h4 id="function:GLFW:IMAGE-HEIGHT">Function: IMAGE-HEIGHT</h4>
 
 ```Lisp
-(defun GLFW:IMAGE-HEIGHT (G9)
+(defun GLFW:IMAGE-HEIGHT (G1916)
   ...)
 ```
 
-#### Function: IMAGE\-PIXELS
+<h4 id="function:GLFW:IMAGE-PIXELS">Function: IMAGE-PIXELS</h4>
 
 ```Lisp
-(defun GLFW:IMAGE-PIXELS (G10 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
+(defun GLFW:IMAGE-PIXELS (G1917 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
   ...)
 ```
 
-#### Function: \(SETF IMAGE\-WIDTH\)
+<h4 id="function:COMMON-LISP:NIL">Function: (SETF IMAGE-WIDTH)</h4>
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-WIDTH) (G12 G11)
+(defun (SETF GLFW:IMAGE-WIDTH) (G1919 G1918)
   ...)
 ```
 
-#### Function: \(SETF IMAGE\-HEIGHT\)
+<h4 id="function:COMMON-LISP:NIL">Function: (SETF IMAGE-HEIGHT)</h4>
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-HEIGHT) (G14 G13)
+(defun (SETF GLFW:IMAGE-HEIGHT) (G1921 G1920)
   ...)
 ```
 
-#### Function: \(SETF IMAGE\-PIXELS\)
+<h4 id="function:COMMON-LISP:NIL">Function: (SETF IMAGE-PIXELS)</h4>
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G15 &OPTIONAL (HEIGHT-INDEX NIL)
+(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G1922 &OPTIONAL (HEIGHT-INDEX NIL)
                                  (WIDTH-INDEX NIL))
   ...)
 ```
 
-* **Warning**\: If you want to modify the PIXELS member\, you must change WIDTH and HEIGHT first\.
+* <strong>Warning</strong>\: If you want to modify the PIXELS member\, you must change WIDTH and HEIGHT first\.
 
-## Functions
+<h2 id="header:ADP:HEADERTAG92">Functions</h2>
 
-#### Function: DELFAULT\-WINDOW\-HINTS
+<h4 id="function:GLFW:DELFAULT-WINDOW-HINTS">Function: DELFAULT-WINDOW-HINTS</h4>
 
 ```Lisp
 (defun DELFAULT-WINDOW-HINTS NIL
@@ -636,7 +636,7 @@ Wrap the body forms with CREATE-IMAGE and DESTROY-IMAGE.
 Resets all window hints to their default values.
 ````
 
-#### Function: WINDOW\-HINT
+<h4 id="function:GLFW:WINDOW-HINT">Function: WINDOW-HINT</h4>
 
 ```Lisp
 (defun GLFW:WINDOW-HINT (HINT VALUE)
@@ -647,7 +647,7 @@ Resets all window hints to their default values.
 Sets the specified window hint to the desired value.
 ````
 
-#### Function: WINDOW\-HINT\-STRING
+<h4 id="function:GLFW:WINDOW-HINT-STRING">Function: WINDOW-HINT-STRING</h4>
 
 ```Lisp
 (defun GLFW:WINDOW-HINT-STRING (HINT VALUE)
@@ -658,7 +658,7 @@ Sets the specified window hint to the desired value.
 Sets the specified window hint to the desired value.
 ````
 
-#### Function: CREATE\-WINDOW
+<h4 id="function:GLFW:CREATE-WINDOW">Function: CREATE-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:CREATE-WINDOW (WIDTH HEIGHT TITLE MONITOR SHARE)
@@ -669,7 +669,7 @@ Sets the specified window hint to the desired value.
 Creates a window (or returns NIL) and its associated context.
 ````
 
-#### Function: DESTROY\-WINDOW
+<h4 id="function:GLFW:DESTROY-WINDOW">Function: DESTROY-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:DESTROY-WINDOW (WINDOW)
@@ -680,7 +680,7 @@ Creates a window (or returns NIL) and its associated context.
 Destroys the specified window and its context.
 ````
 
-#### Function: WINDOW\-SHOULD\-CLOSE
+<h4 id="function:GLFW:WINDOW-SHOULD-CLOSE">Function: WINDOW-SHOULD-CLOSE</h4>
 
 ```Lisp
 (defun GLFW:WINDOW-SHOULD-CLOSE (WINDOW)
@@ -691,7 +691,7 @@ Destroys the specified window and its context.
 Checks the close flag (t or NIL) of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-SHOULD\-CLOSE
+<h4 id="function:GLFW:SET-WINDOW-SHOULD-CLOSE">Function: SET-WINDOW-SHOULD-CLOSE</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SHOULD-CLOSE (WINDOW VALUE)
@@ -702,7 +702,7 @@ Checks the close flag (t or NIL) of the specified window.
 Sets the close flag (t or NIL) of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-TITLE
+<h4 id="function:GLFW:SET-WINDOW-TITLE">Function: SET-WINDOW-TITLE</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-TITLE (WINDOW TITLE)
@@ -713,7 +713,7 @@ Sets the close flag (t or NIL) of the specified window.
 Sets the title of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-ICON
+<h4 id="function:GLFW:SET-WINDOW-ICON">Function: SET-WINDOW-ICON</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ICON (WINDOW IMAGES)
@@ -724,7 +724,7 @@ Sets the title of the specified window.
 Sets the icon for the specified window. IMAGES must be a vector or NIL.
 ````
 
-#### Function: GET\-WINDOW\-POS
+<h4 id="function:GLFW:GET-WINDOW-POS">Function: GET-WINDOW-POS</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-POS (WINDOW)
@@ -735,7 +735,7 @@ Sets the icon for the specified window. IMAGES must be a vector or NIL.
 Returns the x-position and y-position of the content area of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-POS
+<h4 id="function:GLFW:SET-WINDOW-POS">Function: SET-WINDOW-POS</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-POS (WINDOW XPOS YPOS)
@@ -746,7 +746,7 @@ Returns the x-position and y-position of the content area of the specified windo
 Sets the position of the content area of the specified window.
 ````
 
-#### Function: GET\-WINDOW\-SIZE
+<h4 id="function:GLFW:GET-WINDOW-SIZE">Function: GET-WINDOW-SIZE</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-SIZE (WINDOW)
@@ -757,7 +757,7 @@ Sets the position of the content area of the specified window.
 Returns the width and height of the content area of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-SIZE\-LIMITS
+<h4 id="function:GLFW:SET-WINDOW-SIZE-LIMITS">Function: SET-WINDOW-SIZE-LIMITS</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SIZE-LIMITS (WINDOW MINWIDTH MINHEIGHT MAXWIDTH
@@ -769,7 +769,7 @@ Returns the width and height of the content area of the specified window.
 Sets the size limits of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-ASPECT\-RATIO
+<h4 id="function:GLFW:SET-WINDOW-ASPECT-RATIO">Function: SET-WINDOW-ASPECT-RATIO</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ASPECT-RATIO (WINDOW NUMER DENOM)
@@ -780,7 +780,7 @@ Sets the size limits of the specified window.
 Sets the aspect ratio of the specified window.
 ````
 
-#### Function: SET\-WINDOW\-SIZE
+<h4 id="function:GLFW:SET-WINDOW-SIZE">Function: SET-WINDOW-SIZE</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SIZE (WINDOW WIDTH HEIGHT)
@@ -791,7 +791,7 @@ Sets the aspect ratio of the specified window.
 Sets the size of the content area of the specified window.
 ````
 
-#### Function: GET\-FRAMEBUFFER\-SIZE
+<h4 id="function:GLFW:GET-FRAMEBUFFER-SIZE">Function: GET-FRAMEBUFFER-SIZE</h4>
 
 ```Lisp
 (defun GLFW:GET-FRAMEBUFFER-SIZE (WINDOW)
@@ -802,7 +802,7 @@ Sets the size of the content area of the specified window.
 Returns the width and height of the framebuffer of the specified window.
 ````
 
-#### Function: GET\-WINDOW\-FRAME\-SIZE
+<h4 id="function:GLFW:GET-WINDOW-FRAME-SIZE">Function: GET-WINDOW-FRAME-SIZE</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-FRAME-SIZE (WINDOW)
@@ -813,7 +813,7 @@ Returns the width and height of the framebuffer of the specified window.
 Returns the left, top, right and bottom edges of the frame of the window.
 ````
 
-#### Function: GET\-WINDOW\-CONTENT\-SCALE
+<h4 id="function:GLFW:GET-WINDOW-CONTENT-SCALE">Function: GET-WINDOW-CONTENT-SCALE</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-CONTENT-SCALE (WINDOW)
@@ -824,7 +824,7 @@ Returns the left, top, right and bottom edges of the frame of the window.
 Returns the xscale and yscale of the specified window.
 ````
 
-#### Function: GET\-WINDOW\-OPACITY
+<h4 id="function:GLFW:GET-WINDOW-OPACITY">Function: GET-WINDOW-OPACITY</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-OPACITY (WINDOW)
@@ -835,7 +835,7 @@ Returns the xscale and yscale of the specified window.
 Returns the opacity of the whole window.
 ````
 
-#### Function: SET\-WINDOW\-OPACITY
+<h4 id="function:GLFW:SET-WINDOW-OPACITY">Function: SET-WINDOW-OPACITY</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-OPACITY (WINDOW OPACITY)
@@ -846,7 +846,7 @@ Returns the opacity of the whole window.
 Sets the opacity of the whole window.
 ````
 
-#### Function: ICONIFY\-WINDOW
+<h4 id="function:GLFW:ICONIFY-WINDOW">Function: ICONIFY-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:ICONIFY-WINDOW (WINDOW)
@@ -857,7 +857,7 @@ Sets the opacity of the whole window.
 Iconifies the specified window.
 ````
 
-#### Function: RESTORE\-WINDOW
+<h4 id="function:GLFW:RESTORE-WINDOW">Function: RESTORE-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:RESTORE-WINDOW (WINDOW)
@@ -868,7 +868,7 @@ Iconifies the specified window.
 Restores the specified window.
 ````
 
-#### Function: MAXIMIZE\-WINDOW
+<h4 id="function:GLFW:MAXIMIZE-WINDOW">Function: MAXIMIZE-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:MAXIMIZE-WINDOW (WINDOW)
@@ -879,7 +879,7 @@ Restores the specified window.
 Maximizes the specified window.
 ````
 
-#### Function: SHOW\-WINDOW
+<h4 id="function:GLFW:SHOW-WINDOW">Function: SHOW-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:SHOW-WINDOW (WINDOW)
@@ -890,7 +890,7 @@ Maximizes the specified window.
 Makes the specified window visible.
 ````
 
-#### Function: HIDE\-WINDOW
+<h4 id="function:GLFW:HIDE-WINDOW">Function: HIDE-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:HIDE-WINDOW (WINDOW)
@@ -901,7 +901,7 @@ Makes the specified window visible.
 Hides the specified window.
 ````
 
-#### Function: FOCUS\-WINDOW
+<h4 id="function:GLFW:FOCUS-WINDOW">Function: FOCUS-WINDOW</h4>
 
 ```Lisp
 (defun GLFW:FOCUS-WINDOW (WINDOW)
@@ -912,7 +912,7 @@ Hides the specified window.
 Brings the specified window to front and sets input focus.
 ````
 
-#### Function: REQUEST\-WINDOW\-ATTENTION
+<h4 id="function:GLFW:REQUEST-WINDOW-ATTENTION">Function: REQUEST-WINDOW-ATTENTION</h4>
 
 ```Lisp
 (defun GLFW:REQUEST-WINDOW-ATTENTION (WINDOW)
@@ -923,7 +923,7 @@ Brings the specified window to front and sets input focus.
 Requests user attention to the specified window.
 ````
 
-#### Function: GET\-WINDOW\-MONITOR
+<h4 id="function:GLFW:GET-WINDOW-MONITOR">Function: GET-WINDOW-MONITOR</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-MONITOR (WINDOW)
@@ -934,7 +934,7 @@ Requests user attention to the specified window.
 Returns the monitor (or NIL) that the window uses for full screen mode.
 ````
 
-#### Function: SET\-WINDOW\-MONITOR
+<h4 id="function:GLFW:SET-WINDOW-MONITOR">Function: SET-WINDOW-MONITOR</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-MONITOR (WINDOW MONITOR XPOS YPOS WIDTH HEIGHT
@@ -946,7 +946,7 @@ Returns the monitor (or NIL) that the window uses for full screen mode.
 Sets the mode, monitor, video mode and placement of a window.
 ````
 
-#### Function: GET\-WINDOW\-ATTRIB
+<h4 id="function:GLFW:GET-WINDOW-ATTRIB">Function: GET-WINDOW-ATTRIB</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-ATTRIB (WINDOW ATTRIB)
@@ -957,7 +957,7 @@ Sets the mode, monitor, video mode and placement of a window.
 Returns an attribute of the specified window. Boolean attributes will be T or NIL.
 ````
 
-#### Function: SET\-WINDOW\-ATTRIB
+<h4 id="function:GLFW:SET-WINDOW-ATTRIB">Function: SET-WINDOW-ATTRIB</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ATTRIB (WINDOW ATTRIB VALUE)
@@ -968,13 +968,13 @@ Returns an attribute of the specified window. Boolean attributes will be T or NI
 Sets an attribute of the specified window. Boolean attributes must be T or NIL.
 ````
 
-#### Variable: \*WINDOWS\-DATA\*
+<h4 id="symbol:GLFW:*WINDOWS-DATA*">Variable: *WINDOWS-DATA*</h4>
 
 ```Lisp
 (defvar *WINDOWS-DATA* (MAKE-HASH-TABLE))
 ```
 
-#### Function: SET\-WINDOW\-USER\-POINTER
+<h4 id="function:GLFW:SET-WINDOW-USER-POINTER">Function: SET-WINDOW-USER-POINTER</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-USER-POINTER (WINDOW DATA)
@@ -985,7 +985,7 @@ Sets an attribute of the specified window. Boolean attributes must be T or NIL.
 Sets the user pointer of the specified window.
 ````
 
-#### Function: GET\-WINDOW\-USER\-POINTER
+<h4 id="function:GLFW:GET-WINDOW-USER-POINTER">Function: GET-WINDOW-USER-POINTER</h4>
 
 ```Lisp
 (defun GLFW:GET-WINDOW-USER-POINTER (WINDOW)
@@ -996,11 +996,11 @@ Sets the user pointer of the specified window.
 Returns the user pointer of the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-POS\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-POS-CALLBACK">Macro: DEFINE-WINDOW-POS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME22 (WINDOW XPOS YPOS) &BODY
-                                      CALLBACK-BODY23)
+(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME1929 (WINDOW XPOS YPOS)
+                                      &BODY CALLBACK-BODY1930)
   ...)
 ```
 
@@ -1008,7 +1008,7 @@ Returns the user pointer of the specified window.
 Defines a position callback.
 ````
 
-#### Function: SET\-WINDOW\-POS\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-POS-CALLBACK">Function: SET-WINDOW-POS-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-POS-CALLBACK (WINDOW CALLBACK)
@@ -1019,11 +1019,11 @@ Defines a position callback.
 Sets the position callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-SIZE\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-SIZE-CALLBACK">Macro: DEFINE-WINDOW-SIZE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME29 (WINDOW WIDTH HEIGHT)
-                                       &BODY CALLBACK-BODY30)
+(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME1936 (WINDOW WIDTH HEIGHT)
+                                       &BODY CALLBACK-BODY1937)
   ...)
 ```
 
@@ -1031,7 +1031,7 @@ Sets the position callback for the specified window.
 Defines a size callback.
 ````
 
-#### Function: SET\-WINDOW\-SIZE\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-SIZE-CALLBACK">Function: SET-WINDOW-SIZE-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-SIZE-CALLBACK (WINDOW CALLBACK)
@@ -1042,11 +1042,11 @@ Defines a size callback.
 Sets the size callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-CLOSE\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-CLOSE-CALLBACK">Macro: DEFINE-WINDOW-CLOSE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME36 (WINDOW) &BODY
-                                        CALLBACK-BODY37)
+(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME1943 (WINDOW) &BODY
+                                        CALLBACK-BODY1944)
   ...)
 ```
 
@@ -1054,7 +1054,7 @@ Sets the size callback for the specified window.
 Defines a close callback.
 ````
 
-#### Function: SET\-WINDOW\-CLOSE\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-CLOSE-CALLBACK">Function: SET-WINDOW-CLOSE-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-CLOSE-CALLBACK (WINDOW CALLBACK)
@@ -1065,11 +1065,11 @@ Defines a close callback.
 Sets the close callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-REFRESH\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-REFRESH-CALLBACK">Macro: DEFINE-WINDOW-REFRESH-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME41 (WINDOW) &BODY
-                                          CALLBACK-BODY42)
+(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME1948 (WINDOW) &BODY
+                                          CALLBACK-BODY1949)
   ...)
 ```
 
@@ -1077,7 +1077,7 @@ Sets the close callback for the specified window.
 Defines a refresh callback.
 ````
 
-#### Function: SET\-WINDOW\-REFRESH\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-REFRESH-CALLBACK">Function: SET-WINDOW-REFRESH-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-REFRESH-CALLBACK (WINDOW CALLBACK)
@@ -1088,11 +1088,11 @@ Defines a refresh callback.
 Sets the refresh callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-FOCUS\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-FOCUS-CALLBACK">Macro: DEFINE-WINDOW-FOCUS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME46 (WINDOW FOCUSED) &BODY
-                                        CALLBACK-BODY47)
+(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME1953 (WINDOW FOCUSED)
+                                        &BODY CALLBACK-BODY1954)
   ...)
 ```
 
@@ -1100,7 +1100,7 @@ Sets the refresh callback for the specified window.
 Defines a focus callback.
 ````
 
-#### Function: SET\-WINDOW\-FOCUS\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-FOCUS-CALLBACK">Function: SET-WINDOW-FOCUS-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-FOCUS-CALLBACK (WINDOW CALLBACK)
@@ -1111,11 +1111,11 @@ Defines a focus callback.
 Sets the focus callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-ICONIFY\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-ICONIFY-CALLBACK">Macro: DEFINE-WINDOW-ICONIFY-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME52 (WINDOW ICONIFIED)
-                                          &BODY CALLBACK-BODY53)
+(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME1959 (WINDOW ICONIFIED)
+                                          &BODY CALLBACK-BODY1960)
   ...)
 ```
 
@@ -1123,7 +1123,7 @@ Sets the focus callback for the specified window.
 Defines an iconify callback.
 ````
 
-#### Function: SET\-WINDOW\-ICONIFY\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-ICONIFY-CALLBACK">Function: SET-WINDOW-ICONIFY-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-ICONIFY-CALLBACK (WINDOW CALLBACK)
@@ -1134,11 +1134,11 @@ Defines an iconify callback.
 Sets the iconify callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-MAXIMIZE\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-MAXIMIZE-CALLBACK">Macro: DEFINE-WINDOW-MAXIMIZE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME58 (WINDOW MAXIMIZED)
-                                           &BODY CALLBACK-BODY59)
+(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME1965 (WINDOW MAXIMIZED)
+                                           &BODY CALLBACK-BODY1966)
   ...)
 ```
 
@@ -1146,7 +1146,7 @@ Sets the iconify callback for the specified window.
 Defines a maximize callback.
 ````
 
-#### Function: SET\-WINDOW\-MAXIMIZE\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-MAXIMIZE-CALLBACK">Function: SET-WINDOW-MAXIMIZE-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-MAXIMIZE-CALLBACK (WINDOW CALLBACK)
@@ -1157,12 +1157,12 @@ Defines a maximize callback.
 Sets the maximize callback for the specified window.
 ````
 
-#### Macro: DEFINE\-FRAMEBUFFER\-SIZE\-CALLBACK
+<h4 id="function:GLFW:DEFINE-FRAMEBUFFER-SIZE-CALLBACK">Macro: DEFINE-FRAMEBUFFER-SIZE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME64
+(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME1971
                                             (WINDOW WIDTH HEIGHT) &BODY
-                                            CALLBACK-BODY65)
+                                            CALLBACK-BODY1972)
   ...)
 ```
 
@@ -1170,7 +1170,7 @@ Sets the maximize callback for the specified window.
 Defines a framebuffer resize callback.
 ````
 
-#### Function: SET\-FRAMEBUFFER\-SIZE\-CALLBACK
+<h4 id="function:GLFW:SET-FRAMEBUFFER-SIZE-CALLBACK">Function: SET-FRAMEBUFFER-SIZE-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-FRAMEBUFFER-SIZE-CALLBACK (WINDOW CALLBACK)
@@ -1181,12 +1181,12 @@ Defines a framebuffer resize callback.
 Sets the framebuffer resize callback for the specified window.
 ````
 
-#### Macro: DEFINE\-WINDOW\-CONTENT\-SCALE\-CALLBACK
+<h4 id="function:GLFW:DEFINE-WINDOW-CONTENT-SCALE-CALLBACK">Macro: DEFINE-WINDOW-CONTENT-SCALE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME71
+(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME1978
                                                 (WINDOW XSCALE YSCALE) &BODY
-                                                CALLBACK-BODY72)
+                                                CALLBACK-BODY1979)
   ...)
 ```
 
@@ -1194,7 +1194,7 @@ Sets the framebuffer resize callback for the specified window.
 Defines a window content scale callback.
 ````
 
-#### Function: SET\-WINDOW\-CONTENT\-SCALE\-CALLBACK
+<h4 id="function:GLFW:SET-WINDOW-CONTENT-SCALE-CALLBACK">Function: SET-WINDOW-CONTENT-SCALE-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-WINDOW-CONTENT-SCALE-CALLBACK (WINDOW CALLBACK)
@@ -1205,7 +1205,7 @@ Defines a window content scale callback.
 Sets the window content scale callback for the specified window.
 ````
 
-#### Function: POLL\-EVENTS
+<h4 id="function:GLFW:POLL-EVENTS">Function: POLL-EVENTS</h4>
 
 ```Lisp
 (defun GLFW:POLL-EVENTS NIL
@@ -1216,7 +1216,7 @@ Sets the window content scale callback for the specified window.
 Processes all pending events.
 ````
 
-#### Function: WAIT\-EVENTS
+<h4 id="function:GLFW:WAIT-EVENTS">Function: WAIT-EVENTS</h4>
 
 ```Lisp
 (defun GLFW:WAIT-EVENTS NIL
@@ -1227,7 +1227,7 @@ Processes all pending events.
 Waits until events are queued and processes them.
 ````
 
-#### Function: WAIT\-EVENTS\-TIMEOUT
+<h4 id="function:GLFW:WAIT-EVENTS-TIMEOUT">Function: WAIT-EVENTS-TIMEOUT</h4>
 
 ```Lisp
 (defun GLFW:WAIT-EVENTS-TIMEOUT (TIMEOUT)
@@ -1238,7 +1238,7 @@ Waits until events are queued and processes them.
 Waits with timeout until events are queued and processes them.
 ````
 
-#### Function: POST\-EMPTY\-EVENT
+<h4 id="function:GLFW:POST-EMPTY-EVENT">Function: POST-EMPTY-EVENT</h4>
 
 ```Lisp
 (defun GLFW:POST-EMPTY-EVENT NIL
@@ -1249,7 +1249,7 @@ Waits with timeout until events are queued and processes them.
 Posts an empty event to the event queue.
 ````
 
-#### Function: SWAP\-BUFFERS
+<h4 id="function:GLFW:SWAP-BUFFERS">Function: SWAP-BUFFERS</h4>
 
 ```Lisp
 (defun GLFW:SWAP-BUFFERS (WINDOW)

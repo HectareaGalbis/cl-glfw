@@ -1,25 +1,25 @@
-# Initialization\, version and error reference
+<h1 id="header:GLFW:INITIALIZATION-REFERENCE-HEADER">Initialization, version and error reference</h1>
 
-## Description
+<h2 id="header:ADP:HEADERTAG0">Description</h2>
 
 This is the reference documentation for initialization and termination of the library\, version management and error handling\.
 
-* [Initialization\, version and error reference](/docs/api/initialization.md#initialization-version-and-error-reference)
-  * [Description](/docs/api/initialization.md#description)
-  * [Constants](/docs/api/initialization.md#constants)
-  * [Types](/docs/api/initialization.md#types)
-  * [Functions](/docs/api/initialization.md#functions)
-    * [glfwInit](/docs/api/initialization.md#glfwinit)
-    * [glfwTerminate](/docs/api/initialization.md#glfwterminate)
-    * [glfwInitHint](/docs/api/initialization.md#glfwinithint)
-    * [glfwGetVersion](/docs/api/initialization.md#glfwgetversion)
-    * [glfwGetVersionString](/docs/api/initialization.md#glfwgetversionstring)
-    * [glfwGetError](/docs/api/initialization.md#glfwgeterror)
-    * [glfwSetErrorCallback](/docs/api/initialization.md#glfwseterrorcallback)
+* <a href="/docs/api/initialization.md#header:GLFW:INITIALIZATION-REFERENCE-HEADER">Initialization, version and error reference</a>
+  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG0">Description</a>
+  * <a href="/docs/api/initialization.md#header:GLFW:INITIALIZATION-CONSTANTS-SUBHEADER">Constants</a>
+  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG1">Types</a>
+  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG2">Functions</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG3">glfwInit</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG4">glfwTerminate</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG5">glfwInitHint</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG6">glfwGetVersion</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG7">glfwGetVersionString</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG8">glfwGetError</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG9">glfwSetErrorCallback</a>
 
-## Constants
+<h2 id="header:GLFW:INITIALIZATION-CONSTANTS-SUBHEADER">Constants</h2>
 
-#### Constant: GLFW\_VERSION\_MAJOR
+<h4 id="symbol:GLFW:GLFW_VERSION_MAJOR">Constant: GLFW_VERSION_MAJOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_VERSION_MAJOR 3)
@@ -29,7 +29,7 @@ This is the reference documentation for initialization and termination of the li
 The major version number of the GLFW header.
 ````
 
-#### Constant: GLFW\_VERSION\_MINOR
+<h4 id="symbol:GLFW:GLFW_VERSION_MINOR">Constant: GLFW_VERSION_MINOR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_VERSION_MINOR 3)
@@ -39,7 +39,7 @@ The major version number of the GLFW header.
 The minor version number of the GLFW header.
 ````
 
-#### Constant: GLFW\_VERSION\_REVISION
+<h4 id="symbol:GLFW:GLFW_VERSION_REVISION">Constant: GLFW_VERSION_REVISION</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_VERSION_REVISION 6)
@@ -49,7 +49,7 @@ The minor version number of the GLFW header.
 The revision number of the GLFW header.
 ````
 
-#### Constant: GLFW\_TRUE
+<h4 id="symbol:GLFW:GLFW_TRUE">Constant: GLFW_TRUE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_TRUE 1)
@@ -59,7 +59,7 @@ The revision number of the GLFW header.
 One.
 ````
 
-#### Constant: GLFW\_FALSE
+<h4 id="symbol:GLFW:GLFW_FALSE">Constant: GLFW_FALSE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_FALSE 0)
@@ -69,7 +69,7 @@ One.
 Zero.
 ````
 
-#### Constant: GLFW\_JOYSTICK\_HAT\_BUTTONS
+<h4 id="symbol:GLFW:GLFW_JOYSTICK_HAT_BUTTONS">Constant: GLFW_JOYSTICK_HAT_BUTTONS</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_JOYSTICK_HAT_BUTTONS 327681)
@@ -79,7 +79,7 @@ Zero.
 Joystick hat buttons init hint.
 ````
 
-#### Constant: GLFW\_COCOA\_CHDIR\_RESOURCES
+<h4 id="symbol:GLFW:GLFW_COCOA_CHDIR_RESOURCES">Constant: GLFW_COCOA_CHDIR_RESOURCES</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_COCOA_CHDIR_RESOURCES 331777)
@@ -89,7 +89,7 @@ Joystick hat buttons init hint.
 macOS specific init hint.
 ````
 
-#### Constant: GLFW\_COCOA\_MENUBAR
+<h4 id="symbol:GLFW:GLFW_COCOA_MENUBAR">Constant: GLFW_COCOA_MENUBAR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_COCOA_MENUBAR 331778)
@@ -99,7 +99,7 @@ macOS specific init hint.
 macOS specific init hint.
 ````
 
-#### Constant: GLFW\_NO\_ERROR
+<h4 id="symbol:GLFW:GLFW_NO_ERROR">Constant: GLFW_NO_ERROR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_NO_ERROR 0)
@@ -109,7 +109,7 @@ macOS specific init hint.
 No error has occurred.
 ````
 
-#### Constant: GLFW\_NOT\_INITIALIZED
+<h4 id="symbol:GLFW:GLFW_NOT_INITIALIZED">Constant: GLFW_NOT_INITIALIZED</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_NOT_INITIALIZED 65537)
@@ -119,7 +119,7 @@ No error has occurred.
 GLFW has not been initialized.
 ````
 
-#### Constant: GLFW\_NO\_CURRENT\_CONTEXT
+<h4 id="symbol:GLFW:GLFW_NO_CURRENT_CONTEXT">Constant: GLFW_NO_CURRENT_CONTEXT</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_NO_CURRENT_CONTEXT 65538)
@@ -129,7 +129,7 @@ GLFW has not been initialized.
 No context is current for this thread.
 ````
 
-#### Constant: GLFW\_INVALID\_ENUM
+<h4 id="symbol:GLFW:GLFW_INVALID_ENUM">Constant: GLFW_INVALID_ENUM</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_INVALID_ENUM 65539)
@@ -139,7 +139,7 @@ No context is current for this thread.
 One of the arguments to the function was an invalid enum value.
 ````
 
-#### Constant: GLFW\_INVALID\_VALUE
+<h4 id="symbol:GLFW:GLFW_INVALID_VALUE">Constant: GLFW_INVALID_VALUE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_INVALID_VALUE 65540)
@@ -149,7 +149,7 @@ One of the arguments to the function was an invalid enum value.
 One of the arguments to the function was an invalid value.
 ````
 
-#### Constant: GLFW\_OUT\_OF\_MEMORY
+<h4 id="symbol:GLFW:GLFW_OUT_OF_MEMORY">Constant: GLFW_OUT_OF_MEMORY</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_OUT_OF_MEMORY 65541)
@@ -159,7 +159,7 @@ One of the arguments to the function was an invalid value.
 A memory allocation failed.
 ````
 
-#### Constant: GLFW\_API\_UNAVAILABLE
+<h4 id="symbol:GLFW:GLFW_API_UNAVAILABLE">Constant: GLFW_API_UNAVAILABLE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_API_UNAVAILABLE 65542)
@@ -169,7 +169,7 @@ A memory allocation failed.
 GLFW could not find support for the requested API on the system.
 ````
 
-#### Constant: GLFW\_VERSION\_UNAVAILABLE
+<h4 id="symbol:GLFW:GLFW_VERSION_UNAVAILABLE">Constant: GLFW_VERSION_UNAVAILABLE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_VERSION_UNAVAILABLE 65543)
@@ -179,7 +179,7 @@ GLFW could not find support for the requested API on the system.
 The requested OpenGL or OpenGL ES version is not available.
 ````
 
-#### Constant: GLFW\_PLATFORM\_ERROR
+<h4 id="symbol:GLFW:GLFW_PLATFORM_ERROR">Constant: GLFW_PLATFORM_ERROR</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_PLATFORM_ERROR 65544)
@@ -189,7 +189,7 @@ The requested OpenGL or OpenGL ES version is not available.
 A platform_specific error occurred that does not match any of the more specific categories.
 ````
 
-#### Constant: GLFW\_FORMAT\_UNAVAILABLE
+<h4 id="symbol:GLFW:GLFW_FORMAT_UNAVAILABLE">Constant: GLFW_FORMAT_UNAVAILABLE</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_FORMAT_UNAVAILABLE 65545)
@@ -199,7 +199,7 @@ A platform_specific error occurred that does not match any of the more specific 
 The requested format is not supported or available.
 ````
 
-#### Constant: GLFW\_NO\_WINDOW\_CONTEXT
+<h4 id="symbol:GLFW:GLFW_NO_WINDOW_CONTEXT">Constant: GLFW_NO_WINDOW_CONTEXT</h4>
 
 ```Lisp
 (defconstant GLFW:GLFW_NO_WINDOW_CONTEXT 65546)
@@ -209,9 +209,9 @@ The requested format is not supported or available.
 The specified window does not have an OpenGL or OpenGL ES context.
 ````
 
-## Types
+<h2 id="header:ADP:HEADERTAG1">Types</h2>
 
-#### Type: ERRORFUN
+<h4 id="type:GLFW:ERRORFUN">Type: ERRORFUN</h4>
 
 ```Lisp
 (deftype ERRORFUN NIL
@@ -222,11 +222,11 @@ The specified window does not have an OpenGL or OpenGL ES context.
 The function pointer type for error callbacks.
 ````
 
-## Functions
+<h2 id="header:ADP:HEADERTAG2">Functions</h2>
 
-### glfwInit
+<h3 id="header:ADP:HEADERTAG3">glfwInit</h3>
 
-#### Function: INIT
+<h4 id="function:GLFW:INIT">Function: INIT</h4>
 
 ```Lisp
 (defun GLFW:INIT NIL
@@ -237,9 +237,9 @@ The function pointer type for error callbacks.
 Initializes the GLFW library.
 ````
 
-### glfwTerminate
+<h3 id="header:ADP:HEADERTAG4">glfwTerminate</h3>
 
-#### Function: TERMINATE
+<h4 id="function:GLFW:TERMINATE">Function: TERMINATE</h4>
 
 ```Lisp
 (defun GLFW:TERMINATE NIL
@@ -250,9 +250,9 @@ Initializes the GLFW library.
 Terminates the GLFW library.
 ````
 
-### glfwInitHint
+<h3 id="header:ADP:HEADERTAG5">glfwInitHint</h3>
 
-#### Function: INIT\-HINT
+<h4 id="function:GLFW:INIT-HINT">Function: INIT-HINT</h4>
 
 ```Lisp
 (defun GLFW:INIT-HINT (HINT VALUE)
@@ -263,9 +263,9 @@ Terminates the GLFW library.
 Sets the specified init hint to the desired value.
 ````
 
-### glfwGetVersion
+<h3 id="header:ADP:HEADERTAG6">glfwGetVersion</h3>
 
-#### Function: GET\-VERSION
+<h4 id="function:GLFW:GET-VERSION">Function: GET-VERSION</h4>
 
 ```Lisp
 (defun GLFW:GET-VERSION NIL
@@ -276,9 +276,9 @@ Sets the specified init hint to the desired value.
 Retrieves the version of the GLFW library. Returns three values.
 ````
 
-### glfwGetVersionString
+<h3 id="header:ADP:HEADERTAG7">glfwGetVersionString</h3>
 
-#### Function: GET\-VERSION\-STRING
+<h4 id="function:GLFW:GET-VERSION-STRING">Function: GET-VERSION-STRING</h4>
 
 ```Lisp
 (defun GLFW:GET-VERSION-STRING NIL
@@ -289,9 +289,9 @@ Retrieves the version of the GLFW library. Returns three values.
 Returns a string describing the compile-time configuration.
 ````
 
-### glfwGetError
+<h3 id="header:ADP:HEADERTAG8">glfwGetError</h3>
 
-#### Function: GET\-ERROR
+<h4 id="function:GLFW:GET-ERROR">Function: GET-ERROR</h4>
 
 ```Lisp
 (defun GLFW:GET-ERROR NIL
@@ -302,13 +302,13 @@ Returns a string describing the compile-time configuration.
 Returns the error code and desccription of the last error for the calling thread and clears it.
 ````
 
-### glfwSetErrorCallback
+<h3 id="header:ADP:HEADERTAG9">glfwSetErrorCallback</h3>
 
-#### Macro: DEFINE\-ERROR\-CALLBACK
+<h4 id="function:GLFW:DEFINE-ERROR-CALLBACK">Macro: DEFINE-ERROR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME10 (ERROR-CODE DESCRIPTION) &BODY
-                                 CALLBACK-BODY11)
+(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME1724 (ERROR-CODE DESCRIPTION)
+                                 &BODY CALLBACK-BODY1725)
   ...)
 ```
 
@@ -316,7 +316,7 @@ Returns the error code and desccription of the last error for the calling thread
 Defines an error callback.
 ````
 
-#### Function: SET\-ERROR\-CALLBACK
+<h4 id="function:GLFW:SET-ERROR-CALLBACK">Function: SET-ERROR-CALLBACK</h4>
 
 ```Lisp
 (defun GLFW:SET-ERROR-CALLBACK (CALLBACK)
