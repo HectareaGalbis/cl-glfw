@@ -1,57 +1,57 @@
 <h1 id="header:GLFW:INPUT-REFERENCE-HEADER">Input reference</h1>
 
-<h2 id="header:ADP:HEADERTAG16">Description</h2>
+<h2 id="header:ADP:HEADERTAG20">Description</h2>
 
 This is the reference documentation for input related functions and types\.
 
 * <a href="/docs/api/input.md#header:GLFW:INPUT-REFERENCE-HEADER">Input reference</a>
-  * <a href="/docs/api/input.md#header:ADP:HEADERTAG16">Description</a>
-  * <a href="/docs/api/input.md#header:ADP:HEADERTAG17">Constants</a>
-  * <a href="/docs/api/input.md#header:ADP:HEADERTAG18">Types</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG19">GLFWgamepadstate</a>
-  * <a href="/docs/api/input.md#header:ADP:HEADERTAG20">Functions</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG21">glfwGetInputMode</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG22">glfwSetInputMode</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG23">glfwRawMouseMotionSupported</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG24">glfwGetKeyName</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG25">glfwGetKeyScancode</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG26">glfwGetKey</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG27">glfwGetMouseButton</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG28">glfwGetCursorPos</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG29">glfwSetCursorPos</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG30">glfwCreateCursor</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG31">glfwCreateStandardCursor</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG32">glfwDestroyCursor</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG33">glfwSetCursor</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG34">glfwSetKeyCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG35">glfwSetCharCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG36">glfwSetCharModsCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG37">glfwSetMouseButtonCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG38">glfwSetCursorPosCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG39">glfwSetCursorEnterCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG40">glfwSetScrollCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG41">glfwSetDropCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG42">glfwJoystickPresent</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG43">glfwGetJoystickAxes</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG44">glfwGetJoystickButtons</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG45">glfwGetJoystickHats</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG46">glfwGetJoystickName</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG47">glfwGetJoystickGUID</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG48">glfwSetJoystickUserPointer</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG49">glfwGetJoystickUserPointer</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG50">glfwJoystickIsGamepad</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG51">glfwSetJoystickCallback</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG52">glfwUpdateGamepadMappings</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG53">glfwGetGamepadName</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG54">glfwGetGamepadState</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG55">glfwSetClipboardString</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG56">glfwGetClipboardString</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG57">glfwGetTime</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG58">glfwSetTime</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG59">glfwGetTimerValue</a>
-    * <a href="/docs/api/input.md#header:ADP:HEADERTAG60">glfwGetTimerFrequency</a>
+  * <a href="/docs/api/input.md#header:ADP:HEADERTAG20">Description</a>
+  * <a href="/docs/api/input.md#header:ADP:HEADERTAG21">Constants</a>
+  * <a href="/docs/api/input.md#header:ADP:HEADERTAG22">Types</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG23">GLFWgamepadstate</a>
+  * <a href="/docs/api/input.md#header:ADP:HEADERTAG24">Functions</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG25">glfwGetInputMode</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG26">glfwSetInputMode</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG27">glfwRawMouseMotionSupported</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG28">glfwGetKeyName</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG29">glfwGetKeyScancode</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG30">glfwGetKey</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG31">glfwGetMouseButton</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG32">glfwGetCursorPos</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG33">glfwSetCursorPos</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG34">glfwCreateCursor</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG35">glfwCreateStandardCursor</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG36">glfwDestroyCursor</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG37">glfwSetCursor</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG38">glfwSetKeyCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG39">glfwSetCharCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG40">glfwSetCharModsCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG41">glfwSetMouseButtonCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG42">glfwSetCursorPosCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG43">glfwSetCursorEnterCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG44">glfwSetScrollCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG45">glfwSetDropCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG46">glfwJoystickPresent</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG47">glfwGetJoystickAxes</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG48">glfwGetJoystickButtons</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG49">glfwGetJoystickHats</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG50">glfwGetJoystickName</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG51">glfwGetJoystickGUID</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG52">glfwSetJoystickUserPointer</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG53">glfwGetJoystickUserPointer</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG54">glfwJoystickIsGamepad</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG55">glfwSetJoystickCallback</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG56">glfwUpdateGamepadMappings</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG57">glfwGetGamepadName</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG58">glfwGetGamepadState</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG59">glfwSetClipboardString</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG60">glfwGetClipboardString</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG61">glfwGetTime</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG62">glfwSetTime</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG63">glfwGetTimerValue</a>
+    * <a href="/docs/api/input.md#header:ADP:HEADERTAG64">glfwGetTimerFrequency</a>
 
-<h2 id="header:ADP:HEADERTAG17">Constants</h2>
+<h2 id="header:ADP:HEADERTAG21">Constants</h2>
 
 <h4 id="symbol:GLFW:GLFW_RELEASE">Constant: GLFW_RELEASE</h4>
 
@@ -1440,7 +1440,7 @@ The vertical resize arrow shape.
 (defconstant GLFW:GLFW_DISCONNECTED 262146)
 ```
 
-<h2 id="header:ADP:HEADERTAG18">Types</h2>
+<h2 id="header:ADP:HEADERTAG22">Types</h2>
 
 <h4 id="type:GLFW:CURSOR">Type: CURSOR</h4>
 
@@ -1552,7 +1552,7 @@ The function pointer type for path drop callbacks.
 The function pointer type for joystick configuration callbacks.
 ````
 
-<h3 id="header:ADP:HEADERTAG19">GLFWgamepadstate</h3>
+<h3 id="header:ADP:HEADERTAG23">GLFWgamepadstate</h3>
 
 <h4 id="type:GLFW:GAMEPADSTATE">Type: GAMEPADSTATE</h4>
 
@@ -1564,20 +1564,20 @@ The function pointer type for joystick configuration callbacks.
 <h4 id="function:GLFW:GAMEPADSTATE-BUTTONS">Function: GAMEPADSTATE-BUTTONS</h4>
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-BUTTONS (G1742 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-BUTTONS (G1077 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMEPADSTATE-AXES">Function: GAMEPADSTATE-AXES</h4>
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-AXES (G1743 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-AXES (G1078 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
-<h2 id="header:ADP:HEADERTAG20">Functions</h2>
+<h2 id="header:ADP:HEADERTAG24">Functions</h2>
 
-<h3 id="header:ADP:HEADERTAG21">glfwGetInputMode</h3>
+<h3 id="header:ADP:HEADERTAG25">glfwGetInputMode</h3>
 
 <h4 id="function:GLFW:GET-INPUT-MODE">Function: GET-INPUT-MODE</h4>
 
@@ -1590,7 +1590,7 @@ The function pointer type for joystick configuration callbacks.
 Returns the value of an input option for the specified window.
 ````
 
-<h3 id="header:ADP:HEADERTAG22">glfwSetInputMode</h3>
+<h3 id="header:ADP:HEADERTAG26">glfwSetInputMode</h3>
 
 <h4 id="function:GLFW:SET-INPUT-MODE">Function: SET-INPUT-MODE</h4>
 
@@ -1603,7 +1603,7 @@ Returns the value of an input option for the specified window.
 Sets an input option for the specified window.
 ````
 
-<h3 id="header:ADP:HEADERTAG23">glfwRawMouseMotionSupported</h3>
+<h3 id="header:ADP:HEADERTAG27">glfwRawMouseMotionSupported</h3>
 
 <h4 id="function:GLFW:RAW-MOUSE-MOTION-SUPPORTED">Function: RAW-MOUSE-MOTION-SUPPORTED</h4>
 
@@ -1616,7 +1616,7 @@ Sets an input option for the specified window.
 Returns whether raw mouse motion is supported (t or NIL).
 ````
 
-<h3 id="header:ADP:HEADERTAG24">glfwGetKeyName</h3>
+<h3 id="header:ADP:HEADERTAG28">glfwGetKeyName</h3>
 
 <h4 id="function:GLFW:GET-KEY-NAME">Function: GET-KEY-NAME</h4>
 
@@ -1629,7 +1629,7 @@ Returns whether raw mouse motion is supported (t or NIL).
 Returns the layout-specific name of the specified printable key.
 ````
 
-<h3 id="header:ADP:HEADERTAG25">glfwGetKeyScancode</h3>
+<h3 id="header:ADP:HEADERTAG29">glfwGetKeyScancode</h3>
 
 <h4 id="function:GLFW:GET-KEY-SCANCODE">Function: GET-KEY-SCANCODE</h4>
 
@@ -1642,7 +1642,7 @@ Returns the layout-specific name of the specified printable key.
 Returns the platform-specific scancode of the specified key.
 ````
 
-<h3 id="header:ADP:HEADERTAG26">glfwGetKey</h3>
+<h3 id="header:ADP:HEADERTAG30">glfwGetKey</h3>
 
 <h4 id="function:GLFW:GET-KEY">Function: GET-KEY</h4>
 
@@ -1655,7 +1655,7 @@ Returns the platform-specific scancode of the specified key.
 Returns the last reported state of a keyboard key for the specified window.
 ````
 
-<h3 id="header:ADP:HEADERTAG27">glfwGetMouseButton</h3>
+<h3 id="header:ADP:HEADERTAG31">glfwGetMouseButton</h3>
 
 <h4 id="function:GLFW:GET-MOUSE-BUTTON">Function: GET-MOUSE-BUTTON</h4>
 
@@ -1668,7 +1668,7 @@ Returns the last reported state of a keyboard key for the specified window.
 Returns the last reported state of a mouse button for the specified window.
 ````
 
-<h3 id="header:ADP:HEADERTAG28">glfwGetCursorPos</h3>
+<h3 id="header:ADP:HEADERTAG32">glfwGetCursorPos</h3>
 
 <h4 id="function:GLFW:GET-CURSOR-POS">Function: GET-CURSOR-POS</h4>
 
@@ -1681,7 +1681,7 @@ Returns the last reported state of a mouse button for the specified window.
 Returns the x-position and y-position of the cursor relative to the content area of the window.
 ````
 
-<h3 id="header:ADP:HEADERTAG29">glfwSetCursorPos</h3>
+<h3 id="header:ADP:HEADERTAG33">glfwSetCursorPos</h3>
 
 <h4 id="function:GLFW:SET-CURSOR-POS">Function: SET-CURSOR-POS</h4>
 
@@ -1694,7 +1694,7 @@ Returns the x-position and y-position of the cursor relative to the content area
 Sets the position of the cursor, relative to the content area of the window.
 ````
 
-<h3 id="header:ADP:HEADERTAG30">glfwCreateCursor</h3>
+<h3 id="header:ADP:HEADERTAG34">glfwCreateCursor</h3>
 
 <h4 id="function:GLFW:CREATE-CURSOR">Function: CREATE-CURSOR</h4>
 
@@ -1707,7 +1707,7 @@ Sets the position of the cursor, relative to the content area of the window.
 Creates a custom cursor.
 ````
 
-<h3 id="header:ADP:HEADERTAG31">glfwCreateStandardCursor</h3>
+<h3 id="header:ADP:HEADERTAG35">glfwCreateStandardCursor</h3>
 
 <h4 id="function:GLFW:CREATE-STANDARD-CURSOR">Function: CREATE-STANDARD-CURSOR</h4>
 
@@ -1720,7 +1720,7 @@ Creates a custom cursor.
 Creates a cursor with a standard shape.
 ````
 
-<h3 id="header:ADP:HEADERTAG32">glfwDestroyCursor</h3>
+<h3 id="header:ADP:HEADERTAG36">glfwDestroyCursor</h3>
 
 <h4 id="function:GLFW:DESTROY-CURSOR">Function: DESTROY-CURSOR</h4>
 
@@ -1733,7 +1733,7 @@ Creates a cursor with a standard shape.
 Destroys a cursor.
 ````
 
-<h3 id="header:ADP:HEADERTAG33">glfwSetCursor</h3>
+<h3 id="header:ADP:HEADERTAG37">glfwSetCursor</h3>
 
 <h4 id="function:GLFW:SET-CURSOR">Function: SET-CURSOR</h4>
 
@@ -1746,14 +1746,14 @@ Destroys a cursor.
 Sets the cursor for the window.
 ````
 
-<h3 id="header:ADP:HEADERTAG34">glfwSetKeyCallback</h3>
+<h3 id="header:ADP:HEADERTAG38">glfwSetKeyCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-KEY-CALLBACK">Macro: DEFINE-KEY-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME1759
+(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME1094
                                (WINDOW KEY SCANCODE ACTION MODS) &BODY
-                               CALLBACK-BODY1760)
+                               CALLBACK-BODY1095)
   ...)
 ```
 
@@ -1772,13 +1772,13 @@ Defines a key callback.
 Sets the key callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG35">glfwSetCharCallback</h3>
+<h3 id="header:ADP:HEADERTAG39">glfwSetCharCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-CHAR-CALLBACK">Macro: DEFINE-CHAR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME1769 (WINDOW CODEPOINT) &BODY
-                                CALLBACK-BODY1770)
+(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME1104 (WINDOW CODEPOINT) &BODY
+                                CALLBACK-BODY1105)
   ...)
 ```
 
@@ -1797,13 +1797,13 @@ Defines an Unicode character callback.
 Sets the Unicode character callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG36">glfwSetCharModsCallback</h3>
+<h3 id="header:ADP:HEADERTAG40">glfwSetCharModsCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-CHAR-MODS-CALLBACK">Macro: DEFINE-CHAR-MODS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME1776 (WINDOW CODEPOINT MODS)
-                                     &BODY CALLBACK-BODY1777)
+(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME1111 (WINDOW CODEPOINT MODS)
+                                     &BODY CALLBACK-BODY1112)
   ...)
 ```
 
@@ -1822,14 +1822,14 @@ Defines an Unicode character with modifiers callback.
 Sets the Unicode character with modifiers callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG37">glfwSetMouseButtonCallback</h3>
+<h3 id="header:ADP:HEADERTAG41">glfwSetMouseButtonCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-MOUSE-BUTTON-CALLBACK">Macro: DEFINE-MOUSE-BUTTON-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME1784
+(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME1119
                                         (WINDOW BUTTON ACTION MODS) &BODY
-                                        CALLBACK-BODY1785)
+                                        CALLBACK-BODY1120)
   ...)
 ```
 
@@ -1848,13 +1848,13 @@ Defines a mouse button callback.
 Sets the mouse button callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG38">glfwSetCursorPosCallback</h3>
+<h3 id="header:ADP:HEADERTAG42">glfwSetCursorPosCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-CURSOR-POS-CALLBACK">Macro: DEFINE-CURSOR-POS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME1793 (WINDOW XPOS YPOS)
-                                      &BODY CALLBACK-BODY1794)
+(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME1128 (WINDOW XPOS YPOS)
+                                      &BODY CALLBACK-BODY1129)
   ...)
 ```
 
@@ -1873,13 +1873,13 @@ Defines a cursor position callback.
 Sets the cursor position callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG39">glfwSetCursorEnterCallback</h3>
+<h3 id="header:ADP:HEADERTAG43">glfwSetCursorEnterCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-CURSOR-ENTER-CALLBACK">Macro: DEFINE-CURSOR-ENTER-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME1801 (WINDOW ENTERED)
-                                        &BODY CALLBACK-BODY1802)
+(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME1136 (WINDOW ENTERED)
+                                        &BODY CALLBACK-BODY1137)
   ...)
 ```
 
@@ -1898,13 +1898,13 @@ Defines a cursor enter/leave callback.
 Sets the cursor enter/leave callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG40">glfwSetScrollCallback</h3>
+<h3 id="header:ADP:HEADERTAG44">glfwSetScrollCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-SCROLL-CALLBACK">Macro: DEFINE-SCROLL-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME1808 (WINDOW XOFFSET YOFFSET)
-                                  &BODY CALLBACK-BODY1809)
+(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME1143 (WINDOW XOFFSET YOFFSET)
+                                  &BODY CALLBACK-BODY1144)
   ...)
 ```
 
@@ -1923,13 +1923,13 @@ Defines a scroll callback.
 Sets the scroll callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG41">glfwSetDropCallback</h3>
+<h3 id="header:ADP:HEADERTAG45">glfwSetDropCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-DROP-CALLBACK">Macro: DEFINE-DROP-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME1816 (WINDOW PATHS) &BODY
-                                CALLBACK-BODY1817)
+(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME1151 (WINDOW PATHS) &BODY
+                                CALLBACK-BODY1152)
   ...)
 ```
 
@@ -1948,7 +1948,7 @@ Defines a path drop callback. The argument PATHS is a vector.
 Sets the path drop callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG42">glfwJoystickPresent</h3>
+<h3 id="header:ADP:HEADERTAG46">glfwJoystickPresent</h3>
 
 <h4 id="function:GLFW:JOYSTICK-PRESENT">Function: JOYSTICK-PRESENT</h4>
 
@@ -1961,7 +1961,7 @@ Sets the path drop callback.
 Returns whether the specified joystick is present (t or NIL).
 ````
 
-<h3 id="header:ADP:HEADERTAG43">glfwGetJoystickAxes</h3>
+<h3 id="header:ADP:HEADERTAG47">glfwGetJoystickAxes</h3>
 
 <h4 id="function:GLFW:GET-JOYSTICK-AXES">Function: GET-JOYSTICK-AXES</h4>
 
@@ -1974,7 +1974,7 @@ Returns whether the specified joystick is present (t or NIL).
 Returns a vector (or NIL) with the values of all axes of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG44">glfwGetJoystickButtons</h3>
+<h3 id="header:ADP:HEADERTAG48">glfwGetJoystickButtons</h3>
 
 <h4 id="function:GLFW:GET-JOYSTICK-BUTTONS">Function: GET-JOYSTICK-BUTTONS</h4>
 
@@ -1987,7 +1987,7 @@ Returns a vector (or NIL) with the values of all axes of the specified joystick.
 Returns a vector (or NIL) with the state of all buttons of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG45">glfwGetJoystickHats</h3>
+<h3 id="header:ADP:HEADERTAG49">glfwGetJoystickHats</h3>
 
 <h4 id="function:GLFW:GET-JOYSTICK-HATS">Function: GET-JOYSTICK-HATS</h4>
 
@@ -2000,7 +2000,7 @@ Returns a vector (or NIL) with the state of all buttons of the specified joystic
 Returns a vector (or NIL) with the state of all hats of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG46">glfwGetJoystickName</h3>
+<h3 id="header:ADP:HEADERTAG50">glfwGetJoystickName</h3>
 
 <h4 id="function:GLFW:GET-JOYSTICK-NAME">Function: GET-JOYSTICK-NAME</h4>
 
@@ -2013,7 +2013,7 @@ Returns a vector (or NIL) with the state of all hats of the specified joystick.
 Returns the name (or NIL) of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG47">glfwGetJoystickGUID</h3>
+<h3 id="header:ADP:HEADERTAG51">glfwGetJoystickGUID</h3>
 
 <h4 id="function:GLFW:GET-JOYSTICK-GUID">Function: GET-JOYSTICK-GUID</h4>
 
@@ -2026,7 +2026,7 @@ Returns the name (or NIL) of the specified joystick.
 Returns the SDL compatible GUID (or NIL) of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG48">glfwSetJoystickUserPointer</h3>
+<h3 id="header:ADP:HEADERTAG52">glfwSetJoystickUserPointer</h3>
 
 <h4 id="function:GLFW:SET-JOYSTICK-USER-POINTER">Function: SET-JOYSTICK-USER-POINTER</h4>
 
@@ -2039,7 +2039,7 @@ Returns the SDL compatible GUID (or NIL) of the specified joystick.
 Sets the user pointer of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG49">glfwGetJoystickUserPointer</h3>
+<h3 id="header:ADP:HEADERTAG53">glfwGetJoystickUserPointer</h3>
 
 <h4 id="function:GLFW:GET-JOYSTICK-USER-POINTER">Function: GET-JOYSTICK-USER-POINTER</h4>
 
@@ -2052,7 +2052,7 @@ Sets the user pointer of the specified joystick.
 Returns the user pointer of the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG50">glfwJoystickIsGamepad</h3>
+<h3 id="header:ADP:HEADERTAG54">glfwJoystickIsGamepad</h3>
 
 <h4 id="function:GLFW:JOYSTICK-IS-GAMEPAD">Function: JOYSTICK-IS-GAMEPAD</h4>
 
@@ -2065,13 +2065,13 @@ Returns the user pointer of the specified joystick.
 Returns whether the specified joystick has a gamepad mapping (t or NIL).
 ````
 
-<h3 id="header:ADP:HEADERTAG51">glfwSetJoystickCallback</h3>
+<h3 id="header:ADP:HEADERTAG55">glfwSetJoystickCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-JOYSTICK-CALLBACK">Macro: DEFINE-JOYSTICK-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME1833 (JID EVENT) &BODY
-                                    CALLBACK-BODY1834)
+(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME1168 (JID EVENT) &BODY
+                                    CALLBACK-BODY1169)
   ...)
 ```
 
@@ -2090,7 +2090,7 @@ Defines a joystick configuration callback.
 Sets the joystick configuration callback.
 ````
 
-<h3 id="header:ADP:HEADERTAG52">glfwUpdateGamepadMappings</h3>
+<h3 id="header:ADP:HEADERTAG56">glfwUpdateGamepadMappings</h3>
 
 <h4 id="function:GLFW:UPDATE-GAMEPAD-MAPPINGS">Function: UPDATE-GAMEPAD-MAPPINGS</h4>
 
@@ -2103,7 +2103,7 @@ Sets the joystick configuration callback.
 Adds the specified SDL_GameControllerDB gamepad mappings. Returns t or NIL.
 ````
 
-<h3 id="header:ADP:HEADERTAG53">glfwGetGamepadName</h3>
+<h3 id="header:ADP:HEADERTAG57">glfwGetGamepadName</h3>
 
 <h4 id="function:GLFW:GET-GAMEPAD-NAME">Function: GET-GAMEPAD-NAME</h4>
 
@@ -2116,7 +2116,7 @@ Adds the specified SDL_GameControllerDB gamepad mappings. Returns t or NIL.
 Returns the human-readable gamepad name (or NIL) for the specified joystick.
 ````
 
-<h3 id="header:ADP:HEADERTAG54">glfwGetGamepadState</h3>
+<h3 id="header:ADP:HEADERTAG58">glfwGetGamepadState</h3>
 
 <h4 id="function:GLFW:GET-GAMEPAD-STATE">Function: GET-GAMEPAD-STATE</h4>
 
@@ -2129,7 +2129,7 @@ Returns the human-readable gamepad name (or NIL) for the specified joystick.
 Returns the state of the specified joystick remapped as a gamepad (or NIL).
 ````
 
-<h3 id="header:ADP:HEADERTAG55">glfwSetClipboardString</h3>
+<h3 id="header:ADP:HEADERTAG59">glfwSetClipboardString</h3>
 
 <h4 id="function:GLFW:SET-CLIPBOARD-STRING">Function: SET-CLIPBOARD-STRING</h4>
 
@@ -2142,7 +2142,7 @@ Returns the state of the specified joystick remapped as a gamepad (or NIL).
 Sets the clipboard to the specified string.
 ````
 
-<h3 id="header:ADP:HEADERTAG56">glfwGetClipboardString</h3>
+<h3 id="header:ADP:HEADERTAG60">glfwGetClipboardString</h3>
 
 <h4 id="function:GLFW:GET-CLIPBOARD-STRING">Function: GET-CLIPBOARD-STRING</h4>
 
@@ -2155,7 +2155,7 @@ Sets the clipboard to the specified string.
 Returns the contents of the clipboard as a string.
 ````
 
-<h3 id="header:ADP:HEADERTAG57">glfwGetTime</h3>
+<h3 id="header:ADP:HEADERTAG61">glfwGetTime</h3>
 
 <h4 id="function:GLFW:GET-TIME">Function: GET-TIME</h4>
 
@@ -2168,7 +2168,7 @@ Returns the contents of the clipboard as a string.
 Returns the GLFW time.
 ````
 
-<h3 id="header:ADP:HEADERTAG58">glfwSetTime</h3>
+<h3 id="header:ADP:HEADERTAG62">glfwSetTime</h3>
 
 <h4 id="function:GLFW:SET-TIME">Function: SET-TIME</h4>
 
@@ -2181,7 +2181,7 @@ Returns the GLFW time.
 Sets the GLFW time.
 ````
 
-<h3 id="header:ADP:HEADERTAG59">glfwGetTimerValue</h3>
+<h3 id="header:ADP:HEADERTAG63">glfwGetTimerValue</h3>
 
 <h4 id="function:GLFW:GET-TIMER-VALUE">Function: GET-TIMER-VALUE</h4>
 
@@ -2194,7 +2194,7 @@ Sets the GLFW time.
 Returns the current value of the raw timer.
 ````
 
-<h3 id="header:ADP:HEADERTAG60">glfwGetTimerFrequency</h3>
+<h3 id="header:ADP:HEADERTAG64">glfwGetTimerFrequency</h3>
 
 <h4 id="function:GLFW:GET-TIMER-FREQUENCY">Function: GET-TIMER-FREQUENCY</h4>
 

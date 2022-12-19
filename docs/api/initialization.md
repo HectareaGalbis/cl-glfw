@@ -1,21 +1,21 @@
 <h1 id="header:GLFW:INITIALIZATION-REFERENCE-HEADER">Initialization, version and error reference</h1>
 
-<h2 id="header:ADP:HEADERTAG0">Description</h2>
+<h2 id="header:ADP:HEADERTAG4">Description</h2>
 
 This is the reference documentation for initialization and termination of the library\, version management and error handling\.
 
 * <a href="/docs/api/initialization.md#header:GLFW:INITIALIZATION-REFERENCE-HEADER">Initialization, version and error reference</a>
-  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG0">Description</a>
+  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG4">Description</a>
   * <a href="/docs/api/initialization.md#header:GLFW:INITIALIZATION-CONSTANTS-SUBHEADER">Constants</a>
-  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG1">Types</a>
-  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG2">Functions</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG3">glfwInit</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG4">glfwTerminate</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG5">glfwInitHint</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG6">glfwGetVersion</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG7">glfwGetVersionString</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG8">glfwGetError</a>
-    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG9">glfwSetErrorCallback</a>
+  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG5">Types</a>
+  * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG6">Functions</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG7">glfwInit</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG8">glfwTerminate</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG9">glfwInitHint</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG10">glfwGetVersion</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG11">glfwGetVersionString</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG12">glfwGetError</a>
+    * <a href="/docs/api/initialization.md#header:ADP:HEADERTAG13">glfwSetErrorCallback</a>
 
 <h2 id="header:GLFW:INITIALIZATION-CONSTANTS-SUBHEADER">Constants</h2>
 
@@ -209,7 +209,7 @@ The requested format is not supported or available.
 The specified window does not have an OpenGL or OpenGL ES context.
 ````
 
-<h2 id="header:ADP:HEADERTAG1">Types</h2>
+<h2 id="header:ADP:HEADERTAG5">Types</h2>
 
 <h4 id="type:GLFW:ERRORFUN">Type: ERRORFUN</h4>
 
@@ -222,9 +222,9 @@ The specified window does not have an OpenGL or OpenGL ES context.
 The function pointer type for error callbacks.
 ````
 
-<h2 id="header:ADP:HEADERTAG2">Functions</h2>
+<h2 id="header:ADP:HEADERTAG6">Functions</h2>
 
-<h3 id="header:ADP:HEADERTAG3">glfwInit</h3>
+<h3 id="header:ADP:HEADERTAG7">glfwInit</h3>
 
 <h4 id="function:GLFW:INIT">Function: INIT</h4>
 
@@ -237,7 +237,7 @@ The function pointer type for error callbacks.
 Initializes the GLFW library.
 ````
 
-<h3 id="header:ADP:HEADERTAG4">glfwTerminate</h3>
+<h3 id="header:ADP:HEADERTAG8">glfwTerminate</h3>
 
 <h4 id="function:GLFW:TERMINATE">Function: TERMINATE</h4>
 
@@ -250,7 +250,7 @@ Initializes the GLFW library.
 Terminates the GLFW library.
 ````
 
-<h3 id="header:ADP:HEADERTAG5">glfwInitHint</h3>
+<h3 id="header:ADP:HEADERTAG9">glfwInitHint</h3>
 
 <h4 id="function:GLFW:INIT-HINT">Function: INIT-HINT</h4>
 
@@ -263,7 +263,7 @@ Terminates the GLFW library.
 Sets the specified init hint to the desired value.
 ````
 
-<h3 id="header:ADP:HEADERTAG6">glfwGetVersion</h3>
+<h3 id="header:ADP:HEADERTAG10">glfwGetVersion</h3>
 
 <h4 id="function:GLFW:GET-VERSION">Function: GET-VERSION</h4>
 
@@ -276,7 +276,7 @@ Sets the specified init hint to the desired value.
 Retrieves the version of the GLFW library. Returns three values.
 ````
 
-<h3 id="header:ADP:HEADERTAG7">glfwGetVersionString</h3>
+<h3 id="header:ADP:HEADERTAG11">glfwGetVersionString</h3>
 
 <h4 id="function:GLFW:GET-VERSION-STRING">Function: GET-VERSION-STRING</h4>
 
@@ -289,7 +289,7 @@ Retrieves the version of the GLFW library. Returns three values.
 Returns a string describing the compile-time configuration.
 ````
 
-<h3 id="header:ADP:HEADERTAG8">glfwGetError</h3>
+<h3 id="header:ADP:HEADERTAG12">glfwGetError</h3>
 
 <h4 id="function:GLFW:GET-ERROR">Function: GET-ERROR</h4>
 
@@ -302,13 +302,13 @@ Returns a string describing the compile-time configuration.
 Returns the error code and desccription of the last error for the calling thread and clears it.
 ````
 
-<h3 id="header:ADP:HEADERTAG9">glfwSetErrorCallback</h3>
+<h3 id="header:ADP:HEADERTAG13">glfwSetErrorCallback</h3>
 
 <h4 id="function:GLFW:DEFINE-ERROR-CALLBACK">Macro: DEFINE-ERROR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME1724 (ERROR-CODE DESCRIPTION)
-                                 &BODY CALLBACK-BODY1725)
+(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME1059 (ERROR-CODE DESCRIPTION)
+                                 &BODY CALLBACK-BODY1060)
   ...)
 ```
 
