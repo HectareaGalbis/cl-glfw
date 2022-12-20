@@ -61,7 +61,25 @@
   (GLFW_COCOA_FRAME_NAME         #x00023002 "macOS specific window hint.")
   (GLFW_COCOA_GRAPHICS_SWITCHING #x00023003 "macOS specific window hint.")
   (GLFW_X11_CLASS_NAME           #x00024001 "X11 specific window hint.")
-  (GLFW_X11_INSTANCE_NAME        #x00024002 "X11 specific window hint."))
+  (GLFW_X11_INSTANCE_NAME        #x00024002 "X11 specific window hint.")
+
+  ;; Window hint values
+  (GLFW_DONT_CARE                -1)
+  (GLFW_OPENGL_API               #x00030001)
+  (GLFW_OPENGL_ES_API            #x00030002)
+  (GLFW_NO_API                   0)
+  (GLFW_NATIVE_CONTEXT_API       #x00036001)
+  (GLFW_EGL_CONTEXT_API          #x00036002)
+  (GLFW_OSMESA_CONTEXT_API       #x00036003)
+  (GLFW_NO_ROBUSTNESS            0)
+  (GLFW_NO_RESET_NOTIFICATION    #x00031001)
+  (GLFW_LOSE_CONTEXT_ON_RESET    #x00031002)
+  (GLFW_ANY_RELEASE_BEHAVIOR     0)
+  (GLFW_RELEASE_BEHAVIOR_FLUSH   #x00035001)
+  (GLFW_RELEASE_BEHAVIOR_NONE    #x00035002)
+  (GLFW_OPENGL_ANY_PROFILE       0)
+  (GLFW_OPENGL_CORE_PROFILE      #x00032001)
+  (GLFW_OPENGL_COMPAT_PROFILE    #x00032002))
 
 
 (adp:subheader "Types")
@@ -149,10 +167,20 @@
   "Resets all window hints to their default values."
   (glfwDefaultWindowHints))
 
+(defparameter *boolean-window-hints* (list GLFW_RESIZABLE GLFW_VISIBLE GLFW_DECORATED GLFW_FOCUSED
+					   GLFW_AUTO_ICONIFY GLFW_FLOATING GLFW_MAXIMIZED GLFW_CENTER_CURSOR
+					   GLFW_TRANSPARENT_FRAMEBUFFER GLFW_FOCUS_ON_SHOW
+					   GLFW_SCALE_TO_MONITOR GLFW_STEREO GLFW_SRGB_CAPABLE
+					   GLFW_DOUBLEBUFFER GLFW_OPENGL_FORWARD_COMPAT
+					   GLFW_OPENGL_DEBUG_CONTEXT GLFW_COCOA_RETINA_FRAMEBUFFER
+					   GLFW_COCOA_GRAPHICS_SWITCHING))
+
 (adp:defun window-hint (hint value)
-  (declare (type fixnum hint value))
+  (declare (type fixnum hint) (type (or fixnum boolean) value))
   "Sets the specified window hint to the desired value."
-  (glfwWindowHint hint value))
+  (if (member hint *boolean-window-hints* :test #'=)
+      (glfwWindowHint hint (if value GLFW_TRUE GLFW_FALSE))
+      (glfwWindowHint hint value)))
 
 (adp:defun window-hint-string (hint value)
   (declare (type fixnum hint) (type string value))
@@ -320,23 +348,24 @@
     (glfwSetWindowMonitor window monitor-c xpos ypos width height refreshRate)))
 
 
-(defvar *bool-attributes* (list GLFW_FOCUSED GLFW_ICONIFIED GLFW_MAXIMIZED GLFW_HOVERED GLFW_VISIBLE
-				GLFW_RESIZABLE GLFW_DECORATED GLFW_AUTO_ICONIFY GLFW_FLOATING
-				GLFW_TRANSPARENT_FRAMEBUFFER GLFW_FOCUS_ON_SHOW GLFW_OPENGL_FORWARD_COMPAT
-				GLFW_OPENGL_DEBUG_CONTEXT GLFW_CONTEXT_NO_ERROR))
+(defvar *boolean-window-attributes* (list GLFW_FOCUSED GLFW_ICONIFIED GLFW_MAXIMIZED GLFW_HOVERED GLFW_VISIBLE
+					  GLFW_RESIZABLE GLFW_DECORATED GLFW_AUTO_ICONIFY GLFW_FLOATING
+					  GLFW_TRANSPARENT_FRAMEBUFFER GLFW_FOCUS_ON_SHOW
+					  GLFW_OPENGL_FORWARD_COMPAT GLFW_OPENGL_DEBUG_CONTEXT
+					  GLFW_CONTEXT_NO_ERROR))
 
 (adp:defun get-window-attrib (window attrib)
   (declare (type window window) (type fixnum attrib))
   "Returns an attribute of the specified window. Boolean attributes will be T or NIL."
   (let ((result (glfwGetWindowAttrib window attrib)))
-    (if (member attrib *bool-attributes*)
+    (if (member attrib *boolean-window-attributes* :test #'=)
 	(equal result GLFW_TRUE)
 	result)))
 
 (adp:defun set-window-attrib (window attrib value)
   (declare (type window window) (type (or boolean fixnum) attrib value))
   "Sets an attribute of the specified window. Boolean attributes must be T or NIL."
-  (let ((value-c (if (member attrib *bool-attributes*)
+  (let ((value-c (if (member attrib *boolean-window-attributes* :test #'=)
 		     (if value GLFW_TRUE GLFW_FALSE)
 		     value)))
     (glfwSetWindowAttrib window attrib value-c)))

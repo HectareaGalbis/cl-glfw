@@ -260,7 +260,7 @@ Terminates the GLFW library.
 ```
 
 ````
-Sets the specified init hint to the desired value.
+Sets the specified init hint to the desired value (t or NIL).
 ````
 
 <h3 id="header:ADP:HEADERTAG10">glfwGetVersion</h3>
@@ -307,8 +307,8 @@ Returns the error code and desccription of the last error for the calling thread
 <h4 id="function:GLFW:DEFINE-ERROR-CALLBACK">Macro: DEFINE-ERROR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME1059 (ERROR-CODE DESCRIPTION)
-                                 &BODY CALLBACK-BODY1060)
+(defmacro DEFINE-ERROR-CALLBACK (CALLBACK-NAME1069 (ERROR-CODE DESCRIPTION)
+                                 &BODY CALLBACK-BODY1070)
   ...)
 ```
 

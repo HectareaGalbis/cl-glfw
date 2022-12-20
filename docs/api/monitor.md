@@ -62,42 +62,42 @@ The function pointer type for monitor configuration callbacks.
 <h4 id="function:GLFW:VIDMODE-WIDTH">Function: VIDMODE-WIDTH</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-WIDTH (G1187)
+(defun GLFW:VIDMODE-WIDTH (G1197)
   ...)
 ```
 
 <h4 id="function:GLFW:VIDMODE-HEIGHT">Function: VIDMODE-HEIGHT</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-HEIGHT (G1188)
+(defun GLFW:VIDMODE-HEIGHT (G1198)
   ...)
 ```
 
 <h4 id="function:GLFW:VIDMODE-REDBITS">Function: VIDMODE-REDBITS</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-REDBITS (G1189)
+(defun GLFW:VIDMODE-REDBITS (G1199)
   ...)
 ```
 
 <h4 id="function:GLFW:VIDMODE-GREENBITS">Function: VIDMODE-GREENBITS</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-GREENBITS (G1190)
+(defun GLFW:VIDMODE-GREENBITS (G1200)
   ...)
 ```
 
 <h4 id="function:GLFW:VIDMODE-BLUEBITS">Function: VIDMODE-BLUEBITS</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-BLUEBITS (G1191)
+(defun GLFW:VIDMODE-BLUEBITS (G1201)
   ...)
 ```
 
 <h4 id="function:GLFW:VIDMODE-REFRESHRATE">Function: VIDMODE-REFRESHRATE</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-REFRESHRATE (G1192)
+(defun GLFW:VIDMODE-REFRESHRATE (G1202)
   ...)
 ```
 
@@ -119,7 +119,7 @@ Gamma ramp.
 ```Lisp
 (defun GLFW:CREATE-GAMMARAMP (&KEY ((:RED RED-ARG) NIL)
                               ((:GREEN GREEN-ARG) NIL) ((:BLUE BLUE-ARG) NIL)
-                              ((:SIZE G1194) 0))
+                              ((:SIZE G1204) 0))
   ...)
 ```
 
@@ -130,7 +130,7 @@ Constructor of GAMMARAMP.
 <h4 id="function:GLFW:DESTROY-GAMMARAMP">Function: DESTROY-GAMMARAMP</h4>
 
 ```Lisp
-(defun GLFW:DESTROY-GAMMARAMP (ARG1196)
+(defun GLFW:DESTROY-GAMMARAMP (ARG1206)
   ...)
 ```
 
@@ -141,7 +141,7 @@ Destructor of GAMMARAMP.
 <h4 id="function:GLFW:WITH-GAMMARAMP">Macro: WITH-GAMMARAMP</h4>
 
 ```Lisp
-(defmacro GLFW:WITH-GAMMARAMP (VAR1206 ARGS1207 &BODY BODY1208)
+(defmacro GLFW:WITH-GAMMARAMP (VAR1216 ARGS1217 &BODY BODY1218)
   ...)
 ```
 
@@ -152,56 +152,56 @@ Wrap the body forms with CREATE-GAMMARAMP and DESTROY-GAMMARAMP.
 <h4 id="function:GLFW:GAMMARAMP-RED">Function: GAMMARAMP-RED</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-RED (G1197 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMMARAMP-RED (G1207 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMMARAMP-GREEN">Function: GAMMARAMP-GREEN</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-GREEN (G1198 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMMARAMP-GREEN (G1208 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMMARAMP-BLUE">Function: GAMMARAMP-BLUE</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-BLUE (G1199 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMMARAMP-BLUE (G1209 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMMARAMP-SIZE">Function: GAMMARAMP-SIZE</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-SIZE (G1200)
+(defun GLFW:GAMMARAMP-SIZE (G1210)
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-RED)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-RED) (NEW-VALUE G1201 &OPTIONAL (INDEX NIL))
+(defun (SETF GLFW:GAMMARAMP-RED) (NEW-VALUE G1211 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-GREEN)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-GREEN) (NEW-VALUE G1202 &OPTIONAL (INDEX NIL))
+(defun (SETF GLFW:GAMMARAMP-GREEN) (NEW-VALUE G1212 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-BLUE)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-BLUE) (NEW-VALUE G1203 &OPTIONAL (INDEX NIL))
+(defun (SETF GLFW:GAMMARAMP-BLUE) (NEW-VALUE G1213 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-SIZE)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-SIZE) (G1205 G1204)
+(defun (SETF GLFW:GAMMARAMP-SIZE) (G1215 G1214)
   ...)
 ```
 
@@ -329,8 +329,8 @@ Returns the user pointer of the specified monitor.
 <h4 id="function:GLFW:DEFINE-MONITOR-CALLBACK">Macro: DEFINE-MONITOR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-MONITOR-CALLBACK (CALLBACK-NAME1222 (MONITOR EVENT) &BODY
-                                   CALLBACK-BODY1223)
+(defmacro DEFINE-MONITOR-CALLBACK (CALLBACK-NAME1232 (MONITOR EVENT) &BODY
+                                   CALLBACK-BODY1233)
   ...)
 ```
 

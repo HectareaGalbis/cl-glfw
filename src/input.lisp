@@ -20,6 +20,22 @@
   (GLFW_RELEASE                      0                               "The key or mouse button was released.")
   (GLFW_PRESS                        1                               "The key or mouse button was pressed.")
   (GLFW_REPEAT                       2                               "The key was held down until it repeated.")
+
+  ;; Input mode
+  (GLFW_CURSOR                       #x00033001)
+  (GLFW_STICKY_KEYS                  #x00033002)
+  (GLFW_STICKY_MOUSE_BUTTONS         #x00033003)
+  (GLFW_LOCK_KEY_MODS                #x00033004)
+  (GLFW_RAW_MOUSE_MOTION             #x00033005)
+
+  ;; Cursor mode
+  (GLFW_CURSOR_NORMAL                #x00034001)
+  (GLFW_CURSOR_HIDDEN                #x00034002)
+  (GLFW_CURSOR_DISABLED              #x00034003)
+
+  ;; Joystick event
+  (GLFW_CONNECTED                    #x00040001)
+  (GLFW_DISCONNECTED                 #x00040002)
   
   ;; Gamepad axes
   (GLFW_GAMEPAD_AXIX_LEFT_X          0)
@@ -234,23 +250,7 @@
   (GLFW_CROSSHAIR_CURSOR             #x00036001                      "The crosshair shape.")
   (GLFW_HAND_CURSOR                  #x00036001                      "The hand shape.")
   (GLFW_HRESIZE_CURSOR               #x00036001                      "The horizontal resize arrow shape.")
-  (GLFW_VRESIZE_CURSOR               #x00036001                      "The vertical resize arrow shape.")
-
-  ;; Input mode
-  (GLFW_CURSOR                       #x00033001)
-  (GLFW_STICKY_KEYS                  #x00033002)
-  (GLFW_STICKY_MOUSE_BUTTONS         #x00033003)
-  (GLFW_LOCK_KEY_MODS                #x00033004)
-  (GLFW_RAW_MOUSE_MOTION             #x00033005)
-
-  ;; Cursor mode
-  (GLFW_CURSOR_NORMAL                #x00034001)
-  (GLFW_CURSOR_HIDDEN                #x00034002)
-  (GLFW_CURSOR_DISABLED              #x00034003)
-
-  ;; Joystick configuration
-  (GLFW_CONNECTED                    #x00040001)
-  (GLFW_DISCONNECTED                 #x00040002))
+  (GLFW_VRESIZE_CURSOR               #x00036001                      "The vertical resize arrow shape."))
 
 
 (adp:subheader "Types")
@@ -322,17 +322,25 @@
 
 (adp:subsubheader "glfwGetInputMode")
 
+(defparameter *boolean-input-modes* (list GLFW_STICKY_KEYS GLFW_STICKY_MOUSE_BUTTONS GLFW_LOCK_KEY_MODS
+					  GLFW_RAW_MOUSE_MOTION))
+
 (adp:defun get-input-mode (window mode)
   (declare (type pointer window) (type fixnum mode))
   "Returns the value of an input option for the specified window."
-  (glfwGetInputMode window mode))
+  (let ((input-mode (glfwGetInputMode window mode)))
+    (if (member mode *boolean-input-modes* :test #'=)
+	(= input-mode GLFW_TRUE)
+	input-mode)))
 
 (adp:subsubheader "glfwSetInputMode")
 
 (adp:defun set-input-mode (window mode value)
-  (declare (type pointer window) (type fixnum mode value))
+  (declare (type pointer window) (type fixnum mode) (type (or fixnum boolean) value))
   "Sets an input option for the specified window."
-  (glfwSetInputMode window mode value))
+  (if (member mode *boolean-input-modes* :test #'=)
+      (glfwSetInputMode window mode (if value GLFW_TRUE GLFW_FALSE))
+      (glfwSetInputMode window mode value)))
 
 (adp:subsubheader "glfwRawMouseMotionSupported")
 
@@ -506,7 +514,8 @@
 (mcffi:define-callback-definer define-cursor-enter-callback
   "Defines a cursor enter/leave callback."
   (window  :type :pointer)
-  (entered :type :int))
+  (entered :type :int
+	   :create (= entered GLFW_TRUE)))
 
 (adp:defun set-cursor-enter-callback (window callback)
   (declare (type pointer window) (type (or null cursorenterfun) callback))

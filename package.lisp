@@ -32,7 +32,20 @@
         ;; Input
         #:GLFW_RELEASE                                                    
         #:GLFW_PRESS                                                      
-        #:GLFW_REPEAT                                                     
+        #:GLFW_REPEAT
+        ;; Input mode
+        #:GLFW_ARROW
+        #:GLFW_STICKY_KEYS
+        #:GLFW_STICKY_MOUSE_BUTTONS
+        #:GLFW_LOCK_KEY_MODS
+        #:GLFW_RAW_MOUSE_MOTION
+        ;; Cursor mode
+        #:GLFW_CURSOR_NORMAL
+        #:GLFW_CURSOR_HIDDEN
+        #:GLFW_CURSOR_DISABLED
+        ;; Joystick event
+        #:GLFW_CONNECTED                  
+        #:GLFW_DISCONNECTED
         ;; Gamepad axes
         #:GLFW_GAMEPAD_AXIX_LEFT_X          
         #:GLFW_GAMEPAD_AXIS_LEFT_Y          
@@ -240,20 +253,6 @@
         #:GLFW_HAND_CURSOR                  
         #:GLFW_HRESIZE_CURSOR               
         #:GLFW_VRESIZE_CURSOR 
-        ;; Input mode
-        #:GLFW_ARROW
-        #:GLFW_STICKY_KEYS
-        #:GLFW_STICKY_MOUSE_BUTTONS
-        #:GLFW_LOCK_KEY_MODS
-        #:GLFW_RAW_MOUSE_MOTION
-        ;; Cursor mode
-        #:GLFW_CURSOR_NORMAL
-        #:GLFW_CURSOR_HIDDEN
-        #:GLFW_CURSOR_DISABLED
-        ;; Joystick configuration
-        #:GLFW_CONNECTED                  
-        #:GLFW_DISCONNECTED         
-
 
         ;; Window
         #:GLFW_FOCUSED                      
@@ -302,24 +301,25 @@
         #:GLFW_X11_CLASS_NAME               
         #:GLFW_X11_INSTANCE_NAME
         
-        ;; Others
-        #:GLFW_NO_API                       
-        #:GLFW_OPENGL_API                   
-        #:GLFW_OPENGL_ES_API                
+        ;; Window hint values
+	#:GLFW_DONT_CARE
+	#:GLFW_OPENGL_API                   
+        #:GLFW_OPENGL_ES_API
+	#:GLFW_NO_API                       
+        #:GLFW_NATIVE_CONTEXT_API           
+        #:GLFW_EGL_CONTEXT_API              
+        #:GLFW_OSMESA_CONTEXT_API
         #:GLFW_NO_ROBUSTNESS                
         #:GLFW_NO_RESET_NOTIFICATION        
         #:GLFW_LOSE_CONTEXT_ON_RESET        
-        #:GLFW_OPENGL_ANY_PROFILE           
+	#:GLFW_ANY_RELEASE_BEHAVIOR         
+        #:GLFW_RELEASE_BEHAVIOR_FLUSH       
+        #:GLFW_RELEASE_BEHAVIOR_NONE
+	#:GLFW_OPENGL_ANY_PROFILE           
         #:GLFW_OPENGL_CORE_PROFILE          
         #:GLFW_OPENGL_COMPAT_PROFILE        
-        #:GLFW_ANY_RELEASE_BEHAVIOR         
-        #:GLFW_RELEASE_BEHAVIOR_FLUSH       
-        #:GLFW_RELEASE_BEHAVIOR_NONE        
-        #:GLFW_NATIVE_CONTEXT_API           
-        #:GLFW_EGL_CONTEXT_API              
-        #:GLFW_OSMESA_CONTEXT_API    
-        #:GLFW_DONT_CARE
-
+                
+          
         ;; Structs
 
 	;; Input

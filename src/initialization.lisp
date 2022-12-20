@@ -65,7 +65,7 @@
 (adp:subsubheader "glfwInitHint")
 
 (adp:defun init-hint (hint value)
-  "Sets the specified init hint to the desired value."
+  "Sets the specified init hint to the desired value (t or NIL)."
   (declare (type fixnum hint) (type boolean value))
   (let ((real-value (if value GLFW_TRUE GLFW_FALSE)))
     (glfwInitHint hint real-value)))

@@ -83,6 +83,66 @@ The key or mouse button was pressed.
 The key was held down until it repeated.
 ````
 
+<h4 id="symbol:GLFW:GLFW_CURSOR">Constant: GLFW_CURSOR</h4>
+
+```Lisp
+(defconstant GLFW_CURSOR 208897)
+```
+
+<h4 id="symbol:GLFW:GLFW_STICKY_KEYS">Constant: GLFW_STICKY_KEYS</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_STICKY_KEYS 208898)
+```
+
+<h4 id="symbol:GLFW:GLFW_STICKY_MOUSE_BUTTONS">Constant: GLFW_STICKY_MOUSE_BUTTONS</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_STICKY_MOUSE_BUTTONS 208899)
+```
+
+<h4 id="symbol:GLFW:GLFW_LOCK_KEY_MODS">Constant: GLFW_LOCK_KEY_MODS</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_LOCK_KEY_MODS 208900)
+```
+
+<h4 id="symbol:GLFW:GLFW_RAW_MOUSE_MOTION">Constant: GLFW_RAW_MOUSE_MOTION</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_RAW_MOUSE_MOTION 208901)
+```
+
+<h4 id="symbol:GLFW:GLFW_CURSOR_NORMAL">Constant: GLFW_CURSOR_NORMAL</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_CURSOR_NORMAL 212993)
+```
+
+<h4 id="symbol:GLFW:GLFW_CURSOR_HIDDEN">Constant: GLFW_CURSOR_HIDDEN</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_CURSOR_HIDDEN 212994)
+```
+
+<h4 id="symbol:GLFW:GLFW_CURSOR_DISABLED">Constant: GLFW_CURSOR_DISABLED</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_CURSOR_DISABLED 212995)
+```
+
+<h4 id="symbol:GLFW:GLFW_CONNECTED">Constant: GLFW_CONNECTED</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_CONNECTED 262145)
+```
+
+<h4 id="symbol:GLFW:GLFW_DISCONNECTED">Constant: GLFW_DISCONNECTED</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_DISCONNECTED 262146)
+```
+
 <h4 id="symbol:GLFW:GLFW_GAMEPAD_AXIX_LEFT_X">Constant: GLFW_GAMEPAD_AXIX_LEFT_X</h4>
 
 ```Lisp
@@ -1380,66 +1440,6 @@ The horizontal resize arrow shape.
 The vertical resize arrow shape.
 ````
 
-<h4 id="symbol:GLFW:GLFW_CURSOR">Constant: GLFW_CURSOR</h4>
-
-```Lisp
-(defconstant GLFW_CURSOR 208897)
-```
-
-<h4 id="symbol:GLFW:GLFW_STICKY_KEYS">Constant: GLFW_STICKY_KEYS</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_STICKY_KEYS 208898)
-```
-
-<h4 id="symbol:GLFW:GLFW_STICKY_MOUSE_BUTTONS">Constant: GLFW_STICKY_MOUSE_BUTTONS</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_STICKY_MOUSE_BUTTONS 208899)
-```
-
-<h4 id="symbol:GLFW:GLFW_LOCK_KEY_MODS">Constant: GLFW_LOCK_KEY_MODS</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_LOCK_KEY_MODS 208900)
-```
-
-<h4 id="symbol:GLFW:GLFW_RAW_MOUSE_MOTION">Constant: GLFW_RAW_MOUSE_MOTION</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_RAW_MOUSE_MOTION 208901)
-```
-
-<h4 id="symbol:GLFW:GLFW_CURSOR_NORMAL">Constant: GLFW_CURSOR_NORMAL</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_CURSOR_NORMAL 212993)
-```
-
-<h4 id="symbol:GLFW:GLFW_CURSOR_HIDDEN">Constant: GLFW_CURSOR_HIDDEN</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_CURSOR_HIDDEN 212994)
-```
-
-<h4 id="symbol:GLFW:GLFW_CURSOR_DISABLED">Constant: GLFW_CURSOR_DISABLED</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_CURSOR_DISABLED 212995)
-```
-
-<h4 id="symbol:GLFW:GLFW_CONNECTED">Constant: GLFW_CONNECTED</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_CONNECTED 262145)
-```
-
-<h4 id="symbol:GLFW:GLFW_DISCONNECTED">Constant: GLFW_DISCONNECTED</h4>
-
-```Lisp
-(defconstant GLFW:GLFW_DISCONNECTED 262146)
-```
-
 <h2 id="header:ADP:HEADERTAG22">Types</h2>
 
 <h4 id="type:GLFW:CURSOR">Type: CURSOR</h4>
@@ -1564,14 +1564,14 @@ The function pointer type for joystick configuration callbacks.
 <h4 id="function:GLFW:GAMEPADSTATE-BUTTONS">Function: GAMEPADSTATE-BUTTONS</h4>
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-BUTTONS (G1077 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-BUTTONS (G1087 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMEPADSTATE-AXES">Function: GAMEPADSTATE-AXES</h4>
 
 ```Lisp
-(defun GLFW:GAMEPADSTATE-AXES (G1078 &OPTIONAL (INDEX NIL))
+(defun GLFW:GAMEPADSTATE-AXES (G1088 &OPTIONAL (INDEX NIL))
   ...)
 ```
 
@@ -1751,9 +1751,9 @@ Sets the cursor for the window.
 <h4 id="function:GLFW:DEFINE-KEY-CALLBACK">Macro: DEFINE-KEY-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME1094
+(defmacro DEFINE-KEY-CALLBACK (CALLBACK-NAME1104
                                (WINDOW KEY SCANCODE ACTION MODS) &BODY
-                               CALLBACK-BODY1095)
+                               CALLBACK-BODY1105)
   ...)
 ```
 
@@ -1777,8 +1777,8 @@ Sets the key callback.
 <h4 id="function:GLFW:DEFINE-CHAR-CALLBACK">Macro: DEFINE-CHAR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME1104 (WINDOW CODEPOINT) &BODY
-                                CALLBACK-BODY1105)
+(defmacro DEFINE-CHAR-CALLBACK (CALLBACK-NAME1114 (WINDOW CODEPOINT) &BODY
+                                CALLBACK-BODY1115)
   ...)
 ```
 
@@ -1802,8 +1802,8 @@ Sets the Unicode character callback.
 <h4 id="function:GLFW:DEFINE-CHAR-MODS-CALLBACK">Macro: DEFINE-CHAR-MODS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME1111 (WINDOW CODEPOINT MODS)
-                                     &BODY CALLBACK-BODY1112)
+(defmacro DEFINE-CHAR-MODS-CALLBACK (CALLBACK-NAME1121 (WINDOW CODEPOINT MODS)
+                                     &BODY CALLBACK-BODY1122)
   ...)
 ```
 
@@ -1827,9 +1827,9 @@ Sets the Unicode character with modifiers callback.
 <h4 id="function:GLFW:DEFINE-MOUSE-BUTTON-CALLBACK">Macro: DEFINE-MOUSE-BUTTON-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME1119
+(defmacro DEFINE-MOUSE-BUTTON-CALLBACK (CALLBACK-NAME1129
                                         (WINDOW BUTTON ACTION MODS) &BODY
-                                        CALLBACK-BODY1120)
+                                        CALLBACK-BODY1130)
   ...)
 ```
 
@@ -1853,8 +1853,8 @@ Sets the mouse button callback.
 <h4 id="function:GLFW:DEFINE-CURSOR-POS-CALLBACK">Macro: DEFINE-CURSOR-POS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME1128 (WINDOW XPOS YPOS)
-                                      &BODY CALLBACK-BODY1129)
+(defmacro DEFINE-CURSOR-POS-CALLBACK (CALLBACK-NAME1138 (WINDOW XPOS YPOS)
+                                      &BODY CALLBACK-BODY1139)
   ...)
 ```
 
@@ -1878,8 +1878,8 @@ Sets the cursor position callback.
 <h4 id="function:GLFW:DEFINE-CURSOR-ENTER-CALLBACK">Macro: DEFINE-CURSOR-ENTER-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME1136 (WINDOW ENTERED)
-                                        &BODY CALLBACK-BODY1137)
+(defmacro DEFINE-CURSOR-ENTER-CALLBACK (CALLBACK-NAME1146 (WINDOW ENTERED)
+                                        &BODY CALLBACK-BODY1147)
   ...)
 ```
 
@@ -1903,8 +1903,8 @@ Sets the cursor enter/leave callback.
 <h4 id="function:GLFW:DEFINE-SCROLL-CALLBACK">Macro: DEFINE-SCROLL-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME1143 (WINDOW XOFFSET YOFFSET)
-                                  &BODY CALLBACK-BODY1144)
+(defmacro DEFINE-SCROLL-CALLBACK (CALLBACK-NAME1153 (WINDOW XOFFSET YOFFSET)
+                                  &BODY CALLBACK-BODY1154)
   ...)
 ```
 
@@ -1928,8 +1928,8 @@ Sets the scroll callback.
 <h4 id="function:GLFW:DEFINE-DROP-CALLBACK">Macro: DEFINE-DROP-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME1151 (WINDOW PATHS) &BODY
-                                CALLBACK-BODY1152)
+(defmacro DEFINE-DROP-CALLBACK (CALLBACK-NAME1161 (WINDOW PATHS) &BODY
+                                CALLBACK-BODY1162)
   ...)
 ```
 
@@ -2070,8 +2070,8 @@ Returns whether the specified joystick has a gamepad mapping (t or NIL).
 <h4 id="function:GLFW:DEFINE-JOYSTICK-CALLBACK">Macro: DEFINE-JOYSTICK-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME1168 (JID EVENT) &BODY
-                                    CALLBACK-BODY1169)
+(defmacro DEFINE-JOYSTICK-CALLBACK (CALLBACK-NAME1178 (JID EVENT) &BODY
+                                    CALLBACK-BODY1179)
   ...)
 ```
 

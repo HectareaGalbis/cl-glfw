@@ -463,6 +463,102 @@ X11 specific window hint.
 X11 specific window hint.
 ````
 
+<h4 id="symbol:GLFW:GLFW_DONT_CARE">Constant: GLFW_DONT_CARE</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_DONT_CARE -1)
+```
+
+<h4 id="symbol:GLFW:GLFW_OPENGL_API">Constant: GLFW_OPENGL_API</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_OPENGL_API 196609)
+```
+
+<h4 id="symbol:GLFW:GLFW_OPENGL_ES_API">Constant: GLFW_OPENGL_ES_API</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_OPENGL_ES_API 196610)
+```
+
+<h4 id="symbol:GLFW:GLFW_NO_API">Constant: GLFW_NO_API</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_NO_API 0)
+```
+
+<h4 id="symbol:GLFW:GLFW_NATIVE_CONTEXT_API">Constant: GLFW_NATIVE_CONTEXT_API</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_NATIVE_CONTEXT_API 221185)
+```
+
+<h4 id="symbol:GLFW:GLFW_EGL_CONTEXT_API">Constant: GLFW_EGL_CONTEXT_API</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_EGL_CONTEXT_API 221186)
+```
+
+<h4 id="symbol:GLFW:GLFW_OSMESA_CONTEXT_API">Constant: GLFW_OSMESA_CONTEXT_API</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_OSMESA_CONTEXT_API 221187)
+```
+
+<h4 id="symbol:GLFW:GLFW_NO_ROBUSTNESS">Constant: GLFW_NO_ROBUSTNESS</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_NO_ROBUSTNESS 0)
+```
+
+<h4 id="symbol:GLFW:GLFW_NO_RESET_NOTIFICATION">Constant: GLFW_NO_RESET_NOTIFICATION</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_NO_RESET_NOTIFICATION 200705)
+```
+
+<h4 id="symbol:GLFW:GLFW_LOSE_CONTEXT_ON_RESET">Constant: GLFW_LOSE_CONTEXT_ON_RESET</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_LOSE_CONTEXT_ON_RESET 200706)
+```
+
+<h4 id="symbol:GLFW:GLFW_ANY_RELEASE_BEHAVIOR">Constant: GLFW_ANY_RELEASE_BEHAVIOR</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_ANY_RELEASE_BEHAVIOR 0)
+```
+
+<h4 id="symbol:GLFW:GLFW_RELEASE_BEHAVIOR_FLUSH">Constant: GLFW_RELEASE_BEHAVIOR_FLUSH</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_RELEASE_BEHAVIOR_FLUSH 217089)
+```
+
+<h4 id="symbol:GLFW:GLFW_RELEASE_BEHAVIOR_NONE">Constant: GLFW_RELEASE_BEHAVIOR_NONE</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_RELEASE_BEHAVIOR_NONE 217090)
+```
+
+<h4 id="symbol:GLFW:GLFW_OPENGL_ANY_PROFILE">Constant: GLFW_OPENGL_ANY_PROFILE</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_OPENGL_ANY_PROFILE 0)
+```
+
+<h4 id="symbol:GLFW:GLFW_OPENGL_CORE_PROFILE">Constant: GLFW_OPENGL_CORE_PROFILE</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_OPENGL_CORE_PROFILE 204801)
+```
+
+<h4 id="symbol:GLFW:GLFW_OPENGL_COMPAT_PROFILE">Constant: GLFW_OPENGL_COMPAT_PROFILE</h4>
+
+```Lisp
+(defconstant GLFW:GLFW_OPENGL_COMPAT_PROFILE 204802)
+```
+
 <h2 id="header:ADP:HEADERTAG94">Types</h2>
 
 <h4 id="type:GLFW:WINDOW">Type: WINDOW</h4>
@@ -547,7 +643,7 @@ X11 specific window hint.
 <h4 id="function:GLFW:CREATE-IMAGE">Function: CREATE-IMAGE</h4>
 
 ```Lisp
-(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G1246) 0) ((:HEIGHT G1247) 0)
+(defun GLFW:CREATE-IMAGE (&KEY ((:WIDTH G1256) 0) ((:HEIGHT G1257) 0)
                           ((:PIXELS PIXELS-ARG) NIL))
   ...)
 ```
@@ -559,7 +655,7 @@ Constructor of IMAGE.
 <h4 id="function:GLFW:DESTROY-IMAGE">Function: DESTROY-IMAGE</h4>
 
 ```Lisp
-(defun GLFW:DESTROY-IMAGE (ARG1249)
+(defun GLFW:DESTROY-IMAGE (ARG1259)
   ...)
 ```
 
@@ -570,7 +666,7 @@ Destructor of IMAGE.
 <h4 id="function:GLFW:WITH-IMAGE">Macro: WITH-IMAGE</h4>
 
 ```Lisp
-(defmacro GLFW:WITH-IMAGE (VAR1258 ARGS1259 &BODY BODY1260)
+(defmacro GLFW:WITH-IMAGE (VAR1268 ARGS1269 &BODY BODY1270)
   ...)
 ```
 
@@ -581,42 +677,42 @@ Wrap the body forms with CREATE-IMAGE and DESTROY-IMAGE.
 <h4 id="function:GLFW:IMAGE-WIDTH">Function: IMAGE-WIDTH</h4>
 
 ```Lisp
-(defun GLFW:IMAGE-WIDTH (G1250)
+(defun GLFW:IMAGE-WIDTH (G1260)
   ...)
 ```
 
 <h4 id="function:GLFW:IMAGE-HEIGHT">Function: IMAGE-HEIGHT</h4>
 
 ```Lisp
-(defun GLFW:IMAGE-HEIGHT (G1251)
+(defun GLFW:IMAGE-HEIGHT (G1261)
   ...)
 ```
 
 <h4 id="function:GLFW:IMAGE-PIXELS">Function: IMAGE-PIXELS</h4>
 
 ```Lisp
-(defun GLFW:IMAGE-PIXELS (G1252 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
+(defun GLFW:IMAGE-PIXELS (G1262 &OPTIONAL (HEIGHT-INDEX NIL) (WIDTH-INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF IMAGE-WIDTH)</h4>
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-WIDTH) (G1254 G1253)
+(defun (SETF GLFW:IMAGE-WIDTH) (G1264 G1263)
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF IMAGE-HEIGHT)</h4>
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-HEIGHT) (G1256 G1255)
+(defun (SETF GLFW:IMAGE-HEIGHT) (G1266 G1265)
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF IMAGE-PIXELS)</h4>
 
 ```Lisp
-(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G1257 &OPTIONAL (HEIGHT-INDEX NIL)
+(defun (SETF GLFW:IMAGE-PIXELS) (NEW-VALUE G1267 &OPTIONAL (HEIGHT-INDEX NIL)
                                  (WIDTH-INDEX NIL))
   ...)
 ```
@@ -999,8 +1095,8 @@ Returns the user pointer of the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-POS-CALLBACK">Macro: DEFINE-WINDOW-POS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME1264 (WINDOW XPOS YPOS)
-                                      &BODY CALLBACK-BODY1265)
+(defmacro DEFINE-WINDOW-POS-CALLBACK (CALLBACK-NAME1274 (WINDOW XPOS YPOS)
+                                      &BODY CALLBACK-BODY1275)
   ...)
 ```
 
@@ -1022,8 +1118,8 @@ Sets the position callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-SIZE-CALLBACK">Macro: DEFINE-WINDOW-SIZE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME1271 (WINDOW WIDTH HEIGHT)
-                                       &BODY CALLBACK-BODY1272)
+(defmacro DEFINE-WINDOW-SIZE-CALLBACK (CALLBACK-NAME1281 (WINDOW WIDTH HEIGHT)
+                                       &BODY CALLBACK-BODY1282)
   ...)
 ```
 
@@ -1045,8 +1141,8 @@ Sets the size callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-CLOSE-CALLBACK">Macro: DEFINE-WINDOW-CLOSE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME1278 (WINDOW) &BODY
-                                        CALLBACK-BODY1279)
+(defmacro DEFINE-WINDOW-CLOSE-CALLBACK (CALLBACK-NAME1288 (WINDOW) &BODY
+                                        CALLBACK-BODY1289)
   ...)
 ```
 
@@ -1068,8 +1164,8 @@ Sets the close callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-REFRESH-CALLBACK">Macro: DEFINE-WINDOW-REFRESH-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME1283 (WINDOW) &BODY
-                                          CALLBACK-BODY1284)
+(defmacro DEFINE-WINDOW-REFRESH-CALLBACK (CALLBACK-NAME1293 (WINDOW) &BODY
+                                          CALLBACK-BODY1294)
   ...)
 ```
 
@@ -1091,8 +1187,8 @@ Sets the refresh callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-FOCUS-CALLBACK">Macro: DEFINE-WINDOW-FOCUS-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME1288 (WINDOW FOCUSED)
-                                        &BODY CALLBACK-BODY1289)
+(defmacro DEFINE-WINDOW-FOCUS-CALLBACK (CALLBACK-NAME1298 (WINDOW FOCUSED)
+                                        &BODY CALLBACK-BODY1299)
   ...)
 ```
 
@@ -1114,8 +1210,8 @@ Sets the focus callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-ICONIFY-CALLBACK">Macro: DEFINE-WINDOW-ICONIFY-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME1294 (WINDOW ICONIFIED)
-                                          &BODY CALLBACK-BODY1295)
+(defmacro DEFINE-WINDOW-ICONIFY-CALLBACK (CALLBACK-NAME1304 (WINDOW ICONIFIED)
+                                          &BODY CALLBACK-BODY1305)
   ...)
 ```
 
@@ -1137,8 +1233,8 @@ Sets the iconify callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-MAXIMIZE-CALLBACK">Macro: DEFINE-WINDOW-MAXIMIZE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME1300 (WINDOW MAXIMIZED)
-                                           &BODY CALLBACK-BODY1301)
+(defmacro DEFINE-WINDOW-MAXIMIZE-CALLBACK (CALLBACK-NAME1310 (WINDOW MAXIMIZED)
+                                           &BODY CALLBACK-BODY1311)
   ...)
 ```
 
@@ -1160,9 +1256,9 @@ Sets the maximize callback for the specified window.
 <h4 id="function:GLFW:DEFINE-FRAMEBUFFER-SIZE-CALLBACK">Macro: DEFINE-FRAMEBUFFER-SIZE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME1306
+(defmacro DEFINE-FRAMEBUFFER-SIZE-CALLBACK (CALLBACK-NAME1316
                                             (WINDOW WIDTH HEIGHT) &BODY
-                                            CALLBACK-BODY1307)
+                                            CALLBACK-BODY1317)
   ...)
 ```
 
@@ -1184,9 +1280,9 @@ Sets the framebuffer resize callback for the specified window.
 <h4 id="function:GLFW:DEFINE-WINDOW-CONTENT-SCALE-CALLBACK">Macro: DEFINE-WINDOW-CONTENT-SCALE-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME1313
+(defmacro DEFINE-WINDOW-CONTENT-SCALE-CALLBACK (CALLBACK-NAME1323
                                                 (WINDOW XSCALE YSCALE) &BODY
-                                                CALLBACK-BODY1314)
+                                                CALLBACK-BODY1324)
   ...)
 ```
 
