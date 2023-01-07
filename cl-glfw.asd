@@ -16,7 +16,7 @@
 			     (:file "window")))))
 
 
-(asdf:defsystem "cl-glfw/doc"
+(asdf:defsystem "cl-glfw/docs"
   :description "GLFW bindings"
   :author "Héctor Galbis Sanchis <hectometrocuadrado@gmail.com>"
   :license "MIT"

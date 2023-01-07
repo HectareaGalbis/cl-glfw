@@ -19,7 +19,7 @@ This is the reference documentation for OpenGL and OpenGL ES context related fun
 <h4 id="function:GLFW:MAKE-CONTEXT-CURRENT">Function: MAKE-CONTEXT-CURRENT</h4>
 
 ```Lisp
-(defun GLFW:MAKE-CONTEXT-CURRENT (WINDOW)
+(DEFUN GLFW:MAKE-CONTEXT-CURRENT (WINDOW)
   ...)
 ```
 
@@ -32,7 +32,7 @@ Makes the context of the specified window current for the calling thread.
 <h4 id="function:GLFW:GET-CURRENT-CONTEXT">Function: GET-CURRENT-CONTEXT</h4>
 
 ```Lisp
-(defun GLFW:GET-CURRENT-CONTEXT NIL
+(DEFUN GLFW:GET-CURRENT-CONTEXT NIL
   ...)
 ```
 
@@ -45,7 +45,7 @@ Returns the window whose context is current on the calling thread.
 <h4 id="function:GLFW:SWAP-INTERVAL">Function: SWAP-INTERVAL</h4>
 
 ```Lisp
-(defun GLFW:SWAP-INTERVAL (INTERVAL)
+(DEFUN GLFW:SWAP-INTERVAL (INTERVAL)
   ...)
 ```
 
@@ -58,7 +58,7 @@ Sets the swap interval for the current context.
 <h4 id="function:GLFW:EXTENSION-SUPPORTED">Function: EXTENSION-SUPPORTED</h4>
 
 ```Lisp
-(defun GLFW:EXTENSION-SUPPORTED (EXTENSION)
+(DEFUN GLFW:EXTENSION-SUPPORTED (EXTENSION)
   ...)
 ```
 

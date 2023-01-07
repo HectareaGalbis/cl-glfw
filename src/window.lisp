@@ -121,29 +121,51 @@
 
 (mcffi:define-foreign-struct (:struct GLFWimage) image
     (:default-constructors :default-readers :default-writers)
-  width
-  height
+  (:constructor-documentation
+   "Creates a GLFWimage structure. This describes a single 2D image.")
+  (:destructor-documentation
+   "Destroys a GLFWimage structure.")
+  (width :reader-documentation
+	 "Returns the width member of a GLFWimage structure."
+	 :writer-documentation
+	 "Modifies the width member of a GLFWimage structure.")
+  (height :reader-documentation
+	 "Returns the height member of a GLFWimage structure."
+	 :writer-documentation
+	 "Modifies the height member of a GLFWimage structure.")
   (pixels :initform nil
-	  :constructor ((pixels-arg)
-			(setf pixels (if pixels-arg
-					 (cffi:foreign-alloc :uchar :count (* width height))
-					 (cffi:null-pointer)))
-			(when pixels-arg
-			  (loop for i from 0 below height
-				do (loop for j from 0 below width
-					 for index = (+ (* width i) j)
-					 do (setf (cffi:mem-aref pixels :uchar index) (aref pixels-arg i j))))))
-	  :destructor  (when (not (cffi:null-pointer-p pixels))
-			 (cffi:foreign-free pixels))
-	  :reader      ((&optional (height-index nil) (width-index nil))
-			(if (and width-index height-index)
-			    (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
-			    (let ((pixels-array (make-array (list height width))))
-			      (loop for i from 0 below height
-				    do (loop for j from 0 below width
-					     do (setf (aref pixels-array i j) (cffi:mem-aref pixels :uchar (+ (* width i) j)))))
-			      (values pixels-array))))
-	  :writer      ((new-value &optional (height-index nil) (width-index nil))
+	  
+	  :constructor
+	  ((pixels-arg)
+	   (setf pixels (if pixels-arg
+			    (cffi:foreign-alloc :uchar :count (* width height))
+			    (cffi:null-pointer)))
+	   (when pixels-arg
+	     (loop for i from 0 below height
+		   do (loop for j from 0 below width
+			    for index = (+ (* width i) j)
+			    do (setf (cffi:mem-aref pixels :uchar index) (aref pixels-arg i j))))))
+	  
+	  :destructor
+	  (when (not (cffi:null-pointer-p pixels))
+	    (cffi:foreign-free pixels))
+	  
+	  :reader
+	  ((&optional (height-index nil) (width-index nil))
+	   (if (and width-index height-index)
+	       (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index))
+	       (let ((pixels-array (make-array (list height width))))
+		 (loop for i from 0 below height
+		       do (loop for j from 0 below width
+				do (setf (aref pixels-array i j) (cffi:mem-aref pixels :uchar (+ (* width i) j)))))
+		 (values pixels-array))))
+	  
+	  :reader-documentation
+	  "Returns the pixel data of a GLFWimage structure. If HEIGHT-INDEX and WIDTH-INDEX are both used,
+it returns the pixel at that position."
+
+	  :writer
+	  ((new-value &optional (height-index nil) (width-index nil))
 			(if (and width-index height-index)
 			    (setf (cffi:mem-aref pixels :uchar (+ (* width height-index) width-index)) new-value)
 			    (progn
@@ -156,7 +178,11 @@
 				(loop for i from 0 below height
 				      do (loop for j from 0 below width
 					       for index = (+ (* width i) j)
-					       do (setf (cffi:mem-aref pixels :uchar index) (aref new-value i j))))))))))
+					       do (setf (cffi:mem-aref pixels :uchar index) (aref new-value i j))))))))
+	  :writer-documentation
+	  "Modifies the pixel data of a GLFWimage structure. NEW-VALUE must be a 1-dimension array. 
+If HEIGHT-INDEX and WIDTH-INDEX are both used, it modifies only the pixel at that position. 
+You should change HEIGHT and WIDTH before changing PIXELS."))
 
 (adp:itemize (adp:item (adp:bold "Warning") ": If you want to modify the PIXELS member, you must change WIDTH and HEIGHT first."))
 
@@ -442,7 +468,7 @@
   "Defines a focus callback."
   (window  :type :pointer)
   (focused :type :int
-	   :create (equal focused GLFW_TRUE)))
+	   :receiver (equal focused GLFW_TRUE)))
 
 (adp:defun set-window-focus-callback (window callback)
   (declare (type window window) (type windowfocusfun callback))
@@ -457,7 +483,7 @@
   "Defines an iconify callback."
   (window    :type :pointer)
   (iconified :type :int
-	     :create (equal iconified GLFW_TRUE)))
+	     :receiver (equal iconified GLFW_TRUE)))
 
 (adp:defun set-window-iconify-callback (window callback)
   (declare (type window window) (type windowiconifyfun callback))
@@ -472,7 +498,7 @@
   "Defines a maximize callback."
   (window    :type :pointer)
   (maximized :type :int
-	     :create (equal maximized GLFW_TRUE)))
+	     :receiver (equal maximized GLFW_TRUE)))
 
 (adp:defun set-window-maximize-callback (window callback)
   (declare (type window window) (type windowmaximizefun callback))

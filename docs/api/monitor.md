@@ -31,7 +31,7 @@ This is the reference documentation for monitor related functions and types\.
 <h4 id="type:GLFW:MONITOR">Type: MONITOR</h4>
 
 ```Lisp
-(deftype MONITOR NIL
+(DEFTYPE MONITOR NIL
   ...)
 ```
 
@@ -42,7 +42,7 @@ Opaque monitor object.
 <h4 id="type:GLFW:MONITORFUN">Type: MONITORFUN</h4>
 
 ```Lisp
-(deftype MONITORFUN NIL
+(DEFTYPE MONITORFUN NIL
   ...)
 ```
 
@@ -55,58 +55,82 @@ The function pointer type for monitor configuration callbacks.
 <h4 id="type:GLFW:VIDMODE">Type: VIDMODE</h4>
 
 ```Lisp
-(deftype VIDMODE NIL
+(DEFTYPE VIDMODE NIL
   ...)
 ```
 
 <h4 id="function:GLFW:VIDMODE-WIDTH">Function: VIDMODE-WIDTH</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-WIDTH (G1197)
+(DEFUN GLFW:VIDMODE-WIDTH (OBJECT)
   ...)
 ```
+
+````
+Returns the width, in screen coordinates, of the video mode.
+````
 
 <h4 id="function:GLFW:VIDMODE-HEIGHT">Function: VIDMODE-HEIGHT</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-HEIGHT (G1198)
+(DEFUN GLFW:VIDMODE-HEIGHT (OBJECT)
   ...)
 ```
+
+````
+Returns the height, in screen coordinates, of the video mode.
+````
 
 <h4 id="function:GLFW:VIDMODE-REDBITS">Function: VIDMODE-REDBITS</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-REDBITS (G1199)
+(DEFUN GLFW:VIDMODE-REDBITS (OBJECT)
   ...)
 ```
+
+````
+Returns the bit depth of the red channel of the video mode.
+````
 
 <h4 id="function:GLFW:VIDMODE-GREENBITS">Function: VIDMODE-GREENBITS</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-GREENBITS (G1200)
+(DEFUN GLFW:VIDMODE-GREENBITS (OBJECT)
   ...)
 ```
+
+````
+Returns the bit depth of the red channel of the video mode.
+````
 
 <h4 id="function:GLFW:VIDMODE-BLUEBITS">Function: VIDMODE-BLUEBITS</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-BLUEBITS (G1201)
+(DEFUN GLFW:VIDMODE-BLUEBITS (OBJECT)
   ...)
 ```
+
+````
+Returns the bit depth of the red channel of the video mode.
+````
 
 <h4 id="function:GLFW:VIDMODE-REFRESHRATE">Function: VIDMODE-REFRESHRATE</h4>
 
 ```Lisp
-(defun GLFW:VIDMODE-REFRESHRATE (G1202)
+(DEFUN GLFW:VIDMODE-REFRESHRATE (OBJECT)
   ...)
 ```
+
+````
+Returns the refresh rate, in Hz, of the video mode.
+````
 
 <h3 id="header:ADP:HEADERTAG68">GLFWgammaramp</h3>
 
 <h4 id="type:GLFW:GAMMARAMP">Type: GAMMARAMP</h4>
 
 ```Lisp
-(deftype GAMMARAMP NIL
+(DEFTYPE GAMMARAMP NIL
   ...)
 ```
 
@@ -117,91 +141,72 @@ Gamma ramp.
 <h4 id="function:GLFW:CREATE-GAMMARAMP">Function: CREATE-GAMMARAMP</h4>
 
 ```Lisp
-(defun GLFW:CREATE-GAMMARAMP (&KEY ((:RED RED-ARG) NIL)
+(DEFUN GLFW:CREATE-GAMMARAMP (&KEY ((:RED RED-ARG) NIL)
                               ((:GREEN GREEN-ARG) NIL) ((:BLUE BLUE-ARG) NIL)
-                              ((:SIZE G1204) 0))
+                              ((:SIZE SIZE) 0))
   ...)
 ```
-
-````
-Constructor of GAMMARAMP.
-````
 
 <h4 id="function:GLFW:DESTROY-GAMMARAMP">Function: DESTROY-GAMMARAMP</h4>
 
 ```Lisp
-(defun GLFW:DESTROY-GAMMARAMP (ARG1206)
+(DEFUN GLFW:DESTROY-GAMMARAMP (OBJECT)
   ...)
 ```
-
-````
-Destructor of GAMMARAMP.
-````
-
-<h4 id="function:GLFW:WITH-GAMMARAMP">Macro: WITH-GAMMARAMP</h4>
-
-```Lisp
-(defmacro GLFW:WITH-GAMMARAMP (VAR1216 ARGS1217 &BODY BODY1218)
-  ...)
-```
-
-````
-Wrap the body forms with CREATE-GAMMARAMP and DESTROY-GAMMARAMP.
-````
 
 <h4 id="function:GLFW:GAMMARAMP-RED">Function: GAMMARAMP-RED</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-RED (G1207 &OPTIONAL (INDEX NIL))
+(DEFUN GLFW:GAMMARAMP-RED (OBJECT &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMMARAMP-GREEN">Function: GAMMARAMP-GREEN</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-GREEN (G1208 &OPTIONAL (INDEX NIL))
+(DEFUN GLFW:GAMMARAMP-GREEN (OBJECT &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMMARAMP-BLUE">Function: GAMMARAMP-BLUE</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-BLUE (G1209 &OPTIONAL (INDEX NIL))
+(DEFUN GLFW:GAMMARAMP-BLUE (OBJECT &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:GLFW:GAMMARAMP-SIZE">Function: GAMMARAMP-SIZE</h4>
 
 ```Lisp
-(defun GLFW:GAMMARAMP-SIZE (G1210)
+(DEFUN GLFW:GAMMARAMP-SIZE (OBJECT)
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-RED)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-RED) (NEW-VALUE G1211 &OPTIONAL (INDEX NIL))
+(DEFUN (SETF GLFW:GAMMARAMP-RED) (NEW-VALUE OBJECT &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-GREEN)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-GREEN) (NEW-VALUE G1212 &OPTIONAL (INDEX NIL))
+(DEFUN (SETF GLFW:GAMMARAMP-GREEN) (NEW-VALUE OBJECT &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-BLUE)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-BLUE) (NEW-VALUE G1213 &OPTIONAL (INDEX NIL))
+(DEFUN (SETF GLFW:GAMMARAMP-BLUE) (NEW-VALUE OBJECT &OPTIONAL (INDEX NIL))
   ...)
 ```
 
 <h4 id="function:COMMON-LISP:NIL">Function: (SETF GAMMARAMP-SIZE)</h4>
 
 ```Lisp
-(defun (SETF GLFW:GAMMARAMP-SIZE) (G1215 G1214)
+(DEFUN (SETF GLFW:GAMMARAMP-SIZE) (NEW-VALUE OBJECT)
   ...)
 ```
 
@@ -212,7 +217,7 @@ Wrap the body forms with CREATE-GAMMARAMP and DESTROY-GAMMARAMP.
 <h4 id="function:GLFW:GET-MONITORS">Function: GET-MONITORS</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITORS NIL
+(DEFUN GLFW:GET-MONITORS NIL
   ...)
 ```
 
@@ -225,7 +230,7 @@ Returns an array (or NIL) with the currently connected monitors.
 <h4 id="function:GLFW:GET-PRIMARY-MONITOR">Function: GET-PRIMARY-MONITOR</h4>
 
 ```Lisp
-(defun GLFW:GET-PRIMARY-MONITOR NIL
+(DEFUN GLFW:GET-PRIMARY-MONITOR NIL
   ...)
 ```
 
@@ -238,7 +243,7 @@ Returns the primary monitor (or NIL).
 <h4 id="function:GLFW:GET-MONITOR-POS">Function: GET-MONITOR-POS</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITOR-POS (MONITOR)
+(DEFUN GLFW:GET-MONITOR-POS (MONITOR)
   ...)
 ```
 
@@ -251,7 +256,7 @@ Returns the x-position and y-position of the monitor's viewport on the virtual s
 <h4 id="function:GLFW:GET-MONITOR-WORKAREA">Function: GET-MONITOR-WORKAREA</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITOR-WORKAREA (MONITOR)
+(DEFUN GLFW:GET-MONITOR-WORKAREA (MONITOR)
   ...)
 ```
 
@@ -264,7 +269,7 @@ Returns the x-position, y-position, width and height of the monitor's work area.
 <h4 id="function:GLFW:GET-MONITOR-PHYSICAL-SIZE">Function: GET-MONITOR-PHYSICAL-SIZE</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITOR-PHYSICAL-SIZE (MONITOR)
+(DEFUN GLFW:GET-MONITOR-PHYSICAL-SIZE (MONITOR)
   ...)
 ```
 
@@ -277,7 +282,7 @@ Returns the width and height of the monitor's physical size.
 <h4 id="function:GLFW:GET-MONITOR-CONTENT-SCALE">Function: GET-MONITOR-CONTENT-SCALE</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITOR-CONTENT-SCALE (MONITOR)
+(DEFUN GLFW:GET-MONITOR-CONTENT-SCALE (MONITOR)
   ...)
 ```
 
@@ -290,7 +295,7 @@ Returns the x-scale and y-scale of the monitor's content scale.
 <h4 id="function:GLFW:GET-MONITOR-NAME">Function: GET-MONITOR-NAME</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITOR-NAME (MONITOR)
+(DEFUN GLFW:GET-MONITOR-NAME (MONITOR)
   ...)
 ```
 
@@ -303,7 +308,7 @@ Returns the name (or NIL) of the specified monitor.
 <h4 id="function:GLFW:SET-MONITOR-USER-POINTER">Function: SET-MONITOR-USER-POINTER</h4>
 
 ```Lisp
-(defun GLFW:SET-MONITOR-USER-POINTER (MONITOR DATA)
+(DEFUN GLFW:SET-MONITOR-USER-POINTER (MONITOR DATA)
   ...)
 ```
 
@@ -316,7 +321,7 @@ Sets the user pointer of the specified monitor.
 <h4 id="function:GLFW:GET-MONITOR-USER-POINTER">Function: GET-MONITOR-USER-POINTER</h4>
 
 ```Lisp
-(defun GLFW:GET-MONITOR-USER-POINTER (MONITOR)
+(DEFUN GLFW:GET-MONITOR-USER-POINTER (MONITOR)
   ...)
 ```
 
@@ -329,15 +334,14 @@ Returns the user pointer of the specified monitor.
 <h4 id="function:GLFW:DEFINE-MONITOR-CALLBACK">Macro: DEFINE-MONITOR-CALLBACK</h4>
 
 ```Lisp
-(defmacro DEFINE-MONITOR-CALLBACK (CALLBACK-NAME1232 (MONITOR EVENT) &BODY
-                                   CALLBACK-BODY1233)
+(DEFMACRO DEFINE-MONITOR-CALLBACK (NAME (MONITOR EVENT) &BODY BODY)
   ...)
 ```
 
 <h4 id="function:GLFW:SET-MONITOR-CALLBACK">Function: SET-MONITOR-CALLBACK</h4>
 
 ```Lisp
-(defun GLFW:SET-MONITOR-CALLBACK (CALLBACK)
+(DEFUN GLFW:SET-MONITOR-CALLBACK (CALLBACK)
   ...)
 ```
 
@@ -350,7 +354,7 @@ Sets the monitor configuration callback.
 <h4 id="function:GLFW:GET-VIDEO-MODES">Function: GET-VIDEO-MODES</h4>
 
 ```Lisp
-(defun GLFW:GET-VIDEO-MODES (MONITOR)
+(DEFUN GLFW:GET-VIDEO-MODES (MONITOR)
   ...)
 ```
 
@@ -363,7 +367,7 @@ Returns a vector (or NIL) with the available video modes for the specified monit
 <h4 id="function:GLFW:GET-VIDEO-MODE">Function: GET-VIDEO-MODE</h4>
 
 ```Lisp
-(defun GLFW:GET-VIDEO-MODE (MONITOR)
+(DEFUN GLFW:GET-VIDEO-MODE (MONITOR)
   ...)
 ```
 
@@ -376,7 +380,7 @@ Returns the current mode (or NIL) of the specified monitor.
 <h4 id="function:GLFW:SET-GAMMA">Function: SET-GAMMA</h4>
 
 ```Lisp
-(defun GLFW:SET-GAMMA (MONITOR GAMMA)
+(DEFUN GLFW:SET-GAMMA (MONITOR GAMMA)
   ...)
 ```
 
@@ -389,7 +393,7 @@ Generates a gamma ramp and sets it for the specified monitor.
 <h4 id="function:GLFW:GET-GAMMA-RAMP">Function: GET-GAMMA-RAMP</h4>
 
 ```Lisp
-(defun GLFW:GET-GAMMA-RAMP (MONITOR)
+(DEFUN GLFW:GET-GAMMA-RAMP (MONITOR)
   ...)
 ```
 
@@ -402,7 +406,7 @@ Returns the current gamma ramp (or NIL) for the specified monitor.
 <h4 id="function:GLFW:SET-GAMMA-RAMP">Function: SET-GAMMA-RAMP</h4>
 
 ```Lisp
-(defun GLFW:SET-GAMMA-RAMP (MONITOR RAMP)
+(DEFUN GLFW:SET-GAMMA-RAMP (MONITOR RAMP)
   ...)
 ```
 

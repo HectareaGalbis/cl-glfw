@@ -14,8 +14,6 @@ Here you can see how the GLFW functions look like in Common Lisp\. They have a b
 <h2 id="header:ADP:HEADERTAG3">Function index</h2>
 
 * W
-  * <a href="/docs/api/window.md#function:GLFW:WITH-IMAGE">GLFW:WITH-IMAGE</a>
-  * <a href="/docs/api/monitor.md#function:GLFW:WITH-GAMMARAMP">GLFW:WITH-GAMMARAMP</a>
   * <a href="/docs/api/window.md#function:GLFW:WINDOW-SHOULD-CLOSE">GLFW:WINDOW-SHOULD-CLOSE</a>
   * <a href="/docs/api/window.md#function:GLFW:WINDOW-HINT-STRING">GLFW:WINDOW-HINT-STRING</a>
   * <a href="/docs/api/window.md#function:GLFW:WINDOW-HINT">GLFW:WINDOW-HINT</a>

@@ -302,20 +302,27 @@
 
 (mcffi:define-foreign-struct (:struct GLFWgamepadstate) gamepadstate
   (:no-constructor :no-destructor)
-  (buttons :reader ((&optional (index nil))
-		    (if index
-			(cffi:mem-aref buttons :uchar index)
-			(let ((buttons-array (make-array 15)))
-			  (loop for i from 0 below 15
-				do (setf (aref buttons-array i) (cffi:mem-aref buttons :uchar i)))
-			  (values buttons-array)))))
+  (buttons :reader
+	   ((&optional (index nil))
+	    (if index
+		(cffi:mem-aref buttons :uchar index)
+		(let ((buttons-array (make-array 15)))
+		  (loop for i from 0 below 15
+			do (setf (aref buttons-array i) (cffi:mem-aref buttons :uchar i)))
+		  (values buttons-array))))
+	   :reader-documentation
+	   "Returns a simple array with the buttons of a GLFWgamepadstate struct.
+If INDEX is a non-negative integer, the button at that position is returned instead.")
   (axes    :reader ((&optional (index nil))
 		    (if index
 			(cffi:mem-aref axes :float index)
 			(let ((axes-array (make-array 6)))
 			  (loop for i from 0 below 6
 				do (setf (aref axes-array i) (cffi:mem-aref axes :float i)))
-			  (values axes-array))))))
+			  (values axes-array))))
+	   :reader-documentation
+	   "Returns a simple array with the axes of a GLFWgamepadstate struct.
+If INDEX is a non-negative integer, the axe at that position is returned instead."))
 
 
 (adp:subheader "Functions")
@@ -515,7 +522,7 @@
   "Defines a cursor enter/leave callback."
   (window  :type :pointer)
   (entered :type :int
-	   :create (= entered GLFW_TRUE)))
+	   :receiver (= entered GLFW_TRUE)))
 
 (adp:defun set-cursor-enter-callback (window callback)
   (declare (type pointer window) (type (or null cursorenterfun) callback))
@@ -549,13 +556,14 @@
   "Defines a path drop callback. The argument PATHS is a vector."
   (window     :type :pointer)
   (path_count :type :int
-	      :create nil)
+	      :receiver nil)
   (paths      :type :pointer
-	      :create (let ((paths-array (make-array path_count)))
-			(loop for i from 0 below path_count
-			      do (setf (aref paths-array i)
-				       (cffi:foreign-string-to-lisp (cffi:mem-aref paths :pointer i))))
-			(values paths-array))))
+	      :receiver
+	      (let ((paths-array (make-array path_count)))
+		(loop for i from 0 below path_count
+		      do (setf (aref paths-array i)
+			       (cffi:foreign-string-to-lisp (cffi:mem-aref paths :pointer i))))
+		(values paths-array))))
 
 (adp:defun set-drop-callback (window callback)
   (declare (type pointer window) (type (or null dropfun) callback))

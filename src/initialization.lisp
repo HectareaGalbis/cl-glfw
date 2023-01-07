@@ -98,7 +98,9 @@
 (mcffi:define-callback-definer define-error-callback
   "Defines an error callback."
   (error-code :type :int)
-  (description :type :pointer :create (cffi:foreign-string-to-lisp description)))
+  (description :type :pointer
+	       :receiver
+	       (cffi:foreign-string-to-lisp description)))
 
 (adp:defun set-error-callback (callback)
   "Sets the error callback."

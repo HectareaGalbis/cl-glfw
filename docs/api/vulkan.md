@@ -18,28 +18,28 @@ This is the reference documentation for Vulkan related functions and types\.
 <h4 id="type:GLFW:NON-DISPATCH-HANDLE">Type: NON-DISPATCH-HANDLE</h4>
 
 ```Lisp
-(deftype NON-DISPATCH-HANDLE NIL
+(DEFTYPE NON-DISPATCH-HANDLE NIL
   ...)
 ```
 
 <h4 id="type:GLFW:VKINSTANCE">Type: VKINSTANCE</h4>
 
 ```Lisp
-(deftype VKINSTANCE NIL
+(DEFTYPE VKINSTANCE NIL
   ...)
 ```
 
 <h4 id="type:GLFW:VKPHYSICALDEVICE">Type: VKPHYSICALDEVICE</h4>
 
 ```Lisp
-(deftype VKPHYSICALDEVICE NIL
+(DEFTYPE VKPHYSICALDEVICE NIL
   ...)
 ```
 
 <h4 id="type:GLFW:VKALLOCATIONCALLBACKS">Type: VKALLOCATIONCALLBACKS</h4>
 
 ```Lisp
-(deftype VKALLOCATIONCALLBACKS NIL
+(DEFTYPE VKALLOCATIONCALLBACKS NIL
   ...)
 ```
 
@@ -50,7 +50,7 @@ This is the reference documentation for Vulkan related functions and types\.
 <h4 id="function:GLFW:VULKAN-SUPPORTED">Function: VULKAN-SUPPORTED</h4>
 
 ```Lisp
-(defun GLFW:VULKAN-SUPPORTED NIL
+(DEFUN GLFW:VULKAN-SUPPORTED NIL
   ...)
 ```
 
@@ -63,7 +63,7 @@ Returns (t or NIL) whether the Vulkan loader and an ICD have been found.
 <h4 id="function:GLFW:GET-REQUIRED-INSTANCE-EXTENSIONS">Function: GET-REQUIRED-INSTANCE-EXTENSIONS</h4>
 
 ```Lisp
-(defun GLFW:GET-REQUIRED-INSTANCE-EXTENSIONS NIL
+(DEFUN GLFW:GET-REQUIRED-INSTANCE-EXTENSIONS NIL
   ...)
 ```
 
@@ -76,7 +76,7 @@ Returns a vector with the Vulkan instance extensions required by GLFW.
 <h4 id="function:GLFW:GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT">Function: GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT</h4>
 
 ```Lisp
-(defun GLFW:GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT (INSTANCE DEVICE
+(DEFUN GLFW:GET-PHYSICAL-DEVICE-PRESENTATION-SUPPORT (INSTANCE DEVICE
                                                       QUEUEFAMILY)
   ...)
 ```
@@ -90,7 +90,7 @@ Returns (t or NIL) whether the specified queue family can present images.
 <h4 id="function:GLFW:CREATE-WINDOW-SURFACE">Function: CREATE-WINDOW-SURFACE</h4>
 
 ```Lisp
-(defun GLFW:CREATE-WINDOW-SURFACE (INSTANCE WINDOW ALLOCATOR)
+(DEFUN GLFW:CREATE-WINDOW-SURFACE (INSTANCE WINDOW ALLOCATOR)
   ...)
 ```
 

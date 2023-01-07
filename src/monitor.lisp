@@ -28,7 +28,19 @@
   'pointer)
 
 (mcffi:define-foreign-struct (:struct GLFWvidmode) vidmode
-  (:no-constructor :no-destructor :default-readers :include-invisibles))
+    (:no-constructor :no-destructor :default-readers)
+  (width :reader-documentation
+	 "Returns the width, in screen coordinates, of the video mode.")
+  (height :reader-documentation
+	  "Returns the height, in screen coordinates, of the video mode.")
+  (redBits :reader-documentation
+	   "Returns the bit depth of the red channel of the video mode.")
+  (greenBits :reader-documentation
+	     "Returns the bit depth of the red channel of the video mode.")
+  (blueBits :reader-documentation
+	    "Returns the bit depth of the red channel of the video mode.")
+  (refreshRate :reader-documentation
+	       "Returns the refresh rate, in Hz, of the video mode."))
 
 
 (adp:subsubheader "GLFWgammaramp")
@@ -38,80 +50,132 @@
   'pointer)
 
 (mcffi:define-foreign-struct (:struct GLFWgammaramp) gammaramp
-  (:default-constructors :default-readers :default-writers)
+    (:default-constructors :default-readers :default-writers)
+  (:constructor-documentation
+   "Creates a gammaramp for a monitor.")
+  (:destructor-documentation
+   "Destroys a gammaramp.")
   (red :initform nil
-       :constructor ((red-arg)
-		     (if red-arg
-			 (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg))
-			 (setf red (cffi:null-pointer))))
-       :destructor  (cffi:foreign-free red)
-       :reader      ((&optional (index nil))
-		     (if index
-			 (cffi:mem-aref red :ushort index)
-			 (if (cffi:null-pointer-p red)
-			     nil
-			     (let ((red-array (make-array size)))
-			       (loop for i from 0 below size
-				     do (setf (aref red-array i) (cffi:mem-aref red :ushort i)))
-			       (values red-array)))))
-       :writer      ((new-value &optional (index nil))
-		     (if index
-			 (setf (cffi:mem-aref red :ushort index) new-value)
-			 (progn
-			   (when (not (cffi:null-pointer-p red))
-			     (cffi:foreign-free red))
-			   (if new-value
-			       (setf red (cffi:foreign-alloc :ushort :initial-contents new-value))
-			       (setf red (cffi:null-pointer)))))))
+       :constructor
+       ((red-arg)
+	(if red-arg
+	    (setf red (cffi:foreign-alloc :ushort :initial-contents red-arg))
+	    (setf red (cffi:null-pointer))))
+       
+       :destructor
+       (cffi:foreign-free red)
+       
+       :reader
+       ((&optional (index nil))
+	(if index
+	    (cffi:mem-aref red :ushort index)
+	    (if (cffi:null-pointer-p red)
+		nil
+		(let ((red-array (make-array size)))
+		  (loop for i from 0 below size
+			do (setf (aref red-array i) (cffi:mem-aref red :ushort i)))
+		  (values red-array)))))
+
+       :reader-documentation
+       "Returns an array of values describing the response of the red channel. If INDEX is a non-negative
+integer, it returns the value at that position."
+
+       :writer
+       ((new-value &optional (index nil))
+	(if index
+	    (setf (cffi:mem-aref red :ushort index) new-value)
+	    (progn
+	      (when (not (cffi:null-pointer-p red))
+		(cffi:foreign-free red))
+	      (if new-value
+		  (setf red (cffi:foreign-alloc :ushort :initial-contents new-value))
+		  (setf red (cffi:null-pointer))))))
+
+       :writer-documentation
+       "Modifies the array of values describing the response of the red channel. If INDEX is a non-negative
+integer, it modifies the value at that position.")
   (green :initform nil
-	 :constructor ((green-arg)
-		       (if green-arg
-			   (setf green (cffi:foreign-alloc :ushort :initial-contents green-arg))
-			   (setf green (cffi:null-pointer))))
-	 :destructor  (cffi:foreign-free green)
-	 :reader      ((&optional (index nil))
-		       (if index
-			   (cffi:mem-aref green :ushort index)
-			   (if (cffi:null-pointer-p green)
-			       nil
-			       (let ((green-array (make-array size)))
-				 (loop for i from 0 below size
-				       do (setf (aref green-array i) (cffi:mem-aref green :ushort i)))
-				 (values green-array)))))
-	 :writer      ((new-value &optional (index nil))
-		       (if index
-			   (setf (cffi:mem-aref green :ushort index) new-value)
-			   (progn
-			     (when (not (cffi:null-pointer-p green))
-			       (cffi:foreign-free green))
-			     (if new-value
-				 (setf green (cffi:foreign-alloc :ushort :initial-contents new-value))
-				 (setf green (cffi:null-pointer)))))))
+	 :constructor
+	 ((green-arg)
+	  (if green-arg
+	      (setf green (cffi:foreign-alloc :ushort :initial-contents green-arg))
+	      (setf green (cffi:null-pointer))))
+	 
+	 :destructor
+	 (cffi:foreign-free green)
+	 
+	 :reader
+	 ((&optional (index nil))
+	  (if index
+	      (cffi:mem-aref green :ushort index)
+	      (if (cffi:null-pointer-p green)
+		  nil
+		  (let ((green-array (make-array size)))
+		    (loop for i from 0 below size
+			  do (setf (aref green-array i) (cffi:mem-aref green :ushort i)))
+		    (values green-array)))))
+	 :reader-documentation
+	 "Returns an array of values describing the response of the green channel. If INDEX is a non-negative
+integer, it returns the value at that position."
+	 
+	 :writer
+	 ((new-value &optional (index nil))
+	  (if index
+	      (setf (cffi:mem-aref green :ushort index) new-value)
+	      (progn
+		(when (not (cffi:null-pointer-p green))
+		  (cffi:foreign-free green))
+		(if new-value
+		    (setf green (cffi:foreign-alloc :ushort :initial-contents new-value))
+		    (setf green (cffi:null-pointer))))))
+
+	 :writer-documentation
+	 "Modifies the array of values describing the response of the green channel. If INDEX is a non-negative
+integer, it modifies the value at that position.")
   (blue :initform nil
-	:constructor ((blue-arg)
-		      (if blue-arg
-			  (setf blue (cffi:foreign-alloc :ushort :initial-contents blue-arg))
-			  (setf blue (cffi:null-pointer))))
-	:destructor  (cffi:foreign-free blue)
-	:reader      ((&optional (index nil))
-		      (if index
-			  (cffi:mem-aref blue :ushort index)
-			  (if (cffi:null-pointer-p blue)
-			      nil
-			      (let ((blue-array (make-array size)))
-				(loop for i from 0 below size
-				      do (setf (aref blue-array i) (cffi:mem-aref blue :ushort i)))
-				(values blue-array)))))
-	:writer      ((new-value &optional (index nil))
-		      (if index
-			  (setf (cffi:mem-aref blue :ushort index) new-value)
-			  (progn
-			    (when (not (cffi:null-pointer-p blue))
-			      (cffi:foreign-free blue))
-			    (if new-value
-				(setf blue (cffi:foreign-alloc :ushort :initial-contents new-value))
-				(setf blue (cffi:null-pointer)))))))
-  size)
+	:constructor
+	((blue-arg)
+	 (if blue-arg
+	     (setf blue (cffi:foreign-alloc :ushort :initial-contents blue-arg))
+	     (setf blue (cffi:null-pointer))))
+	
+	:destructor
+	(cffi:foreign-free blue)
+	
+	:reader
+	((&optional (index nil))
+	 (if index
+	     (cffi:mem-aref blue :ushort index)
+	     (if (cffi:null-pointer-p blue)
+		 nil
+		 (let ((blue-array (make-array size)))
+		   (loop for i from 0 below size
+			 do (setf (aref blue-array i) (cffi:mem-aref blue :ushort i)))
+		   (values blue-array)))))
+
+	:reader-documentation
+	"Returns an array of values describing the response of the blue channel. If INDEX is a non-negative
+integer, it returns the value at that position."
+	
+	:writer
+	((new-value &optional (index nil))
+	 (if index
+	     (setf (cffi:mem-aref blue :ushort index) new-value)
+	     (progn
+	       (when (not (cffi:null-pointer-p blue))
+		 (cffi:foreign-free blue))
+	       (if new-value
+		   (setf blue (cffi:foreign-alloc :ushort :initial-contents new-value))
+		   (setf blue (cffi:null-pointer))))))
+
+	:writer-documentation
+	"Modifies the array of values describing the response of the blue channel. If INDEX is a non-negative
+integer, it modifies the value at that position.")
+  (size :reader-documentation
+	"Return the number of elements in each array."
+
+	:writer-documentation
+	"Modifies the value of the number of elements in each array."))
 
 
 (adp:subheader "Functions")
