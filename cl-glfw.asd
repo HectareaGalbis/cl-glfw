@@ -3,9 +3,11 @@
   :description "GLFW bindings"
   :author "Héctor Galbis Sanchis <hectometrocuadrado@gmail.com>"
   :license "MIT"
-  :depends-on (:cffi :more-cffi :adp)
+  :depends-on ("affinity")
+  :serial t
   :components ((:file "package")
                (:module "src"
+                :serial t
                 :components ((:file "load-library")
 			     (:file "bindings")
 			     (:file "initialization")
@@ -20,18 +22,8 @@
   :description "GLFW bindings"
   :author "Héctor Galbis Sanchis <hectometrocuadrado@gmail.com>"
   :license "MIT"
-  :depends-on (:cffi :more-cffi :adp)
-  :components ((:file "package")
-	       (:file "readme")
-	       (:module "adp"
-		:components ((:file "api-introduction")))
-               (:module "src"
-		:depends-on ("adp")
-		:components ((:file "load-library")				       
-			     (:file "bindings")
-			     (:file "initialization")
-			     (:file "context")
-			     (:file "input")
-			     (:file "monitor")
-			     (:file "vulkan")
-			     (:file "window")))))
+  :depends-on ("cl-glfw")
+  :components ((:module "scribble"
+		:components ((:file "package")
+                             (:scribble "README")
+                             (:scribble "reference")))))

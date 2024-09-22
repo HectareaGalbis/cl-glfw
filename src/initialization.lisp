@@ -1,110 +1,92 @@
 
 (in-package :glfw)
 
-(adp:in-file #P"docs/api/initialization")
 
-(adp:header "Initialization, version and error reference" initialization-reference-header)
-
-(adp:subheader "Description")
-
-(adp:text "This is the reference documentation for initialization and termination of the library, version management and error handling.")
-
-(adp:mini-table-of-contents)
-
-
-(adp:subheader "Constants" initialization-constants-subheader)
 
 (defconstants
 
-  ;; Initialization, version and error
-  (GLFW_VERSION_MAJOR         3          "The major version number of the GLFW header.")
-  (GLFW_VERSION_MINOR         3          "The minor version number of the GLFW header.")
-  (GLFW_VERSION_REVISION      6          "The revision number of the GLFW header.")
-  (GLFW_TRUE                  1          "One.")
-  (GLFW_FALSE                 0          "Zero.")
-  (GLFW_JOYSTICK_HAT_BUTTONS  #x00050001 "Joystick hat buttons init hint.")
-  (GLFW_COCOA_CHDIR_RESOURCES #x00051001 "macOS specific init hint.")
-  (GLFW_COCOA_MENUBAR         #x00051002 "macOS specific init hint.")
+    ;; Initialization, version and error
+    (+version-major+         3          "The major version number of the GLFW header.")
+    (+version-minor+         3          "The minor version number of the GLFW header.")
+  (+version-revision+      6          "The revision number of the GLFW header.")
+  (+joystick-hat-buttons+  #x00050001 "Joystick hat buttons init hint.")
+  (+cocoa-chdir-resources+ #x00051001 "macOS specific init hint.")
+  (+cocoa-menubar+         #x00051002 "macOS specific init hint.")
 
   ;; Error codes
-  (GLFW_NO_ERROR              0          "No error has occurred.")
-  (GLFW_NOT_INITIALIZED       #x00010001 "GLFW has not been initialized.")
-  (GLFW_NO_CURRENT_CONTEXT    #x00010002 "No context is current for this thread.")
-  (GLFW_INVALID_ENUM          #x00010003 "One of the arguments to the function was an invalid enum value.")
-  (GLFW_INVALID_VALUE         #x00010004 "One of the arguments to the function was an invalid value.")
-  (GLFW_OUT_OF_MEMORY         #x00010005 "A memory allocation failed.")
-  (GLFW_API_UNAVAILABLE       #x00010006 "GLFW could not find support for the requested API on the system.")
-  (GLFW_VERSION_UNAVAILABLE   #x00010007 "The requested OpenGL or OpenGL ES version is not available.")
-  (GLFW_PLATFORM_ERROR        #x00010008 "A platform_specific error occurred that does not match any of the more specific categories.")
-  (GLFW_FORMAT_UNAVAILABLE    #x00010009 "The requested format is not supported or available.")
-  (GLFW_NO_WINDOW_CONTEXT     #x0001000A "The specified window does not have an OpenGL or OpenGL ES context."))
+  (+no-error+              0          "No error has occurred.")
+  (+not-initialized+       #x00010001 "GLFW has not been initialized.")
+  (+no-current-context+    #x00010002 "No context is current for this thread.")
+  (+invalid-enum+          #x00010003 "One of the arguments to the function was an invalid enum value.")
+  (+invalid-value+         #x00010004 "One of the arguments to the function was an invalid value.")
+  (+out-of-memory+         #x00010005 "A memory allocation failed.")
+  (+api-unavailable+       #x00010006 "GLFW could not find support for the requested API on the system.")
+  (+version-unavailable+   #x00010007 "The requested OpenGL or OpenGL ES version is not available.")
+  (+platform-error+        #x00010008 "A platform_specific error occurred that does not match any of the more specific categories.")
+  (+format-unavailable+    #x00010009 "The requested format is not supported or available.")
+  (+no-window-context+     #x0001000A "The specified window does not have an OpenGL or OpenGL ES context."))
 
 
-(adp:subheader "Types")
+(affi:defctype allocatefun ()
+  "The function pointer type for memory allocation callbacks."
+  '(:pointer (:function (:pointer :void) ((size :size) (user (:pointer :void))))))
 
-(adp:deftype errorfun ()
+(affi:defctype reallocatefun ()
+  "The function pointer type for memory reallocation callbacks."
+  '(:pointer (:function (:pointer :void) ((block (:pointer :void)) (size :size) (user (:pointer :void))))))
+
+(affi:defctype deallocatefun ()
+  "The function pointer type for memory deallocation callbacks."
+  '(:pointer (:function :void ((error-code :int) (description :string-ptr)))))
+
+(affi:defctype errorfun ()
   "The function pointer type for error callbacks."
-  '(or symbol pointer))
+  '(:pointer (:function :void ((error-code :int) (description :string-ptr)))))
 
 
-(adp:subheader "Functions")
+(affi:defcstruct allocator
+    (allocate allocatefun)
+  (reallocate reallocatefun)
+  (deallocate deallocatefun)
+  (user (:pointer :void)))
 
-(adp:subsubheader "glfwInit")
 
-(adp:defun init ()
-  "Initializes the GLFW library."
-  (let ((result (glfwInit)))
-    (equal result GLFW_TRUE)))
+(affi:defcfun (init "glfwInit") :bool ()
+  "Initializes the GLFW library.")
 
-(adp:subsubheader "glfwTerminate")
+(affi:defcfun (terminate "glfwTerminate") :void ()
+  "Terminates the GLFW library.")
 
-(adp:defun terminate ()
-  "Terminates the GLFW library."
-  (glfwTerminate))
+(affi:defcfun (init-hint "glfwInitHint") :void ((hint :int) (value :int))
+  "Sets the specified init hint to the desired value.")
 
-(adp:subsubheader "glfwInitHint")
+(affi:defcfun (init-allocator "glfwInitAllocator") :void ((allocator (:pointer (:struct allocator))))
+  "Sets the init allocator to the desired value.")
 
-(adp:defun init-hint (hint value)
-  "Sets the specified init hint to the desired value (t or NIL)."
-  (declare (type fixnum hint) (type boolean value))
-  (let ((real-value (if value GLFW_TRUE GLFW_FALSE)))
-    (glfwInitHint hint real-value)))
+;; init-vulkan-loader
 
-(adp:subsubheader "glfwGetVersion")
+(affi:defcfun (get-version "glfwGetVersion") :void
+  ((major (:pointer :int) :init (affi:foreign-alloc :int) :private t)
+   (minor (:pointer :int) :init (affi:foreign-alloc :int) :private t)
+   (rev (:pointer :int) :init (affi:foreign-alloc :int) :private t))
+  "Retrieves the version of the GLFW library."
+  (values (affi:mem-ref major)
+          (affi:mem-ref minor)
+          (affi:mem-ref rev)))
 
-(adp:defun get-version ()
-  "Retrieves the version of the GLFW library. Returns three values."
-  (cffi:with-foreign-objects ((major-ptr :int) (minor-ptr :int) (rev-ptr :int))
-    (glfwGetVersion major-ptr minor-ptr rev-ptr)
-    (values (cffi:mem-ref major-ptr :int) (cffi:mem-ref minor-ptr :int) (cffi:mem-ref rev-ptr :int))))
+(affi:defcfun (get-version-string "glfwGetVersionString") :string-ptr ()
+  "Returns a string describing the compile-time configuration.")
 
-(adp:subsubheader "glfwGetVersionString")
+(affi:defcfun (get-error "glfwGetError") (error-code :int)
+  ((description (:pointer :string-ptr)) :init (affi:foreign-alloc :string-ptr) :private t)
+  "Returns and clears the last error for the calling thread."
+  (values error-code (affi:mem-ref description)))
 
-(adp:defun get-version-string ()
-  "Returns a string describing the compile-time configuration."
-  (let ((result (glfwGetVersionString)))
-    (cffi:foreign-string-to-lisp result)))
+(affi:defcfun (set-error-callback "glfwSetErrorCallback") errorfun ((callback errorfun))
+  "Sets the error callback.")
 
-(adp:subsubheader "glfwGetError")
+(affi:defcfun (get-platform "glfwGetPlatform") :int ()
+  "Returns the currently selected platform.")
 
-(adp:defun get-error ()
-  "Returns the error code and desccription of the last error for the calling thread and clears it."
-  (cffi:with-foreign-object (description :pointer)
-    (let ((error-code (glfwGetError description)))
-      (values error-code (cffi:foreign-string-to-lisp (cffi:mem-ref description :pointer))))))
-
-(adp:subsubheader "glfwSetErrorCallback")
-
-(mcffi:define-callback-definer define-error-callback
-  "Defines an error callback."
-  (error-code :type :int)
-  (description :type :pointer :create (cffi:foreign-string-to-lisp description)))
-
-(adp:defun set-error-callback (callback)
-  "Sets the error callback."
-  (declare (type (or null pointer) callback))
-  (let ((callback-c (etypecase callback
-		      (symbol (cffi:get-callback callback))
-		      (null   (cffi:null-pointer))
-		      (t      callback))))
-    (glfwSetErrorCallback callback-c)))
+(affi:defcfun (platform-supported "glfwPlatformSupported") :bool ((platform :int))
+  "Returns whether the library includes support for the specified platform.")
