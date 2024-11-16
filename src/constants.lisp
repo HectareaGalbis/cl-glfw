@@ -215,7 +215,7 @@
   (+gamepad-axis-right-y+         3)
   (+gamepad-axis-left-trigger+    4)
   (+gamepad-axis-right-trigger+   5)
-  (+gamepad-axis-last+            +glfw-gamepad-axis-right-trigger+)
+  (+gamepad-axis-last+            +gamepad-axis-right-trigger+)
   (+no-error+               0           "No error has occurred.")
   (+not-initialized+        #x00010001  "GLFW has not been initialized.")
   (+no-current-context+     #x00010002  "No context is current for this thread.")

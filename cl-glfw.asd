@@ -9,21 +9,17 @@
                (:module "src"
                 :serial t
                 :components ((:file "load-library")
-			     (:file "bindings")
-			     (:file "initialization")
-			     (:file "context")
-			     (:file "input")
-			     (:file "monitor")
-			     (:file "vulkan")
-			     (:file "window")))))
+                             (:file "constants")
+			     (:file "types")
+			     (:file "functions")))))
 
 
-(asdf:defsystem "cl-glfw/doc"
-  :description "GLFW bindings"
-  :author "Héctor Galbis Sanchis <hectometrocuadrado@gmail.com>"
-  :license "MIT"
-  :depends-on ("cl-glfw")
-  :components ((:module "scribble"
-		:components ((:file "package")
-                             (:scribble "README")
-                             (:scribble "reference")))))
+;; (asdf:defsystem "cl-glfw/doc"
+;;   :description "GLFW bindings"
+;;   :author "Héctor Galbis Sanchis <hectometrocuadrado@gmail.com>"
+;;   :license "MIT"
+;;   :depends-on ("cl-glfw")
+;;   :components ((:module "scribble"
+;; 		:components ((:file "package")
+;;                              (:scribble "README")
+;;                              (:scribble "reference")))))
